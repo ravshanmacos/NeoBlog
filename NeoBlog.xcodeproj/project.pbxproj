@@ -10,20 +10,48 @@
 		394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04F82B7E1F2A0045277E /* AppDelegate.swift */; };
 		394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */; };
 		394C04FD2B7E1F2A0045277E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FC2B7E1F2A0045277E /* ViewController.swift */; };
-		394C05002B7E1F2A0045277E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C04FE2B7E1F2A0045277E /* Main.storyboard */; };
 		394C05022B7E1F2B0045277E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C05012B7E1F2B0045277E /* Assets.xcassets */; };
 		394C05052B7E1F2B0045277E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C05032B7E1F2B0045277E /* LaunchScreen.storyboard */; };
+		394C05122B7E21C90045277E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05112B7E21C90045277E /* R.generated.swift */; };
+		394C051E2B7E2AA90045277E /* Commissioner-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C05152B7E2AA80045277E /* Commissioner-Bold.ttf */; };
+		394C051F2B7E2AA90045277E /* Commissioner-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C05162B7E2AA80045277E /* Commissioner-Black.ttf */; };
+		394C05202B7E2AA90045277E /* Commissioner-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C05172B7E2AA80045277E /* Commissioner-Medium.ttf */; };
+		394C05212B7E2AA90045277E /* Commissioner-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C05182B7E2AA80045277E /* Commissioner-SemiBold.ttf */; };
+		394C05222B7E2AA90045277E /* Commissioner-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C05192B7E2AA80045277E /* Commissioner-ExtraLight.ttf */; };
+		394C05232B7E2AA90045277E /* Commissioner-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C051A2B7E2AA80045277E /* Commissioner-Regular.ttf */; };
+		394C05242B7E2AA90045277E /* Commissioner-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C051B2B7E2AA80045277E /* Commissioner-ExtraBold.ttf */; };
+		394C05252B7E2AA90045277E /* Commissioner-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C051C2B7E2AA90045277E /* Commissioner-Light.ttf */; };
+		394C05262B7E2AA90045277E /* Commissioner-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394C051D2B7E2AA90045277E /* Commissioner-Thin.ttf */; };
+		394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05282B7E2C420045277E /* AppDependencyContainer.swift */; };
+		394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C052A2B7E2C4E0045277E /* OnboardingDependencyContainer.swift */; };
+		394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C052C2B7E2C590045277E /* SignedInDepedencyContainer.swift */; };
+		3B674489B59D4C4001F31A4D /* Pods_NeoBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F52B7E1F2A0045277E /* NeoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F82B7E1F2A0045277E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		394C04FC2B7E1F2A0045277E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		394C04FF2B7E1F2A0045277E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		394C05012B7E1F2B0045277E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		394C05042B7E1F2B0045277E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		394C05062B7E1F2B0045277E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		394C05112B7E21C90045277E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		394C05152B7E2AA80045277E /* Commissioner-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Bold.ttf"; sourceTree = "<group>"; };
+		394C05162B7E2AA80045277E /* Commissioner-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Black.ttf"; sourceTree = "<group>"; };
+		394C05172B7E2AA80045277E /* Commissioner-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Medium.ttf"; sourceTree = "<group>"; };
+		394C05182B7E2AA80045277E /* Commissioner-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-SemiBold.ttf"; sourceTree = "<group>"; };
+		394C05192B7E2AA80045277E /* Commissioner-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-ExtraLight.ttf"; sourceTree = "<group>"; };
+		394C051A2B7E2AA80045277E /* Commissioner-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Regular.ttf"; sourceTree = "<group>"; };
+		394C051B2B7E2AA80045277E /* Commissioner-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-ExtraBold.ttf"; sourceTree = "<group>"; };
+		394C051C2B7E2AA90045277E /* Commissioner-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Light.ttf"; sourceTree = "<group>"; };
+		394C051D2B7E2AA90045277E /* Commissioner-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commissioner-Thin.ttf"; sourceTree = "<group>"; };
+		394C05282B7E2C420045277E /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		394C052A2B7E2C4E0045277E /* OnboardingDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDependencyContainer.swift; sourceTree = "<group>"; };
+		394C052C2B7E2C590045277E /* SignedInDepedencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDepedencyContainer.swift; sourceTree = "<group>"; };
+		6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.release.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.release.xcconfig"; sourceTree = "<group>"; };
+		A8763F0784A5F03B26D13DD0 /* Pods-NeoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.debug.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B674489B59D4C4001F31A4D /* Pods_NeoBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050B93267734854F256F621D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8763F0784A5F03B26D13DD0 /* Pods-NeoBlog.debug.xcconfig */,
+				6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		394C04EC2B7E1F2A0045277E = {
 			isa = PBXGroup;
 			children = (
 				394C04F72B7E1F2A0045277E /* NeoBlog */,
 				394C04F62B7E1F2A0045277E /* Products */,
+				050B93267734854F256F621D /* Pods */,
+				F277D8B6545B8B100D21A189 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +96,91 @@
 		394C04F72B7E1F2A0045277E /* NeoBlog */ = {
 			isa = PBXGroup;
 			children = (
-				394C04F82B7E1F2A0045277E /* AppDelegate.swift */,
-				394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */,
-				394C04FC2B7E1F2A0045277E /* ViewController.swift */,
-				394C04FE2B7E1F2A0045277E /* Main.storyboard */,
-				394C05012B7E1F2B0045277E /* Assets.xcassets */,
-				394C05032B7E1F2B0045277E /* LaunchScreen.storyboard */,
-				394C05062B7E1F2B0045277E /* Info.plist */,
+				394C050C2B7E1F430045277E /* App */,
+				394C050F2B7E1F640045277E /* Containers */,
+				394C050E2B7E1F5F0045277E /* Screens */,
+				394C05272B7E2C1E0045277E /* Repository */,
+				394C050D2B7E1F4E0045277E /* SupportingFiles */,
 			);
 			path = NeoBlog;
+			sourceTree = "<group>";
+		};
+		394C050C2B7E1F430045277E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				394C04F82B7E1F2A0045277E /* AppDelegate.swift */,
+				394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		394C050D2B7E1F4E0045277E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				394C05142B7E29D30045277E /* Fonts */,
+				394C05112B7E21C90045277E /* R.generated.swift */,
+				394C05032B7E1F2B0045277E /* LaunchScreen.storyboard */,
+				394C05012B7E1F2B0045277E /* Assets.xcassets */,
+				394C05062B7E1F2B0045277E /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		394C050E2B7E1F5F0045277E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				394C04FC2B7E1F2A0045277E /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		394C050F2B7E1F640045277E /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				394C05132B7E27900045277E /* DependecyContainers */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		394C05132B7E27900045277E /* DependecyContainers */ = {
+			isa = PBXGroup;
+			children = (
+				394C05282B7E2C420045277E /* AppDependencyContainer.swift */,
+				394C052A2B7E2C4E0045277E /* OnboardingDependencyContainer.swift */,
+				394C052C2B7E2C590045277E /* SignedInDepedencyContainer.swift */,
+			);
+			path = DependecyContainers;
+			sourceTree = "<group>";
+		};
+		394C05142B7E29D30045277E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				394C05162B7E2AA80045277E /* Commissioner-Black.ttf */,
+				394C05152B7E2AA80045277E /* Commissioner-Bold.ttf */,
+				394C051B2B7E2AA80045277E /* Commissioner-ExtraBold.ttf */,
+				394C05192B7E2AA80045277E /* Commissioner-ExtraLight.ttf */,
+				394C051C2B7E2AA90045277E /* Commissioner-Light.ttf */,
+				394C05172B7E2AA80045277E /* Commissioner-Medium.ttf */,
+				394C051A2B7E2AA80045277E /* Commissioner-Regular.ttf */,
+				394C05182B7E2AA80045277E /* Commissioner-SemiBold.ttf */,
+				394C051D2B7E2AA90045277E /* Commissioner-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		394C05272B7E2C1E0045277E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F277D8B6545B8B100D21A189 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 394C05092B7E1F2B0045277E /* Build configuration list for PBXNativeTarget "NeoBlog" */;
 			buildPhases = (
+				911668B1D31C564F2A5BB814 /* [CP] Check Pods Manifest.lock */,
+				394C05102B7E207D0045277E /* ShellScript */,
 				394C04F12B7E1F2A0045277E /* Sources */,
 				394C04F22B7E1F2A0045277E /* Frameworks */,
 				394C04F32B7E1F2A0045277E /* Resources */,
+				07676244BE13AD3DEE62D9F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,36 +244,101 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394C05262B7E2AA90045277E /* Commissioner-Thin.ttf in Resources */,
+				394C051F2B7E2AA90045277E /* Commissioner-Black.ttf in Resources */,
+				394C051E2B7E2AA90045277E /* Commissioner-Bold.ttf in Resources */,
 				394C05052B7E1F2B0045277E /* LaunchScreen.storyboard in Resources */,
+				394C05232B7E2AA90045277E /* Commissioner-Regular.ttf in Resources */,
+				394C05202B7E2AA90045277E /* Commissioner-Medium.ttf in Resources */,
+				394C05252B7E2AA90045277E /* Commissioner-Light.ttf in Resources */,
 				394C05022B7E1F2B0045277E /* Assets.xcassets in Resources */,
-				394C05002B7E1F2A0045277E /* Main.storyboard in Resources */,
+				394C05242B7E2AA90045277E /* Commissioner-ExtraBold.ttf in Resources */,
+				394C05222B7E2AA90045277E /* Commissioner-ExtraLight.ttf in Resources */,
+				394C05212B7E2AA90045277E /* Commissioner-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07676244BE13AD3DEE62D9F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NeoBlog/Pods-NeoBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NeoBlog/Pods-NeoBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NeoBlog/Pods-NeoBlog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		394C05102B7E207D0045277E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		911668B1D31C564F2A5BB814 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NeoBlog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		394C04F12B7E1F2A0045277E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */,
 				394C04FD2B7E1F2A0045277E /* ViewController.swift in Sources */,
 				394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */,
+				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
+				394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */,
 				394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */,
+				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		394C04FE2B7E1F2A0045277E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				394C04FF2B7E1F2A0045277E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		394C05032B7E1F2B0045277E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -218,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -275,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -287,16 +471,17 @@
 		};
 		394C050A2B7E1F2B0045277E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8763F0784A5F03B26D13DD0 /* Pods-NeoBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NeoBlog/Info.plist;
+				INFOPLIST_FILE = NeoBlog/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,24 +491,28 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ravshanbek.NeoBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		394C050B2B7E1F2B0045277E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NeoBlog/Info.plist;
+				INFOPLIST_FILE = NeoBlog/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -333,9 +522,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ravshanbek.NeoBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
