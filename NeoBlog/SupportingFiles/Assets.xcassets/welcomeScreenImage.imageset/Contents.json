@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "NeoBlog iOS Resource.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

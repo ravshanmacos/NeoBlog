@@ -7,5 +7,6 @@ target 'NeoBlog' do
 
   # Pods for NeoBlog
   pod 'R.swift'
+  pod 'SnapKit'
 
 end
