@@ -8,5 +8,8 @@ target 'NeoBlog' do
   # Pods for NeoBlog
   pod 'R.swift'
   pod 'SnapKit'
+  pod 'SwiftEntryKit', '2.0.0'
+  pod 'VKPinCodeView'
+  pod "PromiseKit", "~> 8"
 
 end

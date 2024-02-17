@@ -11,137 +11,170 @@ import Combine
 class OnboardingViewController: BaseNavigationController {
     
     // MARK: - Properties
-    let viewModel: OnboardingViewModel
-    var subscriptions = Set<AnyCancellable>()
-
+    private let viewModel: OnboardingViewModel
+    private var subscriptions = Set<AnyCancellable>()
+    
     // Child View Controllers
-    let welcomeViewController: WelcomeViewController
-    let signInViewController: SignInViewController
-    let signUpViewController: SignUpViewController
-
+    private let welcomeViewController: WelcomeViewController
+    private let signInViewController: SignInViewController
+    private let signUpViewController: SignUpViewController
+    private let sendMsgToEmailViewController: SendMSGToEmailViewController
+    private let confirmMsgViewController: ConfirmMSGViewController
+    private let createNewPasswordViewController: CreateNewPasswordViewController
+    
     // MARK: - Methods
     init(viewModel: OnboardingViewModel,
          welcomeViewController: WelcomeViewController,
          signInViewController: SignInViewController,
-         signUpViewController: SignUpViewController) {
-      self.viewModel = viewModel
-      self.welcomeViewController = welcomeViewController
-      self.signInViewController = signInViewController
-      self.signUpViewController = signUpViewController
-      super.init()
-      self.delegate = self
+         signUpViewController: SignUpViewController,
+         sendMsgToEmailViewController: SendMSGToEmailViewController,
+         confirmMsgViewController: ConfirmMSGViewController,
+         createNewPasswordViewController: CreateNewPasswordViewController) {
+        self.viewModel = viewModel
+        self.welcomeViewController = welcomeViewController
+        self.signInViewController = signInViewController
+        self.signUpViewController = signUpViewController
+        self.sendMsgToEmailViewController = sendMsgToEmailViewController
+        self.confirmMsgViewController = confirmMsgViewController
+        self.createNewPasswordViewController = createNewPasswordViewController
+        super.init()
+        self.delegate = self
     }
-
+    
     public override func viewDidLoad() {
-      super.viewDidLoad()
-      let navigationActionPublisher = viewModel.$navigationAction.eraseToAnyPublisher()
-      subscribe(to: navigationActionPublisher)
+        super.viewDidLoad()
+        let navigationActionPublisher = viewModel.$navigationAction.eraseToAnyPublisher()
+        subscribe(to: navigationActionPublisher)
     }
-
+    
     func subscribe(to publisher: AnyPublisher<OnboardingNavigationAction, Never>) {
-      publisher
-        .receive(on: DispatchQueue.main)
-        .removeDuplicates()
-        .sink { [weak self] action in
-          guard let strongSelf = self else { return }
-          strongSelf.respond(to: action)
-        }.store(in: &subscriptions)
+        publisher
+            .receive(on: DispatchQueue.main)
+            .removeDuplicates()
+            .sink { [weak self] action in
+                guard let strongSelf = self else { return }
+                strongSelf.respond(to: action)
+            }.store(in: &subscriptions)
     }
-
+    
     func respond(to navigationAction: OnboardingNavigationAction) {
-      switch navigationAction {
-      case .present(let view):
-        present(view: view)
-      case .presented:
-        break
-      }
+        switch navigationAction {
+        case .present(let view):
+            present(view: view)
+        case .presented:
+            break
+        }
     }
-
+    
     func present(view: OnboardingView) {
-      switch view {
-      case .welcome:
-        presentWelcome()
-      case .signin:
-        presentSignIn()
-      case .signup:
-        presentSignUp()
-      }
+        switch view {
+        case .welcome:
+            presentWelcome()
+        case .signin:
+            presentSignIn()
+        case .signup:
+            presentSignUp()
+        case .sendMSGToEmail:
+            presentSendMsgToEmail()
+        case .confirmMSG:
+            presentConfirmMsg()
+        case .createNewPassword:
+            presentCreateNewPassword()
+        }
     }
-
+    
     func presentWelcome() {
-      pushViewController(welcomeViewController, animated: false)
+        pushViewController(welcomeViewController, animated: false)
     }
-
+    
     func presentSignIn() {
-      pushViewController(signInViewController, animated: true)
+        pushViewController(signInViewController, animated: true)
     }
-
+    
     func presentSignUp() {
-      pushViewController(signUpViewController, animated: true)
+        pushViewController(signUpViewController, animated: true)
+    }
+    
+    func presentSendMsgToEmail() {
+        pushViewController(sendMsgToEmailViewController, animated: true)
+    }
+    
+    func presentConfirmMsg() {
+        pushViewController(confirmMsgViewController, animated: true)
+    }
+    
+    func presentCreateNewPassword() {
+        pushViewController(createNewPasswordViewController, animated: true)
     }
     
 }
 
 // MARK: - Navigation Bar Presentation
 extension OnboardingViewController {
-
-  func hideOrShowNavigationBarIfNeeded(for view: OnboardingView, animated: Bool) {
-    if view.hidesNavigationBar() {
-      hideNavigationBar(animated: animated)
-    } else {
-      showNavigationBar(animated: animated)
+    
+    func hideOrShowNavigationBarIfNeeded(for view: OnboardingView, animated: Bool) {
+        if view.hidesNavigationBar() {
+            hideNavigationBar(animated: animated)
+        } else {
+            showNavigationBar(animated: animated)
+        }
     }
-  }
-
-  func hideNavigationBar(animated: Bool) {
-    if animated {
-      transitionCoordinator?.animate(alongsideTransition: { context in
-        self.setNavigationBarHidden(true, animated: animated)
-      })
-    } else {
-      setNavigationBarHidden(true, animated: false)
+    
+    func hideNavigationBar(animated: Bool) {
+        if animated {
+            transitionCoordinator?.animate(alongsideTransition: { context in
+                self.setNavigationBarHidden(true, animated: animated)
+            })
+        } else {
+            setNavigationBarHidden(true, animated: false)
+        }
     }
-  }
-
-  func showNavigationBar(animated: Bool) {
-    if self.isNavigationBarHidden {
-      self.setNavigationBarHidden(false, animated: animated)
+    
+    func showNavigationBar(animated: Bool) {
+        if self.isNavigationBarHidden {
+            self.setNavigationBarHidden(false, animated: animated)
+        }
     }
-  }
 }
 
 // MARK: - UINavigationControllerDelegate
 extension OnboardingViewController: UINavigationControllerDelegate {
-
-  public func navigationController(_ navigationController: UINavigationController,
-                                   willShow viewController: UIViewController,
-                                   animated: Bool) {
-    guard let viewToBeShown = onboardingView(associatedWith: viewController) else { return }
-    hideOrShowNavigationBarIfNeeded(for: viewToBeShown, animated: animated)
-  }
-
-  public func navigationController(_ navigationController: UINavigationController,
-                                   didShow viewController: UIViewController,
-                                   animated: Bool) {
-    guard let shownView = onboardingView(associatedWith: viewController) else { return }
-    viewModel.uiPresented(onboardingView: shownView)
-  }
+    
+    public func navigationController(_ navigationController: UINavigationController,
+                                     willShow viewController: UIViewController,
+                                     animated: Bool) {
+        guard let viewToBeShown = onboardingView(associatedWith: viewController) else { return }
+        hideOrShowNavigationBarIfNeeded(for: viewToBeShown, animated: animated)
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController,
+                                     didShow viewController: UIViewController,
+                                     animated: Bool) {
+        guard let shownView = onboardingView(associatedWith: viewController) else { return }
+        viewModel.uiPresented(onboardingView: shownView)
+    }
 }
 
 extension OnboardingViewController {
-  
-  func onboardingView(associatedWith viewController: UIViewController) -> OnboardingView? {
-    switch viewController {
-    case is WelcomeViewController:
-      return .welcome
-    case is SignInViewController:
-      return .signin
-    case is SignUpViewController:
-      return .signup
-    default:
-      assertionFailure("Encountered unexpected child view controller type in OnboardingViewController")
-      return nil
+    
+    func onboardingView(associatedWith viewController: UIViewController) -> OnboardingView? {
+        switch viewController {
+        case is WelcomeViewController:
+            return .welcome
+        case is SignInViewController:
+            return .signin
+        case is SignUpViewController:
+            return .signup
+        case is SendMSGToEmailViewController:
+            return .sendMSGToEmail
+        case is ConfirmMSGViewController:
+            return .confirmMSG
+        case is CreateNewPasswordViewController:
+            return .createNewPassword
+        default:
+            assertionFailure("Encountered unexpected child view controller type in OnboardingViewController")
+            return nil
+        }
     }
-  }
 }
 

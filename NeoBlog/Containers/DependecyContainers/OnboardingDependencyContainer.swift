@@ -26,16 +26,21 @@ class OnboardingDependencyContainer {
     }
     
     //Onboarding View Controller
-    
     func makeOnboardingViewController() -> OnboardingViewController {
         let welcomeVC = makeWelcomeViewController()
         let signIn = makeSignInViewController()
         let signUp = makeSignUpViewController()
+        let sendMsgToEmail = makeSendMsgtoEmailViewController()
+        let confirmMsg = makeConfirmMsgViewController()
+        let createNewPassword = makeCreateNewPasswordViewController()
         
         return OnboardingViewController(viewModel: sharedOnboardingViewModel,
                                         welcomeViewController: welcomeVC,
                                         signInViewController: signIn,
-                                        signUpViewController: signUp)
+                                        signUpViewController: signUp,
+                                        sendMsgToEmailViewController: sendMsgToEmail,
+                                        confirmMsgViewController: confirmMsg,
+                                        createNewPasswordViewController: createNewPassword)
     }
     
     //Welcome View Controller
@@ -52,7 +57,7 @@ class OnboardingDependencyContainer {
     }
     
     func makeSignInViewModel() -> SignInViewModel {
-        return SignInViewModel()
+        return SignInViewModel(signedInResponder: shareMainViewModel, goToSendMsgToEmailNavigator: sharedOnboardingViewModel)
     }
     //Sign Up View Controller
     func makeSignUpViewController() -> SignUpViewController {
@@ -62,6 +67,33 @@ class OnboardingDependencyContainer {
     func makeSignUpViewModel() -> SignUpViewModel {
         return SignUpViewModel()
     }
+    
+    //Send Message To Email View Controller
+    func makeSendMsgtoEmailViewController() -> SendMSGToEmailViewController {
+        return SendMSGToEmailViewController(viewModelFactory: self)
+    }
+    
+    func makeSendMsgToEmailViewModel() -> SendMSGToEmailViewModel {
+        return SendMSGToEmailViewModel(goToConfirmMsgNavigator: sharedOnboardingViewModel)
+    }
+    
+    //Confirm Message View Controller
+    func makeConfirmMsgViewController() -> ConfirmMSGViewController {
+        return ConfirmMSGViewController(viewModelFactory: self)
+    }
+    
+    func makeConfirmMsgViewModel() -> ConfirmMSGViewModel {
+        return ConfirmMSGViewModel(goToCreateNewPasswordNavigator: sharedOnboardingViewModel)
+    }
+    
+    //Create New Password View Controller
+    func makeCreateNewPasswordViewController() -> CreateNewPasswordViewController {
+        return CreateNewPasswordViewController(viewModelFactory: self)
+    }
+    
+    func makeCreateNewPasswordViewModel() -> CreateNewPasswordViewModel {
+        return CreateNewPasswordViewModel(signedInResponder: shareMainViewModel)
+    }
 }
 
-extension OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFactory, SignUpViewModelFactory{}
+extension OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFactory, SignUpViewModelFactory, SendMSGToEmailViewModelFactory, ConfirmMSGViewModelFactory, CreateNewPasswordViewModelFactory{}

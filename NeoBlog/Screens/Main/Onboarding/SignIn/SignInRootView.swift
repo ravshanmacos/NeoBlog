@@ -7,39 +7,14 @@
 
 import UIKit
 import Combine
+import SwiftEntryKit
 
 class SignInRootView: BaseView {
     //MARK: Properties
-    private let headerTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Вход"
-        label.font = .systemFont(ofSize: 32, weight: .semibold)
-        label.textColor = R.color.blue_color_1()
-        return label
-    }()
-    
-    private let forgotPasswordButton: UIButton = {
-       let button = UIButton()
-        button.contentHorizontalAlignment = .right
-        button.setTitle("Забыли пароль?", for: .normal)
-        button.setTitleColor(R.color.blue_color_2(), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
-        return button
-    }()
-    
-    private let signInButton: PrimaryButton = {
-       let button = PrimaryButton()
-        button.setTitle("Войти", for: .normal)
-        return button
-    }()
-    
-    private let vStack: UIStackView = {
-       let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 15
-        stack.distribution = .fill
-        return stack
-    }()
+    private let headerTitleLabel = makeHeaderTitleLabel()
+    private let forgotPasswordButton = makeForgotPasswordBtn()
+    private let signInButton = makeSignInBtn()
+    private let vStack = makeVStack()
     
     private let emailInputField = InputField(textfield: .init(fieldType: .email))
     private let passwordInputField = InputField(textfield: .init(fieldType: .password))
@@ -73,6 +48,30 @@ class SignInRootView: BaseView {
         }
         
         signInButton.snp.makeConstraints { $0.height.equalTo(50) }
+    }
+    
+    override func configureAppearance() {
+        super.configureAppearance()
+        emailInputField.textfield.delegate = self
+        passwordInputField.textfield.delegate = self
+        
+        forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPassword), for: .touchUpInside)
+        signInButton.addTarget(viewModel, action: #selector(viewModel.signIn), for: .touchUpInside)
+    }
+}
+
+extension SignInRootView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.activeBorders()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.inActiveBorders()
     }
 }
 
@@ -109,6 +108,7 @@ private extension SignInRootView {
         bindEmailToEmailField()
         bindPasswordToPasswordField()
         bindSignInButtonToSignInButton()
+        bindErrorsToViewModel()
     }
     
     func bindEmailToEmailField() {
@@ -133,5 +133,16 @@ private extension SignInRootView {
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: signInButton)
             .store(in: &subscriptions)
+    }
+    
+    func bindErrorsToViewModel() {
+        viewModel
+            .errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] text in
+                self?.showAlert(subtitle: text)
+                self?.emailInputField.setTextFieldState(state: .error(text: ""))
+                self?.passwordInputField.setTextFieldState(state: .error(text: ""))
+            }.store(in: &subscriptions)
     }
 }

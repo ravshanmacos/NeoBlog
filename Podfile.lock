@@ -1,20 +1,40 @@
 PODS:
+  - PromiseKit (8.1.1):
+    - PromiseKit/CorePromise (= 8.1.1)
+    - PromiseKit/Foundation (= 8.1.1)
+    - PromiseKit/UIKit (= 8.1.1)
+  - PromiseKit/CorePromise (8.1.1)
+  - PromiseKit/Foundation (8.1.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (8.1.1):
+    - PromiseKit/CorePromise
   - R.swift (7.3.2)
   - SnapKit (5.6.0)
+  - SwiftEntryKit (2.0.0)
+  - VKPinCodeView (0.4.2)
 
 DEPENDENCIES:
+  - PromiseKit (~> 8)
   - R.swift
   - SnapKit
+  - SwiftEntryKit (= 2.0.0)
+  - VKPinCodeView
 
 SPEC REPOS:
   trunk:
+    - PromiseKit
     - R.swift
     - SnapKit
+    - SwiftEntryKit
+    - VKPinCodeView
 
 SPEC CHECKSUMS:
+  PromiseKit: d1be44b474e5acfa16adf007a1f49f104e10fead
   R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
+  VKPinCodeView: 8d711959a080fec9e6aac165f7225d55b54a24ae
 
-PODFILE CHECKSUM: 03d4f5fd298ca36a6331cca3d6607b65abdbbb2b
+PODFILE CHECKSUM: 94034350b9f8463065f3c3d6da937086dcbdc308
 
 COCOAPODS: 1.14.3

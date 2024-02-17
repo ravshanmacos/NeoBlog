@@ -11,27 +11,55 @@ import Combine
 class SignInViewModel {
     
     //MARK: Properties
-    var email: String = ""
-    var password: String = ""
+    var email: String = "" {
+        didSet {
+            checkField()
+        }
+    }
+    var password: String = "" {
+        didSet {
+            checkField()
+        }
+    }
     
     @Published private(set) var emailFieldEnabled = true
     @Published private(set) var passwordFieldEnabled = true
     @Published private(set) var signInButtonEnabled = false
     
+    private var errorMessageSubject = PassthroughSubject<String, Never>()
+    
     var errorMessagePublisher: AnyPublisher<String, Never> {
         return errorMessageSubject.eraseToAnyPublisher()
     }
-    private var errorMessageSubject = PassthroughSubject<String, Never>()
+    
+    private let signedInResponder: SignedInResponder
+    private let goToSendMsgToEmailNavigator: GoToSendMSGToEmailNavigator
     
     //MARK: Methods
-    func signUp() {
-        guard isValidate() else { return }
-        print("email: \(email)")
-        print("password: \(password)")
+    init(signedInResponder: SignedInResponder, goToSendMsgToEmailNavigator: GoToSendMSGToEmailNavigator) {
+        self.signedInResponder = signedInResponder
+        self.goToSendMsgToEmailNavigator = goToSendMsgToEmailNavigator
     }
     
-    private func isValidate() -> Bool {
-        
-        return true
+    private func checkField() {
+        if email != "" && password != "" {
+            signInButtonEnabled = true
+        } else {
+            signInButtonEnabled = false
+        }
+    }
+}
+
+//MARK: Actions
+@objc extension SignInViewModel {
+    func forgotPassword() {
+        goToSendMsgToEmailNavigator.navigateSendMsgToEmail()
+    }
+    
+    func signIn() {
+       // guard isValidate() else { return }
+        print("email: \(email)")
+        print("password: \(password)")
+        errorMessageSubject.send("Неверный логин или пароль")
     }
 }

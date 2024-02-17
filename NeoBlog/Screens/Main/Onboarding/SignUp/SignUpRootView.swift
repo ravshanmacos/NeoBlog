@@ -11,29 +11,10 @@ import Combine
 class SignUpRootView: BaseView {
     
     //MARK: Properties
-    private let headerTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Регистрация"
-        label.font = .systemFont(ofSize: 32, weight: .semibold)
-        label.textColor = R.color.blue_color_1()
-        return label
-    }()
     
-    private let signUpButton: PrimaryButton = {
-       let button = PrimaryButton()
-        button.isEnabled = true
-        button.setTitle("Зарегистрироваться", for: .normal)
-        return button
-    }()
-    
-    private let vStack: UIStackView = {
-       let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 15
-        stack.distribution = .fill
-        return stack
-    }()
-    
+    private let vStack = makeVStack()
+    private let signUpButton = makeSignUpBtn()
+    private let headerTitleLabel = makeHeaderTitleLabel()
     private let usernameInputField = InputField(textfield: .init(fieldType: .username))
     private let emailInputField = InputField(textfield: .init(fieldType: .email))
     private let passwordInputField = InputField(textfield: .init(fieldType: .password))
@@ -97,15 +78,22 @@ extension SignUpRootView: UITextFieldDelegate {
         if let textfield = textField as? PrimaryTextfield {
             switch textfield.primaryFieldType {
             case .username:
-                usernameInputField.setTextFieldState(state: .active(text: Constants.String.usernameWarning))
+                usernameInputField
+                    .setTextFieldState(state: .active(text: Constants.String.usernameWarning))
             case .password:
-                passwordInputField.setTextFieldState(state: .active(text: Constants.String.passwordWarning))
+                passwordInputField
+                    .setTextFieldState(state: .active(text: Constants.String.passwordWarning))
             case .confirmPassword:
-                confirmPasswordInputField.setTextFieldState(state: .active(text: Constants.String.confirPasswordWarning))
+                confirmPasswordInputField
+                    .setTextFieldState(state: .active(text: Constants.String.confirPasswordWarning))
             default:
                 break
             }
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.inActiveBorders()
     }
 }
 
