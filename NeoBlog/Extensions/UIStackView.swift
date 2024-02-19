@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIStackView {
+    func removeSubviews() {
+        subviews.forEach { $0.removeFromSuperview() }
+    }
+    
     func insertArrangedSubview(_ view: UIView, belowArrangedSubview subview: UIView) {
         arrangedSubviews.enumerated().forEach {
             if $0.1 == subview {

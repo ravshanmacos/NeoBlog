@@ -52,6 +52,9 @@ class SignInRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
+        emailInputField.textfield.text = "Roma9805"
+        passwordInputField.textfield.text = "Ravshan9805"
+        
         emailInputField.textfield.delegate = self
         passwordInputField.textfield.delegate = self
         

@@ -11,5 +11,7 @@ target 'NeoBlog' do
   pod 'SwiftEntryKit', '2.0.0'
   pod 'VKPinCodeView'
   pod "PromiseKit", "~> 8"
+  pod "Alamofire", "~> 5.8.1"
+  pod "SwiftyJSON", "~> 5.0.1"
 
 end

@@ -79,13 +79,13 @@ extension SignUpRootView: UITextFieldDelegate {
             switch textfield.primaryFieldType {
             case .username:
                 usernameInputField
-                    .setTextFieldState(state: .active(text: Constants.String.usernameWarning))
+                    .setTextFieldState(state: .active(text: Constants.Strings.usernameWarning))
             case .password:
                 passwordInputField
-                    .setTextFieldState(state: .active(text: Constants.String.passwordWarning))
+                    .setTextFieldState(state: .active(text: Constants.Strings.passwordWarning))
             case .confirmPassword:
                 confirmPasswordInputField
-                    .setTextFieldState(state: .active(text: Constants.String.confirPasswordWarning))
+                    .setTextFieldState(state: .active(text: Constants.Strings.confirPasswordWarning))
             default:
                 break
             }
@@ -168,13 +168,13 @@ private extension SignUpRootView {
         case .initial:
             print("Initial")
         case .InvalidUsername:
-            usernameInputField.setTextFieldState(state: .error(text: Constants.String.usernameWarning))
+            usernameInputField.setTextFieldState(state: .error(text: Constants.Strings.usernameWarning))
         case .InvalidEmail:
-            emailInputField.setTextFieldState(state: .error(text: Constants.String.invalidEmail))
+            emailInputField.setTextFieldState(state: .error(text: Constants.Strings.invalidEmail))
         case .InvalidPassword:
-            passwordInputField.setTextFieldState(state: .error(text: Constants.String.passwordWarning))
+            passwordInputField.setTextFieldState(state: .error(text: Constants.Strings.passwordWarning))
         case .InvalidConfirmPassword:
-            confirmPasswordInputField.setTextFieldState(state: .error(text: Constants.String.invalidConfirmPassword))
+            confirmPasswordInputField.setTextFieldState(state: .error(text: Constants.Strings.invalidConfirmPassword))
         }
     }
 }

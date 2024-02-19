@@ -37,28 +37,14 @@
 		393D7A212B80CA330019F9F9 /* UserSessionPropertyListCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A202B80CA330019F9F9 /* UserSessionPropertyListCoder.swift */; };
 		393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A222B80CA680019F9F9 /* UserProfile.swift */; };
 		393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A232B80CA680019F9F9 /* NewAccount.swift */; };
-		393D7A2A2B80CA680019F9F9 /* NeoDentistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A242B80CA680019F9F9 /* NeoDentistError.swift */; };
+		393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */; };
 		393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A252B80CA680019F9F9 /* FakeURL.swift */; };
 		393D7A2C2B80CA680019F9F9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A262B80CA680019F9F9 /* UserSession.swift */; };
 		393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A272B80CA680019F9F9 /* Secret.swift */; };
 		393D7A302B80CA9E0019F9F9 /* AuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */; };
 		393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */; };
 		393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */; };
-		393D7A482B80CD9D0019F9F9 /* MovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A472B80CD9D0019F9F9 /* MovieEndpoint.swift */; };
-		393D7A4C2B80CDA60019F9F9 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A492B80CDA60019F9F9 /* ParameterEncoding.swift */; };
-		393D7A4D2B80CDA60019F9F9 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A4A2B80CDA60019F9F9 /* JSONParameterEncoder.swift */; };
-		393D7A4E2B80CDA60019F9F9 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A4B2B80CDA60019F9F9 /* URLParameterEncoder.swift */; };
-		393D7A542B80CDBE0019F9F9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A4F2B80CDBE0019F9F9 /* HTTPMethod.swift */; };
-		393D7A552B80CDBE0019F9F9 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A502B80CDBE0019F9F9 /* NetworkRouter.swift */; };
-		393D7A562B80CDBE0019F9F9 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A512B80CDBE0019F9F9 /* HTTPTask.swift */; };
-		393D7A572B80CDBE0019F9F9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A522B80CDBE0019F9F9 /* Router.swift */; };
-		393D7A582B80CDBE0019F9F9 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A532B80CDBE0019F9F9 /* EndpointType.swift */; };
-		393D7A5A2B80CDC60019F9F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A592B80CDC60019F9F9 /* NetworkManager.swift */; };
-		393D7A5C2B80CDCF0019F9F9 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A5B2B80CDCF0019F9F9 /* MovieModel.swift */; };
-		393D7A5E2B80CDDF0019F9F9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A5D2B80CDDF0019F9F9 /* NetworkError.swift */; };
-		393D7A602B80D0310019F9F9 /* NeoBlogEnpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A5F2B80D0310019F9F9 /* NeoBlogEnpoint.swift */; };
 		393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A612B80D1560019F9F9 /* Secrets.swift */; };
-		393D7A642B80D3850019F9F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A632B80D3850019F9F9 /* LoginResponseModel.swift */; };
 		394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04F82B7E1F2A0045277E /* AppDelegate.swift */; };
 		394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */; };
 		394C04FD2B7E1F2A0045277E /* SignedInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FC2B7E1F2A0045277E /* SignedInViewModel.swift */; };
@@ -121,6 +107,29 @@
 		394C05962B7F533A0045277E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05952B7F533A0045277E /* Constants.swift */; };
 		394C05992B7F56490045277E /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05982B7F56490045277E /* AuthErrors.swift */; };
 		394C059B2B7F99A30045277E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C059A2B7F99A30045277E /* ErrorView.swift */; };
+		39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCF92B8347A80092A46E /* APIManager.swift */; };
+		39CBCCFD2B8347A80092A46E /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFA2B8347A80092A46E /* APIResponse.swift */; };
+		39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */; };
+		39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFF2B8347B00092A46E /* RESTAPIManager.swift */; };
+		39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD002B8347B00092A46E /* RESTAPIEnpoint.swift */; };
+		39CBCD042B8347B00092A46E /* RESTAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD012B8347B00092A46E /* RESTAPIResponse.swift */; };
+		39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD052B8347BC0092A46E /* JSONMapper.swift */; };
+		39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */; };
+		39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD132B834B250092A46E /* SignInRequestModel.swift */; };
+		39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */; };
+		39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */; };
+		39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD1B2B8356040092A46E /* TabBarController.swift */; };
+		39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */; };
+		39CBCD242B8356F60092A46E /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD232B8356F60092A46E /* MainScreenViewModel.swift */; };
+		39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD252B8357030092A46E /* MainScreenRootView.swift */; };
+		39CBCD282B8357150092A46E /* AddPostScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD272B8357150092A46E /* AddPostScreenViewController.swift */; };
+		39CBCD2A2B83571D0092A46E /* AddPostScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD292B83571D0092A46E /* AddPostScreenViewModel.swift */; };
+		39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2B2B83572B0092A46E /* AddPostScreenRootView.swift */; };
+		39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */; };
+		39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */; };
+		39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */; };
+		39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E252B83ACA8008DA869 /* HeaderView.swift */; };
+		39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */; };
 		3B674489B59D4C4001F31A4D /* Pods_NeoBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -156,28 +165,14 @@
 		393D7A202B80CA330019F9F9 /* UserSessionPropertyListCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionPropertyListCoder.swift; sourceTree = "<group>"; };
 		393D7A222B80CA680019F9F9 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		393D7A232B80CA680019F9F9 /* NewAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
-		393D7A242B80CA680019F9F9 /* NeoDentistError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeoDentistError.swift; sourceTree = "<group>"; };
+		393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeoBlogNetworkError.swift; sourceTree = "<group>"; };
 		393D7A252B80CA680019F9F9 /* FakeURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeURL.swift; sourceTree = "<group>"; };
 		393D7A262B80CA680019F9F9 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		393D7A272B80CA680019F9F9 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPI.swift; sourceTree = "<group>"; };
 		393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
-		393D7A472B80CD9D0019F9F9 /* MovieEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEndpoint.swift; sourceTree = "<group>"; };
-		393D7A492B80CDA60019F9F9 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		393D7A4A2B80CDA60019F9F9 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
-		393D7A4B2B80CDA60019F9F9 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
-		393D7A4F2B80CDBE0019F9F9 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		393D7A502B80CDBE0019F9F9 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		393D7A512B80CDBE0019F9F9 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
-		393D7A522B80CDBE0019F9F9 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		393D7A532B80CDBE0019F9F9 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
-		393D7A592B80CDC60019F9F9 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		393D7A5B2B80CDCF0019F9F9 /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		393D7A5D2B80CDDF0019F9F9 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		393D7A5F2B80D0310019F9F9 /* NeoBlogEnpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogEnpoint.swift; sourceTree = "<group>"; };
 		393D7A612B80D1560019F9F9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		393D7A632B80D3850019F9F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		394C04F52B7E1F2A0045277E /* NeoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F82B7E1F2A0045277E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +237,29 @@
 		394C05952B7F533A0045277E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		394C05982B7F56490045277E /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		394C059A2B7F99A30045277E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		39CBCCF92B8347A80092A46E /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		39CBCCFA2B8347A80092A46E /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		39CBCCFF2B8347B00092A46E /* RESTAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIManager.swift; sourceTree = "<group>"; };
+		39CBCD002B8347B00092A46E /* RESTAPIEnpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIEnpoint.swift; sourceTree = "<group>"; };
+		39CBCD012B8347B00092A46E /* RESTAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIResponse.swift; sourceTree = "<group>"; };
+		39CBCD052B8347BC0092A46E /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
+		39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogAuthRemoteAPI.swift; sourceTree = "<group>"; };
+		39CBCD132B834B250092A46E /* SignInRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequestModel.swift; sourceTree = "<group>"; };
+		39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponseModel.swift; sourceTree = "<group>"; };
+		39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogAuthEndpoints.swift; sourceTree = "<group>"; };
+		39CBCD1B2B8356040092A46E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		39CBCD232B8356F60092A46E /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		39CBCD252B8357030092A46E /* MainScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRootView.swift; sourceTree = "<group>"; };
+		39CBCD272B8357150092A46E /* AddPostScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenViewController.swift; sourceTree = "<group>"; };
+		39CBCD292B83571D0092A46E /* AddPostScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenViewModel.swift; sourceTree = "<group>"; };
+		39CBCD2B2B83572B0092A46E /* AddPostScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenRootView.swift; sourceTree = "<group>"; };
+		39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
+		39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
+		39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRootView.swift; sourceTree = "<group>"; };
+		39F96E252B83ACA8008DA869 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWithFilter.swift; sourceTree = "<group>"; };
 		6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.release.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.release.xcconfig"; sourceTree = "<group>"; };
 		A8763F0784A5F03B26D13DD0 /* Pods-NeoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.debug.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,12 +342,11 @@
 			isa = PBXGroup;
 			children = (
 				393D7A0A2B80C8F10019F9F9 /* Repositories */,
-				393D7A412B80CCF10019F9F9 /* Enpoint */,
-				393D7A422B80CCFE0019F9F9 /* Encoding */,
-				393D7A462B80CD190019F9F9 /* Service */,
-				393D7A432B80CD040019F9F9 /* Managers */,
-				393D7A452B80CD130019F9F9 /* Models */,
-				393D7A442B80CD0E0019F9F9 /* Errors */,
+				39CBCD102B834AED0092A46E /* Models */,
+				39CBCD092B8347ED0092A46E /* Manager */,
+				39CBCD0A2B8348000092A46E /* Endpoint */,
+				39CBCD0B2B8348170092A46E /* Response */,
+				39CBCD072B8347CA0092A46E /* Mappers */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -376,7 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				393D7A252B80CA680019F9F9 /* FakeURL.swift */,
-				393D7A242B80CA680019F9F9 /* NeoDentistError.swift */,
+				393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */,
 				393D7A232B80CA680019F9F9 /* NewAccount.swift */,
 				393D7A272B80CA680019F9F9 /* Secret.swift */,
 				393D7A222B80CA680019F9F9 /* UserProfile.swift */,
@@ -431,8 +448,8 @@
 		393D7A2E2B80CA7F0019F9F9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				393D7A312B80CAA10019F9F9 /* Implementation */,
-				393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */,
+				39CBCD182B834BEF0092A46E /* Endpoint */,
+				39CBCD172B834BDF0092A46E /* Service */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -441,64 +458,9 @@
 			isa = PBXGroup;
 			children = (
 				393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */,
+				39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		393D7A412B80CCF10019F9F9 /* Enpoint */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A472B80CD9D0019F9F9 /* MovieEndpoint.swift */,
-				393D7A5F2B80D0310019F9F9 /* NeoBlogEnpoint.swift */,
-			);
-			path = Enpoint;
-			sourceTree = "<group>";
-		};
-		393D7A422B80CCFE0019F9F9 /* Encoding */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A4A2B80CDA60019F9F9 /* JSONParameterEncoder.swift */,
-				393D7A492B80CDA60019F9F9 /* ParameterEncoding.swift */,
-				393D7A4B2B80CDA60019F9F9 /* URLParameterEncoder.swift */,
-			);
-			path = Encoding;
-			sourceTree = "<group>";
-		};
-		393D7A432B80CD040019F9F9 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A592B80CDC60019F9F9 /* NetworkManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		393D7A442B80CD0E0019F9F9 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A5D2B80CDDF0019F9F9 /* NetworkError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
-		393D7A452B80CD130019F9F9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A5B2B80CDCF0019F9F9 /* MovieModel.swift */,
-				393D7A632B80D3850019F9F9 /* LoginResponseModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		393D7A462B80CD190019F9F9 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				393D7A532B80CDBE0019F9F9 /* EndpointType.swift */,
-				393D7A4F2B80CDBE0019F9F9 /* HTTPMethod.swift */,
-				393D7A512B80CDBE0019F9F9 /* HTTPTask.swift */,
-				393D7A502B80CDBE0019F9F9 /* NetworkRouter.swift */,
-				393D7A522B80CDBE0019F9F9 /* Router.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		394C04EC2B7E1F2A0045277E = {
@@ -523,8 +485,8 @@
 			isa = PBXGroup;
 			children = (
 				393D7A612B80D1560019F9F9 /* Secrets.swift */,
-				393D7A072B80BCE20019F9F9 /* Network */,
 				394C050C2B7E1F430045277E /* App */,
+				393D7A072B80BCE20019F9F9 /* Network */,
 				394C050F2B7E1F640045277E /* Containers */,
 				394C050E2B7E1F5F0045277E /* Screens */,
 				394C05652B7E4E230045277E /* Extensions */,
@@ -616,8 +578,10 @@
 		394C052F2B7E2E2C0045277E /* SingedIn */ = {
 			isa = PBXGroup;
 			children = (
+				39CBCD1D2B83568E0092A46E /* ViewControllers */,
 				394C04FC2B7E1F2A0045277E /* SignedInViewModel.swift */,
 				394C05632B7E37B70045277E /* SignedInViewController.swift */,
+				39CBCD1B2B8356040092A46E /* TabBarController.swift */,
 			);
 			path = SingedIn;
 			sourceTree = "<group>";
@@ -748,9 +712,7 @@
 			children = (
 				393D79FE2B809E800019F9F9 /* ComponentsContainer */,
 				394C05842B7F297B0045277E /* Components */,
-				394C05872B7F2D0E0045277E /* TextFieldErrorView.swift */,
-				394C059A2B7F99A30045277E /* ErrorView.swift */,
-				393D79F42B808B080019F9F9 /* OTPView.swift */,
+				39F96E222B83AC64008DA869 /* CustomViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -763,6 +725,7 @@
 				394C057E2B7F18CA0045277E /* PrimaryTextfield.swift */,
 				394C058F2B7F47E30045277E /* InputField.swift */,
 				394C05912B7F4DD50045277E /* LabelWithPadding.swift */,
+				39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -773,6 +736,150 @@
 				394C05982B7F56490045277E /* AuthErrors.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		39CBCD072B8347CA0092A46E /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD052B8347BC0092A46E /* JSONMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		39CBCD092B8347ED0092A46E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCCF92B8347A80092A46E /* APIManager.swift */,
+				39CBCCFF2B8347B00092A46E /* RESTAPIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		39CBCD0A2B8348000092A46E /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */,
+				39CBCD002B8347B00092A46E /* RESTAPIEnpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		39CBCD0B2B8348170092A46E /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD012B8347B00092A46E /* RESTAPIResponse.swift */,
+				39CBCCFA2B8347A80092A46E /* APIResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		39CBCD102B834AED0092A46E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD112B834AFD0092A46E /* RequestModels */,
+				39CBCD122B834B040092A46E /* ResponseModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		39CBCD112B834AFD0092A46E /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD132B834B250092A46E /* SignInRequestModel.swift */,
+			);
+			path = RequestModels;
+			sourceTree = "<group>";
+		};
+		39CBCD122B834B040092A46E /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		39CBCD172B834BDF0092A46E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				393D7A312B80CAA10019F9F9 /* Implementation */,
+				393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		39CBCD182B834BEF0092A46E /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		39CBCD1D2B83568E0092A46E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD1E2B83569F0092A46E /* MainScreenVC */,
+				39CBCD1F2B8356B90092A46E /* AddPostVC */,
+				39CBCD202B8356C60092A46E /* ProfileVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		39CBCD1E2B83569F0092A46E /* MainScreenVC */ = {
+			isa = PBXGroup;
+			children = (
+				39F96E242B83AC9D008DA869 /* Views */,
+				39F96E232B83AC97008DA869 /* Cells */,
+				39CBCD232B8356F60092A46E /* MainScreenViewModel.swift */,
+				39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */,
+				39CBCD252B8357030092A46E /* MainScreenRootView.swift */,
+			);
+			path = MainScreenVC;
+			sourceTree = "<group>";
+		};
+		39CBCD1F2B8356B90092A46E /* AddPostVC */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD292B83571D0092A46E /* AddPostScreenViewModel.swift */,
+				39CBCD272B8357150092A46E /* AddPostScreenViewController.swift */,
+				39CBCD2B2B83572B0092A46E /* AddPostScreenRootView.swift */,
+			);
+			path = AddPostVC;
+			sourceTree = "<group>";
+		};
+		39CBCD202B8356C60092A46E /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */,
+				39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */,
+				39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		39F96E222B83AC64008DA869 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				394C05872B7F2D0E0045277E /* TextFieldErrorView.swift */,
+				394C059A2B7F99A30045277E /* ErrorView.swift */,
+				393D79F42B808B080019F9F9 /* OTPView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		39F96E232B83AC97008DA869 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		39F96E242B83AC9D008DA869 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39F96E252B83ACA8008DA869 /* HeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F277D8B6545B8B100D21A189 /* Frameworks */ = {
@@ -926,64 +1033,72 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				393D7A5C2B80CDCF0019F9F9 /* MovieModel.swift in Sources */,
 				394C05992B7F56490045277E /* AuthErrors.swift in Sources */,
+				39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */,
 				393D7A1E2B80CA0F0019F9F9 /* UserSessionCoding.swift in Sources */,
 				393D7A302B80CA9E0019F9F9 /* AuthRemoteAPI.swift in Sources */,
 				394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */,
 				393D7A2C2B80CA680019F9F9 /* UserSession.swift in Sources */,
+				39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */,
 				393D7A182B80C9A00019F9F9 /* KeychainItem.swift in Sources */,
-				393D7A562B80CDBE0019F9F9 /* HTTPTask.swift in Sources */,
 				394C05592B7E35BF0045277E /* MainViewState.swift in Sources */,
+				39CBCCFD2B8347A80092A46E /* APIResponse.swift in Sources */,
 				394C05552B7E35AD0045277E /* MainViewController.swift in Sources */,
 				393D79EB2B8073350019F9F9 /* CreateNewPasswordViewModel.swift in Sources */,
+				39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */,
+				39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */,
 				394C059B2B7F99A30045277E /* ErrorView.swift in Sources */,
 				394C054C2B7E332A0045277E /* SignInRootView.swift in Sources */,
 				394C05902B7F47E30045277E /* InputField.swift in Sources */,
+				39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */,
 				394C054A2B7E332A0045277E /* SignInViewController.swift in Sources */,
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */,
+				39CBCD042B8347B00092A46E /* RESTAPIResponse.swift in Sources */,
 				393D79EC2B8073350019F9F9 /* CreateNewPasswordViewController.swift in Sources */,
-				393D7A602B80D0310019F9F9 /* NeoBlogEnpoint.swift in Sources */,
 				393D79FD2B809E750019F9F9 /* ButtonsContainer.swift in Sources */,
 				393D79F12B807AF20019F9F9 /* GoToConfirmMSGNavigator.swift in Sources */,
 				394C05502B7E33360045277E /* SignUpViewModel.swift in Sources */,
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
-				393D7A542B80CDBE0019F9F9 /* HTTPMethod.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
 				394C05452B7E331E0045277E /* WelcomeViewController.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
+				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
 				394C05402B7E2F5C0045277E /* BaseView.swift in Sources */,
+				39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */,
+				39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */,
 				394C058C2B7F37880045277E /* String.swift in Sources */,
+				39CBCD242B8356F60092A46E /* MainScreenViewModel.swift in Sources */,
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
 				393D7A172B80C9A00019F9F9 /* Keychain.swift in Sources */,
+				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
+				39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */,
 				393D7A112B80C9700019F9F9 /* UserSessionDataStore.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
 				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
 				394C055C2B7E36FF0045277E /* SignedInResponder.swift in Sources */,
-				393D7A572B80CDBE0019F9F9 /* Router.swift in Sources */,
 				394C04FD2B7E1F2A0045277E /* SignedInViewModel.swift in Sources */,
-				393D7A582B80CDBE0019F9F9 /* EndpointType.swift in Sources */,
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
 				394C05602B7E37A40045277E /* OnboardingViewController.swift in Sources */,
 				393D79ED2B8073350019F9F9 /* CreateNewPasswordRootView.swift in Sources */,
 				394C05512B7E33360045277E /* SignUpRootView.swift in Sources */,
+				39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */,
 				393D79FB2B809D890019F9F9 /* SignInViewComponents.swift in Sources */,
-				393D7A482B80CD9D0019F9F9 /* MovieEndpoint.swift in Sources */,
 				393D79F92B809BE20019F9F9 /* LabelsContainer.swift in Sources */,
-				393D7A2A2B80CA680019F9F9 /* NeoDentistError.swift in Sources */,
+				393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */,
 				394C05642B7E37B70045277E /* SignedInViewController.swift in Sources */,
 				393D7A042B80A1A80019F9F9 /* SendMSGToEmailViewComponents.swift in Sources */,
 				394C057A2B7E5B160045277E /* PrimaryButton.swift in Sources */,
 				394C056A2B7E4EB00045277E /* UIViewController+ext.swift in Sources */,
 				393D7A1B2B80C9C50019F9F9 /* UserSessionRepository.swift in Sources */,
+				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
 				393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */,
 				394C057C2B7E5BFC0045277E /* SecondaryButton.swift in Sources */,
 				393D79E12B8072F60019F9F9 /* SendMSGToEmailRootView.swift in Sources */,
@@ -995,32 +1110,33 @@
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
-				393D7A642B80D3850019F9F9 /* LoginResponseModel.swift in Sources */,
 				394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */,
-				393D7A5E2B80CDDF0019F9F9 /* NetworkError.swift in Sources */,
 				394C053E2B7E2F570045277E /* BaseViewController.swift in Sources */,
+				39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */,
+				39CBCD2A2B83571D0092A46E /* AddPostScreenViewModel.swift in Sources */,
+				39CBCD282B8357150092A46E /* AddPostScreenViewController.swift in Sources */,
+				39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,
 				394C05882B7F2D0E0045277E /* TextFieldErrorView.swift in Sources */,
 				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
 				393D7A002B809FEB0019F9F9 /* StackContainer.swift in Sources */,
+				39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */,
 				394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */,
 				394C05942B7F4FCD0045277E /* UITextField+ext.swift in Sources */,
 				394C053C2B7E2F500045277E /* BaseNavigationController.swift in Sources */,
-				393D7A4E2B80CDA60019F9F9 /* URLParameterEncoder.swift in Sources */,
-				393D7A4C2B80CDA60019F9F9 /* ParameterEncoding.swift in Sources */,
 				394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */,
 				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
-				393D7A5A2B80CDC60019F9F9 /* NetworkManager.swift in Sources */,
 				394C05522B7E33360045277E /* SignUpViewController.swift in Sources */,
+				39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */,
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
-				393D7A552B80CDBE0019F9F9 /* NetworkRouter.swift in Sources */,
+				39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
 				394C054B2B7E332A0045277E /* SignInViewModel.swift in Sources */,
-				393D7A4D2B80CDA60019F9F9 /* JSONParameterEncoder.swift in Sources */,
+				39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */,
 				393D7A062B80A2D80019F9F9 /* CreateNewPasswordComponents.swift in Sources */,
 				394C056C2B7E4F0F0045277E /* Optional+ext.swift in Sources */,
 				394C05962B7F533A0045277E /* Constants.swift in Sources */,

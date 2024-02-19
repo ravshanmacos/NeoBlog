@@ -60,6 +60,7 @@ class SignInViewModel {
        // guard isValidate() else { return }
         print("email: \(email)")
         print("password: \(password)")
-        errorMessageSubject.send("Неверный логин или пароль")
+        signedInResponder.signedIn()
+        //errorMessageSubject.send("Неверный логин или пароль")
     }
 }

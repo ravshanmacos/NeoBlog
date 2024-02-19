@@ -9,6 +9,10 @@ import UIKit
 import SwiftEntryKit
 
 extension UIView {
+    var contentWidth: CGFloat {
+        return UIScreen.main.bounds.width - 30
+    }
+    
     func addSubviews(_ views: UIView...) {
         views.forEach { addSubview($0) }
     }

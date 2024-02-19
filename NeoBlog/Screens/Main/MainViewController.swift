@@ -11,7 +11,7 @@ import Combine
 protocol MainViewControllerFactory {
     func makeLaunchViewController() -> LaunchViewController
     func makeOnboardingViewController() -> OnboardingViewController
-    func makeSignedInViewController() -> SignedInViewController
+    func makeSignedInViewController() -> TabBarController
 }
 
 class MainViewController: BaseViewController {
@@ -23,7 +23,7 @@ class MainViewController: BaseViewController {
     //child view controllers
     private let launchViewController: LaunchViewController
     private var onboardingViewController: OnboardingViewController?
-    private var signedInViewController: SignedInViewController?
+    private var signedInViewController: TabBarController?
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -91,7 +91,7 @@ class MainViewController: BaseViewController {
     public func presentSignedIn() {
       remove(childViewController: launchViewController)
 
-      let signedInViewControllerToPresent: SignedInViewController
+      let signedInViewControllerToPresent: TabBarController
       if let vc = self.signedInViewController {
         signedInViewControllerToPresent = vc
       } else {

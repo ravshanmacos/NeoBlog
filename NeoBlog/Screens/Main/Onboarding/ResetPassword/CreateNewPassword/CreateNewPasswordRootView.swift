@@ -72,10 +72,10 @@ extension CreateNewPasswordRootView: UITextFieldDelegate {
             switch textfield.primaryFieldType {
             case .password:
                 newPasswordField
-                    .setTextFieldState(state: .active(text: Constants.String.passwordWarning))
+                    .setTextFieldState(state: .active(text: Constants.Strings.passwordWarning))
             case .confirmPassword:
                 newPasswordFieldConfirm
-                    .setTextFieldState(state: .active(text: Constants.String.confirPasswordWarning))
+                    .setTextFieldState(state: .active(text: Constants.Strings.confirPasswordWarning))
             default:
                 break
             }
@@ -135,9 +135,9 @@ private extension CreateNewPasswordRootView {
         case .initial:
             print("Initial")
         case .InvalidPassword:
-            newPasswordField.setTextFieldState(state: .error(text: Constants.String.passwordWarning))
+            newPasswordField.setTextFieldState(state: .error(text: Constants.Strings.passwordWarning))
         case .InvalidConfirmPassword:
-            newPasswordFieldConfirm.setTextFieldState(state: .error(text: Constants.String.invalidConfirmPassword))
+            newPasswordFieldConfirm.setTextFieldState(state: .error(text: Constants.Strings.invalidConfirmPassword))
         default:
             break
         }

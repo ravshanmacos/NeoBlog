@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BaseView: UIView {
+class 
+BaseView: UIView {
     
     //MARK: Properties
     let contentView: UIView = {

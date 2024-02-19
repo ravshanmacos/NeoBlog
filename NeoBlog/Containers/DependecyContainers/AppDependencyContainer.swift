@@ -46,8 +46,13 @@ class AppDependencyContainer {
     }
     
     //SignedIn View Controller
-    func makeSignedInViewController() -> SignedInViewController {
-        return SignedInViewController()
+    func makeSignedInViewController() -> TabBarController {
+        let dc = makeSignedInDependencyContainer()
+        return dc.makeTabBarController()
+    }
+    
+    func makeSignedInDependencyContainer() -> SignedInDepedencyContainer {
+        return SignedInDepedencyContainer(appDependencyContainer: self)
     }
 }
 
