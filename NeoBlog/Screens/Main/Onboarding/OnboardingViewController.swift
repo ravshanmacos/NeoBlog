@@ -41,7 +41,7 @@ class OnboardingViewController: BaseNavigationController {
         self.delegate = self
     }
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         let navigationActionPublisher = viewModel.$navigationAction.eraseToAnyPublisher()
         subscribe(to: navigationActionPublisher)

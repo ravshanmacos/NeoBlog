@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4B2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift */; };
+		3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */; };
+		3938FE502B86146100EC26E7 /* SelectCatergorySegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4F2B86146100EC26E7 /* SelectCatergorySegmentView.swift */; };
+		3938FE522B8617D600EC26E7 /* PostsTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE512B8617D600EC26E7 /* PostsTableviewCell.swift */; };
 		393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D79DC2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift */; };
 		393D79DF2B8072B20019F9F9 /* SendMSGToEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D79DE2B8072B20019F9F9 /* SendMSGToEmailViewModel.swift */; };
 		393D79E12B8072F60019F9F9 /* SendMSGToEmailRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D79E02B8072F60019F9F9 /* SendMSGToEmailRootView.swift */; };
@@ -107,6 +111,24 @@
 		394C05962B7F533A0045277E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05952B7F533A0045277E /* Constants.swift */; };
 		394C05992B7F56490045277E /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05982B7F56490045277E /* AuthErrors.swift */; };
 		394C059B2B7F99A30045277E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C059A2B7F99A30045277E /* ErrorView.swift */; };
+		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
+		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
+		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
+		39B109B72B8737630045AD4E /* PostDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B42B8737630045AD4E /* PostDetailScreenViewController.swift */; };
+		39B109B82B8737630045AD4E /* PostDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B52B8737630045AD4E /* PostDetailScreenViewModel.swift */; };
+		39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109BA2B87463D0045AD4E /* MainContainerViewController.swift */; };
+		39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109BC2B8746830045AD4E /* MainContainerViewModel.swift */; };
+		39B109BF2B8746D50045AD4E /* MainContainerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109BE2B8746D50045AD4E /* MainContainerViewState.swift */; };
+		39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */; };
+		39B109C52B8755BD0045AD4E /* MainScreenRootViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109C42B8755BD0045AD4E /* MainScreenRootViewComponents.swift */; };
+		39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109C62B875CDD0045AD4E /* MainContainerViewComponents.swift */; };
+		39B109C92B876D2E0045AD4E /* ScrollableBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109C82B876D2E0045AD4E /* ScrollableBaseView.swift */; };
+		39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109EA2B88B4390045AD4E /* Divider.swift */; };
+		39B109ED2B88B6360045AD4E /* InfoWithTwoSides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109EC2B88B6360045AD4E /* InfoWithTwoSides.swift */; };
+		39B109F12B88C0B80045AD4E /* SendMessageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F02B88C0B80045AD4E /* SendMessageFieldView.swift */; };
+		39B109F32B88D54E0045AD4E /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F22B88D54E0045AD4E /* CommentsView.swift */; };
+		39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F52B88D7DC0045AD4E /* CommentTableViewCell.swift */; };
+		39B109F82B88E3B20045AD4E /* EmptyCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */; };
 		39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCF92B8347A80092A46E /* APIManager.swift */; };
 		39CBCCFD2B8347A80092A46E /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFA2B8347A80092A46E /* APIResponse.swift */; };
 		39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */; };
@@ -135,6 +157,10 @@
 
 /* Begin PBXFileReference section */
 		245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3938FE4B2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cells+ext.swift"; sourceTree = "<group>"; };
+		3938FE4F2B86146100EC26E7 /* SelectCatergorySegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatergorySegmentView.swift; sourceTree = "<group>"; };
+		3938FE512B8617D600EC26E7 /* PostsTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableviewCell.swift; sourceTree = "<group>"; };
 		393D79DC2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMSGToEmailViewController.swift; sourceTree = "<group>"; };
 		393D79DE2B8072B20019F9F9 /* SendMSGToEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMSGToEmailViewModel.swift; sourceTree = "<group>"; };
 		393D79E02B8072F60019F9F9 /* SendMSGToEmailRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMSGToEmailRootView.swift; sourceTree = "<group>"; };
@@ -237,6 +263,24 @@
 		394C05952B7F533A0045277E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		394C05982B7F56490045277E /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		394C059A2B7F99A30045277E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
+		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
+		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
+		39B109B42B8737630045AD4E /* PostDetailScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenViewController.swift; sourceTree = "<group>"; };
+		39B109B52B8737630045AD4E /* PostDetailScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenViewModel.swift; sourceTree = "<group>"; };
+		39B109BA2B87463D0045AD4E /* MainContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
+		39B109BC2B8746830045AD4E /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
+		39B109BE2B8746D50045AD4E /* MainContainerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewState.swift; sourceTree = "<group>"; };
+		39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToPostDetailsNavigator.swift; sourceTree = "<group>"; };
+		39B109C42B8755BD0045AD4E /* MainScreenRootViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRootViewComponents.swift; sourceTree = "<group>"; };
+		39B109C62B875CDD0045AD4E /* MainContainerViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewComponents.swift; sourceTree = "<group>"; };
+		39B109C82B876D2E0045AD4E /* ScrollableBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBaseView.swift; sourceTree = "<group>"; };
+		39B109EA2B88B4390045AD4E /* Divider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		39B109EC2B88B6360045AD4E /* InfoWithTwoSides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoWithTwoSides.swift; sourceTree = "<group>"; };
+		39B109F02B88C0B80045AD4E /* SendMessageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageFieldView.swift; sourceTree = "<group>"; };
+		39B109F22B88D54E0045AD4E /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		39B109F52B88D7DC0045AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCommentsCell.swift; sourceTree = "<group>"; };
 		39CBCCF92B8347A80092A46E /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		39CBCCFA2B8347A80092A46E /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
@@ -634,6 +678,7 @@
 				394C053B2B7E2F500045277E /* BaseNavigationController.swift */,
 				394C053D2B7E2F570045277E /* BaseViewController.swift */,
 				394C053F2B7E2F5C0045277E /* BaseView.swift */,
+				39B109C82B876D2E0045AD4E /* ScrollableBaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -673,6 +718,8 @@
 				394C05892B7F33C60045277E /* UIStackView.swift */,
 				394C058B2B7F37880045277E /* String.swift */,
 				394C05932B7F4FCD0045277E /* UITextField+ext.swift */,
+				3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */,
+				39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -710,6 +757,7 @@
 		394C057D2B7F18920045277E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39B109F42B88D7C90045AD4E /* Cells */,
 				393D79FE2B809E800019F9F9 /* ComponentsContainer */,
 				394C05842B7F297B0045277E /* Components */,
 				39F96E222B83AC64008DA869 /* CustomViews */,
@@ -720,6 +768,7 @@
 		394C05842B7F297B0045277E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				39B109EA2B88B4390045AD4E /* Divider.swift */,
 				394C05792B7E5B160045277E /* PrimaryButton.swift */,
 				394C057B2B7E5BFC0045277E /* SecondaryButton.swift */,
 				394C057E2B7F18CA0045277E /* PrimaryTextfield.swift */,
@@ -736,6 +785,47 @@
 				394C05982B7F56490045277E /* AuthErrors.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		39B109B22B87373B0045AD4E /* PostDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				39B109B52B8737630045AD4E /* PostDetailScreenViewModel.swift */,
+				39B109B42B8737630045AD4E /* PostDetailScreenViewController.swift */,
+				39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */,
+			);
+			path = PostDetailVC;
+			sourceTree = "<group>";
+		};
+		39B109B92B87455F0045AD4E /* MainScreenContainer */ = {
+			isa = PBXGroup;
+			children = (
+				39B109C02B8747AB0045AD4E /* Navigations */,
+				39CBCD1E2B83569F0092A46E /* MainScreenVC */,
+				39B109B22B87373B0045AD4E /* PostDetailVC */,
+				39B109BA2B87463D0045AD4E /* MainContainerViewController.swift */,
+				39B109BC2B8746830045AD4E /* MainContainerViewModel.swift */,
+				39B109BE2B8746D50045AD4E /* MainContainerViewState.swift */,
+				39B109C62B875CDD0045AD4E /* MainContainerViewComponents.swift */,
+			);
+			path = MainScreenContainer;
+			sourceTree = "<group>";
+		};
+		39B109C02B8747AB0045AD4E /* Navigations */ = {
+			isa = PBXGroup;
+			children = (
+				39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */,
+			);
+			path = Navigations;
+			sourceTree = "<group>";
+		};
+		39B109F42B88D7C90045AD4E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				39B109F52B88D7DC0045AD4E /* CommentTableViewCell.swift */,
+				39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		39CBCD072B8347CA0092A46E /* Mappers */ = {
@@ -818,7 +908,7 @@
 		39CBCD1D2B83568E0092A46E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				39CBCD1E2B83569F0092A46E /* MainScreenVC */,
+				39B109B92B87455F0045AD4E /* MainScreenContainer */,
 				39CBCD1F2B8356B90092A46E /* AddPostVC */,
 				39CBCD202B8356C60092A46E /* ProfileVC */,
 			);
@@ -833,6 +923,7 @@
 				39CBCD232B8356F60092A46E /* MainScreenViewModel.swift */,
 				39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */,
 				39CBCD252B8357030092A46E /* MainScreenRootView.swift */,
+				39B109C42B8755BD0045AD4E /* MainScreenRootViewComponents.swift */,
 			);
 			path = MainScreenVC;
 			sourceTree = "<group>";
@@ -863,6 +954,9 @@
 				394C05872B7F2D0E0045277E /* TextFieldErrorView.swift */,
 				394C059A2B7F99A30045277E /* ErrorView.swift */,
 				393D79F42B808B080019F9F9 /* OTPView.swift */,
+				39B109EC2B88B6360045AD4E /* InfoWithTwoSides.swift */,
+				39B109F02B88C0B80045AD4E /* SendMessageFieldView.swift */,
+				39B109F22B88D54E0045AD4E /* CommentsView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -870,6 +964,9 @@
 		39F96E232B83AC97008DA869 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3938FE4B2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift */,
+				3938FE512B8617D600EC26E7 /* PostsTableviewCell.swift */,
+				39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -878,6 +975,7 @@
 			isa = PBXGroup;
 			children = (
 				39F96E252B83ACA8008DA869 /* HeaderView.swift */,
+				3938FE4F2B86146100EC26E7 /* SelectCatergorySegmentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1035,6 +1133,7 @@
 			files = (
 				394C05992B7F56490045277E /* AuthErrors.swift in Sources */,
 				39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */,
+				3938FE522B8617D600EC26E7 /* PostsTableviewCell.swift in Sources */,
 				393D7A1E2B80CA0F0019F9F9 /* UserSessionCoding.swift in Sources */,
 				393D7A302B80CA9E0019F9F9 /* AuthRemoteAPI.swift in Sources */,
 				394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */,
@@ -1044,13 +1143,16 @@
 				394C05592B7E35BF0045277E /* MainViewState.swift in Sources */,
 				39CBCCFD2B8347A80092A46E /* APIResponse.swift in Sources */,
 				394C05552B7E35AD0045277E /* MainViewController.swift in Sources */,
+				39B109C92B876D2E0045AD4E /* ScrollableBaseView.swift in Sources */,
 				393D79EB2B8073350019F9F9 /* CreateNewPasswordViewModel.swift in Sources */,
 				39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */,
 				39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */,
 				394C059B2B7F99A30045277E /* ErrorView.swift in Sources */,
 				394C054C2B7E332A0045277E /* SignInRootView.swift in Sources */,
 				394C05902B7F47E30045277E /* InputField.swift in Sources */,
+				39B109F32B88D54E0045AD4E /* CommentsView.swift in Sources */,
 				39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */,
+				3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */,
 				394C054A2B7E332A0045277E /* SignInViewController.swift in Sources */,
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */,
@@ -1062,11 +1164,14 @@
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
+				39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */,
 				394C05452B7E331E0045277E /* WelcomeViewController.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
+				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
+				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
 				394C05402B7E2F5C0045277E /* BaseView.swift in Sources */,
 				39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */,
@@ -1076,27 +1181,35 @@
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
 				393D7A172B80C9A00019F9F9 /* Keychain.swift in Sources */,
+				39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */,
 				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
+				39B109BF2B8746D50045AD4E /* MainContainerViewState.swift in Sources */,
 				39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */,
 				393D7A112B80C9700019F9F9 /* UserSessionDataStore.swift in Sources */,
+				39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
 				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
 				394C055C2B7E36FF0045277E /* SignedInResponder.swift in Sources */,
 				394C04FD2B7E1F2A0045277E /* SignedInViewModel.swift in Sources */,
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
 				394C05602B7E37A40045277E /* OnboardingViewController.swift in Sources */,
+				39B109B82B8737630045AD4E /* PostDetailScreenViewModel.swift in Sources */,
 				393D79ED2B8073350019F9F9 /* CreateNewPasswordRootView.swift in Sources */,
 				394C05512B7E33360045277E /* SignUpRootView.swift in Sources */,
 				39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */,
 				393D79FB2B809D890019F9F9 /* SignInViewComponents.swift in Sources */,
 				393D79F92B809BE20019F9F9 /* LabelsContainer.swift in Sources */,
 				393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */,
+				3938FE502B86146100EC26E7 /* SelectCatergorySegmentView.swift in Sources */,
 				394C05642B7E37B70045277E /* SignedInViewController.swift in Sources */,
+				39B109C52B8755BD0045AD4E /* MainScreenRootViewComponents.swift in Sources */,
 				393D7A042B80A1A80019F9F9 /* SendMSGToEmailViewComponents.swift in Sources */,
 				394C057A2B7E5B160045277E /* PrimaryButton.swift in Sources */,
 				394C056A2B7E4EB00045277E /* UIViewController+ext.swift in Sources */,
+				39B109ED2B88B6360045AD4E /* InfoWithTwoSides.swift in Sources */,
+				39B109B72B8737630045AD4E /* PostDetailScreenViewController.swift in Sources */,
 				393D7A1B2B80C9C50019F9F9 /* UserSessionRepository.swift in Sources */,
 				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
 				393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */,
@@ -1106,7 +1219,9 @@
 				394C05832B7F25790045277E /* UITextField.swift in Sources */,
 				394C05372B7E2EF60045277E /* LaunchRootView.swift in Sources */,
 				394C05392B7E2EFB0045277E /* LaunchViewModel.swift in Sources */,
+				39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */,
 				393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */,
+				39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */,
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
@@ -1114,12 +1229,14 @@
 				394C053E2B7E2F570045277E /* BaseViewController.swift in Sources */,
 				39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */,
 				39CBCD2A2B83571D0092A46E /* AddPostScreenViewModel.swift in Sources */,
+				39B109F82B88E3B20045AD4E /* EmptyCommentsCell.swift in Sources */,
 				39CBCD282B8357150092A46E /* AddPostScreenViewController.swift in Sources */,
 				39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,
 				394C05882B7F2D0E0045277E /* TextFieldErrorView.swift in Sources */,
 				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
+				39B109F12B88C0B80045AD4E /* SendMessageFieldView.swift in Sources */,
 				393D7A002B809FEB0019F9F9 /* StackContainer.swift in Sources */,
 				39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */,
 				394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */,
@@ -1128,12 +1245,15 @@
 				394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */,
 				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
 				394C05522B7E33360045277E /* SignUpViewController.swift in Sources */,
+				39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */,
 				39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */,
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
 				39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */,
+				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,
+				3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */,
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
 				394C054B2B7E332A0045277E /* SignInViewModel.swift in Sources */,
 				39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */,

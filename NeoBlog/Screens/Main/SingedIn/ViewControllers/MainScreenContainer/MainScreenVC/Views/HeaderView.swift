@@ -14,7 +14,7 @@ class HeaderView: BaseView {
     private let searchButton = makeSearchButton()
     
     private let cancelButton = makeCancelButton()
-    private let searchBarWithFilter = makeSearchBarWithFilter()
+    let searchBarWithFilter = makeSearchBarWithFilter()
     private let hStack = makeStack()
     
     //MARK: Methods
@@ -34,22 +34,8 @@ class HeaderView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        //titleLabel.text = ""
-        //cancelButton.setTitle("Отмена", for: .normal)
-        
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
-        
-        searchBarWithFilter.leftButtonClicked = leftButtonClicked
-        searchBarWithFilter.rightButtonClicked = rightButtonClicked
-    }
-    
-    func leftButtonClicked () {
-        print("Search Clicked")
-    }
-    
-    func rightButtonClicked () {
-        print("Filter Clicked")
     }
     
     @objc private func searchButtonTapped() {
