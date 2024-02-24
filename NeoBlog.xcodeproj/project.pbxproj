@@ -51,7 +51,6 @@
 		393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A612B80D1560019F9F9 /* Secrets.swift */; };
 		394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04F82B7E1F2A0045277E /* AppDelegate.swift */; };
 		394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */; };
-		394C04FD2B7E1F2A0045277E /* SignedInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FC2B7E1F2A0045277E /* SignedInViewModel.swift */; };
 		394C05022B7E1F2B0045277E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C05012B7E1F2B0045277E /* Assets.xcassets */; };
 		394C05052B7E1F2B0045277E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C05032B7E1F2B0045277E /* LaunchScreen.storyboard */; };
 		394C05122B7E21C90045277E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05112B7E21C90045277E /* R.generated.swift */; };
@@ -89,7 +88,6 @@
 		394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C055D2B7E37090045277E /* NotSignedInResponder.swift */; };
 		394C05602B7E37A40045277E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C055F2B7E37A40045277E /* OnboardingViewController.swift */; };
 		394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05612B7E37AC0045277E /* OnboardingViewModel.swift */; };
-		394C05642B7E37B70045277E /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05632B7E37B70045277E /* SignedInViewController.swift */; };
 		394C05682B7E4E870045277E /* UIViewController+ErrorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05672B7E4E870045277E /* UIViewController+ErrorExt.swift */; };
 		394C056A2B7E4EB00045277E /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05692B7E4EB00045277E /* UIViewController+ext.swift */; };
 		394C056C2B7E4F0F0045277E /* Optional+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C056B2B7E4F0F0045277E /* Optional+ext.swift */; };
@@ -129,6 +127,8 @@
 		39B109F32B88D54E0045AD4E /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F22B88D54E0045AD4E /* CommentsView.swift */; };
 		39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F52B88D7DC0045AD4E /* CommentTableViewCell.swift */; };
 		39B109F82B88E3B20045AD4E /* EmptyCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */; };
+		39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */; };
+		39B109FE2B88F5020045AD4E /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109FD2B88F5020045AD4E /* RadioButton.swift */; };
 		39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCF92B8347A80092A46E /* APIManager.swift */; };
 		39CBCCFD2B8347A80092A46E /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFA2B8347A80092A46E /* APIResponse.swift */; };
 		39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */; };
@@ -202,7 +202,6 @@
 		394C04F52B7E1F2A0045277E /* NeoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F82B7E1F2A0045277E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		394C04FC2B7E1F2A0045277E /* SignedInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewModel.swift; sourceTree = "<group>"; };
 		394C05012B7E1F2B0045277E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		394C05042B7E1F2B0045277E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		394C05062B7E1F2B0045277E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,7 +240,6 @@
 		394C055D2B7E37090045277E /* NotSignedInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSignedInResponder.swift; sourceTree = "<group>"; };
 		394C055F2B7E37A40045277E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		394C05612B7E37AC0045277E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		394C05632B7E37B70045277E /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		394C05672B7E4E870045277E /* UIViewController+ErrorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorExt.swift"; sourceTree = "<group>"; };
 		394C05692B7E4EB00045277E /* UIViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
 		394C056B2B7E4F0F0045277E /* Optional+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+ext.swift"; sourceTree = "<group>"; };
@@ -281,6 +279,8 @@
 		39B109F22B88D54E0045AD4E /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		39B109F52B88D7DC0045AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCommentsCell.swift; sourceTree = "<group>"; };
+		39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByDateSheet.swift; sourceTree = "<group>"; };
+		39B109FD2B88F5020045AD4E /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		39CBCCF92B8347A80092A46E /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		39CBCCFA2B8347A80092A46E /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		39CBCCFB2B8347A80092A46E /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
@@ -623,8 +623,6 @@
 			isa = PBXGroup;
 			children = (
 				39CBCD1D2B83568E0092A46E /* ViewControllers */,
-				394C04FC2B7E1F2A0045277E /* SignedInViewModel.swift */,
-				394C05632B7E37B70045277E /* SignedInViewController.swift */,
 				39CBCD1B2B8356040092A46E /* TabBarController.swift */,
 			);
 			path = SingedIn;
@@ -686,15 +684,14 @@
 		394C05532B7E354E0045277E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				39B109F92B88F3770045AD4E /* MainControlView */,
 				394C05972B7F563E0045277E /* Errors */,
 				394C05742B7E549E0045277E /* Reusables */,
 				394C055A2B7E36EC0045277E /* Responders */,
 				394C05302B7E2E820045277E /* Launch */,
 				394C052E2B7E2E250045277E /* Onboarding */,
 				394C052F2B7E2E2C0045277E /* SingedIn */,
-				394C05542B7E35AD0045277E /* MainViewController.swift */,
-				394C05562B7E35B70045277E /* MainViewModel.swift */,
-				394C05582B7E35BF0045277E /* MainViewState.swift */,
+				39B109FA2B88F39C0045AD4E /* Sheets */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -775,6 +772,7 @@
 				394C058F2B7F47E30045277E /* InputField.swift */,
 				394C05912B7F4DD50045277E /* LabelWithPadding.swift */,
 				39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */,
+				39B109FD2B88F5020045AD4E /* RadioButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -826,6 +824,24 @@
 				39B109F72B88E3B20045AD4E /* EmptyCommentsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		39B109F92B88F3770045AD4E /* MainControlView */ = {
+			isa = PBXGroup;
+			children = (
+				394C05542B7E35AD0045277E /* MainViewController.swift */,
+				394C05562B7E35B70045277E /* MainViewModel.swift */,
+				394C05582B7E35BF0045277E /* MainViewState.swift */,
+			);
+			path = MainControlView;
+			sourceTree = "<group>";
+		};
+		39B109FA2B88F39C0045AD4E /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 		39CBCD072B8347CA0092A46E /* Mappers */ = {
@@ -1171,6 +1187,7 @@
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
+				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
 				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
 				394C05402B7E2F5C0045277E /* BaseView.swift in Sources */,
@@ -1191,8 +1208,8 @@
 				39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
 				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
+				39B109FE2B88F5020045AD4E /* RadioButton.swift in Sources */,
 				394C055C2B7E36FF0045277E /* SignedInResponder.swift in Sources */,
-				394C04FD2B7E1F2A0045277E /* SignedInViewModel.swift in Sources */,
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
 				394C05602B7E37A40045277E /* OnboardingViewController.swift in Sources */,
 				39B109B82B8737630045AD4E /* PostDetailScreenViewModel.swift in Sources */,
@@ -1203,7 +1220,6 @@
 				393D79F92B809BE20019F9F9 /* LabelsContainer.swift in Sources */,
 				393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */,
 				3938FE502B86146100EC26E7 /* SelectCatergorySegmentView.swift in Sources */,
-				394C05642B7E37B70045277E /* SignedInViewController.swift in Sources */,
 				39B109C52B8755BD0045AD4E /* MainScreenRootViewComponents.swift in Sources */,
 				393D7A042B80A1A80019F9F9 /* SendMSGToEmailViewComponents.swift in Sources */,
 				394C057A2B7E5B160045277E /* PrimaryButton.swift in Sources */,

@@ -50,16 +50,17 @@ class MainScreenRootView: BaseView {
         postsTableView.delegate = self
         postsTableView.dataSource = self
         
-        headerView.searchBarWithFilter.leftButtonClicked = leftButtonClicked
-        headerView.searchBarWithFilter.rightButtonClicked = rightButtonClicked
+        headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
+        headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
     }
     
-    func leftButtonClicked () {
+    func searchButtonClicked () {
         print("Search Clicked")
     }
     
-    func rightButtonClicked () {
+    func filterButtonClicked () {
         print("Filter Clicked")
+        viewModel.openFilterSheet()
     }
 }
 

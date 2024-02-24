@@ -8,6 +8,7 @@ target 'NeoBlog' do
   # Pods for NeoBlog
   pod 'R.swift'
   pod 'SnapKit'
+  pod 'PanModal', "~> 1.2.7"
   pod 'SwiftEntryKit', '2.0.0'
   pod 'VKPinCodeView'
   pod "PromiseKit", "~> 8"
