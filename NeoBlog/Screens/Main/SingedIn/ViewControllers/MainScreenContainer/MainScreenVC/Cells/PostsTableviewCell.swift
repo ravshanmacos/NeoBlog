@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PostsTableviewCellDelegate {
-    func savePost()
+    func savePost(_ saved: ((Bool)->Void))
     func openComments()
     func seeMore()
 }
@@ -70,8 +70,6 @@ class PostsTableviewCell: UITableViewCell {
     func setCategoryLabel(with text: String) {
         postCategoryLabel.text = text
     }
-    
-    
 }
 
 //MARK: Layout
@@ -140,8 +138,9 @@ private extension PostsTableviewCell {
 
 @objc private extension PostsTableviewCell {
     func saveBtnTapped(_ sender: UIButton) {
-        delegate?.savePost()
-        sender.isSelected.toggle()
+        delegate?.savePost({ saved in
+            sender.isSelected = saved
+        })
     }
     
     func openCommentsTapped() {

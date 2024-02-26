@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MainScreenRootView: BaseView {
-    
+class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
     //MARK: Properties
     private let headerView = makeHeader()
     private let selectCategorySegmentView = makeSelectCategorySegmentView()
@@ -62,6 +61,15 @@ class MainScreenRootView: BaseView {
         print("Filter Clicked")
         viewModel.openFilterSheet()
     }
+    
+    func savePost(_ saved: ((Bool) -> Void)) {
+        viewModel.openPostCollectionSheet()
+        saved(true)
+    }
+    
+    func openComments() {}
+    
+    func seeMore() {}
 }
 
 extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
@@ -72,6 +80,7 @@ extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = PostsTableviewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
+        cell.delegate = self
         cell.setUsername(with: "yamahaman")
         cell.setCreated(at: "14 дек в 21:00")
         cell.setCommentsCount(with: "2")

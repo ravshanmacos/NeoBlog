@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.8.1)
+  - IQKeyboardManagerSwift (7.0.1)
   - PanModal (1.2.7)
   - PromiseKit (8.1.1):
     - PromiseKit/CorePromise (= 8.1.1)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.8.1)
+  - IQKeyboardManagerSwift
   - PanModal (~> 1.2.7)
   - PromiseKit (~> 8)
   - R.swift
@@ -29,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - PanModal
     - PromiseKit
     - R.swift
@@ -39,6 +42,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  IQKeyboardManagerSwift: 7f6b1b1d1497855d2beea7f2f10ffcc6978525b1
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PromiseKit: d1be44b474e5acfa16adf007a1f49f104e10fead
   R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   VKPinCodeView: 8d711959a080fec9e6aac165f7225d55b54a24ae
 
-PODFILE CHECKSUM: 2eb54617fa600e57ab9627700d72e06556714539
+PODFILE CHECKSUM: abc2f7e252c3cf2658ddb74d2a4a963462710c45
 
 COCOAPODS: 1.14.3

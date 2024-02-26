@@ -8,23 +8,22 @@
 import Foundation
 import Combine
 
-enum MainScreenViewState {
-    case initial
-    case openSortByDateSheet
-    case openPostColllectionSheet
-}
-
 class MainScreenViewModel {
     
     //MARK: Properties
     
     private let goToPostDetailsNavigator: GoToPostDetailsNavigator
+    private let goToSortByDateNavigator: GoToSortByDateSheetNavigator
+    private let goToPostCollectionNavigator: GoToPostCollectionNavigator
     
     //MARK: Methods
-    @Published private(set) var mainScreenViewState: MainScreenViewState = .initial
     
-    init(goToPostDetailsNavigator: GoToPostDetailsNavigator) {
+    init(goToPostDetailsNavigator: GoToPostDetailsNavigator,
+         goToSortByDateNavigator: GoToSortByDateSheetNavigator,
+         goToPostCollectionNavigator: GoToPostCollectionNavigator) {
         self.goToPostDetailsNavigator = goToPostDetailsNavigator
+        self.goToSortByDateNavigator = goToSortByDateNavigator
+        self.goToPostCollectionNavigator = goToPostCollectionNavigator
     }
     
     func navigateToPostDetails(with postID: Int) {
@@ -33,10 +32,10 @@ class MainScreenViewModel {
     
     // Open sheets
     func openFilterSheet() {
-        mainScreenViewState = .openSortByDateSheet
+        goToSortByDateNavigator.navigateToSortByDateSheet()
     }
     
     func openPostCollectionSheet() {
-        mainScreenViewState = .openPostColllectionSheet
+        goToPostCollectionNavigator.navigateToPostCollection()
     }
 }

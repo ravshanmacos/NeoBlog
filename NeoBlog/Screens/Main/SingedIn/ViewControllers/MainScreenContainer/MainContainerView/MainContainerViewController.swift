@@ -11,6 +11,9 @@ import Combine
 protocol MainContainerViewControllerFactory {
     func makeMainScreenViewController() -> MainScreenViewController
     func makePostDetailsViewController() -> PostDetailScreenViewController
+    func makeSortByDateSheet() -> SortByDateSheet
+    func makePostCollectionSheet() -> PostCollectionSheet
+    func makeSortByPeriodViewController() -> SortByPeriodViewController
 }
 
 class MainContainerViewController: BaseNavigationController {
@@ -39,7 +42,6 @@ class MainContainerViewController: BaseNavigationController {
     func subscribe(to publisher: AnyPublisher<MainContainerNavigationAction, Never>) {
         publisher
             .receive(on: DispatchQueue.main)
-            .removeDuplicates()
             .sink { [weak self] action in
                 guard let strongSelf = self else { return }
                 strongSelf.respond(to: action)
@@ -57,10 +59,14 @@ class MainContainerViewController: BaseNavigationController {
     
     func present(view: MainContainerViewState) {
         switch view {
-        case .mainScreen:
-            presentMainScreenViewController()
-        case .postDetails:
-            presentPostDetailsScreenViewController()
+        case .mainScreen: presentMainScreenViewController()
+        case .openSortByDateSheet: presentSortByDateSheet()
+        case .openMakeNewPeriod: presentMakeNewPeriod()
+        case .openPostColllectionSheet: presentPostCollectionSheet()
+        case .postDetails: presentPostDetailsScreenViewController()
+        case .dismissSheet: dissmissSheet()
+        case .popCurrent: popCurrent()
+        case .popToMainScreen: popToCurrent()
         }
     }
     
@@ -69,10 +75,42 @@ class MainContainerViewController: BaseNavigationController {
         pushViewController(mainVC, animated: true)
     }
     
+    private func presentSortByDateSheet() {
+        let sortByDateSheet = factory.makeSortByDateSheet()
+        presentPanModal(sortByDateSheet)
+    }
+    
+    private func presentMakeNewPeriod() {
+        dismiss(animated: true) {[weak self] in
+            guard let self else { return }
+            let newPeriodVC = self.factory.makeSortByPeriodViewController()
+            pushViewController(newPeriodVC, animated: true)
+        }
+    }
+    
+    private func presentPostCollectionSheet() {
+        let postCollectionSheet = factory.makePostCollectionSheet()
+        presentPanModal(postCollectionSheet)
+    }
+    
     private func presentPostDetailsScreenViewController() {
         let postDetailsVC = factory.makePostDetailsViewController()
         tabBarController?.tabBar.isHidden = true
         pushViewController(postDetailsVC, animated: true)
+    }
+    
+    private func dissmissSheet() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss(animated: true)
+        }
+    }
+    
+    private func popCurrent() {
+        popViewController(animated: true)
+    }
+    
+    private func popToCurrent() {
+        popToRootViewController(animated: true)
     }
 }
 
@@ -84,6 +122,7 @@ extension MainContainerViewController {
             hideNavigationBar(animated: animated)
         } else {
             showNavigationBar(animated: animated)
+            tabBarController?.tabBar.isHidden = true
         }
     }
     
@@ -127,6 +166,8 @@ extension MainContainerViewController {
         switch viewController {
         case is MainScreenViewController:
             return .mainScreen
+        case is SortByPeriodViewController:
+            return .openMakeNewPeriod
         case is PostDetailScreenViewController:
             return .postDetails
         default:

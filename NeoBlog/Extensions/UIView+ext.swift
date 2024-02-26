@@ -17,6 +17,14 @@ extension UIView {
         views.forEach { addSubview($0) }
     }
     
+    /**
+     Magically computes and sets an ideal corner radius.
+     */
+    func magicallySetCornerRadius() {
+        layer.cornerRadius = 0.188 * min(frame.width, frame.height)
+        layer.masksToBounds = true
+    }
+    
     //Alerts
     func showAlert(image: UIImage = R.image.errorCircle()!, color: UIColor = R.color.red_color_1()!, subtitle:String) {
         let errorView = ErrorView(image: image, subtitle: subtitle, color: color)

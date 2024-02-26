@@ -49,6 +49,24 @@
 		393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */; };
 		393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */; };
 		393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A612B80D1560019F9F9 /* Secrets.swift */; };
+		3940977C2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */; };
+		3940977E2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */; };
+		394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097802B89AFA900629937 /* SortByDateSelectedResponder.swift */; };
+		394097842B89B24400629937 /* SortByPeriodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097832B89B24400629937 /* SortByPeriodViewModel.swift */; };
+		394097862B89B25200629937 /* SortByPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097852B89B25200629937 /* SortByPeriodViewController.swift */; };
+		394097882B89B26300629937 /* SortByPeriodRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097872B89B26300629937 /* SortByPeriodRootView.swift */; };
+		3940978A2B89B7EC00629937 /* NewPeriodCreatedResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097892B89B7EC00629937 /* NewPeriodCreatedResponder.swift */; };
+		3940978C2B89CA0000629937 /* ChooseDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940978B2B89CA0000629937 /* ChooseDateViewController.swift */; };
+		394097912B89CAD500629937 /* ChooseDateRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097902B89CAD500629937 /* ChooseDateRootView.swift */; };
+		394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */; };
+		394097952B89D54E00629937 /* DateDidSelectedResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097942B89D54E00629937 /* DateDidSelectedResponder.swift */; };
+		394097972B8A2DC400629937 /* PostCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097962B8A2DC400629937 /* PostCollectionSheet.swift */; };
+		3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */; };
+		3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940979E2B8B536500629937 /* PostCollectionSheetComponents.swift */; };
+		394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A12B8B554700629937 /* OptionViewTableViewCell.swift */; };
+		394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */; };
+		394097A72B8BBBA900629937 /* PostCollectionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A62B8BBBA900629937 /* PostCollectionSheetViewModel.swift */; };
+		394097A92B8BBC9200629937 /* PostCollectionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A82B8BBC9200629937 /* PostCollectionRootView.swift */; };
 		394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04F82B7E1F2A0045277E /* AppDelegate.swift */; };
 		394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */; };
 		394C05022B7E1F2B0045277E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C05012B7E1F2B0045277E /* Assets.xcassets */; };
@@ -199,6 +217,24 @@
 		393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		393D7A612B80D1560019F9F9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSortByDateSheetNavigator.swift; sourceTree = "<group>"; };
+		3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToCreateNewPeriodNavigator.swift; sourceTree = "<group>"; };
+		394097802B89AFA900629937 /* SortByDateSelectedResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByDateSelectedResponder.swift; sourceTree = "<group>"; };
+		394097832B89B24400629937 /* SortByPeriodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByPeriodViewModel.swift; sourceTree = "<group>"; };
+		394097852B89B25200629937 /* SortByPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByPeriodViewController.swift; sourceTree = "<group>"; };
+		394097872B89B26300629937 /* SortByPeriodRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByPeriodRootView.swift; sourceTree = "<group>"; };
+		394097892B89B7EC00629937 /* NewPeriodCreatedResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPeriodCreatedResponder.swift; sourceTree = "<group>"; };
+		3940978B2B89CA0000629937 /* ChooseDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDateViewController.swift; sourceTree = "<group>"; };
+		394097902B89CAD500629937 /* ChooseDateRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDateRootView.swift; sourceTree = "<group>"; };
+		394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChooseDateNavigator.swift; sourceTree = "<group>"; };
+		394097942B89D54E00629937 /* DateDidSelectedResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDidSelectedResponder.swift; sourceTree = "<group>"; };
+		394097962B8A2DC400629937 /* PostCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheet.swift; sourceTree = "<group>"; };
+		3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToPostCollectionNavigator.swift; sourceTree = "<group>"; };
+		3940979E2B8B536500629937 /* PostCollectionSheetComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheetComponents.swift; sourceTree = "<group>"; };
+		394097A12B8B554700629937 /* OptionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewTableViewCell.swift; sourceTree = "<group>"; };
+		394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCollectionSheet.swift; sourceTree = "<group>"; };
+		394097A62B8BBBA900629937 /* PostCollectionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheetViewModel.swift; sourceTree = "<group>"; };
+		394097A82B8BBC9200629937 /* PostCollectionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionRootView.swift; sourceTree = "<group>"; };
 		394C04F52B7E1F2A0045277E /* NeoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F82B7E1F2A0045277E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -507,6 +543,65 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		3940977A2B89AC8100629937 /* MainContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				39B109BA2B87463D0045AD4E /* MainContainerViewController.swift */,
+				39B109BC2B8746830045AD4E /* MainContainerViewModel.swift */,
+				39B109BE2B8746D50045AD4E /* MainContainerViewState.swift */,
+				39B109C62B875CDD0045AD4E /* MainContainerViewComponents.swift */,
+			);
+			path = MainContainerView;
+			sourceTree = "<group>";
+		};
+		3940977F2B89AF8900629937 /* Responders */ = {
+			isa = PBXGroup;
+			children = (
+				394097802B89AFA900629937 /* SortByDateSelectedResponder.swift */,
+				394097892B89B7EC00629937 /* NewPeriodCreatedResponder.swift */,
+				394097942B89D54E00629937 /* DateDidSelectedResponder.swift */,
+			);
+			path = Responders;
+			sourceTree = "<group>";
+		};
+		394097822B89B22600629937 /* SortByPeriodVC */ = {
+			isa = PBXGroup;
+			children = (
+				394097832B89B24400629937 /* SortByPeriodViewModel.swift */,
+				394097852B89B25200629937 /* SortByPeriodViewController.swift */,
+				394097872B89B26300629937 /* SortByPeriodRootView.swift */,
+			);
+			path = SortByPeriodVC;
+			sourceTree = "<group>";
+		};
+		3940978D2B89CA0F00629937 /* ChooseDateVC */ = {
+			isa = PBXGroup;
+			children = (
+				3940978B2B89CA0000629937 /* ChooseDateViewController.swift */,
+				394097902B89CAD500629937 /* ChooseDateRootView.swift */,
+			);
+			path = ChooseDateVC;
+			sourceTree = "<group>";
+		};
+		394097A02B8B552800629937 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				394097A12B8B554700629937 /* OptionViewTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		394097A52B8BBAE600629937 /* PostCollectionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				394097A62B8BBBA900629937 /* PostCollectionSheetViewModel.swift */,
+				394097962B8A2DC400629937 /* PostCollectionSheet.swift */,
+				394097A82B8BBC9200629937 /* PostCollectionRootView.swift */,
+				3940979E2B8B536500629937 /* PostCollectionSheetComponents.swift */,
+			);
+			path = PostCollectionSheet;
+			sourceTree = "<group>";
+		};
 		394C04EC2B7E1F2A0045277E = {
 			isa = PBXGroup;
 			children = (
@@ -798,13 +893,13 @@
 		39B109B92B87455F0045AD4E /* MainScreenContainer */ = {
 			isa = PBXGroup;
 			children = (
+				3940977A2B89AC8100629937 /* MainContainerView */,
 				39B109C02B8747AB0045AD4E /* Navigations */,
+				3940977F2B89AF8900629937 /* Responders */,
 				39CBCD1E2B83569F0092A46E /* MainScreenVC */,
 				39B109B22B87373B0045AD4E /* PostDetailVC */,
-				39B109BA2B87463D0045AD4E /* MainContainerViewController.swift */,
-				39B109BC2B8746830045AD4E /* MainContainerViewModel.swift */,
-				39B109BE2B8746D50045AD4E /* MainContainerViewState.swift */,
-				39B109C62B875CDD0045AD4E /* MainContainerViewComponents.swift */,
+				394097822B89B22600629937 /* SortByPeriodVC */,
+				3940978D2B89CA0F00629937 /* ChooseDateVC */,
 			);
 			path = MainScreenContainer;
 			sourceTree = "<group>";
@@ -813,6 +908,10 @@
 			isa = PBXGroup;
 			children = (
 				39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */,
+				3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */,
+				3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */,
+				394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */,
+				3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -839,7 +938,10 @@
 		39B109FA2B88F39C0045AD4E /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				394097A52B8BBAE600629937 /* PostCollectionSheet */,
+				394097A02B8B552800629937 /* Cell */,
 				39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */,
+				394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -1152,6 +1254,7 @@
 				3938FE522B8617D600EC26E7 /* PostsTableviewCell.swift in Sources */,
 				393D7A1E2B80CA0F0019F9F9 /* UserSessionCoding.swift in Sources */,
 				393D7A302B80CA9E0019F9F9 /* AuthRemoteAPI.swift in Sources */,
+				394097972B8A2DC400629937 /* PostCollectionSheet.swift in Sources */,
 				394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */,
 				393D7A2C2B80CA680019F9F9 /* UserSession.swift in Sources */,
 				39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */,
@@ -1162,6 +1265,7 @@
 				39B109C92B876D2E0045AD4E /* ScrollableBaseView.swift in Sources */,
 				393D79EB2B8073350019F9F9 /* CreateNewPasswordViewModel.swift in Sources */,
 				39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */,
+				3940978C2B89CA0000629937 /* ChooseDateViewController.swift in Sources */,
 				39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */,
 				394C059B2B7F99A30045277E /* ErrorView.swift in Sources */,
 				394C054C2B7E332A0045277E /* SignInRootView.swift in Sources */,
@@ -1169,6 +1273,7 @@
 				39B109F32B88D54E0045AD4E /* CommentsView.swift in Sources */,
 				39CBCCFC2B8347A80092A46E /* APIManager.swift in Sources */,
 				3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */,
+				394097882B89B26300629937 /* SortByPeriodRootView.swift in Sources */,
 				394C054A2B7E332A0045277E /* SignInViewController.swift in Sources */,
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */,
@@ -1176,6 +1281,7 @@
 				393D79EC2B8073350019F9F9 /* CreateNewPasswordViewController.swift in Sources */,
 				393D79FD2B809E750019F9F9 /* ButtonsContainer.swift in Sources */,
 				393D79F12B807AF20019F9F9 /* GoToConfirmMSGNavigator.swift in Sources */,
+				394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */,
 				394C05502B7E33360045277E /* SignUpViewModel.swift in Sources */,
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
@@ -1190,6 +1296,7 @@
 				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
 				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
+				394097952B89D54E00629937 /* DateDidSelectedResponder.swift in Sources */,
 				394C05402B7E2F5C0045277E /* BaseView.swift in Sources */,
 				39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */,
 				39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */,
@@ -1198,7 +1305,9 @@
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
 				393D7A172B80C9A00019F9F9 /* Keychain.swift in Sources */,
+				394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */,
 				39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */,
+				394097842B89B24400629937 /* SortByPeriodViewModel.swift in Sources */,
 				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
@@ -1217,7 +1326,9 @@
 				394C05512B7E33360045277E /* SignUpRootView.swift in Sources */,
 				39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */,
 				393D79FB2B809D890019F9F9 /* SignInViewComponents.swift in Sources */,
+				3940977C2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift in Sources */,
 				393D79F92B809BE20019F9F9 /* LabelsContainer.swift in Sources */,
+				394097862B89B25200629937 /* SortByPeriodViewController.swift in Sources */,
 				393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */,
 				3938FE502B86146100EC26E7 /* SelectCatergorySegmentView.swift in Sources */,
 				39B109C52B8755BD0045AD4E /* MainScreenRootViewComponents.swift in Sources */,
@@ -1241,25 +1352,32 @@
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
+				3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */,
 				394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */,
 				394C053E2B7E2F570045277E /* BaseViewController.swift in Sources */,
 				39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */,
+				3940977E2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift in Sources */,
 				39CBCD2A2B83571D0092A46E /* AddPostScreenViewModel.swift in Sources */,
 				39B109F82B88E3B20045AD4E /* EmptyCommentsCell.swift in Sources */,
 				39CBCD282B8357150092A46E /* AddPostScreenViewController.swift in Sources */,
 				39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */,
+				394097A92B8BBC9200629937 /* PostCollectionRootView.swift in Sources */,
+				394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,
 				394C05882B7F2D0E0045277E /* TextFieldErrorView.swift in Sources */,
 				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
 				39B109F12B88C0B80045AD4E /* SendMessageFieldView.swift in Sources */,
 				393D7A002B809FEB0019F9F9 /* StackContainer.swift in Sources */,
+				394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */,
+				3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */,
 				39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */,
 				394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */,
 				394C05942B7F4FCD0045277E /* UITextField+ext.swift in Sources */,
 				394C053C2B7E2F500045277E /* BaseNavigationController.swift in Sources */,
 				394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */,
 				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
+				394097A72B8BBBA900629937 /* PostCollectionSheetViewModel.swift in Sources */,
 				394C05522B7E33360045277E /* SignUpViewController.swift in Sources */,
 				39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */,
 				39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */,
@@ -1268,6 +1386,7 @@
 				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
+				394097912B89CAD500629937 /* ChooseDateRootView.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,
 				3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */,
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
@@ -1277,6 +1396,7 @@
 				394C056C2B7E4F0F0045277E /* Optional+ext.swift in Sources */,
 				394C05962B7F533A0045277E /* Constants.swift in Sources */,
 				393D7A212B80CA330019F9F9 /* UserSessionPropertyListCoder.swift in Sources */,
+				3940978A2B89B7EC00629937 /* NewPeriodCreatedResponder.swift in Sources */,
 				393D7A022B80A0990019F9F9 /* SignUpViewComponents.swift in Sources */,
 				393D79DF2B8072B20019F9F9 /* SendMSGToEmailViewModel.swift in Sources */,
 				394C05572B7E35B70045277E /* MainViewModel.swift in Sources */,

@@ -61,16 +61,46 @@ class SignedInDepedencyContainer {
 
 //MARK: Post Details Screen
 extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDetailScreenViewModelFactory {
-    
     // Main Screen View Controller
     func makeMainScreenViewController() -> MainScreenViewController {
         return MainScreenViewController(viewModelFactory: self)
     }
     
     func makeMainScreenViewModel() -> MainScreenViewModel {
-        return MainScreenViewModel(goToPostDetailsNavigator: sharedMainContainerViewModel)
+        return MainScreenViewModel(goToPostDetailsNavigator: sharedMainContainerViewModel,
+                                   goToSortByDateNavigator: sharedMainContainerViewModel,
+                                   goToPostCollectionNavigator: sharedMainContainerViewModel)
     }
     
+    //Sort By Date Sheet
+    func makeSortByDateSheet() -> SortByDateSheet {
+        let sortByDateSheet = SortByDateSheet(sortByDateSelectedResponder: sharedMainContainerViewModel, createNewPeriodResponder: sharedMainContainerViewModel)
+        return sortByDateSheet
+    }
+    
+    //Post Collection Sheet
+    func makePostCollectionSheet() -> PostCollectionSheet {
+        return PostCollectionSheet(viewModelFactory: self)
+    }
+    func makePostCollectionViewModel() -> PostCollectionSheetViewModel {
+        return PostCollectionSheetViewModel()
+    }
+    
+    //Sort By Period View Controller
+    func makeSortByPeriodViewController() -> SortByPeriodViewController {
+        return SortByPeriodViewController(viewControllerFactory: self, viewModelFactory: self)
+    }
+    
+    func makeSortByPeriodViewModel() -> SortByPeriodViewModel {
+        return SortByPeriodViewModel(newPeriodCreatedResponder: sharedMainContainerViewModel, dateDidSelectedResponder: sharedMainContainerViewModel)
+    }
+    
+    //Choose Date
+    func makeChooseDateViewController(periodType: PeriodType) -> ChooseDateViewController {
+        return ChooseDateViewController(periodType: periodType)
+    }
+    
+    //Post Details
     func makePostDetailsViewController() -> PostDetailScreenViewController {
         return PostDetailScreenViewController(viewModelFactory: self)
     }
@@ -80,4 +110,4 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
 }
 
-extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewModelFactory, ProfileViewModelFactory {}
+extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewModelFactory, ProfileViewModelFactory, SortByPeriodViewModelFactory, SortByPeriodViewControllerFactory, PostCollectionViewModelFactory {}

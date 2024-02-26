@@ -27,4 +27,9 @@ class BaseViewController: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
       fatalError("Loading this view controller from a nib is unsupported in favor of initializer dependency injection.")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
 }

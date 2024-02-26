@@ -13,6 +13,7 @@ extension LabelsContainer {
         case large2
         case medium
         case medium2
+        case small
     }
 }
 
@@ -33,6 +34,7 @@ class LabelsContainer {
         case .large2: label.font = .systemFont(ofSize: 20, weight: .medium)
         case .medium: label.font = .systemFont(ofSize: 18, weight: .regular)
         case .medium2: label.font = .systemFont(ofSize: 16, weight: .regular)
+        case .small: label.font = .systemFont(ofSize: 14, weight: .regular)
         }
     }
 }

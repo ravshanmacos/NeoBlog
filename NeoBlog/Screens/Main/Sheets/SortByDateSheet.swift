@@ -14,18 +14,28 @@ class SortByDateSheet: BaseViewController {
     private let vStack = makeVStack()
     private let optionData = optionData()
     
+    private let sortByDateSelectedResponder: SortByDateSelectedResponder
+    private let createNewPeriodResponder: NewPeriodCreatedResponder
+    
     //MARK: Methods
-    override init() {
+    init(sortByDateSelectedResponder: SortByDateSelectedResponder,
+         createNewPeriodResponder: NewPeriodCreatedResponder) {
+        self.sortByDateSelectedResponder = sortByDateSelectedResponder
+        self.createNewPeriodResponder = createNewPeriodResponder
         super.init()
         setupSubviews()
         setupConstaints()
-        configureAppearance()
     }
     
     @objc func radioButtonSelected(_ sender: UIButton) {
         unSelectAllRadioButtons()
         sender.isSelected = true
-        print(sender.tag)
+        if sender.tag == 3 {
+            createNewPeriodResponder.newPeriodCreated()
+        } else {
+            sortByDateSelectedResponder.sortByDateDidSelected(with: sender.tag)
+        }
+        
     }
 }
 
@@ -52,10 +62,6 @@ private extension SortByDateSheet {
             make.top.equalTo(titleLabel.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
-    }
-    
-    func configureAppearance() {
-        view.backgroundColor = .white
     }
     
     func configureRadioButton(for view: UIView, with tag: Int) {
