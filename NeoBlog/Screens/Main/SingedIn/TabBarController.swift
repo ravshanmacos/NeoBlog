@@ -9,7 +9,7 @@ import UIKit
 
 enum Tabs: Int, CaseIterable {
     case firstTab
-    //case secondTab
+    case secondTab
     //case thirdTab
 }
 
@@ -17,15 +17,15 @@ class TabBarController: UITabBarController {
     
     //MARK: Properties
     private let mainContainerViewController: MainContainerViewController
-    private let addPostScreenViewController: AddPostScreenViewController
+    private let addPostContainerViewController: AddPostContainerViewController
     private let profileScreenViewController: ProfileScreenViewController
     
     //MARK: Methods
     init(mainContainerViewController: MainContainerViewController,
-         addPostScreenViewController: AddPostScreenViewController,
+         addPostContainerViewController: AddPostContainerViewController,
          profileScreenViewController: ProfileScreenViewController) {
         self.mainContainerViewController = mainContainerViewController
-        self.addPostScreenViewController = addPostScreenViewController
+        self.addPostContainerViewController = addPostContainerViewController
         self.profileScreenViewController = profileScreenViewController
         super.init(nibName: nil, bundle: nil)
         configureController()
@@ -50,7 +50,7 @@ class TabBarController: UITabBarController {
     private func getController(for tab: Tabs) -> BaseNavigationController {
         switch tab {
         case .firstTab: return mainContainerViewController
-        //case .secondTab: return addPostScreenViewController
+        case .secondTab: return addPostContainerViewController
         //case .thirdTab: return profileScreenViewController
         }
     }
@@ -63,5 +63,9 @@ class TabBarController: UITabBarController {
                 }
             }
         }
+    }
+    
+    func switchToTab(tab: Tabs) {
+        selectedIndex = tab.rawValue
     }
 }

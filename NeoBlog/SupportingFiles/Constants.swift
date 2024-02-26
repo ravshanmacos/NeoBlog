@@ -25,7 +25,7 @@ struct Constants {
             static func title(for tab: Tabs) -> String {
                 switch tab {
                 case .firstTab: return "Главная"
-                //case .secondTab: return "Создать пост"
+                case .secondTab: return "Создать пост"
                 //case .thirdTab: return "Профиль"
                 }
             }
@@ -37,7 +37,7 @@ struct Constants {
             static func imageActive(for tab: Tabs) -> UIImage? {
                 switch tab {
                 case .firstTab: return R.image.home_tab_active_icon()
-                //case .secondTab: return R.image.plus_tab_icon()
+                case .secondTab: return R.image.plus_tab_icon()
                 //case .thirdTab: return R.image.profile_tab_active_icon()
                 }
             }
@@ -45,7 +45,7 @@ struct Constants {
             static func image(for tab: Tabs) -> UIImage? {
                 switch tab {
                 case .firstTab: return R.image.home_tab_inactive_icon()
-                //case .secondTab: return R.image.plus_tab_icon()
+                case .secondTab: return R.image.plus_tab_icon()
                 //case .thirdTab: return R.image.profile_tab_inactive_icon()
                 }
             }

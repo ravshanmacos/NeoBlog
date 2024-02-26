@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -41,10 +42,44 @@
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bzR-wM-qZU">
+            <objects>
+                <viewController id="jYS-8Q-4Qw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ss5-bS-nVm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ipo-gP-9v7">
+                                <rect key="frame" x="92" y="383.33333333333331" width="209" height="85.333333333333314"/>
+                                <color key="backgroundColor" name="gray_color_4"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="upload_image_icon" imagePlacement="top" title="Загрузить фотографию" imagePadding="11"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qm8-Es-5pr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ipo-gP-9v7" firstAttribute="centerX" secondItem="Ss5-bS-nVm" secondAttribute="centerX" id="3t9-nV-Fh8"/>
+                            <constraint firstItem="Ipo-gP-9v7" firstAttribute="centerY" secondItem="Ss5-bS-nVm" secondAttribute="centerY" id="9H4-Gt-gG0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsc-fd-q0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="350"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="upload_image_icon" width="40" height="40"/>
         <namedColor name="blue_color_1">
             <color red="0.1803921568627451" green="0.44313725490196076" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="gray_color_4">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

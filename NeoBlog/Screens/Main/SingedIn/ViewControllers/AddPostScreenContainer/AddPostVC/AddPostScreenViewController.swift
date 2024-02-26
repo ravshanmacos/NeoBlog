@@ -16,7 +16,6 @@ class AddPostScreenViewController: BaseViewController {
     //MARK: Properties
     private let viewModelFactory: AddPostViewModelFactory
     private let viewModel: AddPostScreenViewModel
-    
     //MARK: Methods
     
     init(viewModelFactory: AddPostViewModelFactory) {

@@ -9,6 +9,7 @@ import UIKit
 
 extension PrimaryTextfield {
     enum PrimaryFieldType {
+        case normal(placeholder: String)
         case username
         case email
         case password
@@ -68,10 +69,15 @@ class PrimaryTextfield: UITextField {
 private extension PrimaryTextfield {
     func configureFieldType() {
         switch primaryFieldType {
+        case .normal(let placeholder): configureForNormal(placeholder: placeholder)
         case .username: configureForUserName()
         case .email: configureForEmail()
         case .password, .confirmPassword: configureForPassword()
         }
+    }
+    
+    func configureForNormal(placeholder: String) {
+        self.placeholder = placeholder
     }
     
     func configureForUserName() {
