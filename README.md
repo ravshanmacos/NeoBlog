@@ -1,5 +1,5 @@
-#NeoBlog
-##NeoBlog is a mobile application designed to inspire creativity and facilitate the exchange of ideas among users. Its key functionalities include:
+# NeoBlog
+## NeoBlog is a mobile application designed to inspire creativity and facilitate the exchange of ideas among users. Its key functionalities include:
 
 User Registration and Authentication:
 
