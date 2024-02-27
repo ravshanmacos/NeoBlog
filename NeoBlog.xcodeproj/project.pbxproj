@@ -131,6 +131,9 @@
 		394C059B2B7F99A30045277E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C059A2B7F99A30045277E /* ErrorView.swift */; };
 		39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */; };
 		39726C862B8DDA3000FCF225 /* AddPostScreenComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */; };
+		39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */; };
+		39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */; };
+		39726C8F2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
 		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
@@ -305,6 +308,9 @@
 		394C059A2B7F99A30045277E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenState.swift; sourceTree = "<group>"; };
 		39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenComponents.swift; sourceTree = "<group>"; };
+		39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
+		39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewState.swift; sourceTree = "<group>"; };
+		39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewModel.swift; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
 		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
@@ -897,6 +903,17 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		39726C872B8DDF3700FCF225 /* ProfileScreenContainer */ = {
+			isa = PBXGroup;
+			children = (
+				39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */,
+				39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */,
+				39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */,
+				39CBCD202B8356C60092A46E /* ProfileVC */,
+			);
+			path = ProfileScreenContainer;
+			sourceTree = "<group>";
+		};
 		39B109B22B87373B0045AD4E /* PostDetailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,7 +1062,7 @@
 			children = (
 				39B109B92B87455F0045AD4E /* MainScreenContainer */,
 				394097AA2B8C794300629937 /* AddPostScreenContainer */,
-				39CBCD202B8356C60092A46E /* ProfileVC */,
+				39726C872B8DDF3700FCF225 /* ProfileScreenContainer */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1304,6 +1321,7 @@
 				394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */,
 				394C05502B7E33360045277E /* SignUpViewModel.swift in Sources */,
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
+				39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
 				39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */,
@@ -1313,6 +1331,7 @@
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
+				39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */,
 				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
 				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
@@ -1405,6 +1424,7 @@
 				39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */,
 				39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */,
 				394097B52B8CA83100629937 /* UploadImageView.swift in Sources */,
+				39726C8F2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift in Sources */,
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
 				39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */,
 				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,

@@ -26,7 +26,7 @@ struct Constants {
                 switch tab {
                 case .firstTab: return "Главная"
                 case .secondTab: return "Создать пост"
-                //case .thirdTab: return "Профиль"
+                case .thirdTab: return "Профиль"
                 }
             }
         }
@@ -38,7 +38,7 @@ struct Constants {
                 switch tab {
                 case .firstTab: return R.image.home_tab_active_icon()
                 case .secondTab: return R.image.plus_tab_icon()
-                //case .thirdTab: return R.image.profile_tab_active_icon()
+                case .thirdTab: return R.image.profile_tab_active_icon()
                 }
             }
             
@@ -46,7 +46,7 @@ struct Constants {
                 switch tab {
                 case .firstTab: return R.image.home_tab_inactive_icon()
                 case .secondTab: return R.image.plus_tab_icon()
-                //case .thirdTab: return R.image.profile_tab_inactive_icon()
+                case .thirdTab: return R.image.profile_tab_inactive_icon()
                 }
             }
         }

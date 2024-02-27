@@ -10,7 +10,7 @@ import UIKit
 enum Tabs: Int, CaseIterable {
     case firstTab
     case secondTab
-    //case thirdTab
+    case thirdTab
 }
 
 class TabBarController: UITabBarController {
@@ -18,15 +18,15 @@ class TabBarController: UITabBarController {
     //MARK: Properties
     private let mainContainerViewController: MainContainerViewController
     private let addPostScreenViewController: AddPostScreenViewController
-    private let profileScreenViewController: ProfileScreenViewController
+    private let profileContainerViewController: ProfileContainerViewController
     
     //MARK: Methods
     init(mainContainerViewController: MainContainerViewController,
          addPostScreenViewController: AddPostScreenViewController,
-         profileScreenViewController: ProfileScreenViewController) {
+         profileContainerViewController: ProfileContainerViewController) {
         self.mainContainerViewController = mainContainerViewController
         self.addPostScreenViewController = addPostScreenViewController
-        self.profileScreenViewController = profileScreenViewController
+        self.profileContainerViewController = profileContainerViewController
         super.init(nibName: nil, bundle: nil)
         configureController()
         setTabbarAppearance()
@@ -52,7 +52,7 @@ class TabBarController: UITabBarController {
         switch tab {
         case .firstTab: return mainContainerViewController
         case .secondTab: return addPostScreenViewController
-        //case .thirdTab: return profileScreenViewController
+        case .thirdTab: return profileContainerViewController
         }
     }
     
