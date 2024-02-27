@@ -12,7 +12,6 @@ class SignedInDepedencyContainer {
     //MARK: Properties
     private let sharedMainViewModel: MainViewModel
     private let sharedMainContainerViewModel: MainContainerViewModel
-    private let sharedAddPostContainerViewModel: AddPostContainerViewModel
     //private let sharedUserSession: UserSession
     
     //MARK: Methods
@@ -22,33 +21,23 @@ class SignedInDepedencyContainer {
             return MainContainerViewModel()
         }
         
-        func makeAddPostContainerViewModel() -> AddPostContainerViewModel {
-            return AddPostContainerViewModel()
-        }
-        
         self.sharedMainViewModel = appDependencyContainer.sharedMainViewModel
         self.sharedMainContainerViewModel = makeMainContainerViewModel()
-        self.sharedAddPostContainerViewModel = makeAddPostContainerViewModel()
     }
     
     // TabBar Controller
     func makeTabBarController() -> TabBarController {
         let mainContainerVC = makeMainContainerViewController()
-        let addPostContainerVC = makeAddPostContainerViewController()
+        let addPostScreenVC = makeAddPostScreenViewController()
         let profileScreenVC = makeProfileScreenViewController()
         return TabBarController(mainContainerViewController: mainContainerVC,
-                                addPostContainerViewController: addPostContainerVC,
+                                addPostScreenViewController: addPostScreenVC,
                                 profileScreenViewController: profileScreenVC)
     }
     
     //MainContainerViewController
     func makeMainContainerViewController() -> MainContainerViewController {
         return MainContainerViewController(viewModel: sharedMainContainerViewModel, factory: self)
-    }
-    
-    // Add Post View Controller
-    func makeAddPostContainerViewController() -> AddPostContainerViewController {
-        return AddPostContainerViewController(viewModel: sharedAddPostContainerViewModel, viewControllerFactory: self)
     }
     
     // Pofile View Controller
@@ -115,13 +104,13 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
 extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewModelFactory, ProfileViewModelFactory, SortByPeriodViewModelFactory, SortByPeriodViewControllerFactory, PostCollectionViewModelFactory {}
 
 //MARK: Add Post Screen
-extension SignedInDepedencyContainer: AddPostContainerViewControllerFactory {
+extension SignedInDepedencyContainer {
     // Add Post Screen
     func makeAddPostScreenViewController() -> AddPostScreenViewController {
         return AddPostScreenViewController(viewModelFactory: self)
     }
     
     func makeAddPostViewModel() -> AddPostScreenViewModel {
-        return AddPostScreenViewModel(closeAddPostResponder: sharedAddPostContainerViewModel)
+        return AddPostScreenViewModel()
     }
 }

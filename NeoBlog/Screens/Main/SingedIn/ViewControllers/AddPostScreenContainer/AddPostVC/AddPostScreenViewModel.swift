@@ -10,14 +10,23 @@ import Foundation
 class AddPostScreenViewModel {
     
     //MARK: Properties
-    private let closeAddPostResponder: CloseAddPostScreenResponder
+    @Published private(set) var addPostScreenState: AddPostScreenState?
     
     //MARK: Methods
-    init(closeAddPostResponder: CloseAddPostScreenResponder) {
-        self.closeAddPostResponder = closeAddPostResponder
-    }
     
     @objc func closeBtnTapped() {
-        closeAddPostResponder.closeAddPostView()
+        addPostScreenState = .closeVC
+    }
+    
+    func chooseFromLibrary() {
+        addPostScreenState = .chooseFromLibrary
+    }
+    
+    func takePhotoOrVideo() {
+        addPostScreenState = .takePhotoOrVideo
+    }
+    
+    func chooseFile() {
+        addPostScreenState = .chooseFile
     }
 }

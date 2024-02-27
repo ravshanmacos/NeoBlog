@@ -17,15 +17,15 @@ class TabBarController: UITabBarController {
     
     //MARK: Properties
     private let mainContainerViewController: MainContainerViewController
-    private let addPostContainerViewController: AddPostContainerViewController
+    private let addPostScreenViewController: AddPostScreenViewController
     private let profileScreenViewController: ProfileScreenViewController
     
     //MARK: Methods
     init(mainContainerViewController: MainContainerViewController,
-         addPostContainerViewController: AddPostContainerViewController,
+         addPostScreenViewController: AddPostScreenViewController,
          profileScreenViewController: ProfileScreenViewController) {
         self.mainContainerViewController = mainContainerViewController
-        self.addPostContainerViewController = addPostContainerViewController
+        self.addPostScreenViewController = addPostScreenViewController
         self.profileScreenViewController = profileScreenViewController
         super.init(nibName: nil, bundle: nil)
         configureController()
@@ -37,6 +37,7 @@ class TabBarController: UITabBarController {
     }
     
     private func configureController() {
+        
         let controllers: [BaseNavigationController] = Tabs.allCases.map { tab in
             let controller = getController(for: tab)
             controller.tabBarItem.image = Constants.Images.TabBar.image(for: tab)
@@ -50,7 +51,7 @@ class TabBarController: UITabBarController {
     private func getController(for tab: Tabs) -> BaseNavigationController {
         switch tab {
         case .firstTab: return mainContainerViewController
-        case .secondTab: return addPostContainerViewController
+        case .secondTab: return addPostScreenViewController
         //case .thirdTab: return profileScreenViewController
         }
     }

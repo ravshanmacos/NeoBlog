@@ -15,28 +15,26 @@ class AddPostScreenRootView: ScrollableBaseView {
     private let collectionView = makeCollectionView()
     //Buttons
     private let closeButton = makeCloseViewButton()
-    private let uploadImageBtn = UploadImageView()
-    private let publishPostBtn: PrimaryButton = {
-        let button = PrimaryButton()
-        button.setTitle("Опубликовать", for: .normal)
-        return button
-    }()
-    
+    private let publishPostBtn = makePublisheButton()
     
     //Fields
     private let headingTextfield = makeHeadingTextfield()
     private let descriptionTextview = makeDescriptionTextview()
-    
     private let headerHStack = makeHeaderHStack()
     
-    private let categoryList = categoryList()
+    private let uploadImageViewWrapper = makeUploadImageViewWrapper()
+    var uploadImageView: UploadImageView?
+    var uploadedImageView: UploadedImageView?
+    
     private let reuseIdentifier = "categoryButtonCell"
+    private let categoryList = categoryList()
     private let viewModel: AddPostScreenViewModel
     
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: AddPostScreenViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        
     }
     
     override func setupSubviews() {
@@ -44,7 +42,8 @@ class AddPostScreenRootView: ScrollableBaseView {
         scrollViewContent.addSubviews(headerHStack, headingTextfield)
         headerHStack.addArrangedSubviews(closeButton, titleLabel)
         scrollViewContent.addSubviews(categoryLabel, collectionView, descriptionTextview)
-        scrollViewContent.addSubviews(uploadImageBtn, publishPostBtn)
+        scrollViewContent.addSubviews(uploadImageViewWrapper, publishPostBtn)
+        setUploadImageState()
     }
     
     override func setupConstraints() {
@@ -76,14 +75,14 @@ class AddPostScreenRootView: ScrollableBaseView {
             make.height.equalTo(300)
         }
         
-        uploadImageBtn.snp.makeConstraints { make in
+        uploadImageViewWrapper.snp.makeConstraints { make in
             make.top.equalTo(descriptionTextview.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(150)
         }
         
         publishPostBtn.snp.makeConstraints { make in
-            make.top.equalTo(uploadImageBtn.snp.bottom).offset(20)
+            make.top.equalTo(uploadImageViewWrapper.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
             make.bottom.equalToSuperview()
@@ -92,17 +91,50 @@ class AddPostScreenRootView: ScrollableBaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        backgroundColor = .red
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         descriptionTextview.delegate = self
-        
         closeButton.addTarget(viewModel, action: #selector(viewModel.closeBtnTapped), for: .touchUpInside)
     }
     
+    @objc func setUploadImageState() {
+        self.uploadImageViewWrapper.removeSubviews()
+        self.uploadedImageView = nil
+        self.uploadImageView = UploadImageView()
+        self.uploadImageViewWrapper.addArrangedSubviews(uploadImageView!)
+        self.uploadImageView!.uploadButton.addTarget(self, action: #selector(uploadImageBtnTapped), for: .touchUpInside)
+    }
     
+    func setUploadedImageState(with image: UIImage) {
+        uploadImageViewWrapper.removeSubviews()
+        self.uploadImageView = nil
+        self.uploadedImageView = UploadedImageView()
+        self.uploadedImageView!.imageView.image = image
+        uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
+        uploadedImageView!.closeButton.addTarget(self, action: #selector(setUploadImageState), for: .touchUpInside)
+    }
+    
+   
+    
+    @objc private func uploadImageBtnTapped(_ button: UIButton) {
+        let chooseFromLibraryAction = UIAction(title: "Медиатека") { action in
+            self.viewModel.chooseFromLibrary()
+        }
+        
+        let takPhotoOrVideoAction = UIAction(title: "Снять фото или видео") { action in
+            self.viewModel.takePhotoOrVideo()
+        }
+        
+        let ChooseFileAction = UIAction(title: "Выбор файлов") { action in
+            self.viewModel.chooseFile()
+        }
+        
+        let menu = UIMenu(children: [chooseFromLibraryAction, takPhotoOrVideoAction, ChooseFileAction])
+        button.menu = menu
+        button.showsMenuAsPrimaryAction = true
+    }
 }
 
 extension AddPostScreenRootView: UITextViewDelegate {
@@ -149,82 +181,5 @@ extension AddPostScreenRootView: UICollectionViewDataSource, UICollectionViewDel
         btn.setTitle(categoryList[indexPath.item].title, for: .normal)
         btn.sizeToFit()
         return .init(width: btn.frame.width + 10, height: btn.frame.height)
-    }
-}
-
-private extension AddPostScreenRootView {
-    
-    static func categoryList() -> [CategoryItem] {
-        let titles = ["Искусство", "IT", "Медицина", "Спорт", "Еда", "Животные", "Другое"]
-        let items = titles.map { CategoryItem(title: $0) }
-        items[0].active = true
-        return items
-    }
-    
-    //Labels
-    static func makeTitleLabel() -> UILabel {
-        let label = UILabel()
-        label.text = "Новый пост"
-        label.textColor = R.color.gray_color_1()
-        label.font = .systemFont(ofSize: 24, weight: .medium)
-        return label
-    }
-    
-    static func makeCategoryLabel() -> UILabel {
-        let label = UILabel()
-        label.text = "Категория:"
-        label.textColor = R.color.gray_color_1()
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        return label
-    }
-    
-    static func makeCollectionView() -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 10
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.isScrollEnabled = true
-        collectionView.showsHorizontalScrollIndicator = false
-        return collectionView
-    }
-    
-    //Inputfields
-    static func makeHeadingTextfield() -> PrimaryTextfield {
-        let textfield = PrimaryTextfield(fieldType: .normal(placeholder: "Заголовок"))
-        return textfield
-    }
-    
-    static func makeDescriptionTextview() -> UITextView {
-        let textview = UITextView()
-        textview.text = "Описание"
-        textview.textColor = R.color.gray_color_2()
-        textview.layer.cornerRadius = 10
-        textview.backgroundColor = R.color.gray_color_3()
-        textview.font = .systemFont(ofSize: 18, weight: .regular)
-        textview.contentInset = .init(top: 5, left: 5, bottom: 5, right: 5)
-        return textview
-    }
-    
-    //Buttons
-    static func makeCloseViewButton() -> UIButton {
-        let button = UIButton()
-        button.contentHorizontalAlignment = .left
-        button.setImage(R.image.close_icon(), for: .normal)
-        return button
-    }
-    
-    func makeCategoryButton() -> PrimaryButton2 {
-        let button = PrimaryButton2()
-        button.isUserInteractionEnabled = false
-        return button
-    }
-    
-    //Stacks
-    static func makeHeaderHStack() -> UIStackView {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        return stack
     }
 }

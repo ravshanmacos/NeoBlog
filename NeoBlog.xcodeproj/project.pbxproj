@@ -67,12 +67,8 @@
 		394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */; };
 		394097A72B8BBBA900629937 /* PostCollectionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A62B8BBBA900629937 /* PostCollectionSheetViewModel.swift */; };
 		394097A92B8BBC9200629937 /* PostCollectionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A82B8BBC9200629937 /* PostCollectionRootView.swift */; };
-		394097AD2B8C798A00629937 /* AddPostContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097AC2B8C798A00629937 /* AddPostContainerViewModel.swift */; };
-		394097AF2B8C799500629937 /* AddPostContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097AE2B8C799500629937 /* AddPostContainerViewController.swift */; };
-		394097B12B8C79A100629937 /* AddPostContainerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097B02B8C79A100629937 /* AddPostContainerViewState.swift */; };
 		394097B32B8C866700629937 /* PrimaryButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097B22B8C866700629937 /* PrimaryButton2.swift */; };
 		394097B52B8CA83100629937 /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097B42B8CA83100629937 /* UploadImageView.swift */; };
-		394097B82B8CB10E00629937 /* CloseAddPostScreenResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097B72B8CB10E00629937 /* CloseAddPostScreenResponder.swift */; };
 		394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04F82B7E1F2A0045277E /* AppDelegate.swift */; };
 		394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */; };
 		394C05022B7E1F2B0045277E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C05012B7E1F2B0045277E /* Assets.xcassets */; };
@@ -133,6 +129,8 @@
 		394C05962B7F533A0045277E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05952B7F533A0045277E /* Constants.swift */; };
 		394C05992B7F56490045277E /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05982B7F56490045277E /* AuthErrors.swift */; };
 		394C059B2B7F99A30045277E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C059A2B7F99A30045277E /* ErrorView.swift */; };
+		39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */; };
+		39726C862B8DDA3000FCF225 /* AddPostScreenComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
 		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
@@ -241,12 +239,8 @@
 		394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCollectionSheet.swift; sourceTree = "<group>"; };
 		394097A62B8BBBA900629937 /* PostCollectionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheetViewModel.swift; sourceTree = "<group>"; };
 		394097A82B8BBC9200629937 /* PostCollectionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionRootView.swift; sourceTree = "<group>"; };
-		394097AC2B8C798A00629937 /* AddPostContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContainerViewModel.swift; sourceTree = "<group>"; };
-		394097AE2B8C799500629937 /* AddPostContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContainerViewController.swift; sourceTree = "<group>"; };
-		394097B02B8C79A100629937 /* AddPostContainerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContainerViewState.swift; sourceTree = "<group>"; };
 		394097B22B8C866700629937 /* PrimaryButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton2.swift; sourceTree = "<group>"; };
 		394097B42B8CA83100629937 /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
-		394097B72B8CB10E00629937 /* CloseAddPostScreenResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseAddPostScreenResponder.swift; sourceTree = "<group>"; };
 		394C04F52B7E1F2A0045277E /* NeoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C04F82B7E1F2A0045277E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		394C04FA2B7E1F2A0045277E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +303,8 @@
 		394C05952B7F533A0045277E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		394C05982B7F56490045277E /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		394C059A2B7F99A30045277E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenState.swift; sourceTree = "<group>"; };
+		39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenComponents.swift; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
 		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
@@ -617,29 +613,9 @@
 		394097AA2B8C794300629937 /* AddPostScreenContainer */ = {
 			isa = PBXGroup;
 			children = (
-				394097B62B8CB0FD00629937 /* Responders */,
-				394097AB2B8C796F00629937 /* AddPostContainerView */,
 				39CBCD1F2B8356B90092A46E /* AddPostVC */,
 			);
 			path = AddPostScreenContainer;
-			sourceTree = "<group>";
-		};
-		394097AB2B8C796F00629937 /* AddPostContainerView */ = {
-			isa = PBXGroup;
-			children = (
-				394097AC2B8C798A00629937 /* AddPostContainerViewModel.swift */,
-				394097AE2B8C799500629937 /* AddPostContainerViewController.swift */,
-				394097B02B8C79A100629937 /* AddPostContainerViewState.swift */,
-			);
-			path = AddPostContainerView;
-			sourceTree = "<group>";
-		};
-		394097B62B8CB0FD00629937 /* Responders */ = {
-			isa = PBXGroup;
-			children = (
-				394097B72B8CB10E00629937 /* CloseAddPostScreenResponder.swift */,
-			);
-			path = Responders;
 			sourceTree = "<group>";
 		};
 		394C04EC2B7E1F2A0045277E = {
@@ -1093,6 +1069,8 @@
 				39CBCD292B83571D0092A46E /* AddPostScreenViewModel.swift */,
 				39CBCD272B8357150092A46E /* AddPostScreenViewController.swift */,
 				39CBCD2B2B83572B0092A46E /* AddPostScreenRootView.swift */,
+				39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */,
+				39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */,
 			);
 			path = AddPostVC;
 			sourceTree = "<group>";
@@ -1348,6 +1326,7 @@
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
 				393D7A172B80C9A00019F9F9 /* Keychain.swift in Sources */,
+				39726C862B8DDA3000FCF225 /* AddPostScreenComponents.swift in Sources */,
 				394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */,
 				39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */,
 				394097842B89B24400629937 /* SortByPeriodViewModel.swift in Sources */,
@@ -1360,7 +1339,6 @@
 				39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
 				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
-				394097AD2B8C798A00629937 /* AddPostContainerViewModel.swift in Sources */,
 				39B109FE2B88F5020045AD4E /* RadioButton.swift in Sources */,
 				394C055C2B7E36FF0045277E /* SignedInResponder.swift in Sources */,
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
@@ -1382,7 +1360,6 @@
 				39B109ED2B88B6360045AD4E /* InfoWithTwoSides.swift in Sources */,
 				39B109B72B8737630045AD4E /* PostDetailScreenViewController.swift in Sources */,
 				393D7A1B2B80C9C50019F9F9 /* UserSessionRepository.swift in Sources */,
-				394097AF2B8C799500629937 /* AddPostContainerViewController.swift in Sources */,
 				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
 				393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */,
 				394C057C2B7E5BFC0045277E /* SecondaryButton.swift in Sources */,
@@ -1395,6 +1372,7 @@
 				393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */,
 				39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */,
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
+				39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
 				3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */,
@@ -1430,13 +1408,11 @@
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
 				39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */,
 				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,
-				394097B82B8CB10E00629937 /* CloseAddPostScreenResponder.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
 				394097912B89CAD500629937 /* ChooseDateRootView.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,
 				3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */,
-				394097B12B8C79A100629937 /* AddPostContainerViewState.swift in Sources */,
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
 				394C054B2B7E332A0045277E /* SignInViewModel.swift in Sources */,
 				39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */,
@@ -1593,6 +1569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Q244YNG4J;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeoBlog/SupportingFiles/Info.plist;
@@ -1624,6 +1601,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Q244YNG4J;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeoBlog/SupportingFiles/Info.plist;
