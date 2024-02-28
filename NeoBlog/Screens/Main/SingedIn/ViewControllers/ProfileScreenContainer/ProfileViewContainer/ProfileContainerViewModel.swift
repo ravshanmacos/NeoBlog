@@ -15,14 +15,38 @@ class ProfileContainerViewModel {
     @Published private(set) var navigationAction: ProfileContainerNavigationAction = .present(view: .mainScreen)
     
     //MARK: Methods
-    
     func uiPresented(ProfileContainerViewState: ProfileContainerViewState) {
         navigationAction = .presented(view: ProfileContainerViewState)
     }
-}
-
-extension ProfileContainerViewModel {
     
 }
 
-extension ProfileContainerViewModel {}
+//MARK: Navigations
+extension ProfileContainerViewModel: GoToEditProfileSheetNavigator, GoToEditProfileVC, GoToChangeLoginAndEmailNavigator, GoToChangePasswordNavigator {
+    func navigateToEditProfileSheet() {
+        navigationAction = .present(view: .editProfile)
+    }
+    
+    func navigateToEditProfileVC() {
+        navigationAction = .present(view: .editProfileVC)
+    }
+    
+    func navigateToChangeLoginAndEmail() {
+        navigationAction = .present(view: .changeLoginAndEmail)
+    }
+    
+    func navigateToChangePassowrd() {
+        navigationAction = .present(view: .changePassword)
+    }
+}
+
+//MARK: Reponders
+extension ProfileContainerViewModel: LogoutResponder, DissmissViewResponder {
+    func logout() {
+        navigationAction = .present(view: .logout)
+    }
+    
+    func dissmissCurrentView() {
+        navigationAction = .present(view: .dissmissCurrentView)
+    }
+}

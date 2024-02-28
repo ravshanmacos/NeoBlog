@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol GoToEditProfileVC {
+    func navigateToEditProfileVC()
+}

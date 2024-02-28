@@ -8,21 +8,18 @@
 import UIKit
 import PanModal
 
-class TwoActionSheet: BaseViewController {
+class TwoActionSheet: BaseView {
     //MARK: Methods
     private let titleLabel = makeTitleLabel()
-    private let firstBtn = makeFirstButton()
-    private let secondBtn = makeSecondButton()
+    let firstBtn = makeButton()
+    let secondBtn = makeButton()
     private let vStack = makeVStack()
     
     //MARK: Properties
-    override init() {
-        super.init()
-        setupSubviews()
-    }
     
-    private func setupSubviews() {
-        view.addSubviews(titleLabel, vStack)
+    override func setupSubviews() {
+        super.setupSubviews()
+        contentView.addSubviews(titleLabel, vStack)
         vStack.addArrangedSubviews(firstBtn, secondBtn)
         
         titleLabel.snp.makeConstraints { make in
@@ -38,17 +35,8 @@ class TwoActionSheet: BaseViewController {
         firstBtn.snp.makeConstraints { $0.height.equalTo(50) }
     }
     
-    func configure(title: String, 
-                   firstBtnTitle: String,
-                   firstBtnImg: UIImage?, 
-                   secondBtnTitle: String,
-                   secondBtnImg: UIImage?) 
-    {
+    func configure(title: String) {
         self.titleLabel.text = title
-        self.firstBtn.setTitle(firstBtnTitle, for: .normal)
-        self.firstBtn.setImage(firstBtnImg, for: .normal)
-        self.secondBtn.setTitle(secondBtnTitle, for: .normal)
-        self.secondBtn.setImage(secondBtnImg, for: .normal)
     }
 }
 extension TwoActionSheet {
@@ -58,14 +46,9 @@ extension TwoActionSheet {
         return label
     }
     
-    static func makeFirstButton() -> UIButton {
+    static func makeButton() -> UIButton {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
-        return button
-    }
-    
-    static func makeSecondButton() -> UIButton {
-        let button = UIButton()
+        button.contentHorizontalAlignment = .left
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
         return button
     }
@@ -73,18 +56,8 @@ extension TwoActionSheet {
     static func makeVStack() -> UIStackView {
         let stack = UIStackView()
         stack.spacing = 15
-        stack.axis = .horizontal
+        stack.axis = .vertical
         stack.distribution = .fillEqually
         return stack
-    }
-}
-
-extension TwoActionSheet: PanModalPresentable {
-    var panScrollable: UIScrollView? {
-        return nil
-    }
-    
-    var shortFormHeight: PanModalHeight {
-        return .contentHeight(150)
     }
 }

@@ -134,6 +134,29 @@
 		39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */; };
 		39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */; };
 		39726C8F2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */; };
+		39726C912B8DE7C000FCF225 /* CustomSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C902B8DE7C000FCF225 /* CustomSegmentView.swift */; };
+		39726C932B8DF18A00FCF225 /* ProfileScreenComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C922B8DF18A00FCF225 /* ProfileScreenComponents.swift */; };
+		39726C952B8E174100FCF225 /* TwoActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C942B8E174100FCF225 /* TwoActionSheet.swift */; };
+		39726C992B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C982B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift */; };
+		39726C9B2B8E1CC100FCF225 /* EditProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C9A2B8E1CC100FCF225 /* EditProfileSheet.swift */; };
+		39726C9E2B8E21A800FCF225 /* LogoutResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C9D2B8E21A800FCF225 /* LogoutResponder.swift */; };
+		39726CA02B8E21D900FCF225 /* GoToEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C9F2B8E21D900FCF225 /* GoToEditProfileVC.swift */; };
+		39726CAA2B8EF13200FCF225 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CA92B8EF13200FCF225 /* EditProfileViewModel.swift */; };
+		39726CAC2B8EF13B00FCF225 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CAB2B8EF13B00FCF225 /* EditProfileViewController.swift */; };
+		39726CAE2B8EF14900FCF225 /* EditProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CAD2B8EF14900FCF225 /* EditProfileRootView.swift */; };
+		39726CB02B8F06EC00FCF225 /* RowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CAF2B8F06EC00FCF225 /* RowComponent.swift */; };
+		39726CB72B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CB32B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift */; };
+		39726CB82B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CB42B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift */; };
+		39726CB92B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CB52B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift */; };
+		39726CBA2B8F19F700FCF225 /* ChangeLoginAndEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CB62B8F19F700FCF225 /* ChangeLoginAndEmailViewModel.swift */; };
+		39726CBF2B8F1A9800FCF225 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CBB2B8F1A9800FCF225 /* ChangePasswordViewModel.swift */; };
+		39726CC02B8F1A9800FCF225 /* ChangePasswordRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CBC2B8F1A9800FCF225 /* ChangePasswordRootView.swift */; };
+		39726CC12B8F1A9800FCF225 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CBD2B8F1A9800FCF225 /* ChangePasswordViewController.swift */; };
+		39726CC22B8F1A9800FCF225 /* ChangePasswordComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CBE2B8F1A9800FCF225 /* ChangePasswordComponents.swift */; };
+		39726CC42B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC32B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift */; };
+		39726CC62B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */; };
+		39726CC82B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */; };
+		39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
 		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
@@ -311,6 +334,29 @@
 		39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
 		39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewState.swift; sourceTree = "<group>"; };
 		39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewModel.swift; sourceTree = "<group>"; };
+		39726C902B8DE7C000FCF225 /* CustomSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentView.swift; sourceTree = "<group>"; };
+		39726C922B8DF18A00FCF225 /* ProfileScreenComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenComponents.swift; sourceTree = "<group>"; };
+		39726C942B8E174100FCF225 /* TwoActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoActionSheet.swift; sourceTree = "<group>"; };
+		39726C982B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToEditProfileSheetNavigator.swift; sourceTree = "<group>"; };
+		39726C9A2B8E1CC100FCF225 /* EditProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileSheet.swift; sourceTree = "<group>"; };
+		39726C9D2B8E21A800FCF225 /* LogoutResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponder.swift; sourceTree = "<group>"; };
+		39726C9F2B8E21D900FCF225 /* GoToEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToEditProfileVC.swift; sourceTree = "<group>"; };
+		39726CA92B8EF13200FCF225 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		39726CAB2B8EF13B00FCF225 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		39726CAD2B8EF14900FCF225 /* EditProfileRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRootView.swift; sourceTree = "<group>"; };
+		39726CAF2B8F06EC00FCF225 /* RowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowComponent.swift; sourceTree = "<group>"; };
+		39726CB32B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLoginAndEmailRootView.swift; sourceTree = "<group>"; };
+		39726CB42B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLoginAndEmailViewController.swift; sourceTree = "<group>"; };
+		39726CB52B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLoginAndEmailComponents.swift; sourceTree = "<group>"; };
+		39726CB62B8F19F700FCF225 /* ChangeLoginAndEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLoginAndEmailViewModel.swift; sourceTree = "<group>"; };
+		39726CBB2B8F1A9800FCF225 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		39726CBC2B8F1A9800FCF225 /* ChangePasswordRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordRootView.swift; sourceTree = "<group>"; };
+		39726CBD2B8F1A9800FCF225 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		39726CBE2B8F1A9800FCF225 /* ChangePasswordComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordComponents.swift; sourceTree = "<group>"; };
+		39726CC32B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChangeLoginAndEmailNavigator.swift; sourceTree = "<group>"; };
+		39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChangePasswordNavigator.swift; sourceTree = "<group>"; };
+		39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopUpWithTwoActions.swift; sourceTree = "<group>"; };
+		39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissmissViewResponder.swift; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
 		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
@@ -891,6 +937,7 @@
 				394C05912B7F4DD50045277E /* LabelWithPadding.swift */,
 				39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */,
 				39B109FD2B88F5020045AD4E /* RadioButton.swift */,
+				39726CAF2B8F06EC00FCF225 /* RowComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -906,12 +953,77 @@
 		39726C872B8DDF3700FCF225 /* ProfileScreenContainer */ = {
 			isa = PBXGroup;
 			children = (
+				39726C962B8E1B9A00FCF225 /* ProfileViewContainer */,
+				39726C9C2B8E219C00FCF225 /* Responders */,
+				39726C972B8E1BF000FCF225 /* Navigation */,
+				39CBCD202B8356C60092A46E /* ProfileVC */,
+				39726CA82B8EF11D00FCF225 /* EditProfileVC */,
+				39726CB12B8F194B00FCF225 /* ChangeLogingAndEmail */,
+				39726CB22B8F195C00FCF225 /* ChangePassword */,
+			);
+			path = ProfileScreenContainer;
+			sourceTree = "<group>";
+		};
+		39726C962B8E1B9A00FCF225 /* ProfileViewContainer */ = {
+			isa = PBXGroup;
+			children = (
 				39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */,
 				39726C8B2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift */,
 				39726C8A2B8DDF6E00FCF225 /* ProfileContainerViewState.swift */,
-				39CBCD202B8356C60092A46E /* ProfileVC */,
 			);
-			path = ProfileScreenContainer;
+			path = ProfileViewContainer;
+			sourceTree = "<group>";
+		};
+		39726C972B8E1BF000FCF225 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				39726C982B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift */,
+				39726C9F2B8E21D900FCF225 /* GoToEditProfileVC.swift */,
+				39726CC32B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift */,
+				39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		39726C9C2B8E219C00FCF225 /* Responders */ = {
+			isa = PBXGroup;
+			children = (
+				39726C9D2B8E21A800FCF225 /* LogoutResponder.swift */,
+				39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */,
+			);
+			path = Responders;
+			sourceTree = "<group>";
+		};
+		39726CA82B8EF11D00FCF225 /* EditProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				39726CA92B8EF13200FCF225 /* EditProfileViewModel.swift */,
+				39726CAB2B8EF13B00FCF225 /* EditProfileViewController.swift */,
+				39726CAD2B8EF14900FCF225 /* EditProfileRootView.swift */,
+			);
+			path = EditProfileVC;
+			sourceTree = "<group>";
+		};
+		39726CB12B8F194B00FCF225 /* ChangeLogingAndEmail */ = {
+			isa = PBXGroup;
+			children = (
+				39726CB62B8F19F700FCF225 /* ChangeLoginAndEmailViewModel.swift */,
+				39726CB42B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift */,
+				39726CB32B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift */,
+				39726CB52B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift */,
+			);
+			path = ChangeLogingAndEmail;
+			sourceTree = "<group>";
+		};
+		39726CB22B8F195C00FCF225 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				39726CBB2B8F1A9800FCF225 /* ChangePasswordViewModel.swift */,
+				39726CBD2B8F1A9800FCF225 /* ChangePasswordViewController.swift */,
+				39726CBC2B8F1A9800FCF225 /* ChangePasswordRootView.swift */,
+				39726CBE2B8F1A9800FCF225 /* ChangePasswordComponents.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		39B109B22B87373B0045AD4E /* PostDetailVC */ = {
@@ -976,6 +1088,7 @@
 				394097A02B8B552800629937 /* Cell */,
 				39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */,
 				394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */,
+				39726C9A2B8E1CC100FCF225 /* EditProfileSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -1098,6 +1211,7 @@
 				39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */,
 				39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */,
 				39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */,
+				39726C922B8DF18A00FCF225 /* ProfileScreenComponents.swift */,
 			);
 			path = ProfileVC;
 			sourceTree = "<group>";
@@ -1112,6 +1226,9 @@
 				39B109F02B88C0B80045AD4E /* SendMessageFieldView.swift */,
 				39B109F22B88D54E0045AD4E /* CommentsView.swift */,
 				394097B42B8CA83100629937 /* UploadImageView.swift */,
+				39726C902B8DE7C000FCF225 /* CustomSegmentView.swift */,
+				39726C942B8E174100FCF225 /* TwoActionSheet.swift */,
+				39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1286,14 +1403,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39726C9E2B8E21A800FCF225 /* LogoutResponder.swift in Sources */,
 				394C05992B7F56490045277E /* AuthErrors.swift in Sources */,
 				39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */,
 				3938FE522B8617D600EC26E7 /* PostsTableviewCell.swift in Sources */,
 				393D7A1E2B80CA0F0019F9F9 /* UserSessionCoding.swift in Sources */,
 				393D7A302B80CA9E0019F9F9 /* AuthRemoteAPI.swift in Sources */,
+				39726CBA2B8F19F700FCF225 /* ChangeLoginAndEmailViewModel.swift in Sources */,
 				394097972B8A2DC400629937 /* PostCollectionSheet.swift in Sources */,
 				394C052D2B7E2C590045277E /* SignedInDepedencyContainer.swift in Sources */,
 				393D7A2C2B80CA680019F9F9 /* UserSession.swift in Sources */,
+				39726CC02B8F1A9800FCF225 /* ChangePasswordRootView.swift in Sources */,
 				39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */,
 				393D7A182B80C9A00019F9F9 /* KeychainItem.swift in Sources */,
 				394C05592B7E35BF0045277E /* MainViewState.swift in Sources */,
@@ -1312,6 +1432,7 @@
 				3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */,
 				394097882B89B26300629937 /* SortByPeriodRootView.swift in Sources */,
 				394C054A2B7E332A0045277E /* SignInViewController.swift in Sources */,
+				39726C932B8DF18A00FCF225 /* ProfileScreenComponents.swift in Sources */,
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */,
 				39CBCD042B8347B00092A46E /* RESTAPIResponse.swift in Sources */,
@@ -1326,9 +1447,11 @@
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
 				39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */,
 				394C05452B7E331E0045277E /* WelcomeViewController.swift in Sources */,
+				39726C952B8E174100FCF225 /* TwoActionSheet.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
+				39726CB72B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
 				39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */,
@@ -1338,9 +1461,12 @@
 				394097952B89D54E00629937 /* DateDidSelectedResponder.swift in Sources */,
 				394C05402B7E2F5C0045277E /* BaseView.swift in Sources */,
 				39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */,
+				39726CB82B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift in Sources */,
 				39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */,
 				394C058C2B7F37880045277E /* String.swift in Sources */,
+				39726CC42B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift in Sources */,
 				39CBCD242B8356F60092A46E /* MainScreenViewModel.swift in Sources */,
+				39726CB02B8F06EC00FCF225 /* RowComponent.swift in Sources */,
 				394097B32B8C866700629937 /* PrimaryButton2.swift in Sources */,
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
@@ -1349,12 +1475,14 @@
 				394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */,
 				39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */,
 				394097842B89B24400629937 /* SortByPeriodViewModel.swift in Sources */,
+				39726C9B2B8E1CC100FCF225 /* EditProfileSheet.swift in Sources */,
 				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
 				39B109BF2B8746D50045AD4E /* MainContainerViewState.swift in Sources */,
 				39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */,
 				393D7A112B80C9700019F9F9 /* UserSessionDataStore.swift in Sources */,
+				39726CC62B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift in Sources */,
 				39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
 				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
@@ -1380,36 +1508,47 @@
 				39B109B72B8737630045AD4E /* PostDetailScreenViewController.swift in Sources */,
 				393D7A1B2B80C9C50019F9F9 /* UserSessionRepository.swift in Sources */,
 				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
+				39726CAE2B8EF14900FCF225 /* EditProfileRootView.swift in Sources */,
 				393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */,
 				394C057C2B7E5BFC0045277E /* SecondaryButton.swift in Sources */,
 				393D79E12B8072F60019F9F9 /* SendMSGToEmailRootView.swift in Sources */,
 				394C05682B7E4E870045277E /* UIViewController+ErrorExt.swift in Sources */,
 				394C05832B7F25790045277E /* UITextField.swift in Sources */,
+				39726CC22B8F1A9800FCF225 /* ChangePasswordComponents.swift in Sources */,
 				394C05372B7E2EF60045277E /* LaunchRootView.swift in Sources */,
+				39726CAC2B8EF13B00FCF225 /* EditProfileViewController.swift in Sources */,
 				394C05392B7E2EFB0045277E /* LaunchViewModel.swift in Sources */,
 				39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */,
+				39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */,
 				393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */,
 				39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */,
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
+				39726C992B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift in Sources */,
+				39726CA02B8E21D900FCF225 /* GoToEditProfileVC.swift in Sources */,
 				3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */,
 				394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */,
 				394C053E2B7E2F570045277E /* BaseViewController.swift in Sources */,
+				39726CBF2B8F1A9800FCF225 /* ChangePasswordViewModel.swift in Sources */,
 				39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */,
 				3940977E2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift in Sources */,
 				39CBCD2A2B83571D0092A46E /* AddPostScreenViewModel.swift in Sources */,
 				39B109F82B88E3B20045AD4E /* EmptyCommentsCell.swift in Sources */,
 				39CBCD282B8357150092A46E /* AddPostScreenViewController.swift in Sources */,
 				39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */,
+				39726CAA2B8EF13200FCF225 /* EditProfileViewModel.swift in Sources */,
 				394097A92B8BBC9200629937 /* PostCollectionRootView.swift in Sources */,
 				394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,
 				394C05882B7F2D0E0045277E /* TextFieldErrorView.swift in Sources */,
 				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
+				39726C912B8DE7C000FCF225 /* CustomSegmentView.swift in Sources */,
+				39726CC82B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift in Sources */,
 				39B109F12B88C0B80045AD4E /* SendMessageFieldView.swift in Sources */,
+				39726CB92B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift in Sources */,
 				393D7A002B809FEB0019F9F9 /* StackContainer.swift in Sources */,
 				394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */,
 				3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */,
@@ -1435,6 +1574,7 @@
 				3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */,
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
 				394C054B2B7E332A0045277E /* SignInViewModel.swift in Sources */,
+				39726CC12B8F1A9800FCF225 /* ChangePasswordViewController.swift in Sources */,
 				39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */,
 				393D7A062B80A2D80019F9F9 /* CreateNewPasswordComponents.swift in Sources */,
 				394C056C2B7E4F0F0045277E /* Optional+ext.swift in Sources */,

@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import SwiftEntryKit
 import Combine
 
 protocol ProfileContainerViewControllerFactory {
     func makeProfileScreenViewController() -> ProfileScreenViewController
     func makeEditProfileSheet() -> EditProfileSheet
+    func makeEditProfileVC() -> EditProfileViewController
+    func makeChangeLoginAndEmail() -> ChangeLoginAndEmailViewController 
+    func makeChangePassword() -> ChangePasswordViewController
 }
 
 class ProfileContainerViewController: BaseNavigationController {
@@ -59,6 +63,10 @@ class ProfileContainerViewController: BaseNavigationController {
         case .mainScreen: presentProfileScreenViewController()
         case .editProfile: presentEditProfileSheet()
         case .editProfileVC: presentEditProfileVC()
+        case .changeLoginAndEmail: presentChangeLoginAndEmail()
+        case .changePassword: presentChangePassword()
+        case .logout: presentLogout()
+        case .dissmissCurrentView: dissmissCurrentView()
         }
     }
     
@@ -73,8 +81,29 @@ class ProfileContainerViewController: BaseNavigationController {
     }
     
     private func presentEditProfileVC() {
-        let editProfileSheet = factory.makeEditProfileSheet()
-        presentPanModal(editProfileSheet)
+        let editProfileVC = factory.makeEditProfileVC()
+        dismiss(animated: true) { [weak self] in
+            guard let self else { return }
+            pushViewController(editProfileVC, animated: true)
+        }
+    }
+    
+    private func presentChangeLoginAndEmail() {
+        let changeLoginAndEmailVC = factory.makeChangeLoginAndEmail()
+        pushViewController(changeLoginAndEmailVC, animated: true)
+    }
+    
+    private func presentChangePassword() {
+        let changePasswordVC = factory.makeChangePassword()
+        pushViewController(changePasswordVC, animated: true)
+    }
+    
+    private func presentLogout() {
+        print("Logout Tapped")
+    }
+    
+    private func dissmissCurrentView() {
+        dismiss(animated: true)
     }
 }
 
@@ -84,6 +113,7 @@ extension ProfileContainerViewController {
     func hideOrShowNavigationBarIfNeeded(for view: ProfileContainerViewState, animated: Bool) {
         if view.hidesNavigationBar() {
             hideNavigationBar(animated: animated)
+            tabBarController?.tabBar.isHidden = false
         } else {
             showNavigationBar(animated: animated)
             tabBarController?.tabBar.isHidden = true
@@ -130,6 +160,12 @@ extension ProfileContainerViewController {
         switch viewController {
         case is ProfileScreenViewController:
             return .mainScreen
+        case is EditProfileViewController:
+            return .editProfileVC
+        case is ChangeLoginAndEmailViewController:
+            return .changeLoginAndEmail
+        case is ChangePasswordViewController:
+            return .changePassword
         default:
             assertionFailure("Encountered unexpected child view controller type in OnboardingViewController")
             return nil

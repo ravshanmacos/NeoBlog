@@ -12,7 +12,6 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
     private let headerView = makeHeader()
     private let selectCategorySegmentView = makeSelectCategorySegmentView()
     private let postsTableView = makePostsTableView()
-    
     private let viewModel: MainScreenViewModel
     
     //MARK: Methods

@@ -120,6 +120,7 @@ extension MainContainerViewController {
     func hideOrShowNavigationBarIfNeeded(for view: MainContainerViewState, animated: Bool) {
         if view.hidesNavigationBar() {
             hideNavigationBar(animated: animated)
+            tabBarController?.tabBar.isHidden = false
         } else {
             showNavigationBar(animated: animated)
             tabBarController?.tabBar.isHidden = true

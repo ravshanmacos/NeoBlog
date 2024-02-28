@@ -115,13 +115,47 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
 extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewModelFactory, ProfileViewModelFactory, SortByPeriodViewModelFactory, SortByPeriodViewControllerFactory, PostCollectionViewModelFactory {}
 
 //MARK: Add Post Screen
-extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory {
+extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, EditProfileViewModelFactory, ChangeLoginAndEmailViewModelFactory, ChangePasswordViewModelFactory {
     // Pofile View Controller
     func makeProfileScreenViewController() -> ProfileScreenViewController {
         return ProfileScreenViewController(viewModelFactory: self)
     }
     
     func makeProfileViewModel() -> ProfileScreenViewModel {
-        return ProfileScreenViewModel()
+        return ProfileScreenViewModel(goToEditProfileSheetNavigator: sharedProfileContainerViewModel)
+    }
+    
+    //Two Action Sheet
+    
+    func makeEditProfileSheet() -> EditProfileSheet {
+        return EditProfileSheet(goToEditProfileVC: sharedProfileContainerViewModel, logoutResponder: sharedProfileContainerViewModel, dissmissViewResponder: sharedProfileContainerViewModel)
+    }
+    
+    // Edit Profile View Controller
+    
+    func makeEditProfileVC() -> EditProfileViewController {
+        return EditProfileViewController(factory: self)
+    }
+    
+    func makeEditProfileViewModel() -> EditProfileViewModel {
+        return EditProfileViewModel(goToChangeLoginAndEmailNavigator: sharedProfileContainerViewModel, goToChangePasswordNavigator: sharedProfileContainerViewModel)
+    }
+    
+    //Change Login and Email
+    func makeChangeLoginAndEmail() -> ChangeLoginAndEmailViewController {
+        return ChangeLoginAndEmailViewController(viewModelFactory: self)
+    }
+    
+    func makeChangeLoginAndEmailViewModel() -> ChangeLoginAndEmailViewModel {
+        return ChangeLoginAndEmailViewModel(signedInResponder: sharedMainViewModel)
+    }
+    
+    //Change Password
+    func makeChangePassword() -> ChangePasswordViewController {
+        return ChangePasswordViewController(viewModelFactory: self)
+    }
+    
+    func makeChangePasswordViewModel() -> ChangePasswordViewModel {
+        return ChangePasswordViewModel(signedInResponder: sharedMainViewModel)
     }
 }

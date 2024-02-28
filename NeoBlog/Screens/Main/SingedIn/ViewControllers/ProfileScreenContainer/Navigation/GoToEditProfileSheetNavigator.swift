@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol GoToEditProfileSheetNavigator {
+    func navigateToEditProfileSheet()
+}
