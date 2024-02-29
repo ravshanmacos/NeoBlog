@@ -17,7 +17,7 @@ class ErrorView: BaseView {
     }()
     let subtitleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 4
         lbl.font = .systemFont(ofSize: 18, weight: .regular)
         lbl.textColor = .white
         lbl.textAlignment = .left
@@ -44,14 +44,15 @@ class ErrorView: BaseView {
         super.setupConstraints()
         
         icon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(12)
             make.width.height.equalTo(28)
         }
         subtitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
             make.left.equalTo(icon.snp.right).offset(12)
-            make.centerY.equalTo(icon.snp.centerY)
+            make.right.equalToSuperview().offset(-12)
         }
     }
     

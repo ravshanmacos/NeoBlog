@@ -11,13 +11,15 @@ import Alamofire
 enum NeoBlogAuthEndpoints: RESTEnpoint {
     case signIn(requestModel: SignInRequestModel)
     case signUp(requestModel: SignUpRequestModel)
+    case sendOTP(requestModel: SendOTPRequestModel)
+    case verifyOTP(requestModel: VerifyOTPRequestModel)
 }
 
 extension NeoBlogAuthEndpoints {
     
     var method: HTTPMethod {
         switch self {
-        case .signIn, .signUp:
+        default:
             return .post
         }
     }
@@ -35,6 +37,10 @@ extension NeoBlogAuthEndpoints {
             return requestModel
         case .signUp(let requestModel):
             return requestModel
+        case .sendOTP(let requestModel):
+            return requestModel
+        case .verifyOTP(let requestModel):
+            return requestModel
         }
     }
     
@@ -50,7 +56,11 @@ extension NeoBlogAuthEndpoints {
         case .signIn:
             return "/users/login/"
         case .signUp:
-            return "/users/register"
+            return "/users/register/"
+        case .sendOTP:
+            return "/users/forgot-password/"
+        case .verifyOTP:
+            return "/users/confirm-code/"
         }
     }
 }

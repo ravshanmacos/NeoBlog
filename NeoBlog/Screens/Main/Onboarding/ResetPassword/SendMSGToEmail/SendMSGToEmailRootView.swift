@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SendMSGToEmailRootView: BaseView {
+class SendMSGToEmailRootView: BaseView, UITextFieldDelegate {
     
     //MARK: Properties
     private let vStack = makeVStack()
@@ -24,6 +24,7 @@ class SendMSGToEmailRootView: BaseView {
     init(frame: CGRect = .zero, viewModel: SendMSGToEmailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        bindings()
     }
     
     override func setupSubviews() {
@@ -54,8 +55,66 @@ class SendMSGToEmailRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        //emailInputField.textfield.delegate = self
+        emailInputField.textfield.delegate = self
         
         nextButton.addTarget(viewModel, action: #selector(viewModel.confirmMsg), for: .touchUpInside)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text, text.count > 1 {
+            viewModel.enableNextButton()
+        } else {
+            viewModel.disableNextButton()
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text, text.count < 0 {
+            viewModel.disableNextButton()
+        }
+    }
+}
+
+private extension SendMSGToEmailRootView {
+    func bindings() {
+        bindEmailToViewModel()
+        bindEmailToEmailField()
+        bindNextButton()
+        bindErrorsToViewModel()
+    }
+    
+    func bindEmailToViewModel() {
+        emailInputField
+            .textfield
+            .publisher(for: \.text)
+            .map { $0 ?? ""}
+            .assign(to: \.email, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindEmailToEmailField() {
+        viewModel
+            .$emailFieldEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: emailInputField.textfield)
+            .store(in: &subscriptions)
+    }
+    
+    func bindNextButton() {
+        viewModel
+            .$nextButtonEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: nextButton)
+            .store(in: &subscriptions)
+    }
+    
+    func bindErrorsToViewModel() {
+        viewModel
+            .errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] text in
+                self?.showAlert(subtitle: text)
+            }.store(in: &subscriptions)
     }
 }

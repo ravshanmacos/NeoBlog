@@ -80,6 +80,10 @@ class OnboardingViewController: BaseNavigationController {
             presentConfirmMsg()
         case .createNewPassword:
             presentCreateNewPassword()
+        case .popCurrent:
+            popToCurrentVC()
+        case .popToRoot:
+            popToRootVC()
         }
     }
     
@@ -104,9 +108,17 @@ class OnboardingViewController: BaseNavigationController {
     }
     
     func presentCreateNewPassword() {
+        guard let userSession = viewModel.userSession else { return }
         pushViewController(createNewPasswordViewController, animated: true)
     }
     
+    func popToCurrentVC() {
+        popViewController(animated: true)
+    }
+    
+    func popToRootVC() {
+        popToRootViewController(animated: true)
+    }
 }
 
 // MARK: - Navigation Bar Presentation

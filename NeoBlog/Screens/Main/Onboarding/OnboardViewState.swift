@@ -7,14 +7,15 @@
 
 import Foundation
 
-public enum OnboardingView {
-    
+enum OnboardingView {
     case welcome
     case signin
     case signup
     case sendMSGToEmail
     case confirmMSG
     case createNewPassword
+    case popCurrent
+    case popToRoot
     
     func hidesNavigationBar() -> Bool {
         switch self {

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GoToCreateNewPasswordNavigator {
-    func navigateCreateNewPassword()
+    func navigateCreateNewPassword(userSession: UserSession)
 }

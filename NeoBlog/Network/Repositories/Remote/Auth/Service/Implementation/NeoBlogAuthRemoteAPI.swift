@@ -31,4 +31,16 @@ struct NeoBlogAuthRemoteAPI: AuthRemoteAPI {
             callback(mapper.mapToResult(from: response, forKey: nil, type: SignUpResponseModel.self))
         }
     }
+    
+    func forgotPassword(requestModel: SendOTPRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
+        apiManager.request(withEncodable: true, endpoint: NeoBlogAuthEndpoints.sendOTP(requestModel: requestModel)) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
+        }
+    }
+    
+    func verifyOTP(requestModel: VerifyOTPRequestModel, callback: @escaping (Result<VerifyOTPResponseModel, Error>) -> Void) {
+        apiManager.request(withEncodable: true, endpoint: NeoBlogAuthEndpoints.verifyOTP(requestModel: requestModel)) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: VerifyOTPResponseModel.self))
+        }
+    }
 }

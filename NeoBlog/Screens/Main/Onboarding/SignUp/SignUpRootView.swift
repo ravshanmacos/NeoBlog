@@ -35,6 +35,7 @@ class SignUpRootView: BaseView {
         
         bindTextFieldToViewModel()
         bindViewModelToView()
+        bindErrorsToViewModel()
     }
     
     override func setupSubviews() {
@@ -59,6 +60,11 @@ class SignUpRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
+        usernameInputField.textfield.text = "Ravshan_Autumn1"
+        emailInputField.textfield.text = "ravshanbektursunbaevbek@yahoo.com"
+        passwordInputField.textfield.text = "Ravshan9805#"
+        confirmPasswordInputField.textfield.text = "Ravshan9805#"
+        
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
 }
@@ -156,6 +162,15 @@ private extension SignUpRootView {
             .sink {[weak self] errorState in
                 guard let self else { return }
                 self.presentErrorState(state: errorState)
+            }.store(in: &subscriptions)
+    }
+    
+    func bindErrorsToViewModel() {
+        viewModel
+            .errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] text in
+                self?.showAlert(subtitle: text)
             }.store(in: &subscriptions)
     }
     

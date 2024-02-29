@@ -10,13 +10,29 @@ import Combine
 
 typealias OnboardingNavigationAction = NavigationAction<OnboardingView>
 
-class OnboardingViewModel {
+class OnboardingViewModel: PopCurrentResponder, PopToRootResponder {
     
     // MARK: - Properties
     
     @Published private(set) var navigationAction: OnboardingNavigationAction = .present(view: .welcome)
+    var userSession: UserSession?
     
     // MARK: - Methods
+    func popToCurrentView() {
+        navigationAction = .present(view: .popCurrent)
+    }
+    
+    func popToRootView() {
+        navigationAction = .present(view: .popToRoot)
+    }
+   
+}
+
+extension OnboardingViewModel:  GoToSignUpNavigator, GoToSignInNavigator, GoToSendMSGToEmailNavigator, GoToConfirmMSGNavigator, GoToCreateNewPasswordNavigator {
+    func navigateCreateNewPassword(userSession: UserSession) {
+        self.userSession = userSession
+        navigationAction = .present(view: .createNewPassword)
+    }
     
     func navigateToSignUp() {
         navigationAction = .present(view: .signup)
@@ -34,13 +50,7 @@ class OnboardingViewModel {
         navigationAction = .present(view: .confirmMSG)
     }
     
-    func navigateCreateNewPassword() {
-        navigationAction = .present(view: .createNewPassword)
-    }
-    
     func uiPresented(onboardingView: OnboardingView) {
         navigationAction = .presented(view: onboardingView)
     }
 }
-
-extension OnboardingViewModel:  GoToSignUpNavigator, GoToSignInNavigator, GoToSendMSGToEmailNavigator, GoToConfirmMSGNavigator, GoToCreateNewPasswordNavigator {}

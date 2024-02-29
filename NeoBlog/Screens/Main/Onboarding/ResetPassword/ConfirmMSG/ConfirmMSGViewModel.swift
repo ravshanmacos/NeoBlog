@@ -14,18 +14,36 @@ class ConfirmMSGViewModel {
     @Published private(set) var seconds = 10
     @Published private(set) var sendOtpEnabled = true
     
+    private let userSessionRepository: UserSessionRepository
     private let goToCreateNewPasswordNavigator: GoToCreateNewPasswordNavigator
     private var timer = Timer()
     
     //MARK: Methods
-    init(goToCreateNewPasswordNavigator: GoToCreateNewPasswordNavigator) {
+    init(userSessionRepository: UserSessionRepository,
+         goToCreateNewPasswordNavigator: GoToCreateNewPasswordNavigator) {
+        self.userSessionRepository = userSessionRepository
         self.goToCreateNewPasswordNavigator = goToCreateNewPasswordNavigator
+    }
+    
+    func isCodeMatch(code: String) -> Bool {
+        var isMatch = false
+        userSessionRepository
+            .verifyOTP(reqeustModel: .init(code: code))
+            .done { userSession in
+                isMatch = true
+                self.goToCreateNewPasswordNavigator.navigateCreateNewPassword(userSession: userSession)
+            }.catch { error in
+                print(error)
+                isMatch = false
+            }
+        return isMatch
     }
 }
 
 @objc extension ConfirmMSGViewModel {
     func createNewPassword() {
-        goToCreateNewPasswordNavigator.navigateCreateNewPassword()
+        
+        
     }
     
     func sendOtpAgain() {

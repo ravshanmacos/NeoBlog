@@ -24,7 +24,7 @@ struct RESTAPIManager: APIManager {
             return
         }
             request
-            .validate()
+            //.validate()
             .responseData { AFresponse in
                   if let error = AFresponse.error {
                       result(.failure(error));

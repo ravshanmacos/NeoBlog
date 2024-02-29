@@ -12,7 +12,7 @@ struct SignUpResponseModel: Decodable {
 }
 
 struct Message: Decodable {
-    let id: String
+    let id: Int
     let email: String
     let username: String
 }

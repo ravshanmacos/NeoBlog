@@ -67,7 +67,7 @@ class OnboardingDependencyContainer {
     }
     
     func makeSignUpViewModel() -> SignUpViewModel {
-        return SignUpViewModel()
+        return SignUpViewModel(userSessionRepository: sharedUserSessionRepository, popCurrentResponder: sharedOnboardingViewModel, goToSignInNavigator: sharedOnboardingViewModel)
     }
     
     //Send Message To Email View Controller
@@ -76,7 +76,7 @@ class OnboardingDependencyContainer {
     }
     
     func makeSendMsgToEmailViewModel() -> SendMSGToEmailViewModel {
-        return SendMSGToEmailViewModel(goToConfirmMsgNavigator: sharedOnboardingViewModel)
+        return SendMSGToEmailViewModel(userSessionRepository: sharedUserSessionRepository, goToConfirmMsgNavigator: sharedOnboardingViewModel)
     }
     
     //Confirm Message View Controller
@@ -85,7 +85,7 @@ class OnboardingDependencyContainer {
     }
     
     func makeConfirmMsgViewModel() -> ConfirmMSGViewModel {
-        return ConfirmMSGViewModel(goToCreateNewPasswordNavigator: sharedOnboardingViewModel)
+        return ConfirmMSGViewModel(userSessionRepository: sharedUserSessionRepository, goToCreateNewPasswordNavigator: sharedOnboardingViewModel)
     }
     
     //Create New Password View Controller
