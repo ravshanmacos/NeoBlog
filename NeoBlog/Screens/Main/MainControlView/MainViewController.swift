@@ -11,7 +11,7 @@ import Combine
 protocol MainViewControllerFactory {
     func makeLaunchViewController() -> LaunchViewController
     func makeOnboardingViewController() -> OnboardingViewController
-    func makeSignedInViewController() -> TabBarController
+    func makeSignedInViewController(userSession: UserSession) -> TabBarController
 }
 
 class MainViewController: BaseViewController {
@@ -32,8 +32,6 @@ class MainViewController: BaseViewController {
         self.viewModel = viewModel
         self.viewControllersFactory = viewControllersFactory
         self.launchViewController = viewControllersFactory.makeLaunchViewController()
-        self.onboardingViewController = viewControllersFactory.makeOnboardingViewController()
-        self.signedInViewController = viewControllersFactory.makeSignedInViewController()
         super.init()
     }
     
@@ -61,8 +59,8 @@ class MainViewController: BaseViewController {
             presentOnboarding()
           }
         }
-      case .signedIn:
-        presentSignedIn()
+      case .signedIn(let userSession):
+          presentSignedIn(userSession: userSession)
       }
     }
 
@@ -88,14 +86,14 @@ class MainViewController: BaseViewController {
       self.onboardingViewController = onboardingViewController
     }
 
-    public func presentSignedIn() {
+    public func presentSignedIn(userSession: UserSession) {
       remove(childViewController: launchViewController)
 
       let signedInViewControllerToPresent: TabBarController
       if let vc = self.signedInViewController {
         signedInViewControllerToPresent = vc
       } else {
-          signedInViewControllerToPresent = viewControllersFactory.makeSignedInViewController()
+          signedInViewControllerToPresent = viewControllersFactory.makeSignedInViewController(userSession: userSession)
         self.signedInViewController = signedInViewControllerToPresent
       }
 

@@ -17,7 +17,7 @@ class MainViewModel: SignedInResponder, NotSignedInResponder {
         view = .onboarding
     }
     
-    func signedIn() {
-        view = .signedIn
+    func signedIn(userSession: UserSession) {
+        view = .signedIn(userSession: userSession)
     }
 }

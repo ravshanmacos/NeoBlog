@@ -11,4 +11,7 @@ import Alamofire
 protocol AuthRemoteAPI {
     func sigIn(requestModel: SignInRequestModel,
                callback: @escaping (Result<SignInResponseModel, Error>) -> Void)
+    
+    func signUp(requestModel: SignUpRequestModel,
+                callback: @escaping (Result<SignUpResponseModel, Error>) -> Void)
 }

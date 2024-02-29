@@ -66,7 +66,9 @@ class EditProfileSheet: BaseViewController {
     }
     
     private func logoutAction() -> UIAction {
+        
         return UIAction { action in
+            SwiftEntryKit.dismiss()
             self.logoutResponder.logout()
         }
     }

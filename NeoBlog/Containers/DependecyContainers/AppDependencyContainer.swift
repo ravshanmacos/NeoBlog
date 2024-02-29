@@ -9,13 +9,35 @@ import Foundation
 class AppDependencyContainer {
     
     //MARK: Properties
+    let sharedUserSessionRepository: UserSessionRepository
     let sharedMainViewModel: MainViewModel
     
     init() {
+        func makeUserSessionRepository() -> UserSessionRepository {
+            let dataStore = makeUserSessionDataStore()
+            let authRemoteAPI = makeAuthRemoteAPI()
+            return NeoBlogUserSessionRepository(dataStore: dataStore, remoteAPI: authRemoteAPI)
+        }
+        
+        func makeUserSessionDataStore() -> UserSessionDataStore {
+            let coder = makeUserSessionCoder()
+            return KeychainUserSessionDataStore(userSessionCoder: coder)
+        }
+        
+        func makeUserSessionCoder() -> UserSessionCoding {
+            return UserSessionPropertyListCoder()
+        }
+        
+        func makeAuthRemoteAPI() -> AuthRemoteAPI {
+            return NeoBlogAuthRemoteAPI()
+        }
+        
+        
         func makeMainViewModel() -> MainViewModel {
             return MainViewModel()
         }
         
+        self.sharedUserSessionRepository = makeUserSessionRepository()
         self.sharedMainViewModel = makeMainViewModel()
     }
     
@@ -32,7 +54,7 @@ class AppDependencyContainer {
     }
     
     func makeLaunchViewModel() -> LaunchViewModel {
-        return LaunchViewModel(notSignedInResponder: sharedMainViewModel, signedInResponder: sharedMainViewModel)
+        return LaunchViewModel(userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel, signedInResponder: sharedMainViewModel)
     }
 
     //Onboarding View Controller
@@ -46,13 +68,13 @@ class AppDependencyContainer {
     }
     
     //SignedIn View Controller
-    func makeSignedInViewController() -> TabBarController {
-        let dc = makeSignedInDependencyContainer()
+    func makeSignedInViewController(userSession: UserSession) -> TabBarController {
+        let dc = makeSignedInDependencyContainer(userSession: userSession)
         return dc.makeTabBarController()
     }
     
-    func makeSignedInDependencyContainer() -> SignedInDepedencyContainer {
-        return SignedInDepedencyContainer(appDependencyContainer: self)
+    func makeSignedInDependencyContainer(userSession: UserSession) -> SignedInDepedencyContainer {
+        return SignedInDepedencyContainer(userSession: userSession, appDependencyContainer: self)
     }
 }
 

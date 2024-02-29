@@ -40,7 +40,6 @@
 		393D7A1E2B80CA0F0019F9F9 /* UserSessionCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A1D2B80CA0F0019F9F9 /* UserSessionCoding.swift */; };
 		393D7A212B80CA330019F9F9 /* UserSessionPropertyListCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A202B80CA330019F9F9 /* UserSessionPropertyListCoder.swift */; };
 		393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A222B80CA680019F9F9 /* UserProfile.swift */; };
-		393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A232B80CA680019F9F9 /* NewAccount.swift */; };
 		393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */; };
 		393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A252B80CA680019F9F9 /* FakeURL.swift */; };
 		393D7A2C2B80CA680019F9F9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A262B80CA680019F9F9 /* UserSession.swift */; };
@@ -198,6 +197,10 @@
 		39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */; };
 		39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */; };
 		39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */; };
+		39E7B5842B9045BA00FF954B /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */; };
+		39E7B5862B9046D600FF954B /* NeoBlogUserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */; };
+		39E7B5882B904A4D00FF954B /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */; };
+		39E7B58A2B907EA000FF954B /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5892B907EA000FF954B /* ErrorPresentation.swift */; };
 		39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E252B83ACA8008DA869 /* HeaderView.swift */; };
 		39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */; };
 		3B674489B59D4C4001F31A4D /* Pods_NeoBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */; };
@@ -238,7 +241,6 @@
 		393D7A1D2B80CA0F0019F9F9 /* UserSessionCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionCoding.swift; sourceTree = "<group>"; };
 		393D7A202B80CA330019F9F9 /* UserSessionPropertyListCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionPropertyListCoder.swift; sourceTree = "<group>"; };
 		393D7A222B80CA680019F9F9 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		393D7A232B80CA680019F9F9 /* NewAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
 		393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeoBlogNetworkError.swift; sourceTree = "<group>"; };
 		393D7A252B80CA680019F9F9 /* FakeURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeURL.swift; sourceTree = "<group>"; };
 		393D7A262B80CA680019F9F9 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -398,6 +400,10 @@
 		39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRootView.swift; sourceTree = "<group>"; };
+		39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestModel.swift; sourceTree = "<group>"; };
+		39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogUserSessionRepository.swift; sourceTree = "<group>"; };
+		39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
+		39E7B5892B907EA000FF954B /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		39F96E252B83ACA8008DA869 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWithFilter.swift; sourceTree = "<group>"; };
 		6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.release.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.release.xcconfig"; sourceTree = "<group>"; };
@@ -507,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				393D7A1A2B80C9C50019F9F9 /* UserSessionRepository.swift */,
+				39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -534,7 +541,6 @@
 			children = (
 				393D7A252B80CA680019F9F9 /* FakeURL.swift */,
 				393D7A242B80CA680019F9F9 /* NeoBlogNetworkError.swift */,
-				393D7A232B80CA680019F9F9 /* NewAccount.swift */,
 				393D7A272B80CA680019F9F9 /* Secret.swift */,
 				393D7A222B80CA680019F9F9 /* UserProfile.swift */,
 				393D7A262B80CA680019F9F9 /* UserSession.swift */,
@@ -946,6 +952,7 @@
 			isa = PBXGroup;
 			children = (
 				394C05982B7F56490045277E /* AuthErrors.swift */,
+				39E7B5892B907EA000FF954B /* ErrorPresentation.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -1141,6 +1148,7 @@
 			isa = PBXGroup;
 			children = (
 				39CBCD132B834B250092A46E /* SignInRequestModel.swift */,
+				39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */,
 			);
 			path = RequestModels;
 			sourceTree = "<group>";
@@ -1149,6 +1157,7 @@
 			isa = PBXGroup;
 			children = (
 				39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */,
+				39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -1432,6 +1441,7 @@
 				3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */,
 				394097882B89B26300629937 /* SortByPeriodRootView.swift in Sources */,
 				394C054A2B7E332A0045277E /* SignInViewController.swift in Sources */,
+				39E7B58A2B907EA000FF954B /* ErrorPresentation.swift in Sources */,
 				39726C932B8DF18A00FCF225 /* ProfileScreenComponents.swift in Sources */,
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				393D7A282B80CA680019F9F9 /* UserProfile.swift in Sources */,
@@ -1453,6 +1463,7 @@
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
 				39726CB72B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
+				39E7B5882B904A4D00FF954B /* SignUpResponseModel.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
 				39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */,
 				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
@@ -1471,6 +1482,7 @@
 				393D79F72B809B5A0019F9F9 /* ConfirmMSGViewComponents.swift in Sources */,
 				394C057F2B7F18CA0045277E /* PrimaryTextfield.swift in Sources */,
 				393D7A172B80C9A00019F9F9 /* Keychain.swift in Sources */,
+				39E7B5862B9046D600FF954B /* NeoBlogUserSessionRepository.swift in Sources */,
 				39726C862B8DDA3000FCF225 /* AddPostScreenComponents.swift in Sources */,
 				394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */,
 				39B109BD2B8746830045AD4E /* MainContainerViewModel.swift in Sources */,
@@ -1485,7 +1497,6 @@
 				39726CC62B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift in Sources */,
 				39B109C72B875CDD0045AD4E /* MainContainerViewComponents.swift in Sources */,
 				394C05762B7E54B60045277E /* NavigationAction.swift in Sources */,
-				393D7A292B80CA680019F9F9 /* NewAccount.swift in Sources */,
 				39B109FE2B88F5020045AD4E /* RadioButton.swift in Sources */,
 				394C055C2B7E36FF0045277E /* SignedInResponder.swift in Sources */,
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
@@ -1521,6 +1532,7 @@
 				39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */,
 				39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */,
 				393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */,
+				39E7B5842B9045BA00FF954B /* SignUpRequestModel.swift in Sources */,
 				39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */,
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */,

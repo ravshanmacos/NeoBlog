@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SignedInResponder {
-    func signedIn()
+    func signedIn(userSession: UserSession)
 }

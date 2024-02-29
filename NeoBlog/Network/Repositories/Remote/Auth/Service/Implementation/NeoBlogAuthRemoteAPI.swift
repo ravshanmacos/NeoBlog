@@ -25,4 +25,10 @@ struct NeoBlogAuthRemoteAPI: AuthRemoteAPI {
             callback(mapper.mapToResult(from: response, forKey: nil, type: SignInResponseModel.self))
         }
     }
+    
+    func signUp(requestModel: SignUpRequestModel, callback: @escaping (Result<SignUpResponseModel, Error>) -> Void) {
+        apiManager.request(withEncodable: true, endpoint: NeoBlogAuthEndpoints.signUp(requestModel: requestModel)) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: SignUpResponseModel.self))
+        }
+    }
 }

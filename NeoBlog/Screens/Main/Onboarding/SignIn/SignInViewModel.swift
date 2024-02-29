@@ -32,11 +32,15 @@ class SignInViewModel {
         return errorMessageSubject.eraseToAnyPublisher()
     }
     
+    private let userSessionRepository: UserSessionRepository
     private let signedInResponder: SignedInResponder
     private let goToSendMsgToEmailNavigator: GoToSendMSGToEmailNavigator
     
     //MARK: Methods
-    init(signedInResponder: SignedInResponder, goToSendMsgToEmailNavigator: GoToSendMSGToEmailNavigator) {
+    init(userSessionRepository: UserSessionRepository,
+         signedInResponder: SignedInResponder,
+         goToSendMsgToEmailNavigator: GoToSendMSGToEmailNavigator) {
+        self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
         self.goToSendMsgToEmailNavigator = goToSendMsgToEmailNavigator
     }
@@ -48,6 +52,11 @@ class SignInViewModel {
             signInButtonEnabled = false
         }
     }
+    
+    private func showError(error: Error) {
+        print(error)
+        self.errorMessageSubject.send("Неверный логин или пароль")
+    }
 }
 
 //MARK: Actions
@@ -57,10 +66,10 @@ class SignInViewModel {
     }
     
     func signIn() {
-       // guard isValidate() else { return }
-        print("email: \(email)")
-        print("password: \(password)")
-        signedInResponder.signedIn()
-        //errorMessageSubject.send("Неверный логин или пароль")
+        let requestModel = SignInRequestModel(email: email, password: password)
+        userSessionRepository
+            .signIn(requestModel: requestModel)
+            .done(signedInResponder.signedIn(userSession:))
+            .catch(showError(error:))
     }
 }

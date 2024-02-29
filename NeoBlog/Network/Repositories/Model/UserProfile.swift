@@ -8,15 +8,6 @@
 import Foundation
 
 struct UserProfile: Equatable, Codable {
-    let name: String
-    let email: String
-    let phoneNumber: String
-    let avatar: URL
-    
-    init(name: String, email: String, phoneNumber: String, avatar: URL) {
-        self.name = name
-        self.email = email
-        self.phoneNumber = phoneNumber
-        self.avatar = avatar
-    }
+    let username: String?
+    let email: String?
 }

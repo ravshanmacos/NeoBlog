@@ -10,25 +10,29 @@ import Foundation
 class SignedInDepedencyContainer {
     
     //MARK: Properties
-    private let sharedMainViewModel: MainViewModel
     private let sharedMainContainerViewModel: MainContainerViewModel
     private let sharedProfileContainerViewModel: ProfileContainerViewModel
-    //private let sharedUserSession: UserSession
+    
+    //From parent
+    private let sharedMainViewModel: MainViewModel
+    private let sharedUserSessionRepository: UserSessionRepository
+    
+    //context
+    private let userSession: UserSession
     
     //MARK: Methods
-    init(appDependencyContainer: AppDependencyContainer) {
+    init(userSession: UserSession, appDependencyContainer: AppDependencyContainer) {
         
         func makeMainContainerViewModel() -> MainContainerViewModel {
             return MainContainerViewModel()
         }
         
-        func makeProfileContainerViewModel() -> ProfileContainerViewModel {
-            return ProfileContainerViewModel()
-        }
-        
+        self.sharedUserSessionRepository = appDependencyContainer.sharedUserSessionRepository
         self.sharedMainViewModel = appDependencyContainer.sharedMainViewModel
+        self.userSession = userSession
+        
         self.sharedMainContainerViewModel = makeMainContainerViewModel()
-        self.sharedProfileContainerViewModel = makeProfileContainerViewModel()
+        self.sharedProfileContainerViewModel = ProfileContainerViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel)
     }
     
     // TabBar Controller

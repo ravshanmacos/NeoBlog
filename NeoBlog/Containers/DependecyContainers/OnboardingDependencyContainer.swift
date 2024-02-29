@@ -10,6 +10,7 @@ import Foundation
 class OnboardingDependencyContainer {
     
     //MARK: Properties
+    private let sharedUserSessionRepository: UserSessionRepository
     private let shareMainViewModel: MainViewModel
     private let sharedOnboardingViewModel: OnboardingViewModel
     
@@ -21,6 +22,7 @@ class OnboardingDependencyContainer {
             return OnboardingViewModel()
         }
         
+        self.sharedUserSessionRepository = appDependencyContainer.sharedUserSessionRepository
         self.shareMainViewModel = appDependencyContainer.sharedMainViewModel
         self.sharedOnboardingViewModel = makeOnboardingViewModel()
     }
@@ -57,7 +59,7 @@ class OnboardingDependencyContainer {
     }
     
     func makeSignInViewModel() -> SignInViewModel {
-        return SignInViewModel(signedInResponder: shareMainViewModel, goToSendMsgToEmailNavigator: sharedOnboardingViewModel)
+        return SignInViewModel(userSessionRepository: sharedUserSessionRepository, signedInResponder: shareMainViewModel, goToSendMsgToEmailNavigator: sharedOnboardingViewModel)
     }
     //Sign Up View Controller
     func makeSignUpViewController() -> SignUpViewController {

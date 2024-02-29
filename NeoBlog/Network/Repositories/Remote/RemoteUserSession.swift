@@ -7,20 +7,14 @@
 
 import Foundation
 
-typealias AuthToken = String
-
-struct RemoteUserSession: Codable {
+struct RemoteUserSession: Codable, Equatable {
     //MARK: Properties
-    let token: AuthToken
+    let accessToken: String?
+    let refreshToken: String?
     
     //MARK: Methods
-    init(token: AuthToken) {
-        self.token = token
-    }
-}
-
-extension RemoteUserSession: Equatable {
-    static func ==(lhs: RemoteUserSession, rhs: RemoteUserSession) -> Bool {
-        return lhs.token == rhs.token
+    init(accessToken: String?, refreshToken: String?) {
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
     }
 }

@@ -33,8 +33,8 @@ class ChangePasswordViewModel {
         guard isValidate() else { return }
         print("password: \(password)")
         print("confirpassword: \(confirmPassword)")
-        successMessageSubject.send("Пароль успешно изменен")
-        signedInResponder.signedIn()
+//        successMessageSubject.send("Пароль успешно изменен")
+//        signedInResponder.signedIn()
     }
     
     private func isValidate() -> Bool {

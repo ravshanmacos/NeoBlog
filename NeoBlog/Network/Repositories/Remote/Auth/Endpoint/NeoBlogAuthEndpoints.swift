@@ -10,13 +10,14 @@ import Alamofire
 
 enum NeoBlogAuthEndpoints: RESTEnpoint {
     case signIn(requestModel: SignInRequestModel)
+    case signUp(requestModel: SignUpRequestModel)
 }
 
 extension NeoBlogAuthEndpoints {
     
     var method: HTTPMethod {
         switch self {
-        case .signIn:
+        case .signIn, .signUp:
             return .post
         }
     }
@@ -32,6 +33,8 @@ extension NeoBlogAuthEndpoints {
         switch self {
         case .signIn(let requestModel):
             return requestModel
+        case .signUp(let requestModel):
+            return requestModel
         }
     }
     
@@ -46,6 +49,8 @@ extension NeoBlogAuthEndpoints {
         switch self {
         case .signIn:
             return "/users/login/"
+        case .signUp:
+            return "/users/register"
         }
     }
 }

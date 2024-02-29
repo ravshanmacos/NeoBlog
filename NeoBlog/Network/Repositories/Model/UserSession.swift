@@ -9,18 +9,16 @@ import Foundation
 
 struct UserSession: Codable {
     //MARK: Properties
-    let userProfile: UserProfile
     let remoteSession: RemoteUserSession
     
     //MARK: Methods
-    init(userProfile: UserProfile, remoteSession: RemoteUserSession) {
-        self.userProfile = userProfile
+    init(remoteSession: RemoteUserSession) {
         self.remoteSession = remoteSession
     }
 }
 
 extension UserSession: Equatable {
     static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
-        return lhs.userProfile == rhs.userProfile && lhs.remoteSession == rhs.remoteSession
+        return lhs.remoteSession == rhs.remoteSession
     }
 }

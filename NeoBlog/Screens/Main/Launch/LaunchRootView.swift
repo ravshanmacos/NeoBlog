@@ -15,7 +15,6 @@ class LaunchRootView: BaseView {
     init(frame: CGRect = .zero, viewModel: LaunchViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        
         loadUserSession()
     }
     
