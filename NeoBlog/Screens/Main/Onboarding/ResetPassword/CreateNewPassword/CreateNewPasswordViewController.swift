@@ -20,9 +20,10 @@ class CreateNewPasswordViewController: BaseViewController {
     }
     //MARK: Methods
     
-    init(viewModelFactory: CreateNewPasswordViewModelFactory) {
+    init(userSession: UserSession, viewModelFactory: CreateNewPasswordViewModelFactory) {
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makeCreateNewPasswordViewModel()
+        self.viewModel.userSession = userSession
         super.init()
     }
     

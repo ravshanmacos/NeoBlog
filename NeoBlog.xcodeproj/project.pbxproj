@@ -48,7 +48,6 @@
 		393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */; };
 		393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */; };
 		393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D7A612B80D1560019F9F9 /* Secrets.swift */; };
-		3940977C2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */; };
 		3940977E2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */; };
 		394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097802B89AFA900629937 /* SortByDateSelectedResponder.swift */; };
 		394097842B89B24400629937 /* SortByPeriodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097832B89B24400629937 /* SortByPeriodViewModel.swift */; };
@@ -60,7 +59,6 @@
 		394097932B89CE4E00629937 /* GoToChooseDateNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */; };
 		394097952B89D54E00629937 /* DateDidSelectedResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097942B89D54E00629937 /* DateDidSelectedResponder.swift */; };
 		394097972B8A2DC400629937 /* PostCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097962B8A2DC400629937 /* PostCollectionSheet.swift */; };
-		3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */; };
 		3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940979E2B8B536500629937 /* PostCollectionSheetComponents.swift */; };
 		394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A12B8B554700629937 /* OptionViewTableViewCell.swift */; };
 		394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */; };
@@ -156,6 +154,14 @@
 		39726CC62B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */; };
 		39726CC82B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */; };
 		39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */; };
+		3980B0A62B91D08A00A7BE66 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0A52B91D08A00A7BE66 /* PostRepository.swift */; };
+		3980B0AB2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0AA2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift */; };
+		3980B0AD2B91DAE000A7BE66 /* PostRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0AC2B91DAE000A7BE66 /* PostRemoteAPI.swift */; };
+		3980B0AF2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0AE2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift */; };
+		3980B0B32B91E44600A7BE66 /* AuthRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B22B91E44600A7BE66 /* AuthRequestModels.swift */; };
+		3980B0B52B91E49D00A7BE66 /* AuthResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B42B91E49D00A7BE66 /* AuthResponseModels.swift */; };
+		3980B0B72B91E4E800A7BE66 /* BlogPostListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */; };
+		3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
 		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
@@ -184,8 +190,6 @@
 		39CBCD042B8347B00092A46E /* RESTAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD012B8347B00092A46E /* RESTAPIResponse.swift */; };
 		39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD052B8347BC0092A46E /* JSONMapper.swift */; };
 		39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */; };
-		39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD132B834B250092A46E /* SignInRequestModel.swift */; };
-		39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */; };
 		39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */; };
 		39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD1B2B8356040092A46E /* TabBarController.swift */; };
 		39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */; };
@@ -197,16 +201,10 @@
 		39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */; };
 		39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */; };
 		39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */; };
-		39E7B5842B9045BA00FF954B /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */; };
 		39E7B5862B9046D600FF954B /* NeoBlogUserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */; };
-		39E7B5882B904A4D00FF954B /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */; };
 		39E7B58A2B907EA000FF954B /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5892B907EA000FF954B /* ErrorPresentation.swift */; };
 		39E7B58D2B908CA400FF954B /* PopCurrentResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */; };
 		39E7B58F2B908CC500FF954B /* PopToRootResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B58E2B908CC500FF954B /* PopToRootResponder.swift */; };
-		39E7B5912B90A39C00FF954B /* SendOTPRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5902B90A39C00FF954B /* SendOTPRequestModel.swift */; };
-		39E7B5932B90A4D800FF954B /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5922B90A4D800FF954B /* GeneralResponse.swift */; };
-		39E7B5952B90B28A00FF954B /* VerifyOTPRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5942B90B28A00FF954B /* VerifyOTPRequestModel.swift */; };
-		39E7B5972B90B37B00FF954B /* VerifyOTPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5962B90B37B00FF954B /* VerifyOTPResponseModel.swift */; };
 		39F96E262B83ACA8008DA869 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E252B83ACA8008DA869 /* HeaderView.swift */; };
 		39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */; };
 		3B674489B59D4C4001F31A4D /* Pods_NeoBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */; };
@@ -255,7 +253,6 @@
 		393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		393D7A612B80D1560019F9F9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSortByDateSheetNavigator.swift; sourceTree = "<group>"; };
 		3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToCreateNewPeriodNavigator.swift; sourceTree = "<group>"; };
 		394097802B89AFA900629937 /* SortByDateSelectedResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByDateSelectedResponder.swift; sourceTree = "<group>"; };
 		394097832B89B24400629937 /* SortByPeriodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByPeriodViewModel.swift; sourceTree = "<group>"; };
@@ -267,7 +264,6 @@
 		394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChooseDateNavigator.swift; sourceTree = "<group>"; };
 		394097942B89D54E00629937 /* DateDidSelectedResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDidSelectedResponder.swift; sourceTree = "<group>"; };
 		394097962B8A2DC400629937 /* PostCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheet.swift; sourceTree = "<group>"; };
-		3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToPostCollectionNavigator.swift; sourceTree = "<group>"; };
 		3940979E2B8B536500629937 /* PostCollectionSheetComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionSheetComponents.swift; sourceTree = "<group>"; };
 		394097A12B8B554700629937 /* OptionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewTableViewCell.swift; sourceTree = "<group>"; };
 		394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCollectionSheet.swift; sourceTree = "<group>"; };
@@ -365,6 +361,14 @@
 		39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChangePasswordNavigator.swift; sourceTree = "<group>"; };
 		39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopUpWithTwoActions.swift; sourceTree = "<group>"; };
 		39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissmissViewResponder.swift; sourceTree = "<group>"; };
+		3980B0A52B91D08A00A7BE66 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		3980B0AA2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostEndpoints.swift; sourceTree = "<group>"; };
+		3980B0AC2B91DAE000A7BE66 /* PostRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRemoteAPI.swift; sourceTree = "<group>"; };
+		3980B0AE2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostRemoteAPI.swift; sourceTree = "<group>"; };
+		3980B0B22B91E44600A7BE66 /* AuthRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestModels.swift; sourceTree = "<group>"; };
+		3980B0B42B91E49D00A7BE66 /* AuthResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModels.swift; sourceTree = "<group>"; };
+		3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostListResponseModel.swift; sourceTree = "<group>"; };
+		3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostRepository.swift; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
 		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
@@ -393,8 +397,6 @@
 		39CBCD012B8347B00092A46E /* RESTAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIResponse.swift; sourceTree = "<group>"; };
 		39CBCD052B8347BC0092A46E /* JSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
 		39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogAuthRemoteAPI.swift; sourceTree = "<group>"; };
-		39CBCD132B834B250092A46E /* SignInRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequestModel.swift; sourceTree = "<group>"; };
-		39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponseModel.swift; sourceTree = "<group>"; };
 		39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogAuthEndpoints.swift; sourceTree = "<group>"; };
 		39CBCD1B2B8356040092A46E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		39CBCD212B8356ED0092A46E /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -406,16 +408,10 @@
 		39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRootView.swift; sourceTree = "<group>"; };
-		39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestModel.swift; sourceTree = "<group>"; };
 		39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogUserSessionRepository.swift; sourceTree = "<group>"; };
-		39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
 		39E7B5892B907EA000FF954B /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCurrentResponder.swift; sourceTree = "<group>"; };
 		39E7B58E2B908CC500FF954B /* PopToRootResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToRootResponder.swift; sourceTree = "<group>"; };
-		39E7B5902B90A39C00FF954B /* SendOTPRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPRequestModel.swift; sourceTree = "<group>"; };
-		39E7B5922B90A4D800FF954B /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
-		39E7B5942B90B28A00FF954B /* VerifyOTPRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPRequestModel.swift; sourceTree = "<group>"; };
-		39E7B5962B90B37B00FF954B /* VerifyOTPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPResponseModel.swift; sourceTree = "<group>"; };
 		39F96E252B83ACA8008DA869 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		39F96E272B83D568008DA869 /* SearchBarWithFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWithFilter.swift; sourceTree = "<group>"; };
 		6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoBlog.release.xcconfig"; path = "Target Support Files/Pods-NeoBlog/Pods-NeoBlog.release.xcconfig"; sourceTree = "<group>"; };
@@ -525,7 +521,9 @@
 			isa = PBXGroup;
 			children = (
 				393D7A1A2B80C9C50019F9F9 /* UserSessionRepository.swift */,
+				3980B0A52B91D08A00A7BE66 /* PostRepository.swift */,
 				39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */,
+				3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -534,7 +532,8 @@
 			isa = PBXGroup;
 			children = (
 				393D7A342B80CBE30019F9F9 /* RemoteUserSession.swift */,
-				393D7A2E2B80CA7F0019F9F9 /* Auth */,
+				3980B0A72B91D1CD00A7BE66 /* Post */,
+				393D7A2E2B80CA7F0019F9F9 /* RemoteAPI */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -603,20 +602,21 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		393D7A2E2B80CA7F0019F9F9 /* Auth */ = {
+		393D7A2E2B80CA7F0019F9F9 /* RemoteAPI */ = {
 			isa = PBXGroup;
 			children = (
-				39CBCD182B834BEF0092A46E /* Endpoint */,
+				3980B0A82B91D27500A7BE66 /* Enpoints */,
 				39CBCD172B834BDF0092A46E /* Service */,
 			);
-			path = Auth;
+			path = RemoteAPI;
 			sourceTree = "<group>";
 		};
 		393D7A312B80CAA10019F9F9 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */,
+				3980B0B02B91DB7200A7BE66 /* Fake */,
 				39CBCD0E2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift */,
+				3980B0AE2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1046,6 +1046,39 @@
 			path = ChangePassword;
 			sourceTree = "<group>";
 		};
+		3980B0A72B91D1CD00A7BE66 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		3980B0A82B91D27500A7BE66 /* Enpoints */ = {
+			isa = PBXGroup;
+			children = (
+				39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */,
+				3980B0AA2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift */,
+			);
+			path = Enpoints;
+			sourceTree = "<group>";
+		};
+		3980B0A92B91D28400A7BE66 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */,
+				3980B0AC2B91DAE000A7BE66 /* PostRemoteAPI.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3980B0B02B91DB7200A7BE66 /* Fake */ = {
+			isa = PBXGroup;
+			children = (
+				393D7A322B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift */,
+			);
+			path = Fake;
+			sourceTree = "<group>";
+		};
 		39B109B22B87373B0045AD4E /* PostDetailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,10 +1107,8 @@
 			isa = PBXGroup;
 			children = (
 				39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */,
-				3940977B2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift */,
 				3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */,
 				394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */,
-				3940979A2B8B004F00629937 /* GoToPostCollectionNavigator.swift */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -1160,10 +1191,7 @@
 		39CBCD112B834AFD0092A46E /* RequestModels */ = {
 			isa = PBXGroup;
 			children = (
-				39CBCD132B834B250092A46E /* SignInRequestModel.swift */,
-				39E7B5832B9045BA00FF954B /* SignUpRequestModel.swift */,
-				39E7B5902B90A39C00FF954B /* SendOTPRequestModel.swift */,
-				39E7B5942B90B28A00FF954B /* VerifyOTPRequestModel.swift */,
+				3980B0B22B91E44600A7BE66 /* AuthRequestModels.swift */,
 			);
 			path = RequestModels;
 			sourceTree = "<group>";
@@ -1171,10 +1199,8 @@
 		39CBCD122B834B040092A46E /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
-				39CBCD152B834B5A0092A46E /* SignInResponseModel.swift */,
-				39E7B5872B904A4D00FF954B /* SignUpResponseModel.swift */,
-				39E7B5922B90A4D800FF954B /* GeneralResponse.swift */,
-				39E7B5962B90B37B00FF954B /* VerifyOTPResponseModel.swift */,
+				3980B0B42B91E49D00A7BE66 /* AuthResponseModels.swift */,
+				3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -1183,17 +1209,9 @@
 			isa = PBXGroup;
 			children = (
 				393D7A312B80CAA10019F9F9 /* Implementation */,
-				393D7A2F2B80CA9E0019F9F9 /* AuthRemoteAPI.swift */,
+				3980B0A92B91D28400A7BE66 /* Protocol */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		39CBCD182B834BEF0092A46E /* Endpoint */ = {
-			isa = PBXGroup;
-			children = (
-				39CBCD192B834C260092A46E /* NeoBlogAuthEndpoints.swift */,
-			);
-			path = Endpoint;
 			sourceTree = "<group>";
 		};
 		39CBCD1D2B83568E0092A46E /* ViewControllers */ = {
@@ -1457,6 +1475,7 @@
 				39B109C92B876D2E0045AD4E /* ScrollableBaseView.swift in Sources */,
 				393D79EB2B8073350019F9F9 /* CreateNewPasswordViewModel.swift in Sources */,
 				39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */,
+				3980B0A62B91D08A00A7BE66 /* PostRepository.swift in Sources */,
 				3940978C2B89CA0000629937 /* ChooseDateViewController.swift in Sources */,
 				39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */,
 				394C059B2B7F99A30045277E /* ErrorView.swift in Sources */,
@@ -1476,22 +1495,23 @@
 				393D79FD2B809E750019F9F9 /* ButtonsContainer.swift in Sources */,
 				393D79F12B807AF20019F9F9 /* GoToConfirmMSGNavigator.swift in Sources */,
 				394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */,
+				3980B0AF2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift in Sources */,
 				394C05502B7E33360045277E /* SignUpViewModel.swift in Sources */,
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
-				39E7B5952B90B28A00FF954B /* VerifyOTPRequestModel.swift in Sources */,
 				39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
 				39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */,
 				394C05452B7E331E0045277E /* WelcomeViewController.swift in Sources */,
 				39726C952B8E174100FCF225 /* TwoActionSheet.swift in Sources */,
+				3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
 				39726CB72B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,
-				39E7B5882B904A4D00FF954B /* SignUpResponseModel.swift in Sources */,
 				39CBCD032B8347B00092A46E /* RESTAPIEnpoint.swift in Sources */,
+				3980B0B52B91E49D00A7BE66 /* AuthResponseModels.swift in Sources */,
 				39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */,
 				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
 				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
@@ -1517,6 +1537,7 @@
 				39726C9B2B8E1CC100FCF225 /* EditProfileSheet.swift in Sources */,
 				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
+				3980B0B72B91E4E800A7BE66 /* BlogPostListResponseModel.swift in Sources */,
 				39E7B58F2B908CC500FF954B /* PopToRootResponder.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
 				39B109BF2B8746D50045AD4E /* MainContainerViewState.swift in Sources */,
@@ -1530,11 +1551,10 @@
 				393D79EF2B807AE10019F9F9 /* GoToSendMSGToEmailNavigator.swift in Sources */,
 				394C05602B7E37A40045277E /* OnboardingViewController.swift in Sources */,
 				39B109B82B8737630045AD4E /* PostDetailScreenViewModel.swift in Sources */,
+				3980B0AD2B91DAE000A7BE66 /* PostRemoteAPI.swift in Sources */,
 				393D79ED2B8073350019F9F9 /* CreateNewPasswordRootView.swift in Sources */,
 				394C05512B7E33360045277E /* SignUpRootView.swift in Sources */,
-				39CBCD142B834B250092A46E /* SignInRequestModel.swift in Sources */,
 				393D79FB2B809D890019F9F9 /* SignInViewComponents.swift in Sources */,
-				3940977C2B89ACF900629937 /* GoToSortByDateSheetNavigator.swift in Sources */,
 				393D79F92B809BE20019F9F9 /* LabelsContainer.swift in Sources */,
 				394097862B89B25200629937 /* SortByPeriodViewController.swift in Sources */,
 				393D7A2A2B80CA680019F9F9 /* NeoBlogNetworkError.swift in Sources */,
@@ -1555,21 +1575,19 @@
 				394C05832B7F25790045277E /* UITextField.swift in Sources */,
 				39726CC22B8F1A9800FCF225 /* ChangePasswordComponents.swift in Sources */,
 				394C05372B7E2EF60045277E /* LaunchRootView.swift in Sources */,
+				3980B0AB2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift in Sources */,
 				39726CAC2B8EF13B00FCF225 /* EditProfileViewController.swift in Sources */,
 				394C05392B7E2EFB0045277E /* LaunchViewModel.swift in Sources */,
 				39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */,
 				39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */,
 				393D79DD2B8072AC0019F9F9 /* SendMSGToEmailViewController.swift in Sources */,
-				39E7B5842B9045BA00FF954B /* SignUpRequestModel.swift in Sources */,
 				39B109EB2B88B43A0045AD4E /* Divider.swift in Sources */,
 				394C05462B7E331E0045277E /* WelcomeViewModel.swift in Sources */,
 				39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */,
 				393D79F32B807B0F0019F9F9 /* GoToCreateNewPasswordNavigator.swift in Sources */,
 				394C05622B7E37AC0045277E /* OnboardingViewModel.swift in Sources */,
-				39E7B5932B90A4D800FF954B /* GeneralResponse.swift in Sources */,
 				39726C992B8E1C0000FCF225 /* GoToEditProfileSheetNavigator.swift in Sources */,
 				39726CA02B8E21D900FCF225 /* GoToEditProfileVC.swift in Sources */,
-				3940979B2B8B004F00629937 /* GoToPostCollectionNavigator.swift in Sources */,
 				394C04F92B7E1F2A0045277E /* AppDelegate.swift in Sources */,
 				394C053E2B7E2F570045277E /* BaseViewController.swift in Sources */,
 				39726CBF2B8F1A9800FCF225 /* ChangePasswordViewModel.swift in Sources */,
@@ -1584,6 +1602,7 @@
 				394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,
+				3980B0B32B91E44600A7BE66 /* AuthRequestModels.swift in Sources */,
 				394C05882B7F2D0E0045277E /* TextFieldErrorView.swift in Sources */,
 				39E7B58D2B908CA400FF954B /* PopCurrentResponder.swift in Sources */,
 				394C05292B7E2C420045277E /* AppDependencyContainer.swift in Sources */,
@@ -1599,12 +1618,10 @@
 				394C05942B7F4FCD0045277E /* UITextField+ext.swift in Sources */,
 				394C053C2B7E2F500045277E /* BaseNavigationController.swift in Sources */,
 				394C04FB2B7E1F2A0045277E /* SceneDelegate.swift in Sources */,
-				39E7B5972B90B37B00FF954B /* VerifyOTPResponseModel.swift in Sources */,
 				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
 				394097A72B8BBBA900629937 /* PostCollectionSheetViewModel.swift in Sources */,
 				394C05522B7E33360045277E /* SignUpViewController.swift in Sources */,
 				39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */,
-				39CBCD162B834B5A0092A46E /* SignInResponseModel.swift in Sources */,
 				394097B52B8CA83100629937 /* UploadImageView.swift in Sources */,
 				39726C8F2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift in Sources */,
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
@@ -1612,7 +1629,6 @@
 				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
-				39E7B5912B90A39C00FF954B /* SendOTPRequestModel.swift in Sources */,
 				394097912B89CAD500629937 /* ChooseDateRootView.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,
 				3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */,

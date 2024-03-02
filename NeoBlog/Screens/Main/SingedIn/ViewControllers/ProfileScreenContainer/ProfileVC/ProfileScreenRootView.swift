@@ -148,7 +148,7 @@ extension ProfileScreenRootView: UITableViewDataSource {
         cell.delegate = self
         cell.setUsername(with: "yamahaman")
         cell.setCreated(at: "14 дек в 21:00")
-        cell.setCommentsCount(with: "2")
+        cell.setCommentsCount(with: 2)
         cell.setCategoryLabel(with: "Искусство")
         cell.setTitle(with: MainScreenRootView.Strings.titleLabel.rawValue)
         cell.setSubtitle(wtih: MainScreenRootView.Strings.subtitleLabel.rawValue)

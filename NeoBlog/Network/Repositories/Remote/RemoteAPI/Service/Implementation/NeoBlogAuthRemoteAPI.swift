@@ -43,4 +43,10 @@ struct NeoBlogAuthRemoteAPI: AuthRemoteAPI {
             callback(mapper.mapToResult(from: response, forKey: nil, type: VerifyOTPResponseModel.self))
         }
     }
+    
+    func changePassword(token: String, requestModel: ChangeForgotPasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
+        apiManager.request(withEncodable: true, endpoint: NeoBlogAuthEndpoints.changeForgotPassword(token: token, requestModel: requestModel)) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
+        }
+    }
 }

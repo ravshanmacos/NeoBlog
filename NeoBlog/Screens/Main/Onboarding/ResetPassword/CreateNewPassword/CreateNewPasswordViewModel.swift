@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import PromiseKit
 import Combine
 
 class CreateNewPasswordViewModel {
     
     //MARK: Properties
+    private let userSessionRepository: UserSessionRepository
     private let signedInResponder: SignedInResponder
     
     var password: String = ""
@@ -18,23 +20,31 @@ class CreateNewPasswordViewModel {
     
     @Published private(set) var authErrors: AuthErrors = .initial
     
+    private var successMessageSubject = PassthroughSubject<String, Never>()
     var successMessagePublisher: AnyPublisher<String, Never> {
         successMessageSubject.eraseToAnyPublisher()
     }
-    
-    private var successMessageSubject = PassthroughSubject<String, Never>()
+    var userSession: UserSession?
     
     //MARK: Methods
-    init(signedInResponder: SignedInResponder) {
+    init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
+        self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
     }
     
     @objc func save() {
-        guard isValidate() else { return }
-        print("password: \(password)")
-        print("confirpassword: \(confirmPassword)")
-//        successMessageSubject.send("Пароль успешно изменен")
-//        signedInResponder.signedIn()
+        guard isValidate(), let userSession else { return }
+        let requestModel = ChangeForgotPasswordRequestModel(password: password, confirmPassword: confirmPassword)
+        userSessionRepository
+            .changeForgotPassword(token: userSession.remoteSession.accessToken, requestModel: requestModel)
+            .done({ message in
+                print(message)
+                self.successMessageSubject.send("Пароль успешно изменен")
+                self.signedInResponder.signedIn(userSession: userSession)
+            })
+            .catch { error in
+                print(error)
+            }
     }
     
     private func isValidate() -> Bool {

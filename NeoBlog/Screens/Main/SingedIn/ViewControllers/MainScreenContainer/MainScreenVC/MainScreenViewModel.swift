@@ -8,34 +8,60 @@
 import Foundation
 import Combine
 
+enum MainScreenViewState {
+    case initial
+    case sortByCategorySheet
+    case postsCollectionSheet
+}
+
 class MainScreenViewModel {
     
     //MARK: Properties
     
+    @Published private(set) var view: MainScreenViewState = .initial
+    @Published private(set) var blogPostList: [BlogPost] = []
+    
     private let goToPostDetailsNavigator: GoToPostDetailsNavigator
-    private let goToSortByDateNavigator: GoToSortByDateSheetNavigator
-    private let goToPostCollectionNavigator: GoToPostCollectionNavigator
+    
+    private let postRepository: PostRepository
     
     //MARK: Methods
     
-    init(goToPostDetailsNavigator: GoToPostDetailsNavigator,
-         goToSortByDateNavigator: GoToSortByDateSheetNavigator,
-         goToPostCollectionNavigator: GoToPostCollectionNavigator) {
+    init(postRepository: PostRepository,
+         goToPostDetailsNavigator: GoToPostDetailsNavigator) {
+        self.postRepository = postRepository
         self.goToPostDetailsNavigator = goToPostDetailsNavigator
-        self.goToSortByDateNavigator = goToSortByDateNavigator
-        self.goToPostCollectionNavigator = goToPostCollectionNavigator
     }
     
     func navigateToPostDetails(with postID: Int) {
         goToPostDetailsNavigator.navigateToPostDetails()
     }
     
+    //Search
+    func search(with text: String?) {
+        guard let text else { return }
+        getBlogPostList(query: text)
+    }
+    
     // Open sheets
     func openFilterSheet() {
-        goToSortByDateNavigator.navigateToSortByDateSheet()
+        view = .sortByCategorySheet
     }
     
     func openPostCollectionSheet() {
-        goToPostCollectionNavigator.navigateToPostCollection()
+        view = .postsCollectionSheet
+    }
+}
+
+extension MainScreenViewModel {
+    func getBlogPostList(categoryName: String = "", query: String = "") {
+        postRepository
+            .getBlogPostList(categoryName: categoryName, query: query)
+            .done({ response in
+                self.blogPostList = response.results
+            })
+            .catch { error in
+                print(error)
+            }
     }
 }

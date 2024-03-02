@@ -13,6 +13,7 @@ enum NeoBlogAuthEndpoints: RESTEnpoint {
     case signUp(requestModel: SignUpRequestModel)
     case sendOTP(requestModel: SendOTPRequestModel)
     case verifyOTP(requestModel: VerifyOTPRequestModel)
+    case changeForgotPassword(token: String, requestModel: ChangeForgotPasswordRequestModel)
 }
 
 extension NeoBlogAuthEndpoints {
@@ -41,6 +42,8 @@ extension NeoBlogAuthEndpoints {
             return requestModel
         case .verifyOTP(let requestModel):
             return requestModel
+        case .changeForgotPassword(_, let requestModel):
+            return requestModel
         }
     }
     
@@ -61,6 +64,18 @@ extension NeoBlogAuthEndpoints {
             return "/users/forgot-password/"
         case .verifyOTP:
             return "/users/confirm-code/"
+        case .changeForgotPassword:
+            return "/users/change-forgot-password/"
+        }
+    }
+    
+    var headers: HTTPHeaders? {
+        switch self {
+        
+        case .changeForgotPassword(let token, _):
+            return ["Content-type": "application/json", "Authorization": "Bearer \(token)"]
+        default:
+            return ["Content-type": "application/json"]
         }
     }
 }

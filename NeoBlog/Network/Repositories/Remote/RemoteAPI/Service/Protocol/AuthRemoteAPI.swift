@@ -18,4 +18,6 @@ protocol AuthRemoteAPI {
                 callback: @escaping (Result<GeneralResponse, Error>) -> Void)
     func verifyOTP(requestModel: VerifyOTPRequestModel,
                 callback: @escaping (Result<VerifyOTPResponseModel, Error>) -> Void)
+    func changePassword(token: String, requestModel: ChangeForgotPasswordRequestModel,
+                callback: @escaping (Result<GeneralResponse, Error>) -> Void)
 }

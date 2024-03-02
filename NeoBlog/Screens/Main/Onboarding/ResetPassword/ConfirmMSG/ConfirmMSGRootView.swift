@@ -61,14 +61,17 @@ class ConfirmMSGRootView: BaseView {
         super.configureAppearance()
         otpView.pinView.onComplete = {[weak self] (code, pinView) in
             guard let self else { return }
-            if viewModel.isCodeMatch(code: code) {
-                pinView.isError = false
-                otpView.disableErrorMode()
-                nextButton.isEnabled = true
-            } else {
-                pinView.isError = true
-                otpView.enableErrorMode()
-                nextButton.isEnabled = false
+            viewModel.isCodeMatch(code: code) {[weak self] isCodeMatch in
+                guard let self else { return }
+                if isCodeMatch {
+                    pinView.isError = false
+                    otpView.disableErrorMode()
+                    nextButton.isEnabled = true
+                } else {
+                    pinView.isError = true
+                    otpView.enableErrorMode()
+                    nextButton.isEnabled = false
+                }
             }
         }
         

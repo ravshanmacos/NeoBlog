@@ -19,6 +19,7 @@ class SignedInDepedencyContainer {
     
     //context
     private let userSession: UserSession
+    private let sharedPostRepository: PostRepository
     
     //MARK: Methods
     init(userSession: UserSession, appDependencyContainer: AppDependencyContainer) {
@@ -33,6 +34,7 @@ class SignedInDepedencyContainer {
         
         self.sharedMainContainerViewModel = makeMainContainerViewModel()
         self.sharedProfileContainerViewModel = ProfileContainerViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel)
+        self.sharedPostRepository = NeoBlogPostRepository(remoteAPI: NeoBlogPostRemoteAPI(userSession: userSession))
     }
     
     // TabBar Controller
@@ -66,16 +68,15 @@ class SignedInDepedencyContainer {
 }
 
 //MARK: Post Details Screen
-extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDetailScreenViewModelFactory {
+extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDetailScreenViewModelFactory, MainScreenViewControllerFactory {
     // Main Screen View Controller
     func makeMainScreenViewController() -> MainScreenViewController {
-        return MainScreenViewController(viewModelFactory: self)
+        return MainScreenViewController(viewModelFactory: self, viewControllersFactory: self)
     }
     
     func makeMainScreenViewModel() -> MainScreenViewModel {
-        return MainScreenViewModel(goToPostDetailsNavigator: sharedMainContainerViewModel,
-                                   goToSortByDateNavigator: sharedMainContainerViewModel,
-                                   goToPostCollectionNavigator: sharedMainContainerViewModel)
+        return MainScreenViewModel(postRepository: sharedPostRepository, 
+                                   goToPostDetailsNavigator: sharedMainContainerViewModel)
     }
     
     //Sort By Date Sheet

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OnboardingDependencyContainer {
+class OnboardingDependencyContainer: OnboardingViewControllerFactory{
     
     //MARK: Properties
     private let sharedUserSessionRepository: UserSessionRepository
@@ -29,20 +29,7 @@ class OnboardingDependencyContainer {
     
     //Onboarding View Controller
     func makeOnboardingViewController() -> OnboardingViewController {
-        let welcomeVC = makeWelcomeViewController()
-        let signIn = makeSignInViewController()
-        let signUp = makeSignUpViewController()
-        let sendMsgToEmail = makeSendMsgtoEmailViewController()
-        let confirmMsg = makeConfirmMsgViewController()
-        let createNewPassword = makeCreateNewPasswordViewController()
-        
-        return OnboardingViewController(viewModel: sharedOnboardingViewModel,
-                                        welcomeViewController: welcomeVC,
-                                        signInViewController: signIn,
-                                        signUpViewController: signUp,
-                                        sendMsgToEmailViewController: sendMsgToEmail,
-                                        confirmMsgViewController: confirmMsg,
-                                        createNewPasswordViewController: createNewPassword)
+        return OnboardingViewController(viewModel: sharedOnboardingViewModel, viewControllersFactory: self)
     }
     
     //Welcome View Controller
@@ -80,8 +67,8 @@ class OnboardingDependencyContainer {
     }
     
     //Confirm Message View Controller
-    func makeConfirmMsgViewController() -> ConfirmMSGViewController {
-        return ConfirmMSGViewController(viewModelFactory: self)
+    func makeConfirmMsgViewController(email: String) -> ConfirmMSGViewController {
+        return ConfirmMSGViewController(email: email, viewModelFactory: self)
     }
     
     func makeConfirmMsgViewModel() -> ConfirmMSGViewModel {
@@ -89,12 +76,12 @@ class OnboardingDependencyContainer {
     }
     
     //Create New Password View Controller
-    func makeCreateNewPasswordViewController() -> CreateNewPasswordViewController {
-        return CreateNewPasswordViewController(viewModelFactory: self)
+    func makeCreateNewPasswordViewController(userSession: UserSession) -> CreateNewPasswordViewController {
+        return CreateNewPasswordViewController(userSession: userSession, viewModelFactory: self)
     }
     
     func makeCreateNewPasswordViewModel() -> CreateNewPasswordViewModel {
-        return CreateNewPasswordViewModel(signedInResponder: shareMainViewModel)
+        return CreateNewPasswordViewModel(userSessionRepository: sharedUserSessionRepository, signedInResponder: shareMainViewModel)
     }
 }
 

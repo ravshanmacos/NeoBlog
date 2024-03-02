@@ -9,11 +9,11 @@ import Foundation
 
 struct RemoteUserSession: Codable, Equatable {
     //MARK: Properties
-    let accessToken: String?
-    let refreshToken: String?
+    let accessToken: String
+    let refreshToken: String
     
     //MARK: Methods
-    init(accessToken: String?, refreshToken: String?) {
+    init(accessToken: String, refreshToken: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
     }

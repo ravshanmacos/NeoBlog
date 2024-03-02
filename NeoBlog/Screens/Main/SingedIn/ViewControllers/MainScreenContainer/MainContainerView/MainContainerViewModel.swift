@@ -24,14 +24,6 @@ class MainContainerViewModel {
     func navigateToCreateNewPeriod() {
         navigationAction = .present(view: .openMakeNewPeriod)
     }
-
-    //Sheet navigation
-    func navigateToSortByDateSheet() {
-        navigationAction = .present(view: .openSortByDateSheet)
-    }
-    func navigateToPostCollection() {
-        navigationAction = .present(view: .openPostColllectionSheet)
-    }
     
     //Closing navigation
     func dissmissSheet() {
@@ -68,4 +60,4 @@ extension MainContainerViewModel: SortByDateSelectedResponder, NewPeriodCreatedR
     }
 }
 
-extension MainContainerViewModel: GoToPostDetailsNavigator, GoToSortByDateSheetNavigator, GoToCreateNewPeriodNavigator, GoToPostCollectionNavigator {}
+extension MainContainerViewModel: GoToPostDetailsNavigator, GoToCreateNewPeriodNavigator {}

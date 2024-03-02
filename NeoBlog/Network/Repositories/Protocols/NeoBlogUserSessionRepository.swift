@@ -51,6 +51,19 @@ class NeoBlogUserSessionRepository: UserSessionRepository {
             }
         }
     }
+   
+    func changeForgotPassword(token: String, requestModel: ChangeForgotPasswordRequestModel) -> Promise<GeneralResponse> {
+        return Promise<GeneralResponse> { resolver in
+            remoteAPI.changePassword(token: token, requestModel: requestModel) { result in
+                switch result {
+                case .success(let response):
+                    resolver.fulfill(response)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
     
     func signIn(requestModel: SignInRequestModel) -> Promise<UserSession> {
         return Promise<UserSession> { resolver in

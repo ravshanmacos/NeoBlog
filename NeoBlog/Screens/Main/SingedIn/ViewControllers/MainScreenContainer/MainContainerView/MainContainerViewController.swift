@@ -11,8 +11,6 @@ import Combine
 protocol MainContainerViewControllerFactory {
     func makeMainScreenViewController() -> MainScreenViewController
     func makePostDetailsViewController() -> PostDetailScreenViewController
-    func makeSortByDateSheet() -> SortByDateSheet
-    func makePostCollectionSheet() -> PostCollectionSheet
     func makeSortByPeriodViewController() -> SortByPeriodViewController
 }
 
@@ -60,9 +58,7 @@ class MainContainerViewController: BaseNavigationController {
     func present(view: MainContainerViewState) {
         switch view {
         case .mainScreen: presentMainScreenViewController()
-        case .openSortByDateSheet: presentSortByDateSheet()
         case .openMakeNewPeriod: presentMakeNewPeriod()
-        case .openPostColllectionSheet: presentPostCollectionSheet()
         case .postDetails: presentPostDetailsScreenViewController()
         case .dismissSheet: dissmissSheet()
         case .popCurrent: popCurrent()
@@ -75,22 +71,12 @@ class MainContainerViewController: BaseNavigationController {
         pushViewController(mainVC, animated: true)
     }
     
-    private func presentSortByDateSheet() {
-        let sortByDateSheet = factory.makeSortByDateSheet()
-        presentPanModal(sortByDateSheet)
-    }
-    
     private func presentMakeNewPeriod() {
         dismiss(animated: true) {[weak self] in
             guard let self else { return }
             let newPeriodVC = self.factory.makeSortByPeriodViewController()
             pushViewController(newPeriodVC, animated: true)
         }
-    }
-    
-    private func presentPostCollectionSheet() {
-        let postCollectionSheet = factory.makePostCollectionSheet()
-        presentPanModal(postCollectionSheet)
     }
     
     private func presentPostDetailsScreenViewController() {

@@ -20,9 +20,10 @@ class ConfirmMSGViewController: BaseViewController {
     }
     //MARK: Methods
     
-    init(viewModelFactory: ConfirmMSGViewModelFactory) {
+    init(email: String, viewModelFactory: ConfirmMSGViewModelFactory) {
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makeConfirmMsgViewModel()
+        self.viewModel.email = email
         super.init()
     }
     

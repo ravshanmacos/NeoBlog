@@ -12,6 +12,7 @@ protocol UserSessionRepository {
     func readUserSession() -> Promise<UserSession?>
     func forgotPassword(reqeustModel: SendOTPRequestModel) -> Promise<GeneralResponse>
     func verifyOTP(reqeustModel: VerifyOTPRequestModel) -> Promise<UserSession>
+    func changeForgotPassword(token: String, requestModel: ChangeForgotPasswordRequestModel) -> Promise<GeneralResponse>
     
     func signUp(requestModel: SignUpRequestModel) -> Promise<Message>
     func signIn(requestModel: SignInRequestModel) -> Promise<UserSession>

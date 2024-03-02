@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import Combine
 
 class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
     //MARK: Properties
     private let headerView = makeHeader()
     private let selectCategorySegmentView = makeSelectCategorySegmentView()
     private let postsTableView = makePostsTableView()
+    
+    private var subscriptions = Set<AnyCancellable>()
     private let viewModel: MainScreenViewModel
     
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: MainScreenViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        viewModel
+            .$blogPostList
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] _ in
+                guard let self else { return }
+                postsTableView.reloadData()
+            }.store(in: &subscriptions)
     }
     
     override func setupSubviews() {
@@ -54,6 +64,7 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
     
     func searchButtonClicked () {
         print("Search Clicked")
+        viewModel.search(with: headerView.searchBarWithFilter.searchTextField.text)
     }
     
     func filterButtonClicked () {
@@ -74,18 +85,19 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
 extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.blogPostList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = PostsTableviewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
+        let post = viewModel.blogPostList[indexPath.item]
         cell.delegate = self
-        cell.setUsername(with: "yamahaman")
-        cell.setCreated(at: "14 дек в 21:00")
-        cell.setCommentsCount(with: "2")
-        cell.setCategoryLabel(with: "Искусство")
-        cell.setTitle(with: Strings.titleLabel.rawValue)
-        cell.setSubtitle(wtih: Strings.subtitleLabel.rawValue)
+        cell.setUsername(with: post.author.name)
+        cell.setCreated(at: post.publicationDate)
+        cell.setCommentsCount(with: post.commentsCount)
+        cell.setCategoryLabel(with: post.category.name)
+        cell.setTitle(with: post.title)
+        cell.setSubtitle(wtih: post.description)
         cell.selectionStyle = .none
         return cell
     }

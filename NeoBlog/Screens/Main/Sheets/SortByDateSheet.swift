@@ -35,7 +35,6 @@ class SortByDateSheet: BaseViewController {
         } else {
             sortByDateSelectedResponder.sortByDateDidSelected(with: sender.tag)
         }
-        
     }
 }
 

@@ -11,12 +11,14 @@ import VKPinCodeView
 class ConfirmMSGViewModel {
     
     //MARK: Properties
-    @Published private(set) var seconds = 10
+    @Published private(set) var seconds = 60
     @Published private(set) var sendOtpEnabled = true
     
     private let userSessionRepository: UserSessionRepository
     private let goToCreateNewPasswordNavigator: GoToCreateNewPasswordNavigator
     private var timer = Timer()
+    private var userSession: UserSession?
+    var email: String?
     
     //MARK: Methods
     init(userSessionRepository: UserSessionRepository,
@@ -25,29 +27,36 @@ class ConfirmMSGViewModel {
         self.goToCreateNewPasswordNavigator = goToCreateNewPasswordNavigator
     }
     
-    func isCodeMatch(code: String) -> Bool {
-        var isMatch = false
+    func isCodeMatch(code: String, _ completion: @escaping ((Bool)->Void)) {
         userSessionRepository
             .verifyOTP(reqeustModel: .init(code: code))
             .done { userSession in
-                isMatch = true
-                self.goToCreateNewPasswordNavigator.navigateCreateNewPassword(userSession: userSession)
+                self.userSession = userSession
+                completion(true)
             }.catch { error in
                 print(error)
-                isMatch = false
+                completion(false)
             }
-        return isMatch
     }
 }
 
 @objc extension ConfirmMSGViewModel {
     func createNewPassword() {
-        
-        
+        guard let userSession else { return }
+        self.goToCreateNewPasswordNavigator.navigateCreateNewPassword(userSession: userSession)
     }
     
     func sendOtpAgain() {
+        guard let email else { return }
         start()
+        userSessionRepository
+            .forgotPassword(reqeustModel: .init(email: email))
+            .done { _ in
+                
+            }
+            .catch { error in
+                print(error)
+            }
         sendOtpEnabled = false
     }
 }

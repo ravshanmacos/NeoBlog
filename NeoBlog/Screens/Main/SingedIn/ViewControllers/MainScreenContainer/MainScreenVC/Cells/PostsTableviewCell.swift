@@ -41,33 +41,35 @@ class PostsTableviewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUsername(with text: String) {
+    func setUsername(with text: String?) {
         if let label = userProfileView.subviews[1] as? UILabel {
             label.text = text
         }
     }
     
-    func setCreated(at date: String) {
+    func setCreated(at date: String?) {
         postCreateAtView.text = date
     }
     
-    func setCommentsCount(with text: String) {
+    func setCommentsCount(with count: Int?) {
         if let commentsBtn = commentsAndSaveView.subviews[0] as? UIButton {
-            commentsBtn.setTitle(text, for: .normal)
+            if let count {
+                commentsBtn.setTitle(String(count), for: .normal)
+            }
         }
     }
     
-    func setTitle(with text: String) {
+    func setTitle(with text: String?) {
         postTitleLabel.text = text
     }
     
-    func setSubtitle(wtih text: String) {
+    func setSubtitle(wtih text: String?) {
         postSubtitleLabel.text = text
         postSubtitleLabel.numberOfLines = 6
         postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
     }
     
-    func setCategoryLabel(with text: String) {
+    func setCategoryLabel(with text: String?) {
         postCategoryLabel.text = text
     }
 }

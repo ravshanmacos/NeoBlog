@@ -16,6 +16,7 @@ class OnboardingViewModel: PopCurrentResponder, PopToRootResponder {
     
     @Published private(set) var navigationAction: OnboardingNavigationAction = .present(view: .welcome)
     var userSession: UserSession?
+    var email: String?
     
     // MARK: - Methods
     func popToCurrentView() {
@@ -29,6 +30,7 @@ class OnboardingViewModel: PopCurrentResponder, PopToRootResponder {
 }
 
 extension OnboardingViewModel:  GoToSignUpNavigator, GoToSignInNavigator, GoToSendMSGToEmailNavigator, GoToConfirmMSGNavigator, GoToCreateNewPasswordNavigator {
+    
     func navigateCreateNewPassword(userSession: UserSession) {
         self.userSession = userSession
         navigationAction = .present(view: .createNewPassword)
@@ -46,7 +48,8 @@ extension OnboardingViewModel:  GoToSignUpNavigator, GoToSignInNavigator, GoToSe
         navigationAction = .present(view: .sendMSGToEmail)
     }
     
-    func navigateConfirmMsgNavigator() {
+    func navigateConfirmMsgNavigator(email: String) {
+        self.email = email
         navigationAction = .present(view: .confirmMSG)
     }
     

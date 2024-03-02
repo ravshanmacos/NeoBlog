@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GoToConfirmMSGNavigator {
-    func navigateConfirmMsgNavigator()
+    func navigateConfirmMsgNavigator(email: String)
 }

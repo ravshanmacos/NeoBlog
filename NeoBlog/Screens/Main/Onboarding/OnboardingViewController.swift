@@ -8,35 +8,27 @@
 import UIKit
 import Combine
 
+protocol OnboardingViewControllerFactory {
+    func makeWelcomeViewController() -> WelcomeViewController
+    func makeSignInViewController() -> SignInViewController
+    func makeSignUpViewController() -> SignUpViewController
+    func makeSendMsgtoEmailViewController() -> SendMSGToEmailViewController
+    func makeConfirmMsgViewController(email: String) -> ConfirmMSGViewController
+    func makeCreateNewPasswordViewController(userSession: UserSession) -> CreateNewPasswordViewController
+}
+
 class OnboardingViewController: BaseNavigationController {
     
     // MARK: - Properties
     private let viewModel: OnboardingViewModel
+    private let viewControllersFactory: OnboardingViewControllerFactory
     private var subscriptions = Set<AnyCancellable>()
-    
-    // Child View Controllers
-    private let welcomeViewController: WelcomeViewController
-    private let signInViewController: SignInViewController
-    private let signUpViewController: SignUpViewController
-    private let sendMsgToEmailViewController: SendMSGToEmailViewController
-    private let confirmMsgViewController: ConfirmMSGViewController
-    private let createNewPasswordViewController: CreateNewPasswordViewController
     
     // MARK: - Methods
     init(viewModel: OnboardingViewModel,
-         welcomeViewController: WelcomeViewController,
-         signInViewController: SignInViewController,
-         signUpViewController: SignUpViewController,
-         sendMsgToEmailViewController: SendMSGToEmailViewController,
-         confirmMsgViewController: ConfirmMSGViewController,
-         createNewPasswordViewController: CreateNewPasswordViewController) {
+         viewControllersFactory: OnboardingViewControllerFactory) {
         self.viewModel = viewModel
-        self.welcomeViewController = welcomeViewController
-        self.signInViewController = signInViewController
-        self.signUpViewController = signUpViewController
-        self.sendMsgToEmailViewController = sendMsgToEmailViewController
-        self.confirmMsgViewController = confirmMsgViewController
-        self.createNewPasswordViewController = createNewPasswordViewController
+        self.viewControllersFactory = viewControllersFactory
         super.init()
         self.delegate = self
     }
@@ -88,28 +80,35 @@ class OnboardingViewController: BaseNavigationController {
     }
     
     func presentWelcome() {
-        pushViewController(welcomeViewController, animated: false)
+        let welcomeVC = viewControllersFactory.makeWelcomeViewController()
+        pushViewController(welcomeVC, animated: false)
     }
     
     func presentSignIn() {
-        pushViewController(signInViewController, animated: true)
+        let signInVC = viewControllersFactory.makeSignInViewController()
+        pushViewController(signInVC, animated: true)
     }
     
     func presentSignUp() {
-        pushViewController(signUpViewController, animated: true)
+        let signUpVC = viewControllersFactory.makeSignUpViewController()
+        pushViewController(signUpVC, animated: true)
     }
     
     func presentSendMsgToEmail() {
-        pushViewController(sendMsgToEmailViewController, animated: true)
+        let sendMsgToEmailVC = viewControllersFactory.makeSendMsgtoEmailViewController()
+        pushViewController(sendMsgToEmailVC, animated: true)
     }
     
     func presentConfirmMsg() {
+        guard let email = viewModel.email else { return }
+        let confirmMsgViewController = viewControllersFactory.makeConfirmMsgViewController(email: email)
         pushViewController(confirmMsgViewController, animated: true)
     }
     
     func presentCreateNewPassword() {
         guard let userSession = viewModel.userSession else { return }
-        pushViewController(createNewPasswordViewController, animated: true)
+        let createNewPasswordVC = viewControllersFactory.makeCreateNewPasswordViewController(userSession: userSession)
+        pushViewController(createNewPasswordVC, animated: true)
     }
     
     func popToCurrentVC() {

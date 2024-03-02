@@ -54,7 +54,7 @@ class SendMSGToEmailViewModel {
             .forgotPassword(reqeustModel: requestModel)
             .done({ result in
                 print(result.message)
-                self.goToConfirmMsgNavigator.navigateConfirmMsgNavigator()
+                self.goToConfirmMsgNavigator.navigateConfirmMsgNavigator(email: self.email)
             })
             .catch { error in
                 print(error)
