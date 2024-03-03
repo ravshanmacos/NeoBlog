@@ -23,24 +23,27 @@ class MainScreenViewModel {
     
     private let goToPostDetailsNavigator: GoToPostDetailsNavigator
     
+    private let userProfile: UserProfile
     private let postRepository: PostRepository
     
     //MARK: Methods
     
-    init(postRepository: PostRepository,
+    init(userProfile: UserProfile,
+         postRepository: PostRepository,
          goToPostDetailsNavigator: GoToPostDetailsNavigator) {
+        self.userProfile = userProfile
         self.postRepository = postRepository
         self.goToPostDetailsNavigator = goToPostDetailsNavigator
+        print(userProfile)
     }
     
     func navigateToPostDetails(with postID: Int) {
-        goToPostDetailsNavigator.navigateToPostDetails()
+        goToPostDetailsNavigator.navigateToPostDetails(postID: postID)
     }
     
     //Search
     func search(with text: String?) {
-        guard let text else { return }
-        getBlogPostList(query: text)
+        getBlogPostList(query: text ?? "")
     }
     
     // Open sheets

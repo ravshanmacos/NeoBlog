@@ -19,10 +19,13 @@ class SignedInDepedencyContainer {
     
     //context
     private let userSession: UserSession
+    private let userProfile: UserProfile
     private let sharedPostRepository: PostRepository
     
     //MARK: Methods
-    init(userSession: UserSession, appDependencyContainer: AppDependencyContainer) {
+    init(userSession: UserSession, 
+         userProfile: UserProfile,
+         appDependencyContainer: AppDependencyContainer) {
         
         func makeMainContainerViewModel() -> MainContainerViewModel {
             return MainContainerViewModel()
@@ -31,6 +34,7 @@ class SignedInDepedencyContainer {
         self.sharedUserSessionRepository = appDependencyContainer.sharedUserSessionRepository
         self.sharedMainViewModel = appDependencyContainer.sharedMainViewModel
         self.userSession = userSession
+        self.userProfile = userProfile
         
         self.sharedMainContainerViewModel = makeMainContainerViewModel()
         self.sharedProfileContainerViewModel = ProfileContainerViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel)
@@ -75,7 +79,7 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     func makeMainScreenViewModel() -> MainScreenViewModel {
-        return MainScreenViewModel(postRepository: sharedPostRepository, 
+        return MainScreenViewModel(userProfile: userProfile, postRepository: sharedPostRepository, 
                                    goToPostDetailsNavigator: sharedMainContainerViewModel)
     }
     
@@ -90,7 +94,7 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
         return PostCollectionSheet(viewModelFactory: self)
     }
     func makePostCollectionViewModel() -> PostCollectionSheetViewModel {
-        return PostCollectionSheetViewModel()
+        return PostCollectionSheetViewModel(postRepository: sharedPostRepository, userProfile: userProfile)
     }
     
     //Sort By Period View Controller
@@ -108,12 +112,12 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     //Post Details
-    func makePostDetailsViewController() -> PostDetailScreenViewController {
-        return PostDetailScreenViewController(viewModelFactory: self)
+    func makePostDetailsViewController(postID: Int) -> PostDetailScreenViewController {
+        return PostDetailScreenViewController(postID: postID, viewModelFactory: self)
     }
     
     func makePostDetailScreenViewModel() -> PostDetailScreenViewModel {
-        return PostDetailScreenViewModel()
+        return PostDetailScreenViewModel(postRepository: sharedPostRepository)
     }
 }
 

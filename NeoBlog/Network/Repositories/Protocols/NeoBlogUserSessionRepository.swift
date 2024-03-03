@@ -96,4 +96,18 @@ class NeoBlogUserSessionRepository: UserSessionRepository {
     func signOut(userSession: UserSession) -> Promise<UserSession> {
         return dataStore.delete(userSession: userSession)
     }
+    
+    func userMe(userSession: UserSession) -> Promise<UserProfile> {
+        return Promise<UserProfile> { resolver in
+            remoteAPI
+                .userMe(userSession: userSession) { result in
+                    switch result {
+                    case .success(let userProfile):
+                        resolver.fulfill(userProfile)
+                    case .failure(let error):
+                        resolver.reject(error)
+                    }
+                }
+        }
+    }
 }

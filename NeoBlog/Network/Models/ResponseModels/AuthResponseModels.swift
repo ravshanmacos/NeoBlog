@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct UserProfile: Decodable {
+    let id: Int?
+    let username: String?
+    let email: String?
+}
+
 struct SignInResponseModel: Decodable {
     let refresh: String
     let access: String

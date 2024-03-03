@@ -12,7 +12,25 @@ import Alamofire
 
 extension NeoBlogPostEndpoints {
     enum Endpoints {
-        case getBlogPostList(categoryName: String, query: String)
+        //Get
+        case getMyPosts
+        case getPostDetail(postID: Int)
+        case getUserCollections(userID: Int)
+        case getPostList(categoryName: String, query: String)
+        
+        //Post
+        case savePostToCollection(collectionID: Int)
+        case createCollection(authorID: Int)
+        case createCommment
+        case createPost
+        
+        //PUT
+        case updateCollection(collectionID: Int)
+        case updatePost(postID: Int)
+        
+        //Delete
+        case deleteCollection(collectionID: Int)
+        case deletePost(postID: Int)
     }
 }
 
@@ -27,8 +45,14 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var method: Alamofire.HTTPMethod {
         switch endpointType {
-        case .getBlogPostList:
+        case .getMyPosts, .getPostDetail, .getUserCollections, .getPostList:
             return .get
+        case .savePostToCollection, .createCollection, .createCommment, .createPost:
+            return .post
+        case .updatePost, .updateCollection:
+            return .put
+        case .deletePost, .deleteCollection:
+            return .delete
         }
     }
     
@@ -41,8 +65,10 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var parameters: Alamofire.Parameters? {
         switch endpointType {
-        case .getBlogPostList(let categoryName, let query):
+        case .getPostList(let categoryName, let query):
             return ["category_name": categoryName, "search": query]
+        default:
+            return nil
         }
     }
     
@@ -55,8 +81,37 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var url: String? {
         switch endpointType {
-        case .getBlogPostList:
+        //Get
+        case .getMyPosts:
+            return "/blog/my-post/s"
+        case .getPostDetail(let postID):
+            return "/blog/post/detail/\(postID)/"
+        case .getUserCollections(let userID):
+            return "/blog/collections/user/\(userID)/"
+        case .getPostList:
             return "/blog/post/list/"
+            
+        //Post
+        case .createPost:
+            return "/blog/post/create/"
+        case .createCommment:
+            return "/blog/comment-create/"
+        case .savePostToCollection(let collectionID):
+            return "/blog/collections/\(collectionID)/add-post/"
+        case .createCollection(let authorID):
+            return "/blog/collections/\(authorID)/create/"
+            
+        //Put
+        case .updatePost(let postID):
+            return "/blog/post/\(postID)/update/"
+        case .updateCollection(let collectionID):
+            return "/blog/collection/\(collectionID)/update/"
+        
+        //Delete
+        case .deletePost(let postID):
+            return "/blog/post/\(postID)/delete/"
+        case .deleteCollection(let collectionID):
+            return "/blog/collection/\(collectionID)/delete/"
         }
     }
     

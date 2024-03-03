@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Comment {
+struct CommentFake {
     let username: String
     let date: String
     let description: String
@@ -22,10 +22,10 @@ class CommentsView: BaseView {
     private let tableview = makeTableView()
     private let sendMessageView = makeSendMessageFieldView()
     
-    private let comments: [Comment]
+    private let comments: [CommentFake]
     //MARK: Methods
     
-    init(frame: CGRect = .zero, comments: [Comment]) {
+    init(frame: CGRect = .zero, comments: [CommentFake]) {
         self.comments = comments
         super.init(frame: frame)
     }

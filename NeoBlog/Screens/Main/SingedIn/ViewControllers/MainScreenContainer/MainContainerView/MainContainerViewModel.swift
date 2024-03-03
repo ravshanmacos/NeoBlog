@@ -11,13 +11,15 @@ typealias MainContainerNavigationAction = NavigationAction<MainContainerViewStat
 
 class MainContainerViewModel {
     //MARK: Properties
-    
     @Published private(set) var navigationAction: MainContainerNavigationAction = .present(view: .mainScreen)
+    
+    var postID: Int?
     
     //MARK: Methods
     
     //View Controller navigation
-    func navigateToPostDetails() {
+    func navigateToPostDetails(postID: Int) {
+        self.postID = postID
         navigationAction = .present(view: .postDetails)
     }
     

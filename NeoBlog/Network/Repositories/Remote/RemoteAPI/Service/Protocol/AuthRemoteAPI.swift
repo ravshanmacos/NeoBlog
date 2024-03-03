@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 protocol AuthRemoteAPI {
+    func userMe(userSession: UserSession, callback: @escaping (Result<UserProfile, Error>) -> Void)
     func sigIn(requestModel: SignInRequestModel,
                callback: @escaping (Result<SignInResponseModel, Error>) -> Void)
     
@@ -20,4 +21,5 @@ protocol AuthRemoteAPI {
                 callback: @escaping (Result<VerifyOTPResponseModel, Error>) -> Void)
     func changePassword(token: String, requestModel: ChangeForgotPasswordRequestModel,
                 callback: @escaping (Result<GeneralResponse, Error>) -> Void)
+    
 }

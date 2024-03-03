@@ -15,5 +15,6 @@ target 'NeoBlog' do
   pod "PromiseKit", "~> 8"
   pod "Alamofire", "~> 5.8.1"
   pod "SwiftyJSON", "~> 5.0.1"
+  pod 'Kingfisher', '~> 7.0'
 
 end

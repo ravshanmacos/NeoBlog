@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GoToPostDetailsNavigator {
-    func navigateToPostDetails()
+    func navigateToPostDetails(postID: Int)
 }

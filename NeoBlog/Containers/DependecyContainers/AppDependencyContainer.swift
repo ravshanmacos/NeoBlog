@@ -32,13 +32,8 @@ class AppDependencyContainer {
             return NeoBlogAuthRemoteAPI()
         }
         
-        
-        func makeMainViewModel() -> MainViewModel {
-            return MainViewModel()
-        }
-        
         self.sharedUserSessionRepository = makeUserSessionRepository()
-        self.sharedMainViewModel = makeMainViewModel()
+        self.sharedMainViewModel = MainViewModel(userSessionRepository: sharedUserSessionRepository)
     }
     
     //MARK: Methods
@@ -68,13 +63,13 @@ class AppDependencyContainer {
     }
     
     //SignedIn View Controller
-    func makeSignedInViewController(userSession: UserSession) -> TabBarController {
-        let dc = makeSignedInDependencyContainer(userSession: userSession)
+    func makeSignedInViewController(userSession: UserSession, userProfile: UserProfile) -> TabBarController {
+        let dc = makeSignedInDependencyContainer(userSession: userSession, userProfile: userProfile)
         return dc.makeTabBarController()
     }
     
-    func makeSignedInDependencyContainer(userSession: UserSession) -> SignedInDepedencyContainer {
-        return SignedInDepedencyContainer(userSession: userSession, appDependencyContainer: self)
+    func makeSignedInDependencyContainer(userSession: UserSession, userProfile: UserProfile) -> SignedInDepedencyContainer {
+        return SignedInDepedencyContainer(userSession: userSession, userProfile: userProfile, appDependencyContainer: self)
     }
 }
 

@@ -8,6 +8,10 @@
 import Foundation
 
 class FakeAuthRemoteAPI: AuthRemoteAPI {
+    func userMe(userSession: UserSession, callback: @escaping (Result<UserProfile, Error>) -> Void) {
+        
+    }
+    
     func changePassword(token: String, requestModel: ChangeForgotPasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
         
     }

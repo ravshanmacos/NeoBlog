@@ -24,7 +24,7 @@ extension JSONMapper {
     func mapToResult<T: Decodable>(from result: Result<APIResponse, Error>, forKey key: String?, type: T.Type) -> Result<T, Error>{
         switch result {
         case .success(let response):
-            guard let bodyData = response.body(for: nil) else {
+            guard let bodyData = response.body(for: key) else {
                 return Result.failure(MappingError())
             }
             do {

@@ -8,32 +8,48 @@
 import Foundation
 import Alamofire
 
-enum NeoBlogAuthEndpoints: RESTEnpoint {
-    case signIn(requestModel: SignInRequestModel)
-    case signUp(requestModel: SignUpRequestModel)
-    case sendOTP(requestModel: SendOTPRequestModel)
-    case verifyOTP(requestModel: VerifyOTPRequestModel)
-    case changeForgotPassword(token: String, requestModel: ChangeForgotPasswordRequestModel)
+extension NeoBlogAuthEndpoints {
+    enum Endpoints {
+        case userMe
+        case signIn(requestModel: SignInRequestModel)
+        case signUp(requestModel: SignUpRequestModel)
+        case sendOTP(requestModel: SendOTPRequestModel)
+        case verifyOTP(requestModel: VerifyOTPRequestModel)
+        case changeForgotPassword(token: String, requestModel: ChangeForgotPasswordRequestModel)
+    }
 }
 
-extension NeoBlogAuthEndpoints {
+struct NeoBlogAuthEndpoints: RESTEnpoint {
+    
+    //MARK: Properties
+    
+    private let userSession: UserSession?
+    private let endpointType: Endpoints
+    
+    //MARK: Methods
+    init(userSession: UserSession?, endpointType: Endpoints) {
+        self.userSession = userSession
+        self.endpointType = endpointType
+    }
     
     var method: HTTPMethod {
-        switch self {
+        switch endpointType {
+        case .userMe:
+            return .get
         default:
             return .post
         }
     }
     
     var parameters: Parameters? {
-        switch self {
+        switch endpointType {
         default:
             return nil
         }
     }
     
     var encodableParameters: Encodable {
-        switch self {
+        switch endpointType {
         case .signIn(let requestModel):
             return requestModel
         case .signUp(let requestModel):
@@ -44,18 +60,22 @@ extension NeoBlogAuthEndpoints {
             return requestModel
         case .changeForgotPassword(_, let requestModel):
             return requestModel
+        default:
+            return ""
         }
     }
     
     var encoder: JSONParameterEncoder {
-        switch self {
+        switch endpointType {
         default:
             return JSONParameterEncoder.default
         }
     }
     
     var url: String? {
-        switch self {
+        switch endpointType {
+        case .userMe:
+            return "/users/me/"
         case .signIn:
             return "/users/login/"
         case .signUp:
@@ -70,11 +90,10 @@ extension NeoBlogAuthEndpoints {
     }
     
     var headers: HTTPHeaders? {
-        switch self {
-        
-        case .changeForgotPassword(let token, _):
+        if let userSession {
+            let token = userSession.remoteSession.accessToken
             return ["Content-type": "application/json", "Authorization": "Bearer \(token)"]
-        default:
+        } else {
             return ["Content-type": "application/json"]
         }
     }

@@ -28,12 +28,17 @@ class PostCollectionRootView: BaseView {
     
     private func observeOptionsData() {
         viewModel
-            .$optionsData
+            .$collections
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] optionsdata in
+            .sink {[weak self] collections in
                 guard let self else { return }
-                print(optionsdata)
-                tableview.reloadData()
+                self.tableview.snp.remakeConstraints { make in
+                    make.top.equalTo(self.hStack.snp.bottom)
+                    make.leading.equalToSuperview().offset(10)
+                    make.trailing.equalToSuperview()
+                    make.height.equalTo(collections.count * 70)
+                }
+                self.tableview.reloadData()
             }.store(in: &subscriptions)
     }
     
@@ -56,7 +61,7 @@ class PostCollectionRootView: BaseView {
             make.top.equalTo(hStack.snp.bottom)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview()
-            make.height.equalTo(viewModel.optionsData.count * 70)
+            make.height.equalTo(viewModel.collections.count * 70)
         }
     }
     
@@ -70,15 +75,16 @@ class PostCollectionRootView: BaseView {
 
 extension PostCollectionRootView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.optionsData.count
+        viewModel.collections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = OptionViewTableViewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
-        let item = viewModel.optionsData[indexPath.item]
-        cell.titleLabel.text = item.title
-        cell.descriptionLabel.text = item.getSavedDescriptions()
-        cell.radioButton.isSelected = item.isActive
+        let item = viewModel.collections[indexPath.item]
+        cell.titleLabel.text = item.name
+        let count = item.postCount == nil ? 0 : item.postCount!
+        cell.descriptionLabel.text = "Сохранено: \(count)"
+        //cell.radioButton.isSelected = item.isActive
         return cell
     }
     

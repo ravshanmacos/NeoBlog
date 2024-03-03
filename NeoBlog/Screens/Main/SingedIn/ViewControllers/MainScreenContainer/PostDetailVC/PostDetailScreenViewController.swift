@@ -19,9 +19,10 @@ class PostDetailScreenViewController: BaseViewController {
     
     //MARK: Methods
     
-    init(viewModelFactory: PostDetailScreenViewModelFactory) {
+    init(postID: Int, viewModelFactory: PostDetailScreenViewModelFactory) {
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makePostDetailScreenViewModel()
+        self.viewModel.postID = postID
         super.init()
     }
     
@@ -32,6 +33,11 @@ class PostDetailScreenViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSaveBtn()
+        viewModel.getPostDetails()
+    }
+    
+    private func configureSaveBtn() {
         let saveButton = UIButton()
         saveButton.setImage(R.image.save_inactive_icon(), for: .normal)
         saveButton.setImage(R.image.save_active_icon(), for: .selected)

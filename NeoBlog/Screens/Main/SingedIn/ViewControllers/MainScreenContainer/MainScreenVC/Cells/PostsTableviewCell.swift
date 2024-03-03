@@ -43,7 +43,7 @@ class PostsTableviewCell: UITableViewCell {
     
     func setUsername(with text: String?) {
         if let label = userProfileView.subviews[1] as? UILabel {
-            label.text = text
+            label.text = text ?? "user"
         }
     }
     
@@ -67,6 +67,12 @@ class PostsTableviewCell: UITableViewCell {
         postSubtitleLabel.text = text
         postSubtitleLabel.numberOfLines = 6
         postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
+    }
+    
+    func setImage(urlString: String?) {
+        if let urlString, let imageURL = URL(string: urlString) {
+            postImageView.kf.setImage(with: imageURL, placeholder: R.image.post_sample_image_full())
+        }
     }
     
     func setCategoryLabel(with text: String?) {

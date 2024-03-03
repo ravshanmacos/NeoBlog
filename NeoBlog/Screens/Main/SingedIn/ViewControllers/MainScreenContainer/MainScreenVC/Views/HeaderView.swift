@@ -56,6 +56,7 @@ class HeaderView: BaseView {
     }
     
     @objc private func cancelButtonTapped() {
+        searchBarWithFilter.searchTextField.text = ""
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseIn])
         {[weak self] in
             guard let self else { return }
@@ -68,6 +69,7 @@ class HeaderView: BaseView {
             cancelButton.alpha = 1
             hStack.addArrangedSubviews(titleLabel, searchButton)
             searchButton.snp.remakeConstraints { $0.width.equalTo(self.contentWidth/8) }
+            
         }
     }
 }

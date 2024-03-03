@@ -7,32 +7,6 @@
 
 import Foundation
 
-/*
- page": 1,
-     "count": 21,
-     "next": "https://neobook.online/neoblog/blog/post/list/?page=2",
-     "previous": null,
-     "results": [
-         {
-             "id": 21,
-             "title": "Что за белый порошок, которым мажут руки гимнасты?",
-             "description": "Многие ошибочно полагают, что перед выступлением гимнасты растирают в руках муку, но это не так. Белый порошок магнезии удаляет с руки даже мелкие следы влаги, помогая улучшить сцепление со снарядом.",
-             "photo": "https://res.cloudinary.com/neomedtech/image/upload/v1/media/post_photos/%D0%BF%D0%BE%D1%80%D0%BE%D1%88%D0%BE%D0%BA_vdhsfl",
-             "author": {
-                 "id": 1,
-                 "username": null
-             },
-             "category": {
-                 "id": 3,
-                 "name": "Спорт"
-             },
-             "publication_date": "02 февр в 13:51",
-             "comments_count": 0,
-             "in_collections": false
-         },
-      ]
- */
-
 struct BlogPostListResponseModel: Decodable {
     let page: Int?
     let next: String?
@@ -48,6 +22,7 @@ struct BlogPost: Decodable {
     let author: Author
     let category: Category
     let publicationDate: String?
+    let postComments: [Comment]?
     let commentsCount: Int?
     let inCollections: Bool?
     
@@ -55,8 +30,20 @@ struct BlogPost: Decodable {
         case id, title, description, photo
         case author, category
         case publicationDate = "publication_date"
+        case postComments = "post_comments"
         case commentsCount = "comments_count"
         case inCollections = "in_collections"
+    }
+}
+
+struct Comment: Decodable {
+    let author: Int?
+    let text: String?
+    let createdAt: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case author, text
+        case createdAt = "created_at"
     }
 }
 
@@ -68,4 +55,16 @@ struct Author: Decodable {
 struct Category: Decodable {
     let id: Int?
     let name: String?
+}
+
+struct Collection: Decodable {
+    let id: Int?
+    let name: String?
+    let postCount: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case postCount = "post_count"
+    }
 }

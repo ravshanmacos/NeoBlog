@@ -10,7 +10,7 @@ import Combine
 
 protocol MainContainerViewControllerFactory {
     func makeMainScreenViewController() -> MainScreenViewController
-    func makePostDetailsViewController() -> PostDetailScreenViewController
+    func makePostDetailsViewController(postID: Int) -> PostDetailScreenViewController
     func makeSortByPeriodViewController() -> SortByPeriodViewController
 }
 
@@ -80,7 +80,8 @@ class MainContainerViewController: BaseNavigationController {
     }
     
     private func presentPostDetailsScreenViewController() {
-        let postDetailsVC = factory.makePostDetailsViewController()
+        guard let postID = viewModel.postID else { return }
+        let postDetailsVC = factory.makePostDetailsViewController(postID: postID)
         tabBarController?.tabBar.isHidden = true
         pushViewController(postDetailsVC, animated: true)
     }

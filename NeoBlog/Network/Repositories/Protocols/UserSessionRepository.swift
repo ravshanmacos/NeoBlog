@@ -17,4 +17,6 @@ protocol UserSessionRepository {
     func signUp(requestModel: SignUpRequestModel) -> Promise<Message>
     func signIn(requestModel: SignInRequestModel) -> Promise<UserSession>
     func signOut(userSession: UserSession) -> Promise<UserSession>
+    
+    func userMe(userSession: UserSession) -> Promise<UserProfile>
 }

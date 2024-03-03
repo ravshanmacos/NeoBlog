@@ -9,8 +9,10 @@ import Foundation
 import PromiseKit
 
 class NeoBlogPostRepository: PostRepository {
+    //MARK: Methods
     private let remoteAPI: PostRemoteAPI
     
+    //MARK: Properties
     init(remoteAPI: PostRemoteAPI) {
         self.remoteAPI = remoteAPI
     }
@@ -21,6 +23,47 @@ class NeoBlogPostRepository: PostRepository {
                 switch result {
                 case .success(let model):
                     resolver.fulfill(model)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    func getPostDetail(postID: Int) -> PromiseKit.Promise<BlogPost> {
+        return Promise<BlogPost> { resolver in
+            remoteAPI.getPostDetail(postID: postID) { result in
+                switch result {
+                case .success(let post):
+                    resolver.fulfill(post)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    func getUserCollections(userID: Int) -> Promise<[Collection]> {
+        return Promise<[Collection]> { resolver in
+            remoteAPI
+                .getUserCollections(userID: userID) { result in
+                    switch result {
+                    case .success(let collections):
+                        resolver.fulfill(collections)
+                    case .failure(let error):
+                        resolver.reject(error)
+                    }
+                }
+        }
+    }
+    
+    //Post
+    func createCollection(authorID: Int, requestModel: CreateCollection) -> Promise<CreateCollection> {
+        return Promise<CreateCollection> { resolver in
+            remoteAPI.createCollection(authorID: authorID, requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
                 case .failure(let error):
                     resolver.reject(error)
                 }

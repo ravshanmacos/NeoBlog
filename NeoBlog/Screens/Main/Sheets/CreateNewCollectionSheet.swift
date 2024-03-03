@@ -27,7 +27,6 @@ class CreateNewCollectionSheet: BaseViewController {
         super.init()
         setKeyboardObservers()
         setupSubviews()
-        
         configureAppearance()
     }
     

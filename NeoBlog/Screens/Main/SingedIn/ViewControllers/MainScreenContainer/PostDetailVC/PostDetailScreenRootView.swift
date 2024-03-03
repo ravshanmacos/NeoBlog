@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+import Combine
 
 class PostDetailScreenRootView: ScrollableBaseView {
     
@@ -18,12 +20,14 @@ class PostDetailScreenRootView: ScrollableBaseView {
     private let categoryInfoLabel = makeCategoryInfoLabel(with: "Искусство")
     private let commentsView = makeCommentsView()
     
+    private var subscriptions = Set<AnyCancellable>()
     private let viewModel: PostDetailScreenViewModel
     
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: PostDetailScreenViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        bindViewModelToView()
     }
     
     override func setupSubviews() {
@@ -69,14 +73,34 @@ class PostDetailScreenRootView: ScrollableBaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        if let label = userProfileView.subviews[1] as? UILabel {
-            label.text = "yamahaman"
-        }
-        postCreateAtView.text = "14 дек в 21:00"
-        postTitleLabel.text = Strings.titleLabel.rawValue
-        postSubtitleLabel.text = Strings.subtitleLabel.rawValue
-        postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
-        postImageView.image = R.image.post_sample_image_full()
+//        if let label = userProfileView.subviews[1] as? UILabel {
+//            label.text = "yamahaman"
+//        }
+//        postCreateAtView.text = "14 дек в 21:00"
+//        postTitleLabel.text = Strings.titleLabel.rawValue
+//        postSubtitleLabel.text = Strings.subtitleLabel.rawValue
+//        postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
+//        postImageView.image = R.image.post_sample_image_full()
+    }
+    
+    private func bindViewModelToView() {
+        viewModel
+            .$post
+            .receive(on: DispatchQueue.main)
+            .filter { $0 != nil }
+            .sink {[weak self] post in
+                guard let self else { return }
+                if let label = userProfileView.subviews[1] as? UILabel {
+                    label.text = post?.author.name
+                }
+                postCreateAtView.text = post?.publicationDate
+                postTitleLabel.text = post?.title
+                postSubtitleLabel.text = post?.description
+                postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
+                if let post, let imageURL = post.photo {
+                    postImageView.kf.setImage(with: URL(string: imageURL), placeholder: R.image.post_sample_image_full())
+                }
+            }.store(in: &subscriptions)
     }
 }
 
@@ -111,11 +135,11 @@ extension PostDetailScreenRootView {
         return commentsView
     }
     
-    static func testComments() -> [Comment] {
-        let comment1 = Comment(username: "alisanes", date: "14 дек в 20:17", description: "Прикольно")
-        let comment2 = Comment(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
-        let comment3 = Comment(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
-        let comment4 = Comment(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
+    static func testComments() -> [CommentFake] {
+        let comment1 = CommentFake(username: "alisanes", date: "14 дек в 20:17", description: "Прикольно")
+        let comment2 = CommentFake(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
+        let comment3 = CommentFake(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
+        let comment4 = CommentFake(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
         return [comment1, comment2, comment3, comment4 ]
     }
 }

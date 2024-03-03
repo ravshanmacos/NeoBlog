@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
+class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDelegate {
     //MARK: Properties
     private let headerView = makeHeader()
     private let selectCategorySegmentView = makeSelectCategorySegmentView()
@@ -58,17 +58,32 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate {
         postsTableView.delegate = self
         postsTableView.dataSource = self
         
+        headerView.searchBarWithFilter.searchTextField.delegate = self
+        
         headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
         headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        viewModel.search(with: textField.text)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewModel.search(with: textField.text)
+    }
+    
     func searchButtonClicked () {
-        print("Search Clicked")
         viewModel.search(with: headerView.searchBarWithFilter.searchTextField.text)
     }
     
     func filterButtonClicked () {
-        print("Filter Clicked")
         viewModel.openFilterSheet()
     }
     
@@ -98,12 +113,15 @@ extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
         cell.setCategoryLabel(with: post.category.name)
         cell.setTitle(with: post.title)
         cell.setSubtitle(wtih: post.description)
+        cell.setImage(urlString: post.photo)
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.navigateToPostDetails(with: indexPath.item)
+        let post = viewModel.blogPostList[indexPath.item]
+        guard let id = post.id else { print("Post id not found"); return }
+        viewModel.navigateToPostDetails(with: id)
     }
 }
 

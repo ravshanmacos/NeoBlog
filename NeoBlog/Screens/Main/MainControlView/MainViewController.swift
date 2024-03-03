@@ -11,7 +11,7 @@ import Combine
 protocol MainViewControllerFactory {
     func makeLaunchViewController() -> LaunchViewController
     func makeOnboardingViewController() -> OnboardingViewController
-    func makeSignedInViewController(userSession: UserSession) -> TabBarController
+    func makeSignedInViewController(userSession: UserSession, userProfile: UserProfile) -> TabBarController
 }
 
 class MainViewController: BaseViewController {
@@ -87,22 +87,26 @@ class MainViewController: BaseViewController {
     }
 
     public func presentSignedIn(userSession: UserSession) {
-      remove(childViewController: launchViewController)
+        viewModel.getUser(userSession: userSession) {[weak self] userProfile in
+            guard let self, let userProfile else { return }
+            remove(childViewController: launchViewController)
 
-      let signedInViewControllerToPresent: TabBarController
-      if let vc = self.signedInViewController {
-        signedInViewControllerToPresent = vc
-      } else {
-          signedInViewControllerToPresent = viewControllersFactory.makeSignedInViewController(userSession: userSession)
-        self.signedInViewController = signedInViewControllerToPresent
-      }
+            let signedInViewControllerToPresent: TabBarController
+            if let vc = self.signedInViewController {
+              signedInViewControllerToPresent = vc
+            } else {
+                signedInViewControllerToPresent = viewControllersFactory.makeSignedInViewController(userSession: userSession, userProfile: userProfile)
+              self.signedInViewController = signedInViewControllerToPresent
+            }
 
-      addFullScreen(childViewController: signedInViewControllerToPresent)
+            addFullScreen(childViewController: signedInViewControllerToPresent)
 
-      if onboardingViewController?.presentingViewController != nil {
-        onboardingViewController = nil
-        dismiss(animated: true)
-      }
+            if onboardingViewController?.presentingViewController != nil {
+              onboardingViewController = nil
+              dismiss(animated: true)
+            }
+        }
+
     }
 
     public override func viewDidLoad() {
