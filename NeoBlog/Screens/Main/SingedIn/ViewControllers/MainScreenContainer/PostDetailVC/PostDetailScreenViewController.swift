@@ -19,10 +19,11 @@ class PostDetailScreenViewController: BaseViewController {
     
     //MARK: Methods
     
-    init(postID: Int, viewModelFactory: PostDetailScreenViewModelFactory) {
+    init(postID: Int?, authorID: Int?, viewModelFactory: PostDetailScreenViewModelFactory) {
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makePostDetailScreenViewModel()
         self.viewModel.postID = postID
+        self.viewModel.authorID = authorID
         super.init()
     }
     

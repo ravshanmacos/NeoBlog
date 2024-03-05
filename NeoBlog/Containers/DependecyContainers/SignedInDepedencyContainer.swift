@@ -113,7 +113,7 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     
     //Post Details
     func makePostDetailsViewController(postID: Int) -> PostDetailScreenViewController {
-        return PostDetailScreenViewController(postID: postID, viewModelFactory: self)
+        return PostDetailScreenViewController(postID: postID, authorID: userProfile.id, viewModelFactory: self)
     }
     
     func makePostDetailScreenViewModel() -> PostDetailScreenViewModel {

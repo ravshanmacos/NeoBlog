@@ -14,18 +14,17 @@ struct CommentFake {
 }
 
 class CommentsView: BaseView {
-    
-    //MARK: Properties
+   //MARK: Properties
     
     private let divider1 = makeDivider()
     private let divider2 = makeDivider()
     private let tableview = makeTableView()
-    private let sendMessageView = makeSendMessageFieldView()
+    let sendMessageView = makeSendMessageFieldView()
     
-    private let comments: [CommentFake]
+    private var comments: [Comment]
     //MARK: Methods
     
-    init(frame: CGRect = .zero, comments: [CommentFake]) {
+    init(frame: CGRect = .zero, comments: [Comment]) {
         self.comments = comments
         super.init(frame: frame)
     }
@@ -65,6 +64,14 @@ class CommentsView: BaseView {
     }
 }
 
+extension CommentsView {
+    func updateComments(with comments: [Comment]?) {
+        guard let comments else { return }
+        self.comments = comments
+        tableview.reloadData()
+    }
+}
+
 extension CommentsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,9 +87,9 @@ extension CommentsView: UITableViewDataSource {
         } else {
             guard let commentTableViewCellell = CommentTableViewCell.deque(on: tableView, at: indexPath) else { return cell }
             let comment = comments[indexPath.item]
-            commentTableViewCellell.setUsernameLabel(with: comment.username)
-            commentTableViewCellell.setDateLabel(with: comment.date)
-            commentTableViewCellell.setDescriptionLabel(with: comment.description)
+            commentTableViewCellell.setUsernameLabel(with: comment.author?.username)
+            commentTableViewCellell.setDateLabel(with: comment.createdAt)
+            commentTableViewCellell.setDescriptionLabel(with: comment.text)
             cell = commentTableViewCellell
         }
         return cell

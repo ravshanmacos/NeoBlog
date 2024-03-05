@@ -57,10 +57,24 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
-    //Post
+    //Create Collection
     func createCollection(authorID: Int, requestModel: CreateCollection) -> Promise<CreateCollection> {
         return Promise<CreateCollection> { resolver in
             remoteAPI.createCollection(authorID: authorID, requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    //Create Comment
+    func createComment(requestModel: CreateCommentRequestModel) -> Promise<CreateCommentRequestModel> {
+        return Promise<CreateCommentRequestModel> { resolver in
+            remoteAPI.createComment(requestModel: requestModel) { result in
                 switch result {
                 case .success(let data):
                     resolver.fulfill(data)

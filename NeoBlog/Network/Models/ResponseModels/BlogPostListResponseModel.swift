@@ -34,6 +34,11 @@ struct BlogPost: Decodable {
         case commentsCount = "comments_count"
         case inCollections = "in_collections"
     }
+    func getImageURL() -> URL? {
+        guard let imageURLString = photo else { return nil }
+        guard let url = URL(string: imageURLString) else { return nil }
+        return url
+    }
 }
 
 struct Comment: Decodable {

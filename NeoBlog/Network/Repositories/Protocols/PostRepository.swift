@@ -37,6 +37,9 @@ protocol PostRepository {
     func getPostDetail(postID: Int) -> Promise<BlogPost>
     func getUserCollections(userID: Int) -> Promise<[Collection]>
     
-    //Post
+    //Create Collection
     func createCollection(authorID: Int, requestModel: CreateCollection) -> Promise<CreateCollection>
+    
+    //Create Comment
+    func createComment(requestModel: CreateCommentRequestModel) -> Promise<CreateCommentRequestModel>
 }

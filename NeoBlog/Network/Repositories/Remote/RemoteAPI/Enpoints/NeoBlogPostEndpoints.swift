@@ -21,7 +21,7 @@ extension NeoBlogPostEndpoints {
         //Post
         case savePostToCollection(collectionID: Int)
         case createCollection(authorID: Int, requestModel: CreateCollection)
-        case createCommment
+        case createCommment(requestModel: CreateCommentRequestModel)
         case createPost
         
         //PUT
@@ -59,6 +59,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     var encodableParameters: Encodable {
         switch endpointType {
         case .createCollection(_, let requestModel):
+            return requestModel
+        case .createCommment(let requestModel):
             return requestModel
         default:
             return ""

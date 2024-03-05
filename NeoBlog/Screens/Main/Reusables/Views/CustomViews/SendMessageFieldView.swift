@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SendMessageFieldViewDelegate: AnyObject {
-    func sendMessageTapped()
+    func sendMessageTapped(message: String, textfield: UITextField)
 }
 
 class SendMessageFieldView: BaseView {
@@ -43,11 +43,13 @@ class SendMessageFieldView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
+        messageTextfield.delegate = self
         sendMessageButton.addTarget(self, action: #selector(sendMessageTapped), for: .touchUpInside)
     }
     
     @objc private func sendMessageTapped() {
-        delegate?.sendMessageTapped()
+        guard let text = messageTextfield.text else { return }
+        delegate?.sendMessageTapped(message: text, textfield: messageTextfield)
     }
     
     func enableSendMsgBtn() {
@@ -58,6 +60,14 @@ class SendMessageFieldView: BaseView {
     func disableSendMsgBtn() {
         sendMessageButton.isEnabled = false
         sendMessageButton.isUserInteractionEnabled = false
+    }
+}
+
+extension SendMessageFieldView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        textField.resignFirstResponder()
+        return true
     }
 }
 

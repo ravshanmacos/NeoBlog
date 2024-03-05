@@ -12,6 +12,7 @@ class PostDetailScreenViewModel {
     
     @Published private(set) var post: BlogPost? = nil
     private let postRepository: PostRepository
+    var authorID: Int?
     var postID: Int?
     
     //MARK: Methods
@@ -25,6 +26,22 @@ class PostDetailScreenViewModel {
             .getPostDetail(postID: postID)
             .done({ post in
                 self.post = post
+            })
+            .catch { error in
+                print(error)
+            }
+    }
+    
+    func createComment(with text: String, _ completion: @escaping (()->Void)) {
+        guard let authorID else { return }
+        guard let postID else { return }
+        let requestModel = CreateCommentRequestModel(post: postID, author: authorID, text: text)
+        postRepository
+            .createComment(requestModel: requestModel)
+            .done({ comment in
+                print(comment)
+                self.getPostDetails()
+                completion()
             })
             .catch { error in
                 print(error)

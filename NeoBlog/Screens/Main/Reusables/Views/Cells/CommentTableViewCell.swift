@@ -38,15 +38,15 @@ class CommentTableViewCell: UITableViewCell {
         }
     }
     
-    func setUsernameLabel(with text: String) {
-        usernameLabel.text = text
+    func setUsernameLabel(with text: String?) {
+        usernameLabel.text = text ?? "Author"
     }
     
-    func setDateLabel(with text: String) {
+    func setDateLabel(with text: String?) {
         dateLabel.text = text
     }
     
-    func setDescriptionLabel(with text: String) {
+    func setDescriptionLabel(with text: String?) {
         descriptionLabel.text = text
     }
 }

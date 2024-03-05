@@ -65,8 +65,9 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
+    //Create Comment
     func createComment(requestModel: CreateCommentRequestModel, callback: @escaping (Result<CreateCommentRequestModel, Error>) -> Void) {
-        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCommment)
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCommment(requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: CreateCommentRequestModel.self))
         }

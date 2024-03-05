@@ -18,7 +18,7 @@ class PostDetailScreenRootView: ScrollableBaseView {
     private let postSubtitleLabel = makePostSubtitleLabel()
     private let postImageView = MainContainerViewComponents.makePostImageView(with: nil)
     private let categoryInfoLabel = makeCategoryInfoLabel(with: "Искусство")
-    private let commentsView = makeCommentsView()
+    private let commentsView = CommentsView(comments: [])
     
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: PostDetailScreenViewModel
@@ -73,14 +73,7 @@ class PostDetailScreenRootView: ScrollableBaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-//        if let label = userProfileView.subviews[1] as? UILabel {
-//            label.text = "yamahaman"
-//        }
-//        postCreateAtView.text = "14 дек в 21:00"
-//        postTitleLabel.text = Strings.titleLabel.rawValue
-//        postSubtitleLabel.text = Strings.subtitleLabel.rawValue
-//        postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
-//        postImageView.image = R.image.post_sample_image_full()
+        commentsView.sendMessageView.delegate = self
     }
     
     private func bindViewModelToView() {
@@ -90,25 +83,35 @@ class PostDetailScreenRootView: ScrollableBaseView {
             .filter { $0 != nil }
             .sink {[weak self] post in
                 guard let self else { return }
-                if let post, let author = post.author, let label = userProfileView.subviews[1] as? UILabel {
-                    label.text = author.username ?? "Author"
-                }
-                postCreateAtView.text = post?.publicationDate
-                postTitleLabel.text = post?.title
-                postSubtitleLabel.text = post?.description
-                postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
-                if let post, let imageURL = post.photo {
-                    postImageView.kf.setImage(with: URL(string: imageURL), placeholder: R.image.post_sample_image_full())
-                }
+                self.configurePostDetails(with: post)
             }.store(in: &subscriptions)
+    }
+    
+    private func configurePostDetails(with post: BlogPost?) {
+        extractLabelFromStack()?.text = post?.author?.username
+        postCreateAtView.text = post?.publicationDate
+        postTitleLabel.text = post?.title
+        postSubtitleLabel.text = post?.description
+        postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
+        commentsView.updateComments(with: post?.postComments)
+        postImageView.kf.setImage(with: post?.getImageURL(), placeholder: R.image.post_sample_image_full())
+    }
+    
+    private func extractLabelFromStack() -> UILabel? {
+        guard let label = userProfileView.subviews[1] as? UILabel else { return nil }
+        return label
     }
 }
 
-//extension PostDetailScreenRootView: SendMessageFieldViewDelegate {
-//    func sendMessageTapped() {
-//        print("Send Message Tapped")
-//    }
-//}
+
+
+extension PostDetailScreenRootView: SendMessageFieldViewDelegate {
+    func sendMessageTapped(message: String, textfield: UITextField) {
+        viewModel.createComment(with: message) {
+            textfield.text = nil
+        }
+    }
+}
 
 //MARK: Components
 extension PostDetailScreenRootView {
@@ -130,11 +133,6 @@ extension PostDetailScreenRootView {
         return infoWithTwoSides
     }
     
-    static func makeCommentsView() -> CommentsView {
-        let commentsView = CommentsView(comments: testComments())
-        return commentsView
-    }
-    
     static func testComments() -> [CommentFake] {
         let comment1 = CommentFake(username: "alisanes", date: "14 дек в 20:17", description: "Прикольно")
         let comment2 = CommentFake(username: "kiyaki", date: "14 дек в 22:49", description: "Интересная статья")
@@ -145,3 +143,14 @@ extension PostDetailScreenRootView {
 }
 
 
+//MARK: PlaceHolder
+/*
+ //        if let label = userProfileView.subviews[1] as? UILabel {
+ //            label.text = "yamahaman"
+ //        }
+ //        postCreateAtView.text = "14 дек в 21:00"
+ //        postTitleLabel.text = Strings.titleLabel.rawValue
+ //        postSubtitleLabel.text = Strings.subtitleLabel.rawValue
+ //        postSubtitleLabel.setLineSpacing(lineHeightMultiple: 1.3)
+ //        postImageView.image = R.image.post_sample_image_full()
+ */
