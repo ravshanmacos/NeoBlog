@@ -17,7 +17,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     
     //MARK: Methods
     init(userSession: UserSession,
-        apiManager: APIManager = RESTAPIManager(),
+         apiManager: APIManager = RESTAPIManager(),
          mapper: JSONMapper = JSONMapperImplementation()) {
         self.userSession = userSession
         self.apiManager = apiManager
@@ -25,10 +25,10 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     }
     
     //GET
-    func getBlogPost(categoryName: String, query: String, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
+    func getBlogPost(categoryName: String, query: String, callback: @escaping (Result<[BlogPost], Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostList(categoryName: categoryName, query: query))
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
-            callback(mapper.mapToResult(from: response, forKey: nil, type: BlogPostListResponseModel.self))
+            callback(mapper.mapToResult(from: response, forKey: nil, type: [BlogPost].self))
         }
     }
     
@@ -54,10 +54,12 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     }
     
     //POST
-    func savePostToCollection(requestModel: AddPostToCollectionRequestModel, collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    func addPostToCollection(requestModel: AddPostToCollectionRequestModel, collectionID: Int, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .addPostToCollection(collectionID: collectionID, requestModel: requestModel))
+        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
+        }
     }
-    
     func createCollection(authorID: Int, requestModel: CreateCollection, callback: @escaping (Result<CreateCollection, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCollection(authorID: authorID, requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in

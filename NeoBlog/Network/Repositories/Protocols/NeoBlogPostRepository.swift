@@ -17,8 +17,8 @@ class NeoBlogPostRepository: PostRepository {
         self.remoteAPI = remoteAPI
     }
     
-    func getBlogPostList(categoryName: String, query: String) -> Promise<BlogPostListResponseModel> {
-        return Promise<BlogPostListResponseModel> { resolver in
+    func getBlogPostList(categoryName: String, query: String) -> Promise<[BlogPost]> {
+        return Promise<[BlogPost]> { resolver in
             remoteAPI.getBlogPost(categoryName: categoryName, query: query) { result in
                 switch result {
                 case .success(let model):
@@ -54,6 +54,20 @@ class NeoBlogPostRepository: PostRepository {
                         resolver.reject(error)
                     }
                 }
+        }
+    }
+    
+    //Add Post To Collection
+    func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse> {
+        return Promise<GeneralResponse> { resolver in
+            remoteAPI.addPostToCollection(requestModel: requestModel, collectionID: collectionID) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
         }
     }
     

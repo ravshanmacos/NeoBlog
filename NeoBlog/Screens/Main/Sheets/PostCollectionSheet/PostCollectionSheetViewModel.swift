@@ -17,19 +17,34 @@ class PostCollectionSheetViewModel {
     private let postRepository: PostRepository
     private let userProfile: UserProfile
     
+    var collectionID: Int?
+    var postID: Int?
+    
     //MARK: Methods
     init(postRepository: PostRepository, userProfile: UserProfile) {
         self.postRepository = postRepository
         self.userProfile = userProfile
     }
     
-    func getCollections(activCategoryIndex: Int){
+    private func updateCollection(with collections: [Collection]) {
+        var selectedCollectionIndex = collections.enumerated().compactMap { (index, collection) in
+            return collection.id == collectionID ? index : nil
+        }
+        
+        self.collections = collections
+        if selectedCollectionIndex.count > 0 {
+            for index in 0..<selectedCollectionIndex.count {
+                self.collections[selectedCollectionIndex[index]].isSelected = true
+            }
+        }
+    }
+    
+    func getCollections(){
         guard let id = userProfile.id else { return }
         postRepository
             .getUserCollections(userID: id)
             .done({ collections in
-                self.collections = collections
-                self.collections[activCategoryIndex].isSelected = true
+                self.updateCollection(with: collections)
             })
             .catch { error in
                 print(error)
@@ -43,7 +58,17 @@ class PostCollectionSheetViewModel {
     }
     
     func activateOption(for index: Int) {
-        collections[index].isSelected = true
+        guard let collectionID = collections[index].id, let postID else { return }
+        postRepository
+            .addPostToCollection(collectionID: collectionID, requestModel: .init(postID: postID))
+            .done({ response in
+                print(response)
+                self.collections[index].isSelected = true
+            })
+            .catch { error in
+                print(error)
+            }
+        
     }
     
     func addNewCollection(name: String) {
@@ -54,7 +79,7 @@ class PostCollectionSheetViewModel {
             .done {[weak self] name in
                 guard let self else { return }
                 print("Successfully created \(name) collection")
-                self.getCollections(activCategoryIndex: self.collections.count)
+                self.getCollections()
             }.catch { error in
                 print(error)
             }

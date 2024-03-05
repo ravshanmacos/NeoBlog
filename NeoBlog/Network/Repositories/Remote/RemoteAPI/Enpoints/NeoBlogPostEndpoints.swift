@@ -19,7 +19,7 @@ extension NeoBlogPostEndpoints {
         case getPostList(categoryName: String, query: String)
         
         //Post
-        case savePostToCollection(collectionID: Int)
+        case addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel)
         case createCollection(authorID: Int, requestModel: CreateCollection)
         case createCommment(requestModel: CreateCommentRequestModel)
         case createPost
@@ -47,7 +47,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         switch endpointType {
         case .getMyPosts, .getPostDetail, .getUserCollections, .getPostList:
             return .get
-        case .savePostToCollection, .createCollection, .createCommment, .createPost:
+        case .addPostToCollection, .createCollection, .createCommment, .createPost:
             return .post
         case .updatePost, .updateCollection:
             return .put
@@ -61,6 +61,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCollection(_, let requestModel):
             return requestModel
         case .createCommment(let requestModel):
+            return requestModel
+        case .addPostToCollection(_, let requestModel):
             return requestModel
         default:
             return ""
@@ -100,7 +102,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return "/blog/post/create/"
         case .createCommment:
             return "/blog/comment-create/"
-        case .savePostToCollection(let collectionID):
+        case .addPostToCollection(let collectionID, _):
             return "/blog/collections/\(collectionID)/add-post/"
         case .createCollection(let authorID, _):
             return "/blog/collections/\(authorID)/create/"

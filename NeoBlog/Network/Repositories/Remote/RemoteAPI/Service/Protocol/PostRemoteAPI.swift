@@ -18,10 +18,12 @@ protocol PostRemoteAPI {
     func getUserCollections(userID: Int, callback: @escaping (Result<[Collection], Error>) -> Void)
     
     //Get Posts
-    func getBlogPost(categoryName: String, query: String, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func getBlogPost(categoryName: String, query: String, callback: @escaping (Result<[BlogPost], Error>) -> Void)
+    
+    
     
     //Save Post To Collection
-    func savePostToCollection(requestModel: AddPostToCollectionRequestModel, collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func addPostToCollection(requestModel: AddPostToCollectionRequestModel, collectionID: Int, callback: @escaping (Result<GeneralResponse, Error>) -> Void)
     
     //Create Collection
     func createCollection(authorID: Int, requestModel: CreateCollection, callback: @escaping (Result<CreateCollection, Error>) -> Void)

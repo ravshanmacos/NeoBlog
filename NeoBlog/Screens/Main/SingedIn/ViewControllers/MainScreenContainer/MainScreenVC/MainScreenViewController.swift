@@ -15,7 +15,7 @@ protocol MainScreenViewModelFactory {
 
 protocol MainScreenViewControllerFactory {
     func makeSortByDateSheet() -> SortByDateSheet
-    func makePostCollectionSheet() -> PostCollectionSheet
+    func makePostCollectionSheet(collectionID: Int?, postID: Int) -> PostCollectionSheet
 }
 
 class MainScreenViewController: BaseViewController {
@@ -62,8 +62,8 @@ class MainScreenViewController: BaseViewController {
             print("Initial")
         case .sortByCategorySheet:
             presentSortByDateSheet()
-        case .postsCollectionSheet:
-            presentPostCollectionSheet()
+        case .postsCollectionSheet(let savedCollectionID, let postID):
+            presentPostCollectionSheet(collectionID: savedCollectionID, postID: postID)
         }
     }
     
@@ -72,8 +72,8 @@ class MainScreenViewController: BaseViewController {
         navigationController?.presentPanModal(sortByDateSheet)
     }
     
-    private func presentPostCollectionSheet() {
-        let postCollectionSheet = viewControllersFactory.makePostCollectionSheet()
+    private func presentPostCollectionSheet(collectionID: Int?, postID: Int) {
+        let postCollectionSheet = viewControllersFactory.makePostCollectionSheet(collectionID: collectionID, postID: postID)
         navigationController?.presentPanModal(postCollectionSheet)
     }
 }

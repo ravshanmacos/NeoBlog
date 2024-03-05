@@ -11,7 +11,7 @@ import Combine
 enum MainScreenViewState {
     case initial
     case sortByCategorySheet
-    case postsCollectionSheet(savedCollectionID: Int)
+    case postsCollectionSheet(savedCollectionID: Int?, postID: Int)
 }
 
 class MainScreenViewModel {
@@ -51,8 +51,8 @@ class MainScreenViewModel {
         view = .sortByCategorySheet
     }
     
-    func openPostCollectionSheet() {
-        //view = .postsCollectionSheet
+    func openPostCollectionSheet(collectionID: Int?, postID: Int) {
+        view = .postsCollectionSheet(savedCollectionID: collectionID, postID: postID)
     }
 }
 
@@ -60,8 +60,8 @@ extension MainScreenViewModel {
     func getBlogPostList(categoryName: String = "", query: String = "") {
         postRepository
             .getBlogPostList(categoryName: categoryName, query: query)
-            .done({ response in
-                self.blogPostList = response.results
+            .done({ blogList in
+                self.blogPostList = blogList
             })
             .catch { error in
                 print(error)

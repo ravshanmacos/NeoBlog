@@ -102,6 +102,10 @@ class ProfileScreenRootView: BaseView {
 }
 
 extension ProfileScreenRootView: CustomSegmentViewDelegate, PostsTableviewCellDelegate {
+    func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool) -> Void)) {
+        
+    }
+    
     func myPostsTapped() {
         print("My Post Tapped")
         setPostsTableView()

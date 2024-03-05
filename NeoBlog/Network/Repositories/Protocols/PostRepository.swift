@@ -33,7 +33,7 @@ import PromiseKit
  */
 
 protocol PostRepository {
-    func getBlogPostList(categoryName: String, query: String) -> Promise<BlogPostListResponseModel>
+    func getBlogPostList(categoryName: String, query: String) -> Promise<[BlogPost]>
     func getPostDetail(postID: Int) -> Promise<BlogPost>
     func getUserCollections(userID: Int) -> Promise<[Collection]>
     
@@ -42,4 +42,7 @@ protocol PostRepository {
     
     //Create Comment
     func createComment(requestModel: CreateCommentRequestModel) -> Promise<CreateCommentRequestModel>
+    
+    //AddPostToCollection
+    func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse>
 }

@@ -8,9 +8,7 @@
 import UIKit
 
 protocol PostsTableviewCellDelegate {
-    func savePost(_ saved: ((Bool)->Void))
-    func openComments()
-    func seeMore()
+    func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool)->Void))
 }
 
 class PostsTableviewCell: UITableViewCell {
@@ -26,6 +24,8 @@ class PostsTableviewCell: UITableViewCell {
     
     private let postViewWrapper = UIView()
     private let postView = UIView()
+    private var collectionID: Int?
+    private var postID: Int?
     
     var delegate: PostsTableviewCellDelegate?
     
@@ -84,6 +84,14 @@ class PostsTableviewCell: UITableViewCell {
     func setCategoryLabel(with text: String?) {
         postCategoryLabel.text = text
     }
+    
+    func setCollectionID(collectionID: Int?) {
+        self.collectionID = collectionID
+    }
+    
+    func setPostID(postID: Int?) {
+        self.postID = postID
+    }
 }
 
 //MARK: Layout
@@ -121,6 +129,7 @@ private extension PostsTableviewCell {
         postImageView.snp.makeConstraints { make in
             make.top.equalTo(postSubtitleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(200)
             
         }
         
@@ -140,10 +149,6 @@ private extension PostsTableviewCell {
         postViewWrapper.layer.borderWidth = 0.3
         postViewWrapper.layer.cornerRadius = 8
         
-        if let commentsBtn = commentsAndSaveView.subviews[0] as? UIButton {
-            commentsBtn.addTarget(self, action: #selector(openCommentsTapped), for: .touchUpInside)
-        }
-        
         if let saveBtn = commentsAndSaveView.subviews[1] as? UIButton {
             saveBtn.addTarget(self, action: #selector(saveBtnTapped), for: .touchUpInside)
         }
@@ -152,13 +157,8 @@ private extension PostsTableviewCell {
 
 @objc private extension PostsTableviewCell {
     func saveBtnTapped(_ sender: UIButton) {
-        delegate?.savePost({ saved in
+        delegate?.savePost(collectionID: collectionID, postID: postID!, { saved in
             sender.isSelected = saved
         })
-    }
-    
-    func openCommentsTapped() {
-        print("Open comments tapped")
-        delegate?.openComments()
     }
 }

@@ -25,6 +25,7 @@ struct BlogPost: Decodable {
     let postComments: [Comment]?
     let commentsCount: Int?
     let inCollections: Bool?
+    let collectionInfo: [CollectionInfo]?
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, photo
@@ -33,11 +34,25 @@ struct BlogPost: Decodable {
         case postComments = "post_comments"
         case commentsCount = "comments_count"
         case inCollections = "in_collections"
+        case collectionInfo = "collection_info"
     }
+    
     func getImageURL() -> URL? {
         guard let imageURLString = photo else { return nil }
         guard let url = URL(string: imageURLString) else { return nil }
         return url
+    }
+}
+
+struct CollectionInfo: Decodable {
+    let id: Int?
+    let name: String?
+    let authorID: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case authorID = "author"
     }
 }
 

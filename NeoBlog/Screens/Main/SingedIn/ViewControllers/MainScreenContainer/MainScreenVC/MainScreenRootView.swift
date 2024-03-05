@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDelegate {
+    
     //MARK: Properties
     private let headerView = makeHeader()
     private let selectCategorySegmentView = makeSelectCategorySegmentView()
@@ -86,15 +87,10 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDeleg
     func filterButtonClicked () {
         viewModel.openFilterSheet()
     }
-    
-    func savePost(_ saved: ((Bool) -> Void)) {
-        viewModel.openPostCollectionSheet()
+    func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool) -> Void)) {
+        viewModel.openPostCollectionSheet(collectionID: collectionID, postID: postID)
         saved(true)
     }
-    
-    func openComments() {}
-    
-    func seeMore() {}
 }
 
 extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
@@ -107,6 +103,10 @@ extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
         guard let cell = PostsTableviewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
         let post = viewModel.blogPostList[indexPath.item]
         cell.delegate = self
+        if let collectionInfo = post.collectionInfo, collectionInfo.count > 0 {
+            cell.setCollectionID(collectionID: post.collectionInfo?[0].id)
+        }
+        cell.setPostID(postID: post.id)
         cell.setUsername(with: post.author?.username)
         cell.setCreated(at: post.publicationDate)
         cell.setCommentsCount(with: post.commentsCount)

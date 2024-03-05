@@ -25,9 +25,11 @@ class PostCollectionSheet: BaseViewController, CreateNewCollectionSheetDelegate 
     private let viewModelFactory: PostCollectionViewModelFactory
     
     //MARK: Methods
-    init(viewModelFactory: PostCollectionViewModelFactory) {
+    init(collectionID: Int?, postID: Int, viewModelFactory: PostCollectionViewModelFactory) {
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makePostCollectionViewModel()
+        self.viewModel.collectionID = collectionID
+        self.viewModel.postID = postID
         super.init()
         viewModel
             .$openCreatePostCollectionSheet
@@ -45,7 +47,7 @@ class PostCollectionSheet: BaseViewController, CreateNewCollectionSheetDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getCollections(activCategoryIndex: 0)
+        viewModel.getCollections()
         
     }
     

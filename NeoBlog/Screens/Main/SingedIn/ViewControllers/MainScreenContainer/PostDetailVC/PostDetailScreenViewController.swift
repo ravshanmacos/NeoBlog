@@ -25,6 +25,7 @@ class PostDetailScreenViewController: BaseViewController {
         self.viewModel.postID = postID
         self.viewModel.authorID = authorID
         super.init()
+        
     }
     
     override func loadView() {

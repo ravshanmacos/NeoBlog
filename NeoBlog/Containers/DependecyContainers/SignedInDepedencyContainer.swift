@@ -90,8 +90,8 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     //Post Collection Sheet
-    func makePostCollectionSheet() -> PostCollectionSheet {
-        return PostCollectionSheet(viewModelFactory: self)
+    func makePostCollectionSheet(collectionID: Int?, postID: Int) -> PostCollectionSheet {
+        return PostCollectionSheet(collectionID: collectionID, postID: postID, viewModelFactory: self)
     }
     func makePostCollectionViewModel() -> PostCollectionSheetViewModel {
         return PostCollectionSheetViewModel(postRepository: sharedPostRepository, userProfile: userProfile)
