@@ -84,7 +84,7 @@ extension PostCollectionRootView: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = item.name
         let count = item.postCount == nil ? 0 : item.postCount!
         cell.descriptionLabel.text = "Сохранено: \(count)"
-        //cell.radioButton.isSelected = item.isActive
+        cell.radioButton.isSelected = item.isSelected
         return cell
     }
     

@@ -19,7 +19,7 @@ struct BlogPost: Decodable {
     let title: String?
     let description: String?
     let photo: String?
-    let author: Author
+    let author: Author?
     let category: Category
     let publicationDate: String?
     let postComments: [Comment]?
@@ -37,7 +37,7 @@ struct BlogPost: Decodable {
 }
 
 struct Comment: Decodable {
-    let author: Int?
+    let author: Author?
     let text: String?
     let createdAt: String?
     
@@ -49,7 +49,7 @@ struct Comment: Decodable {
 
 struct Author: Decodable {
     let id: Int?
-    let name: String?
+    let username: String?
 }
 
 struct Category: Decodable {
@@ -61,6 +61,7 @@ struct Collection: Decodable {
     let id: Int?
     let name: String?
     let postCount: Int?
+    var isSelected = false
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -23,12 +23,13 @@ class PostCollectionSheetViewModel {
         self.userProfile = userProfile
     }
     
-    func getOptionsData(){
+    func getCollections(activCategoryIndex: Int){
         guard let id = userProfile.id else { return }
         postRepository
             .getUserCollections(userID: id)
             .done({ collections in
                 self.collections = collections
+                self.collections[activCategoryIndex].isSelected = true
             })
             .catch { error in
                 print(error)
@@ -36,13 +37,13 @@ class PostCollectionSheetViewModel {
     }
     
     func unSelectAllOptions() {
-//        for index in 0..<collections.count {
-//            collections[index].isActive = false
-//        }
+        for index in 0..<collections.count {
+            collections[index].isSelected = false
+        }
     }
     
     func activateOption(for index: Int) {
-        //optionsData[index].isActive = true
+        collections[index].isSelected = true
     }
     
     func addNewCollection(name: String) {
@@ -50,27 +51,16 @@ class PostCollectionSheetViewModel {
         let requestModel = CreateCollection(name: name)
         postRepository
             .createCollection(authorID: id, requestModel: requestModel)
-            .done { name in
+            .done {[weak self] name in
+                guard let self else { return }
                 print("Successfully created \(name) collection")
-                self.getOptionsData()
+                self.getCollections(activCategoryIndex: self.collections.count)
             }.catch { error in
                 print(error)
             }
-//        unSelectAllOptions()
-//        let newOption = OptionModel(title: name, isActive: true)
-//        optionsData.insert(newOption, at: 1)
     }
     
     @objc func addCollectionBtnTapped() {
         openCreatePostCollectionSheet = true
     }
 }
-
-/*
- //        optionsData = [
- //            .init(title: "Избранное", saveds: 289, isActive: true),
- //            .init(title: "Почитать потом", saveds: 14),
- //            .init(title: "Про айти", saveds: 8),
- //            .init(title: "Про книги", saveds: 189)
- //        ]
- */

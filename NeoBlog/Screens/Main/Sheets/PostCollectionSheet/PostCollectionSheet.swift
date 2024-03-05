@@ -45,7 +45,8 @@ class PostCollectionSheet: BaseViewController, CreateNewCollectionSheetDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getOptionsData()
+        viewModel.getCollections(activCategoryIndex: 0)
+        
     }
     
     private func presentPostCollectionSheet() {

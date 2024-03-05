@@ -75,6 +75,12 @@ class PostsTableviewCell: UITableViewCell {
         }
     }
     
+    func IsPostInCollection(saved: Bool) {
+        if let saveBtn = commentsAndSaveView.subviews[1] as? UIButton {
+            saveBtn.isSelected = saved
+        }
+    }
+    
     func setCategoryLabel(with text: String?) {
         postCategoryLabel.text = text
     }

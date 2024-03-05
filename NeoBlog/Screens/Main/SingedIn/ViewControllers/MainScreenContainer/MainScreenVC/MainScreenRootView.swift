@@ -107,13 +107,14 @@ extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
         guard let cell = PostsTableviewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
         let post = viewModel.blogPostList[indexPath.item]
         cell.delegate = self
-        cell.setUsername(with: post.author.name)
+        cell.setUsername(with: post.author?.username)
         cell.setCreated(at: post.publicationDate)
         cell.setCommentsCount(with: post.commentsCount)
         cell.setCategoryLabel(with: post.category.name)
         cell.setTitle(with: post.title)
         cell.setSubtitle(wtih: post.description)
         cell.setImage(urlString: post.photo)
+        cell.IsPostInCollection(saved: post.inCollections ?? false)
         cell.selectionStyle = .none
         return cell
     }

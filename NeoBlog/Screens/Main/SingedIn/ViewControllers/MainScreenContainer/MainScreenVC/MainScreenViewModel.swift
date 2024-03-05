@@ -11,7 +11,7 @@ import Combine
 enum MainScreenViewState {
     case initial
     case sortByCategorySheet
-    case postsCollectionSheet
+    case postsCollectionSheet(savedCollectionID: Int)
 }
 
 class MainScreenViewModel {
@@ -52,7 +52,7 @@ class MainScreenViewModel {
     }
     
     func openPostCollectionSheet() {
-        view = .postsCollectionSheet
+        //view = .postsCollectionSheet
     }
 }
 

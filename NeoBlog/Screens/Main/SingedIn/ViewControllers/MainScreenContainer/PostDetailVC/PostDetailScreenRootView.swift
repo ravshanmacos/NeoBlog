@@ -90,8 +90,8 @@ class PostDetailScreenRootView: ScrollableBaseView {
             .filter { $0 != nil }
             .sink {[weak self] post in
                 guard let self else { return }
-                if let label = userProfileView.subviews[1] as? UILabel {
-                    label.text = post?.author.name
+                if let post, let author = post.author, let label = userProfileView.subviews[1] as? UILabel {
+                    label.text = author.username ?? "Author"
                 }
                 postCreateAtView.text = post?.publicationDate
                 postTitleLabel.text = post?.title
