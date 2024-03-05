@@ -59,7 +59,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     }
     
     func createCollection(authorID: Int, requestModel: CreateCollection, callback: @escaping (Result<CreateCollection, Error>) -> Void) {
-        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCollection(authorID: authorID))
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCollection(authorID: authorID, requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: CreateCollection.self))
         }

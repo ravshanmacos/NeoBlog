@@ -20,7 +20,7 @@ extension NeoBlogPostEndpoints {
         
         //Post
         case savePostToCollection(collectionID: Int)
-        case createCollection(authorID: Int)
+        case createCollection(authorID: Int, requestModel: CreateCollection)
         case createCommment
         case createPost
         
@@ -58,6 +58,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var encodableParameters: Encodable {
         switch endpointType {
+        case .createCollection(_, let requestModel):
+            return requestModel
         default:
             return ""
         }
@@ -98,7 +100,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return "/blog/comment-create/"
         case .savePostToCollection(let collectionID):
             return "/blog/collections/\(collectionID)/add-post/"
-        case .createCollection(let authorID):
+        case .createCollection(let authorID, _):
             return "/blog/collections/\(authorID)/create/"
             
         //Put
