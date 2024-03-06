@@ -14,14 +14,14 @@ class SortByDateSheet: BaseViewController {
     private let vStack = makeVStack()
     private let optionData = optionData()
     
+    private let goToNewPeriodNavigator: GoToCreateNewPeriodNavigator
     private let sortByDateSelectedResponder: SortByDateSelectedResponder
-    private let createNewPeriodResponder: NewPeriodCreatedResponder
     
     //MARK: Methods
-    init(sortByDateSelectedResponder: SortByDateSelectedResponder,
-         createNewPeriodResponder: NewPeriodCreatedResponder) {
+    init(goToNewPeriodNavigator: GoToCreateNewPeriodNavigator,
+         sortByDateSelectedResponder: SortByDateSelectedResponder) {
+        self.goToNewPeriodNavigator = goToNewPeriodNavigator
         self.sortByDateSelectedResponder = sortByDateSelectedResponder
-        self.createNewPeriodResponder = createNewPeriodResponder
         super.init()
         setupSubviews()
         setupConstaints()
@@ -31,7 +31,7 @@ class SortByDateSheet: BaseViewController {
         unSelectAllRadioButtons()
         sender.isSelected = true
         if sender.tag == 3 {
-            createNewPeriodResponder.newPeriodCreated()
+            goToNewPeriodNavigator.navigateToCreateNewPeriod()
         } else {
             sortByDateSelectedResponder.sortByDateDidSelected(with: sender.tag)
         }

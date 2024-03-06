@@ -24,13 +24,11 @@ class SortByPeriodViewModel {
     @Published private(set) var navigateForPeriod: PeriodType? = nil
     @Published private(set) var saveChangesButtonEnabled = false
     
-    private let newPeriodCreatedResponder: NewPeriodCreatedResponder
     private let dateDidSelectedResponder: DateDidSelectedResponder
     
     //MARK: Methods
     
-    init(newPeriodCreatedResponder: NewPeriodCreatedResponder, dateDidSelectedResponder: DateDidSelectedResponder) {
-        self.newPeriodCreatedResponder = newPeriodCreatedResponder
+    init( dateDidSelectedResponder: DateDidSelectedResponder) {
         self.dateDidSelectedResponder = dateDidSelectedResponder
     }
     

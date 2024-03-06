@@ -14,7 +14,8 @@ protocol MainScreenViewModelFactory {
 }
 
 protocol MainScreenViewControllerFactory {
-    func makeSortByDateSheet() -> SortByDateSheet
+    func makeSortByDateSheet(createNewPeriodResponder: NewPeriodCreatedResponder, gotToNewPeriodNavigator: GoToCreateNewPeriodNavigator, sortByDateSelectedResponder: SortByDateSelectedResponder) -> SortByDateSheet
+    func makeSortByPeriodViewController(dateDidSelectedResponder: DateDidSelectedResponder) -> SortByPeriodViewController
     func makePostCollectionSheet(collectionID: Int?, postID: Int) -> PostCollectionSheet
 }
 
@@ -60,16 +61,30 @@ class MainScreenViewController: BaseViewController {
         switch view {
         case .initial:
             print("Initial")
-        case .sortByCategorySheet:
-            presentSortByDateSheet()
-        case .postsCollectionSheet(let savedCollectionID, let postID):
+        case .dissmiss:
+            dismiss(animated: true)
+        case .filterByDate:
+            presentFilterByDateSheet()
+        case .filterByPeriod:
+            presentFilterByPeriodSheet()
+        case .addPostToCollection(let savedCollectionID, let postID):
             presentPostCollectionSheet(collectionID: savedCollectionID, postID: postID)
         }
     }
     
-    private func presentSortByDateSheet() {
-        let sortByDateSheet = viewControllersFactory.makeSortByDateSheet()
+    private func presentFilterByDateSheet() {
+        let sortByDateSheet = viewControllersFactory.makeSortByDateSheet(createNewPeriodResponder: viewModel, gotToNewPeriodNavigator: viewModel, sortByDateSelectedResponder: viewModel)
         navigationController?.presentPanModal(sortByDateSheet)
+    }
+    
+    private func presentFilterByPeriodSheet() {
+        dismiss(animated: true) {[weak self] in
+            guard let self else { return }
+            let filterByPeriodSheet = viewControllersFactory.makeSortByPeriodViewController(dateDidSelectedResponder: viewModel)
+            filterByPeriodSheet.modalPresentationStyle = .overFullScreen
+            navigationController?.present(filterByPeriodSheet, animated: true)
+        }
+        
     }
     
     private func presentPostCollectionSheet(collectionID: Int?, postID: Int) {

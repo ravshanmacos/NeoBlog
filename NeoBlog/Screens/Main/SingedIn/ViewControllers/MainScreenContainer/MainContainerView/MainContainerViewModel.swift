@@ -23,10 +23,6 @@ class MainContainerViewModel {
         navigationAction = .present(view: .postDetails)
     }
     
-    func navigateToCreateNewPeriod() {
-        navigationAction = .present(view: .openMakeNewPeriod)
-    }
-    
     //Closing navigation
     func dissmissSheet() {
         navigationAction = .present(view: .dismissSheet)
@@ -45,14 +41,10 @@ class MainContainerViewModel {
     }
 }
 
-extension MainContainerViewModel: SortByDateSelectedResponder, NewPeriodCreatedResponder, DateDidSelectedResponder {
+extension MainContainerViewModel: SortByDateSelectedResponder, DateDidSelectedResponder {
     
     func sortByDateDidSelected(with tag: Int) {
         navigationAction = .present(view: .dismissSheet)
-    }
-    
-    func newPeriodCreated() {
-        navigateToCreateNewPeriod()
     }
     
     func datePeriodSelected(startDate: Date, endDate: Date) {
@@ -62,4 +54,4 @@ extension MainContainerViewModel: SortByDateSelectedResponder, NewPeriodCreatedR
     }
 }
 
-extension MainContainerViewModel: GoToPostDetailsNavigator, GoToCreateNewPeriodNavigator {}
+extension MainContainerViewModel: GoToPostDetailsNavigator {}

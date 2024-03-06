@@ -17,9 +17,9 @@ class NeoBlogPostRepository: PostRepository {
         self.remoteAPI = remoteAPI
     }
     
-    func getBlogPostList(categoryName: String, query: String) -> Promise<[BlogPost]> {
+    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String) -> Promise<[BlogPost]> {
         return Promise<[BlogPost]> { resolver in
-            remoteAPI.getBlogPost(categoryName: categoryName, query: query) { result in
+            remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate) { result in
                 switch result {
                 case .success(let model):
                     resolver.fulfill(model)

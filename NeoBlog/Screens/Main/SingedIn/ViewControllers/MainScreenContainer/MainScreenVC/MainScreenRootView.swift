@@ -71,7 +71,7 @@ class MainScreenRootView: BaseView {
     }
     
     private func filterButtonClicked () {
-        viewModel.openFilterSheet()
+        viewModel.openFilterByDate()
     }
 }
 

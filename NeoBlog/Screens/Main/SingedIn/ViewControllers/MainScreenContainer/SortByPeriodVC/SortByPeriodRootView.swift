@@ -11,6 +11,8 @@ import Combine
 class SortByPeriodRootView: BaseView {
     
     //MARK: Properties
+    private let titleLabel = makeTitleLabel()
+    private let backButton = makeBackButton()
     private let startPeriodPickerBtn = makePeriodChoseButton(title: "Дата начала")
     private let endPeriodPickerBtn = makePeriodChoseButton(title: "Дата конца")
     private let saveButton = makeSaveButton()
@@ -30,10 +32,21 @@ class SortByPeriodRootView: BaseView {
     
     override func setupSubviews() {
         super.setupSubviews()
-        contentView.addSubviews(vStack, saveButton)
+        contentView.addSubviews(backButton, titleLabel, vStack, saveButton)
         vStack.addArrangedSubviews(startPeriodPickerBtn, endPeriodPickerBtn)
+        backButton.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview()
+            make.height.width.equalTo(40)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(backButton.snp.centerY)
+            make.leading.equalTo(backButton.snp.trailing).offset(10)
+        }
+        
         vStack.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.equalTo(backButton.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview()
         }
         startPeriodPickerBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -97,6 +110,20 @@ private extension SortByPeriodRootView {
 }
 
 private extension SortByPeriodRootView {
+    static func makeTitleLabel() -> UILabel {
+        let label = UILabel()
+        label.text = "Период"
+        label.textColor = R.color.gray_color_1()
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        return label
+    }
+    
+    static func makeBackButton() -> UIButton {
+        let button = UIButton()
+        button.setImage(R.image.back_icon(), for: .normal)
+        return button
+    }
+    
     static func makePeriodChoseButton(title: String?) -> UIButton {
         let container = ButtonsContainer()
         let button = container.grayBckAndTitleLeftButton(title: title)

@@ -11,7 +11,6 @@ import Combine
 protocol MainContainerViewControllerFactory {
     func makeMainScreenViewController() -> MainScreenViewController
     func makePostDetailsViewController(postID: Int) -> PostDetailScreenViewController
-    func makeSortByPeriodViewController() -> SortByPeriodViewController
 }
 
 class MainContainerViewController: BaseNavigationController {
@@ -58,7 +57,6 @@ class MainContainerViewController: BaseNavigationController {
     func present(view: MainContainerViewState) {
         switch view {
         case .mainScreen: presentMainScreenViewController()
-        case .openMakeNewPeriod: presentMakeNewPeriod()
         case .postDetails: presentPostDetailsScreenViewController()
         case .dismissSheet: dissmissSheet()
         case .popCurrent: popCurrent()
@@ -69,14 +67,6 @@ class MainContainerViewController: BaseNavigationController {
     private func presentMainScreenViewController() {
         let mainVC = factory.makeMainScreenViewController()
         pushViewController(mainVC, animated: true)
-    }
-    
-    private func presentMakeNewPeriod() {
-        dismiss(animated: true) {[weak self] in
-            guard let self else { return }
-            let newPeriodVC = self.factory.makeSortByPeriodViewController()
-            pushViewController(newPeriodVC, animated: true)
-        }
     }
     
     private func presentPostDetailsScreenViewController() {
@@ -154,8 +144,6 @@ extension MainContainerViewController {
         switch viewController {
         case is MainScreenViewController:
             return .mainScreen
-        case is SortByPeriodViewController:
-            return .openMakeNewPeriod
         case is PostDetailScreenViewController:
             return .postDetails
         default:

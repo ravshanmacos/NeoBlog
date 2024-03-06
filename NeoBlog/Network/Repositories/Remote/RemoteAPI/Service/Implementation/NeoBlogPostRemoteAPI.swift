@@ -25,8 +25,8 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     }
     
     //GET
-    func getBlogPost(categoryName: String, query: String, callback: @escaping (Result<[BlogPost], Error>) -> Void) {
-        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostList(categoryName: categoryName, query: query))
+    func getBlogPost(categoryName: String, query: String, startDate: String, endDate: String, callback: @escaping (Result<[BlogPost], Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostList(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate))
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: [BlogPost].self))
         }

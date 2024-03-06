@@ -33,7 +33,7 @@ import PromiseKit
  */
 
 protocol PostRepository {
-    func getBlogPostList(categoryName: String, query: String) -> Promise<[BlogPost]>
+    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String) -> Promise<[BlogPost]>
     func getPostDetail(postID: Int) -> Promise<BlogPost>
     func getUserCollections(userID: Int) -> Promise<[Collection]>
     

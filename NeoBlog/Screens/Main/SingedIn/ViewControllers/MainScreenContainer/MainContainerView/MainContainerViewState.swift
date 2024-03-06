@@ -11,7 +11,6 @@ enum MainContainerViewState {
     
     case mainScreen
     case postDetails
-    case openMakeNewPeriod
     case dismissSheet
     case popCurrent
     case popToMainScreen

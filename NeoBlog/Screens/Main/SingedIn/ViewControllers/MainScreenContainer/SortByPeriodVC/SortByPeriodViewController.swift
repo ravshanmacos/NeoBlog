@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol SortByPeriodViewModelFactory {
-    func makeSortByPeriodViewModel() -> SortByPeriodViewModel
+    func makeSortByPeriodViewModel(dateDidSelectedResponder: DateDidSelectedResponder) -> SortByPeriodViewModel
 }
 
 protocol SortByPeriodViewControllerFactory {
@@ -27,10 +27,10 @@ class SortByPeriodViewController: BaseViewController {
     
     //MARK: Methods
     init(viewControllerFactory: SortByPeriodViewControllerFactory, 
-         viewModelFactory: SortByPeriodViewModelFactory) {
+         viewModelFactory: SortByPeriodViewModelFactory, dateDidSelectedResponder: DateDidSelectedResponder) {
         self.viewControllerFactory = viewControllerFactory
         self.viewModelFactory = viewModelFactory
-        self.viewModel = viewModelFactory.makeSortByPeriodViewModel()
+        self.viewModel = viewModelFactory.makeSortByPeriodViewModel(dateDidSelectedResponder: dateDidSelectedResponder)
         super.init()
     }
     

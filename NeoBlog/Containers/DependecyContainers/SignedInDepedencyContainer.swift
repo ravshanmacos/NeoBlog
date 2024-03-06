@@ -84,8 +84,8 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     //Sort By Date Sheet
-    func makeSortByDateSheet() -> SortByDateSheet {
-        let sortByDateSheet = SortByDateSheet(sortByDateSelectedResponder: sharedMainContainerViewModel, createNewPeriodResponder: sharedMainContainerViewModel)
+    func makeSortByDateSheet(createNewPeriodResponder: NewPeriodCreatedResponder, gotToNewPeriodNavigator: GoToCreateNewPeriodNavigator, sortByDateSelectedResponder: SortByDateSelectedResponder) -> SortByDateSheet {
+        let sortByDateSheet = SortByDateSheet(goToNewPeriodNavigator: gotToNewPeriodNavigator, sortByDateSelectedResponder: sortByDateSelectedResponder)
         return sortByDateSheet
     }
     
@@ -98,12 +98,12 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     //Sort By Period View Controller
-    func makeSortByPeriodViewController() -> SortByPeriodViewController {
-        return SortByPeriodViewController(viewControllerFactory: self, viewModelFactory: self)
+    func makeSortByPeriodViewController(dateDidSelectedResponder: DateDidSelectedResponder) -> SortByPeriodViewController {
+        return SortByPeriodViewController(viewControllerFactory: self, viewModelFactory: self, dateDidSelectedResponder: dateDidSelectedResponder)
     }
     
-    func makeSortByPeriodViewModel() -> SortByPeriodViewModel {
-        return SortByPeriodViewModel(newPeriodCreatedResponder: sharedMainContainerViewModel, dateDidSelectedResponder: sharedMainContainerViewModel)
+    func makeSortByPeriodViewModel(dateDidSelectedResponder: DateDidSelectedResponder) -> SortByPeriodViewModel {
+        return SortByPeriodViewModel(dateDidSelectedResponder: dateDidSelectedResponder)
     }
     
     //Choose Date
