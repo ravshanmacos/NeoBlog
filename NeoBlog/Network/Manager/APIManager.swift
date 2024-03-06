@@ -11,4 +11,5 @@ import Alamofire
 typealias AFResult<T> = Result<T, Error>
 protocol APIManager {
     func request( withEncodable: Bool, endpoint: APIEndpoint, result: @escaping (AFResult<APIResponse>) -> Void)
+    func multipartRequest(endpoint: APIEndpoint, result: @escaping (AFResult<APIResponse>) -> Void)
 }

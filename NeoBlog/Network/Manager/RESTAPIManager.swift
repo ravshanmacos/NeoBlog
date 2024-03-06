@@ -39,4 +39,41 @@ struct RESTAPIManager: APIManager {
                   }
             }
     }
+    
+    private func makeMultipartRequest(endpoint: APIEndpoint) -> UploadRequest? {
+        guard let endpoint = endpoint as? RESTEnpoint else { fatalError("invalid router type") }
+        guard let path = endpoint.url, let url = URL(string: endpoint.baseURL + path) else { return nil }
+        guard let parameters = endpoint.parameters else { return nil }
+        
+        return AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in parameters {
+                if let string = value as? String, let data = string.data(using: .utf8) {
+                    multipartFormData.append(data, withName: key)
+                } else if let id = value as? Int, let data = id.description.data(using: .utf8) {
+                    multipartFormData.append(data, withName: key)
+                } else if let data = value as? Data {
+                    multipartFormData.append(data, withName: key, fileName: "image.jpg", mimeType: "image/jpeg")
+                }
+            }
+        }, to: url, method: endpoint.method, headers: endpoint.headers)
+    }
+    
+    func multipartRequest(endpoint: APIEndpoint, result: @escaping (AFResult<APIResponse>) -> Void) {
+        guard let uploadRequest = makeMultipartRequest(endpoint: endpoint) else { return }
+        uploadRequest
+            //.validate()
+            .responseData { AFResponse in
+                if let error = AFResponse.error {
+                    result(.failure(error));
+                    return
+                }
+                switch AFResponse.result {
+                case .success(let data):
+                    let resp = RESTAPIResponse(response: AFResponse.response, result: data, error: AFResponse.error)
+                    result(.success(resp))
+                case .failure(let error):
+                    result(.failure(error))
+                }
+            }
+    }
 }

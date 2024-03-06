@@ -7,6 +7,7 @@
 
 import Foundation
 import PromiseKit
+import Alamofire
 
 class NeoBlogPostRepository: PostRepository {
     //MARK: Methods
@@ -114,9 +115,9 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
-    func createPost(requestModel: CreateAndUpdatePostRequestModel) -> Promise<CreateAndUpdatePostRequestModel> {
+    func createPost(parameters: [String: Any]) -> Promise<CreateAndUpdatePostRequestModel> {
         return Promise<CreateAndUpdatePostRequestModel> { resolver in
-            remoteAPI.createPost(requestModel: requestModel) { result in
+            remoteAPI.createPost(parameters: parameters) { result in
                 switch result {
                 case .success(let data):
                     resolver.fulfill(data)

@@ -92,9 +92,9 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     }
     
     //create post
-    func createPost(requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void) {
-        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createPost(requestModel: requestModel))
-        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+    func createPost(parameters: [String: Any], callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createPost(parameters: parameters))
+        apiManager.multipartRequest(endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: CreateAndUpdatePostRequestModel.self))
         }
     }

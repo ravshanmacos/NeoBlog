@@ -23,7 +23,7 @@ extension NeoBlogPostEndpoints {
         case addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel)
         case createCollection(authorID: Int, requestModel: CreateCollection)
         case createCommment(requestModel: CreateCommentRequestModel)
-        case createPost(requestModel: CreateAndUpdatePostRequestModel)
+        case createPost(parameters: [String: Any])
         
         //PUT
         case updateCollection(collectionID: Int)
@@ -65,8 +65,6 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return requestModel
         case .addPostToCollection(_, let requestModel):
             return requestModel
-        case .createPost(let requestModel):
-            return requestModel
         default:
             return ""
         }
@@ -76,6 +74,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         switch endpointType {
         case .getPostList(let categoryName, let query, let startDate, let endDate):
             return ["category_name": categoryName, "search": query, "start_date": startDate, "end_date": endDate]
+        case .createPost(let parameters):
+            return parameters
         default:
             return nil
         }

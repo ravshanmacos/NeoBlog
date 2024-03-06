@@ -95,6 +95,7 @@ class AddPostScreenRootView: ScrollableBaseView {
         super.configureAppearance()
         headingTextfield.text = "Journey into Astronomy!"
         descriptionTextview.text = "Dive into the wonders of astronomy with us! 🌠 From the breathtaking beauty of distant galaxies to the intricate dance of celestial bodies, astronomy opens doors to the mysteries of the universe. Join us on a journey through the cosmos as we explore the stars, planets, and beyond."
+        descriptionTextview.textColor = R.color.gray_color_1()
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -120,7 +121,7 @@ class AddPostScreenRootView: ScrollableBaseView {
         self.uploadImageView = nil
         self.uploadedImageView = UploadedImageView()
         self.uploadedImageView!.imageView.image = image
-        self.viewModel.imageData = image.pngData()
+        self.viewModel.imageData = image.jpegData(compressionQuality: 0.5)
         uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
         uploadedImageView!.closeButton.addTarget(self, action: #selector(setUploadImageState), for: .touchUpInside)
     }

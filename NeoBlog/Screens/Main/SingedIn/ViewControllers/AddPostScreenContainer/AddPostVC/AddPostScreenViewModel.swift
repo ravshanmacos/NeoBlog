@@ -54,9 +54,15 @@ class AddPostScreenViewModel {
     
     @objc func publishPostBtnTapped() {
         guard let authorID = userProfile.id, let selectedCategory, let imageData else { return }
-        let requestModel = CreateAndUpdatePostRequestModel(title: heading, description: description, photo: imageData.base64EncodedString(), author: authorID, category: selectedCategory)
+        let parameters: [String: Any] = [
+            "title": heading,
+            "description": description,
+            "photo": imageData,
+            "author": authorID,
+            "category": selectedCategory
+        ]
         postRepository
-            .createPost(requestModel: requestModel)
+            .createPost(parameters: parameters)
             .done { response in
                 print(response)
             }.catch { error in

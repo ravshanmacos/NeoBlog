@@ -48,7 +48,7 @@ protocol PostRepository {
     func createComment(requestModel: CreateCommentRequestModel) -> Promise<CreateCommentRequestModel>
     
     //Create Post
-    func createPost(requestModel: CreateAndUpdatePostRequestModel) -> Promise<CreateAndUpdatePostRequestModel>
+    func createPost(parameters: [String: Any]) -> Promise<CreateAndUpdatePostRequestModel>
     
     //AddPostToCollection
     func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse>
