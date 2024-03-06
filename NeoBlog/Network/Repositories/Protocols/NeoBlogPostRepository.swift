@@ -17,6 +17,20 @@ class NeoBlogPostRepository: PostRepository {
         self.remoteAPI = remoteAPI
     }
     
+    //MARK: Get
+    func getCategoriesList() -> Promise<[Category]> {
+        return Promise<[Category]> { resolver in
+            remoteAPI.getCategoriesList() { result in
+                switch result {
+                case .success(let categories):
+                    resolver.fulfill(categories)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
     func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String) -> Promise<[BlogPost]> {
         return Promise<[BlogPost]> { resolver in
             remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate) { result in
@@ -57,6 +71,7 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
+    //MARK: POST
     //Add Post To Collection
     func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse> {
         return Promise<GeneralResponse> { resolver in
@@ -89,6 +104,19 @@ class NeoBlogPostRepository: PostRepository {
     func createComment(requestModel: CreateCommentRequestModel) -> Promise<CreateCommentRequestModel> {
         return Promise<CreateCommentRequestModel> { resolver in
             remoteAPI.createComment(requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    func createPost(requestModel: CreateAndUpdatePostRequestModel) -> Promise<CreateAndUpdatePostRequestModel> {
+        return Promise<CreateAndUpdatePostRequestModel> { resolver in
+            remoteAPI.createPost(requestModel: requestModel) { result in
                 switch result {
                 case .success(let data):
                     resolver.fulfill(data)

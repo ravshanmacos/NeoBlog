@@ -62,7 +62,7 @@ class SignedInDepedencyContainer {
     }
     
     func makeAddPostViewModel() -> AddPostScreenViewModel {
-        return AddPostScreenViewModel()
+        return AddPostScreenViewModel(postRepository: sharedPostRepository, userProfile: userProfile)
     }
     
     //Profile Screen Container

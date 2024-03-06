@@ -8,23 +8,27 @@
 import Foundation
 
 //Post
-struct CreateAndUpdatePostRequestModel: Encodable {
+struct CreateAndUpdatePostRequestModel: Codable {
     let title: String
     let description: String
+    let photo: String
     let author: Int
     let category: Int
 }
 
+//Create Comment
 struct CreateCommentRequestModel: Codable {
     let post: Int
     let author: Int
     let text: String
 }
 
+//Create Collection
 struct CreateCollection: Codable {
     let name: String
 }
 
+//Add Post To Collection
 struct AddPostToCollectionRequestModel: Encodable {
     let postID: Int
     
@@ -33,7 +37,7 @@ struct AddPostToCollectionRequestModel: Encodable {
     }
 }
 
-//PUT
+//Update Collection
 struct UpdateCollectionRequestModel {
     let name: String
     let author: Int

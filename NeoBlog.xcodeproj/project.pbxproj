@@ -162,6 +162,7 @@
 		3980B0B72B91E4E800A7BE66 /* BlogPostListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */; };
 		3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */; };
 		3980B0BB2B9300F100A7BE66 /* SignedInRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */; };
+		399A3AED2B988CBC0048B6A1 /* UIImage+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
 		39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */; };
@@ -369,6 +370,7 @@
 		3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostListResponseModel.swift; sourceTree = "<group>"; };
 		3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostRepository.swift; sourceTree = "<group>"; };
 		3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInRequestModels.swift; sourceTree = "<group>"; };
+		399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ext.swift"; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
 		39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailScreenRootView.swift; sourceTree = "<group>"; };
@@ -898,6 +900,7 @@
 				394C05932B7F4FCD0045277E /* UITextField+ext.swift */,
 				3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */,
 				39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */,
+				399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1599,6 +1602,7 @@
 				39CBCD2C2B83572B0092A46E /* AddPostScreenRootView.swift in Sources */,
 				39726CAA2B8EF13200FCF225 /* EditProfileViewModel.swift in Sources */,
 				394097A92B8BBC9200629937 /* PostCollectionRootView.swift in Sources */,
+				399A3AED2B988CBC0048B6A1 /* UIImage+ext.swift in Sources */,
 				394097812B89AFA900629937 /* SortByDateSelectedResponder.swift in Sources */,
 				393D7A2D2B80CA680019F9F9 /* Secret.swift in Sources */,
 				393D7A622B80D1560019F9F9 /* Secrets.swift in Sources */,

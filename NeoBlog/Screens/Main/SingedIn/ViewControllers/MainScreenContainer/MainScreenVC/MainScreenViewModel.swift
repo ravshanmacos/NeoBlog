@@ -50,7 +50,8 @@ class MainScreenViewModel {
     
     // Filter by category
     func filterByCategory(item: CategoryItem) {
-        getBlogPostList(categoryName: item.title)
+        let title = item.title == "Все" ? "" : item.title
+        getBlogPostList(categoryName: title)
     }
     
   //MARK: Sheets

@@ -24,7 +24,16 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         self.mapper = mapper
     }
     
-    //GET
+    //MARK: GET
+    
+    func getCategoriesList(callback: @escaping (Result<[Category], Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getCategoriesList)
+        apiManager.request(withEncodable: false, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: [Category].self))
+        }
+    }
+    
+    //get posts list
     func getBlogPost(categoryName: String, query: String, startDate: String, endDate: String, callback: @escaping (Result<[BlogPost], Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostList(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate))
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
@@ -32,6 +41,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
+    //get my posts
     func getMyPosts(callback: @escaping (Result<[BlogPost], Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getMyPosts)
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
@@ -39,6 +49,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
+    //get post details
     func getPostDetail(postID: Int, callback: @escaping (Result<BlogPost, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostDetail(postID: postID))
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
@@ -46,6 +57,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
+    //get user collections
     func getUserCollections(userID: Int, callback: @escaping (Result<[Collection], Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getUserCollections(userID: userID))
         apiManager.request(withEncodable: false, endpoint: endpoint) { response in
@@ -53,13 +65,17 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
-    //POST
+    //add post To Collection
     func addPostToCollection(requestModel: AddPostToCollectionRequestModel, collectionID: Int, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .addPostToCollection(collectionID: collectionID, requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
         }
     }
+    
+    //MARK: POST
+    
+    //create collection
     func createCollection(authorID: Int, requestModel: CreateCollection, callback: @escaping (Result<CreateCollection, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCollection(authorID: authorID, requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
@@ -67,7 +83,7 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
-    //Create Comment
+    //create comment
     func createComment(requestModel: CreateCommentRequestModel, callback: @escaping (Result<CreateCommentRequestModel, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createCommment(requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
@@ -75,11 +91,16 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
-    func createPost(requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    //create post
+    func createPost(requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .createPost(requestModel: requestModel))
+        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: CreateAndUpdatePostRequestModel.self))
+        }
     }
     
-    //UPDATE
+    //MARK: PUT
+    
     func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
         
     }
@@ -88,7 +109,8 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         
     }
     
-    //DELETE
+    //MARK: DELETE
+    
     func deleteCollection(collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
         
     }

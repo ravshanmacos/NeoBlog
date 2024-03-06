@@ -8,7 +8,10 @@
 import Foundation
 
 protocol PostRemoteAPI {
-    //Get
+    //Get Categories List
+    func getCategoriesList(callback: @escaping (Result<[Category], Error>) -> Void)
+    
+    //Get My Posts
     func getMyPosts(callback: @escaping (Result<[BlogPost], Error>) -> Void)
     
     //Get Post Details
@@ -32,7 +35,7 @@ protocol PostRemoteAPI {
     func createComment(requestModel: CreateCommentRequestModel, callback: @escaping (Result<CreateCommentRequestModel, Error>) -> Void)
     
     //Create Post
-    func createPost(requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func createPost(requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void)
     
     //Update Collection
     func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)

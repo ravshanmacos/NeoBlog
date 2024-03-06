@@ -75,6 +75,12 @@ struct Author: Decodable {
 struct Category: Decodable {
     let id: Int?
     let name: String?
+    var active: Bool = false
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case name
+    }
 }
 
 struct Collection: Decodable {

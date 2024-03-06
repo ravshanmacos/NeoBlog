@@ -14,6 +14,7 @@ extension NeoBlogPostEndpoints {
     enum Endpoints {
         //Get
         case getMyPosts
+        case getCategoriesList
         case getPostDetail(postID: Int)
         case getUserCollections(userID: Int)
         case getPostList(categoryName: String, query: String, startDate: String, endDate: String)
@@ -22,7 +23,7 @@ extension NeoBlogPostEndpoints {
         case addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel)
         case createCollection(authorID: Int, requestModel: CreateCollection)
         case createCommment(requestModel: CreateCommentRequestModel)
-        case createPost
+        case createPost(requestModel: CreateAndUpdatePostRequestModel)
         
         //PUT
         case updateCollection(collectionID: Int)
@@ -45,7 +46,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var method: Alamofire.HTTPMethod {
         switch endpointType {
-        case .getMyPosts, .getPostDetail, .getUserCollections, .getPostList:
+        case .getMyPosts, .getPostDetail, .getUserCollections, .getPostList, .getCategoriesList:
             return .get
         case .addPostToCollection, .createCollection, .createCommment, .createPost:
             return .post
@@ -63,6 +64,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCommment(let requestModel):
             return requestModel
         case .addPostToCollection(_, let requestModel):
+            return requestModel
+        case .createPost(let requestModel):
             return requestModel
         default:
             return ""
@@ -87,23 +90,40 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var url: String? {
         switch endpointType {
-        //Get
+            
+        //get category list
+        case .getCategoriesList:
+            return "/blog/category/list/"
+            
+        //get my posts
         case .getMyPosts:
-            return "/blog/my-post/s"
+            return "/blog/my-posts/"
+            
+        //get post detail
         case .getPostDetail(let postID):
             return "/blog/post/detail/\(postID)/"
+        
+        //get user collections
         case .getUserCollections(let userID):
             return "/blog/collections/user/\(userID)/"
+        
+        //Get Posts List
         case .getPostList:
             return "/blog/post/list/"
             
-        //Post
+        //Create Post
         case .createPost:
             return "/blog/post/create/"
+            
+        //Create Comment
         case .createCommment:
             return "/blog/comment-create/"
+            
+        //Add Post To Collection
         case .addPostToCollection(let collectionID, _):
             return "/blog/collections/\(collectionID)/add-post/"
+            
+        //Create Collection
         case .createCollection(let authorID, _):
             return "/blog/collections/\(authorID)/create/"
             

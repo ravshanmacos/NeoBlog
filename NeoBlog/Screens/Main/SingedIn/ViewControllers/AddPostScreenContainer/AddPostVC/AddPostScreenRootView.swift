@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class AddPostScreenRootView: ScrollableBaseView {
     
@@ -26,15 +27,16 @@ class AddPostScreenRootView: ScrollableBaseView {
     var uploadImageView: UploadImageView?
     var uploadedImageView: UploadedImageView?
     
+    private var subscriptions = Set<AnyCancellable>()
     private let reuseIdentifier = "categoryButtonCell"
-    private let categoryList = categoryList()
     private let viewModel: AddPostScreenViewModel
     
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: AddPostScreenViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        
+        bindViewToViewModel()
+        bindViewModelToView()
     }
     
     override func setupSubviews() {
@@ -91,17 +93,23 @@ class AddPostScreenRootView: ScrollableBaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
+        headingTextfield.text = "Journey into Astronomy!"
+        descriptionTextview.text = "Dive into the wonders of astronomy with us! 🌠 From the breathtaking beauty of distant galaxies to the intricate dance of celestial bodies, astronomy opens doors to the mysteries of the universe. Join us on a journey through the cosmos as we explore the stars, planets, and beyond."
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         descriptionTextview.delegate = self
+        headingTextfield.delegate = self
         closeButton.addTarget(viewModel, action: #selector(viewModel.closeBtnTapped), for: .touchUpInside)
+        publishPostBtn.addTarget(viewModel, action: #selector(viewModel.publishPostBtnTapped), for: .touchUpInside)
     }
     
     @objc func setUploadImageState() {
         self.uploadImageViewWrapper.removeSubviews()
         self.uploadedImageView = nil
+        self.viewModel.imageData = nil
         self.uploadImageView = UploadImageView()
         self.uploadImageViewWrapper.addArrangedSubviews(uploadImageView!)
         self.uploadImageView!.uploadButton.addTarget(self, action: #selector(uploadImageBtnTapped), for: .touchUpInside)
@@ -112,6 +120,7 @@ class AddPostScreenRootView: ScrollableBaseView {
         self.uploadImageView = nil
         self.uploadedImageView = UploadedImageView()
         self.uploadedImageView!.imageView.image = image
+        self.viewModel.imageData = image.pngData()
         uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
         uploadedImageView!.closeButton.addTarget(self, action: #selector(setUploadImageState), for: .touchUpInside)
     }
@@ -137,7 +146,15 @@ class AddPostScreenRootView: ScrollableBaseView {
     }
 }
 
-extension AddPostScreenRootView: UITextViewDelegate {
+//MARK: UITextViewDelegate
+extension AddPostScreenRootView: UITextViewDelegate, UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        resignFirstResponder()
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == R.color.gray_color_2() {
             textView.text = nil
@@ -149,37 +166,67 @@ extension AddPostScreenRootView: UITextViewDelegate {
         if textView.text == "" {
             textView.text = "Описание"
             textView.textColor = R.color.gray_color_2()
+        } else {
+            viewModel.description = textView.text
         }
     }
 }
 
+//MARK: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension AddPostScreenRootView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categoryList.count
+        viewModel.categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let item = categoryList[indexPath.item]
+        let item = viewModel.categories[indexPath.item]
         let makeCategoryBtn = makeCategoryButton()
-        makeCategoryBtn.setTitle(item.title, for: .normal)
+        makeCategoryBtn.setTitle(item.name, for: .normal)
         makeCategoryBtn.isEnabled = item.active
+        if item.active {
+            viewModel.selectedCategory = item.id
+        }
         cell.contentView.addSubviews(makeCategoryBtn)
         makeCategoryBtn.snp.makeConstraints { $0.edges.equalToSuperview()  }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        for index in 0..<categoryList.count {
-            categoryList[index].active = indexPath.item == index ? true : false
-        }
-        collectionView.reloadData()
+        viewModel.activateCategorFor(index: indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let btn = makeCategoryButton()
-        btn.setTitle(categoryList[indexPath.item].title, for: .normal)
+        btn.setTitle(viewModel.categories[indexPath.item].name, for: .normal)
         btn.sizeToFit()
         return .init(width: btn.frame.width + 10, height: btn.frame.height)
+    }
+}
+
+//MARK: Bindings
+extension AddPostScreenRootView {
+    func bindViewToViewModel() {
+        headingTextfield
+            .publisher(for: \.text)
+            .receive(on: DispatchQueue.main)
+            .map { $0 ?? "" }
+            .assign(to: \.heading, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToView() {
+        viewModel
+            .$publishBtnEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: publishPostBtn)
+            .store(in: &subscriptions)
+        
+        viewModel
+            .$categories
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.collectionView.reloadData()
+            }.store(in: &subscriptions)
     }
 }

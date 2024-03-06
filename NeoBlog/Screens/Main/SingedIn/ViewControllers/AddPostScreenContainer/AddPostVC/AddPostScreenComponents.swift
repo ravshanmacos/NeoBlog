@@ -9,13 +9,6 @@ import UIKit
 
 extension AddPostScreenRootView {
     
-    static func categoryList() -> [CategoryItem] {
-        let titles = ["Искусство", "IT", "Медицина", "Спорт", "Еда", "Животные", "Другое"]
-        let items = titles.map { CategoryItem(title: $0) }
-        items[0].active = true
-        return items
-    }
-    
     //Labels
     static func makeTitleLabel() -> UILabel {
         let label = UILabel()
