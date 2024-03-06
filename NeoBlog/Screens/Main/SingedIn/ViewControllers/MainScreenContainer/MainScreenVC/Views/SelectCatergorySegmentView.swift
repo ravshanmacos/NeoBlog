@@ -17,10 +17,16 @@ class CategoryItem {
     }
 }
 
+protocol SelectCatergorySegmentViewDelegate: AnyObject {
+    func categoryDidSelected(item: CategoryItem)
+}
+
 class SelectCatergorySegmentView: BaseView {
     //MARK: Properties
     private let categoryCollectionVew = makeCategoryCollection()
     private var categoryList: [CategoryItem]
+    
+    weak var delegate: SelectCatergorySegmentViewDelegate?
     
     //MARK: Methods
     init(frame: CGRect = .zero, categoryList: [CategoryItem]) {
@@ -63,6 +69,7 @@ extension SelectCatergorySegmentView: UICollectionViewDelegate {
         categoryList.forEach { $0.active = false }
         categoryList[indexPath.row].active = true
         collectionView.reloadData()
+        delegate?.categoryDidSelected(item: categoryList[indexPath.item])
     }
 }
 

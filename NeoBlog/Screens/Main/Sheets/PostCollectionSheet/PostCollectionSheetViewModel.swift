@@ -27,7 +27,7 @@ class PostCollectionSheetViewModel {
     }
     
     private func updateCollection(with collections: [Collection]) {
-        var selectedCollectionIndex = collections.enumerated().compactMap { (index, collection) in
+        let selectedCollectionIndex = collections.enumerated().compactMap { (index, collection) in
             return collection.id == collectionID ? index : nil
         }
         

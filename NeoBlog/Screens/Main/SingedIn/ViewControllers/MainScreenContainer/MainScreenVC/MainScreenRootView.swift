@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDelegate {
+class MainScreenRootView: BaseView {
     
     //MARK: Properties
     private let headerView = makeHeader()
@@ -56,15 +56,26 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDeleg
     
     override func configureAppearance() {
         super.configureAppearance()
+        selectCategorySegmentView.delegate = self
+        
         postsTableView.delegate = self
         postsTableView.dataSource = self
         
         headerView.searchBarWithFilter.searchTextField.delegate = self
-        
         headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
         headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
     }
     
+    private func searchButtonClicked () {
+        viewModel.search(with: headerView.searchBarWithFilter.searchTextField.text)
+    }
+    
+    private func filterButtonClicked () {
+        viewModel.openFilterSheet()
+    }
+}
+
+extension MainScreenRootView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         textField.resignFirstResponder()
@@ -79,17 +90,16 @@ class MainScreenRootView: BaseView, PostsTableviewCellDelegate, UITextFieldDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewModel.search(with: textField.text)
     }
-    
-    func searchButtonClicked () {
-        viewModel.search(with: headerView.searchBarWithFilter.searchTextField.text)
-    }
-    
-    func filterButtonClicked () {
-        viewModel.openFilterSheet()
-    }
+}
+
+extension MainScreenRootView: PostsTableviewCellDelegate, SelectCatergorySegmentViewDelegate {
     func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool) -> Void)) {
         viewModel.openPostCollectionSheet(collectionID: collectionID, postID: postID)
         saved(true)
+    }
+    
+    func categoryDidSelected(item: CategoryItem) {
+        viewModel.filterByCategory(item: item)
     }
 }
 

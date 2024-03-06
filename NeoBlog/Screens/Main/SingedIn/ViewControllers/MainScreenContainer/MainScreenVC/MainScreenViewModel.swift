@@ -46,11 +46,17 @@ class MainScreenViewModel {
         getBlogPostList(query: text ?? "")
     }
     
-    // Open sheets
+    // Filter by category
+    func filterByCategory(item: CategoryItem) {
+        getBlogPostList(categoryName: item.title)
+    }
+    
+    // Open Filter Sheet
     func openFilterSheet() {
         view = .sortByCategorySheet
     }
     
+    //Open Post Collection Sheet
     func openPostCollectionSheet(collectionID: Int?, postID: Int) {
         view = .postsCollectionSheet(savedCollectionID: collectionID, postID: postID)
     }
