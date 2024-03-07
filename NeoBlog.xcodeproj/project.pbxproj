@@ -163,6 +163,7 @@
 		3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */; };
 		3980B0BB2B9300F100A7BE66 /* SignedInRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */; };
 		399419FF2B9988AC00D79B55 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399419FE2B9988AC00D79B55 /* LoadingVC.swift */; };
+		39941A012B99C60300D79B55 /* EmptyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39941A002B99C60300D79B55 /* EmptyPostsView.swift */; };
 		399A3AED2B988CBC0048B6A1 /* UIImage+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
@@ -372,6 +373,7 @@
 		3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostRepository.swift; sourceTree = "<group>"; };
 		3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInRequestModels.swift; sourceTree = "<group>"; };
 		399419FE2B9988AC00D79B55 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		39941A002B99C60300D79B55 /* EmptyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPostsView.swift; sourceTree = "<group>"; };
 		399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ext.swift"; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
@@ -1288,6 +1290,7 @@
 				39726C902B8DE7C000FCF225 /* CustomSegmentView.swift */,
 				39726C942B8E174100FCF225 /* TwoActionSheet.swift */,
 				39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */,
+				39941A002B99C60300D79B55 /* EmptyPostsView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1512,6 +1515,7 @@
 				3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
+				39941A012B99C60300D79B55 /* EmptyPostsView.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
 				39726CB72B8F19F700FCF225 /* ChangeLoginAndEmailRootView.swift in Sources */,
 				39B109F62B88D7DC0045AD4E /* CommentTableViewCell.swift in Sources */,

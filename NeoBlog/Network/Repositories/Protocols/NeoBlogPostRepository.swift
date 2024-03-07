@@ -7,7 +7,6 @@
 
 import Foundation
 import PromiseKit
-import Alamofire
 
 class NeoBlogPostRepository: PostRepository {
     //MARK: Methods
@@ -19,6 +18,22 @@ class NeoBlogPostRepository: PostRepository {
     }
     
     //MARK: Get
+    
+    //Get My Posts
+    func getMyPosts() -> Promise<[BlogPost]> {
+        return Promise<[BlogPost]> { resolver in
+            remoteAPI.getMyPosts { result in
+                switch result {
+                case .success(let posts):
+                    resolver.fulfill(posts)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    // Get Categories List
     func getCategoriesList() -> Promise<[Category]> {
         return Promise<[Category]> { resolver in
             remoteAPI.getCategoriesList() { result in
@@ -32,19 +47,8 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
-    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String) -> Promise<[BlogPost]> {
-        return Promise<[BlogPost]> { resolver in
-            remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate, period: period) { result in
-                switch result {
-                case .success(let model):
-                    resolver.fulfill(model)
-                case .failure(let error):
-                    resolver.reject(error)
-                }
-            }
-        }
-    }
     
+    //Get Post Details
     func getPostDetail(postID: Int) -> PromiseKit.Promise<BlogPost> {
         return Promise<BlogPost> { resolver in
             remoteAPI.getPostDetail(postID: postID) { result in
@@ -57,6 +61,8 @@ class NeoBlogPostRepository: PostRepository {
             }
         }
     }
+    
+    //Get User Collections
     
     func getUserCollections(userID: Int) -> Promise<[Collection]> {
         return Promise<[Collection]> { resolver in
@@ -71,21 +77,26 @@ class NeoBlogPostRepository: PostRepository {
                 }
         }
     }
+
+    //Get Posts List
     
-    //MARK: POST
-    //Add Post To Collection
-    func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse> {
-        return Promise<GeneralResponse> { resolver in
-            remoteAPI.addPostToCollection(requestModel: requestModel, collectionID: collectionID) { result in
+    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String) -> Promise<[BlogPost]> {
+        return Promise<[BlogPost]> { resolver in
+            remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate, period: period) { result in
                 switch result {
-                case .success(let data):
-                    resolver.fulfill(data)
+                case .success(let model):
+                    resolver.fulfill(model)
                 case .failure(let error):
                     resolver.reject(error)
                 }
             }
         }
     }
+    
+   
+    
+    
+    //MARK: POST
     
     //Create Collection
     func createCollection(authorID: Int, requestModel: CreateCollection) -> Promise<CreateCollection> {
@@ -115,9 +126,24 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
+    //Create Post
     func createPost(parameters: [String: Any]) -> Promise<CreateAndUpdatePostRequestModel> {
         return Promise<CreateAndUpdatePostRequestModel> { resolver in
             remoteAPI.createPost(parameters: parameters) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    //Add Post To Collection
+    func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse> {
+        return Promise<GeneralResponse> { resolver in
+            remoteAPI.addPostToCollection(requestModel: requestModel, collectionID: collectionID) { result in
                 switch result {
                 case .success(let data):
                     resolver.fulfill(data)

@@ -22,7 +22,6 @@ class ProfileScreenRootView: BaseView {
     private var postsTableView: UITableView?
     private var collectionsTableView: UITableView?
     
-    ///////
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: ProfileScreenViewModel
     
@@ -30,17 +29,7 @@ class ProfileScreenRootView: BaseView {
     init(frame: CGRect = .zero, viewModel: ProfileScreenViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        observeOptionsData()
-    }
-    
-    private func observeOptionsData() {
-        viewModel
-            .$optionsData
-            .receive(on: DispatchQueue.main)
-            .sink {[weak self] optionsdata in
-                guard let self else { return }
-                collectionsTableView?.reloadData()
-            }.store(in: &subscriptions)
+        bindings()
     }
     
     override func setupSubviews() {
@@ -75,21 +64,9 @@ class ProfileScreenRootView: BaseView {
     override func configureAppearance() {
         super.configureAppearance()
         usernameLabel.text = viewModel.getUsername()
-        
-        setPostsTableView()
         segmentedView.delegate = self
-        
+        viewModel.setTableviewState()
         menuBtn.addTarget(viewModel, action: #selector(viewModel.openEditProfileSheet), for: .touchUpInside)
-    }
-    
-    private func setPostsTableView() {
-        viewWrapper.removeSubviews()
-        self.collectionsTableView = nil
-        
-        self.postsTableView = MainScreenRootView.makePostsTableView()
-        self.postsTableView!.delegate = self
-        self.postsTableView!.dataSource = self
-        viewWrapper.addArrangedSubview(postsTableView!)
     }
     
     private func setCollectionsTableView() {
@@ -103,6 +80,7 @@ class ProfileScreenRootView: BaseView {
     }
 }
 
+//MARK: CustomSegmentViewDelegate, PostsTableviewCellDelegate
 extension ProfileScreenRootView: CustomSegmentViewDelegate, PostsTableviewCellDelegate {
     func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool) -> Void)) {
         
@@ -110,7 +88,7 @@ extension ProfileScreenRootView: CustomSegmentViewDelegate, PostsTableviewCellDe
     
     func myPostsTapped() {
         print("My Post Tapped")
-        setPostsTableView()
+        viewModel.setTableviewState()
     }
     
     func collectionsTapped() {
@@ -121,21 +99,14 @@ extension ProfileScreenRootView: CustomSegmentViewDelegate, PostsTableviewCellDe
     func savePost(_ saved: ((Bool) -> Void)) {
         
     }
-    
-    func openComments() {
-        
-    }
-    
-    func seeMore() {
-        
-    }
 }
 
+//MARK: UITableViewDataSource
 extension ProfileScreenRootView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == postsTableView {
-            return 4
+            return viewModel.posts.count
         } else {
             return viewModel.optionsData.count
         }
@@ -151,13 +122,15 @@ extension ProfileScreenRootView: UITableViewDataSource {
     
     private func myPostsTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = PostsTableviewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
+        let post = viewModel.posts[indexPath.row]
         cell.delegate = self
-        cell.setUsername(with: "yamahaman")
-        cell.setCreated(at: "14 дек в 21:00")
-        cell.setCommentsCount(with: 2)
-        cell.setCategoryLabel(with: "Искусство")
-        cell.setTitle(with: MainScreenRootView.Strings.titleLabel.rawValue)
-        cell.setSubtitle(wtih: MainScreenRootView.Strings.subtitleLabel.rawValue)
+        cell.setUsername(with: post.author?.username)
+        cell.setCreated(at: post.publicationDate)
+        cell.setCommentsCount(with: post.commentsCount)
+        cell.setCategoryLabel(with: post.category.name)
+        cell.setTitle(with: post.title)
+        cell.setSubtitle(wtih: post.description)
+        cell.setImage(urlString: post.photo)
         cell.selectionStyle = .none
         return cell
     }
@@ -173,7 +146,8 @@ extension ProfileScreenRootView: UITableViewDataSource {
     }
     
 }
-
+ 
+//MARK: UITableViewDelegate
 extension ProfileScreenRootView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView == collectionsTableView ? makeAddCollectionButton() : nil
@@ -194,3 +168,51 @@ extension ProfileScreenRootView: UITableViewDelegate {
         }
     }
 }
+
+//MARK: Bindings
+extension ProfileScreenRootView {
+    private func bindings() {
+        viewModel
+            .$optionsData
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] optionsdata in
+                guard let self else { return }
+                collectionsTableView?.reloadData()
+            }.store(in: &subscriptions)
+        
+        viewModel
+            .$viewState
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] viewState in
+                guard let self else { return }
+                switch viewState {
+                case .initial: print("Initial")
+                case .tableviewIsEmpty: presentEmptyTableviewState()
+                case .tableviewNotEmpty: presentNotEmptyTableviewState()
+                }
+            }.store(in: &subscriptions)
+    }
+}
+
+//MARK: States
+private extension ProfileScreenRootView {
+    func presentEmptyTableviewState() {
+        viewWrapper.removeSubviews()
+        self.postsTableView = nil
+        self.collectionsTableView = nil
+        
+        let emptyPostView = EmptyPostsView(viewModel: viewModel)
+        viewWrapper.addArrangedSubview(emptyPostView)
+    }
+    
+    func presentNotEmptyTableviewState() {
+        viewWrapper.removeSubviews()
+        self.collectionsTableView = nil
+        
+        self.postsTableView = MainScreenRootView.makePostsTableView()
+        self.postsTableView!.delegate = self
+        self.postsTableView!.dataSource = self
+        viewWrapper.addArrangedSubview(postsTableView!)
+    }
+}
+

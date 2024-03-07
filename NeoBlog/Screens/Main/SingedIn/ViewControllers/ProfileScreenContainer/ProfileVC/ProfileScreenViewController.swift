@@ -29,4 +29,9 @@ class ProfileScreenViewController: BaseViewController {
         super.loadView()
         self.view = ProfileScreenRootView(viewModel: viewModel)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.getMyPosts()
+    }
 }

@@ -8,11 +8,21 @@
 import Foundation
 import Combine
 
-class ProfileScreenViewModel {
-    
+enum ProfileScreenState {
+    case initial
+    case tableviewIsEmpty
+    case tableviewNotEmpty
+}
+
+class ProfileScreenViewModel: EmptyPostViewModel {
+
     //MARK: Properties
     @Published private(set) var optionsData: [OptionModel] = []
+    private(set) var posts: [BlogPost] = []
+    
+    
     @Published private(set) var openCreatePostCollectionSheet = false
+    @Published private(set) var viewState: ProfileScreenState = .tableviewIsEmpty
     
     private let userProfile: UserProfile
     private let postRepository: PostRepository
@@ -30,6 +40,14 @@ class ProfileScreenViewModel {
     func getUsername() -> String {
         guard let username = userProfile.username else { return "User" }
         return username
+    }
+    
+    func createPostTapped() {
+        
+    }
+    
+    func setTableviewState() {
+        viewState = posts.isEmpty ? .tableviewIsEmpty : .tableviewNotEmpty
     }
     
     func getOptionsData(){
@@ -65,5 +83,19 @@ class ProfileScreenViewModel {
     
     func addCollectionBtnTapped() {
         openCreatePostCollectionSheet = true
+    }
+}
+
+//MARK: Networking
+extension ProfileScreenViewModel {
+    func getMyPosts() {
+        postRepository
+            .getMyPosts()
+            .done { posts in
+                self.posts = posts
+                self.setTableviewState()
+            }.catch { error in
+                print(error)
+            }
     }
 }
