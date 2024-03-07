@@ -45,11 +45,6 @@ class MainScreenViewModel: CategoryViewModel {
         print(userProfile)
         getCategories()
     }
-    //Refresh
-    func refreshCategories(_ completion: @escaping (() -> Void)) {
-        getBlogPostList()
-        completion()
-    }
     
     //Search
     func search(with text: String?) {

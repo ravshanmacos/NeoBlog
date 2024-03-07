@@ -131,7 +131,7 @@ extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, Edi
     }
     
     func makeProfileViewModel() -> ProfileScreenViewModel {
-        return ProfileScreenViewModel(goToEditProfileSheetNavigator: sharedProfileContainerViewModel)
+        return ProfileScreenViewModel(goToEditProfileSheetNavigator: sharedProfileContainerViewModel, postRepository: sharedPostRepository, userProfile: userProfile)
     }
     
     //Two Action Sheet

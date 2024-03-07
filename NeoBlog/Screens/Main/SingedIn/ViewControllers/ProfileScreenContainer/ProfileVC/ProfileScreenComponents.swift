@@ -17,7 +17,7 @@ extension ProfileScreenRootView {
     
     static func makeUsernameLabel() -> UILabel {
         let container = LabelsContainer()
-        let label = container.makeLabel(text: "cardamone", size: .large)
+        let label = container.makeLabel(text: "", size: .large)
         label.textAlignment = .left
         return label
     }

@@ -12,15 +12,24 @@ class ProfileScreenViewModel {
     
     //MARK: Properties
     @Published private(set) var optionsData: [OptionModel] = []
-    
     @Published private(set) var openCreatePostCollectionSheet = false
     
+    private let userProfile: UserProfile
+    private let postRepository: PostRepository
     private let goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator
     
     //MARK: Methods
-    init(goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator) {
+    init(goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator,
+         postRepository: PostRepository, userProfile: UserProfile) {
         self.goToEditProfileSheetNavigator = goToEditProfileSheetNavigator
+        self.postRepository = postRepository
+        self.userProfile = userProfile
         getOptionsData()
+    }
+    
+    func getUsername() -> String {
+        guard let username = userProfile.username else { return "User" }
+        return username
     }
     
     func getOptionsData(){

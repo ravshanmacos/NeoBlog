@@ -74,6 +74,8 @@ class ProfileScreenRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
+        usernameLabel.text = viewModel.getUsername()
+        
         setPostsTableView()
         segmentedView.delegate = self
         

@@ -14,7 +14,6 @@ class MainScreenRootView: BaseView {
     private let headerView = makeHeader()
     private let selectCategorySegmentView: SelectCatergorySegmentView
     private let postsTableView = makePostsTableView()
-    private let refreshControl = UIRefreshControl()
     
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: MainScreenViewModel
@@ -30,7 +29,6 @@ class MainScreenRootView: BaseView {
     override func setupSubviews() {
         super.setupSubviews()
         contentView.addSubviews(headerView, selectCategorySegmentView, postsTableView)
-        postsTableView.addSubviews(refreshControl)
     }
     
     override func setupConstraints() {
@@ -59,8 +57,6 @@ class MainScreenRootView: BaseView {
         headerView.searchBarWithFilter.searchTextField.delegate = self
         headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
         headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
-        
-        refreshControl.addTarget(self, action: #selector(refreshSwiped), for: .valueChanged)
     }
     
     private func searchButtonClicked () {
@@ -69,13 +65,6 @@ class MainScreenRootView: BaseView {
     
     private func filterButtonClicked () {
         viewModel.openFilterByDate()
-    }
-    
-    @objc private func refreshSwiped() {
-        viewModel.refreshCategories {[weak self] in
-            guard let self else { return }
-            self.refreshControl.endRefreshing()
-        }
     }
 }
 
