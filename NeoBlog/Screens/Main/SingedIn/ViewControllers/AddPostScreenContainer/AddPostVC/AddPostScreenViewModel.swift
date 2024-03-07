@@ -11,13 +11,16 @@ class AddPostScreenViewModel {
     
     //MARK: Properties
     @Published private(set) var addPostScreenState: AddPostScreenState?
-    @Published private(set) var publishBtnEnabled = false
     @Published private(set) var categories: [Category] = []
     
-    var heading: String = "" {didSet { checkForm() } }
+    @Published private(set) var clearForm = false
+    @Published private(set) var publishBtnEnabled = false
+    @Published private(set) var loadingIndicatorEnabled = false
+    
+    var heading: String = "" { didSet { checkForm() } }
     var selectedCategory: Int? = nil {didSet { checkForm() } }
-    var description: String = "" {didSet { checkForm() } }
-    var imageData: Data? = nil {didSet { checkForm() } }
+    var description: String = "" { didSet { checkForm() } }
+    var imageData: Data? = nil { didSet { checkForm() } }
     
     private let postRepository: PostRepository
     private let userProfile: UserProfile
@@ -43,6 +46,10 @@ class AddPostScreenViewModel {
             }
     }
     
+    func setDefaultSelectedCategory() {
+        activateCategorFor(index: 0)
+    }
+    
     func activateCategorFor(index: Int) {
         for number in 0..<categories.count {
             categories[number].active = false
@@ -61,12 +68,17 @@ class AddPostScreenViewModel {
             "author": authorID,
             "category": selectedCategory
         ]
+        loadingIndicatorEnabled = true
         postRepository
             .createPost(parameters: parameters)
             .done { response in
                 print(response)
+                self.clearForm = true
+                self.loadingIndicatorEnabled = false
+                self.closeBtnTapped()
             }.catch { error in
                 print(error)
+                self.loadingIndicatorEnabled = false
             }
     }
     

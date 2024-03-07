@@ -32,6 +32,7 @@ class AddPostScreenViewController: BaseNavigationController {
         self.viewModel = viewModelFactory.makeAddPostViewModel()
         super.init()
         observeUploadStates()
+        bindViewModelToView()
     }
     
     override func loadView() {
@@ -75,6 +76,26 @@ class AddPostScreenViewController: BaseNavigationController {
         dismiss(animated: true) {
             self.tabBarController?.selectedIndex = 0
         }
+    }
+    
+    private func bindViewModelToView() {
+        viewModel
+            .$loadingIndicatorEnabled
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: {[weak self] isEnabled in
+                guard let self else { return }
+                switch isEnabled {
+                case true: self.presentLoadingState()
+                case false: self.dismiss(animated: true)
+                }
+            })
+            .store(in: &subscriptions)
+    }
+    
+    private func presentLoadingState() {
+        let loadingVC = LoadingVC()
+        loadingVC.modalPresentationStyle = .overFullScreen
+        present(loadingVC, animated: true)
     }
 }
 

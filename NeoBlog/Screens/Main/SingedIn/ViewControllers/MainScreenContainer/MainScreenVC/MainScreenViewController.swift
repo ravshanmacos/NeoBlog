@@ -42,8 +42,8 @@ class MainScreenViewController: BaseViewController {
         self.view = MainScreenRootView(viewModel: viewModel)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.getBlogPostList()
     }
     

@@ -50,6 +50,7 @@ class AddPostScreenRootView: ScrollableBaseView {
     
     override func setupConstraints() {
         super.setupConstraints()
+        
         headerHStack.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().offset(-10)
         }
@@ -93,10 +94,7 @@ class AddPostScreenRootView: ScrollableBaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        headingTextfield.text = "Journey into Astronomy!"
-        descriptionTextview.text = "Dive into the wonders of astronomy with us! 🌠 From the breathtaking beauty of distant galaxies to the intricate dance of celestial bodies, astronomy opens doors to the mysteries of the universe. Join us on a journey through the cosmos as we explore the stars, planets, and beyond."
-        descriptionTextview.textColor = R.color.gray_color_1()
-        
+    
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -107,7 +105,11 @@ class AddPostScreenRootView: ScrollableBaseView {
         publishPostBtn.addTarget(viewModel, action: #selector(viewModel.publishPostBtnTapped), for: .touchUpInside)
     }
     
-    @objc func setUploadImageState() {
+    @objc func clearImageBtnTapped() {
+        setUploadImageState()
+    }
+    
+    func setUploadImageState() {
         self.uploadImageViewWrapper.removeSubviews()
         self.uploadedImageView = nil
         self.viewModel.imageData = nil
@@ -123,7 +125,7 @@ class AddPostScreenRootView: ScrollableBaseView {
         self.uploadedImageView!.imageView.image = image
         self.viewModel.imageData = image.jpegData(compressionQuality: 0.5)
         uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
-        uploadedImageView!.closeButton.addTarget(self, action: #selector(setUploadImageState), for: .touchUpInside)
+        uploadedImageView!.closeButton.addTarget(self, action: #selector(clearImageBtnTapped), for: .touchUpInside)
     }
     
    
@@ -228,6 +230,18 @@ extension AddPostScreenRootView {
             .receive(on: DispatchQueue.main)
             .sink { _ in
                 self.collectionView.reloadData()
+            }.store(in: &subscriptions)
+        
+        viewModel
+            .$clearForm
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] clean in
+                guard let self, clean else { return }
+                headingTextfield.text = nil
+                descriptionTextview.text = "Описание"
+                descriptionTextview.textColor = R.color.gray_color_2()
+                viewModel.setDefaultSelectedCategory()
+                setUploadImageState()
             }.store(in: &subscriptions)
     }
 }

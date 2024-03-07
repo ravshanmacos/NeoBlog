@@ -162,6 +162,7 @@
 		3980B0B72B91E4E800A7BE66 /* BlogPostListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */; };
 		3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */; };
 		3980B0BB2B9300F100A7BE66 /* SignedInRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */; };
+		399419FF2B9988AC00D79B55 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399419FE2B9988AC00D79B55 /* LoadingVC.swift */; };
 		399A3AED2B988CBC0048B6A1 /* UIImage+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */; };
 		39B109AF2B8715FA0045AD4E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */; };
 		39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */; };
@@ -370,6 +371,7 @@
 		3980B0B62B91E4E800A7BE66 /* BlogPostListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostListResponseModel.swift; sourceTree = "<group>"; };
 		3980B0B82B91E6D600A7BE66 /* NeoBlogPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostRepository.swift; sourceTree = "<group>"; };
 		3980B0BA2B9300F100A7BE66 /* SignedInRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInRequestModels.swift; sourceTree = "<group>"; };
+		399419FE2B9988AC00D79B55 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		399A3AEC2B988CBC0048B6A1 /* UIImage+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ext.swift"; sourceTree = "<group>"; };
 		39B109AE2B8715FA0045AD4E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		39B109B02B871A8C0045AD4E /* PostsTableViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewComponents.swift; sourceTree = "<group>"; };
@@ -1142,6 +1144,7 @@
 				39B109FB2B88F3C30045AD4E /* SortByDateSheet.swift */,
 				394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */,
 				39726C9A2B8E1CC100FCF225 /* EditProfileSheet.swift */,
+				399419FE2B9988AC00D79B55 /* LoadingVC.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -1524,6 +1527,7 @@
 				39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */,
 				39726CB82B8F19F700FCF225 /* ChangeLoginAndEmailViewController.swift in Sources */,
 				39CBCD222B8356ED0092A46E /* MainScreenViewController.swift in Sources */,
+				399419FF2B9988AC00D79B55 /* LoadingVC.swift in Sources */,
 				394C058C2B7F37880045277E /* String.swift in Sources */,
 				39726CC42B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift in Sources */,
 				39CBCD242B8356F60092A46E /* MainScreenViewModel.swift in Sources */,
