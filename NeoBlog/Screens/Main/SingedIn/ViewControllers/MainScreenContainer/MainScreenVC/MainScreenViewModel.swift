@@ -74,23 +74,13 @@ class MainScreenViewModel {
 
 extension MainScreenViewModel: GoToCreateNewPeriodNavigator, NewPeriodCreatedResponder, DateDidSelectedResponder, SortByDateSelectedResponder {
     func sortByDateDidSelected(with tag: Int) {
-        let periodStrings = ["За неделю", "За месяц", "За полгода", "Другое"]
-        let selectedPeriod = periodStrings[tag]
-        var period: (startDate: Date, endDate: Date)?
-        switch selectedPeriod {
-        case "За неделю":
-            period = formatForLastWeek()
-        case "За месяц":
-            period = formatForMonth(difference: 1)
-        case "За полгода":
-            period = formatForMonth(difference: 6)
-        default:
+        switch tag {
+          case 0: getBlogPostList(period: "week")
+          case 1: getBlogPostList(period: "month")
+          case 2: getBlogPostList(period: "half_year")
+          default:
             break
         }
-        guard let period else { return }
-        let startPeriod = formatDate(for: period.startDate)
-        let endPeriod = formatDate(for: period.endDate)
-        getBlogPostList(startDate: startPeriod, endDate: endPeriod)
         view = .dissmiss
     }
     
@@ -111,9 +101,14 @@ extension MainScreenViewModel: GoToCreateNewPeriodNavigator, NewPeriodCreatedRes
 }
 
 extension MainScreenViewModel {
-    func getBlogPostList(categoryName: String = "", query: String = "", startDate: String = "", endDate: String = "") {
+    func getBlogPostList(categoryName: String = "", 
+                         query: String = "", startDate:
+                         String = "", endDate: String = "",
+                         period: String = "") {
         postRepository
-            .getBlogPostList(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate)
+            .getBlogPostList(categoryName: categoryName, query: query,
+                             startDate: startDate, endDate: endDate,
+                             period: period)
             .done({ blogList in
                 self.blogPostList = blogList
             })
