@@ -32,9 +32,9 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
-    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String) -> Promise<[BlogPost]> {
+    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String) -> Promise<[BlogPost]> {
         return Promise<[BlogPost]> { resolver in
-            remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate) { result in
+            remoteAPI.getBlogPost(categoryName: categoryName, query: query, startDate: startDate, endDate: endDate, period: period) { result in
                 switch result {
                 case .success(let model):
                     resolver.fulfill(model)

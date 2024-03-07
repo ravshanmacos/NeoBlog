@@ -21,7 +21,7 @@ protocol PostRemoteAPI {
     func getUserCollections(userID: Int, callback: @escaping (Result<[Collection], Error>) -> Void)
     
     //Get Posts
-    func getBlogPost(categoryName: String, query: String, startDate: String, endDate: String, callback: @escaping (Result<[BlogPost], Error>) -> Void)
+    func getBlogPost(categoryName: String, query: String, startDate: String, endDate: String, period: String, callback: @escaping (Result<[BlogPost], Error>) -> Void)
     
     
     

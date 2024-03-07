@@ -16,12 +16,18 @@ enum MainScreenViewState {
     case addPostToCollection(savedCollectionID: Int?, postID: Int)
 }
 
-class MainScreenViewModel {
+protocol CategoryViewModel {
+    var categories: [Category] { get }
+    func activateCategorFor(index: Int)
+}
+
+class MainScreenViewModel: CategoryViewModel {
     
     //MARK: Properties
     
     @Published private(set) var view: MainScreenViewState = .initial
     @Published private(set) var blogPostList: [BlogPost] = []
+    @Published private(set) var categories: [Category] = []
     
     private let goToPostDetailsNavigator: GoToPostDetailsNavigator
     
@@ -37,10 +43,12 @@ class MainScreenViewModel {
         self.postRepository = postRepository
         self.goToPostDetailsNavigator = goToPostDetailsNavigator
         print(userProfile)
+        getCategories()
     }
-    
-    func navigateToPostDetails(with postID: Int) {
-        goToPostDetailsNavigator.navigateToPostDetails(postID: postID)
+    //Refresh
+    func refreshCategories(_ completion: @escaping (() -> Void)) {
+        getBlogPostList()
+        completion()
     }
     
     //Search
@@ -49,9 +57,17 @@ class MainScreenViewModel {
     }
     
     // Filter by category
-    func filterByCategory(item: CategoryItem) {
-        let title = item.title == "Все" ? "" : item.title
-        getBlogPostList(categoryName: title)
+    func activateCategorFor(index: Int) {
+        for number in 0..<categories.count {
+            categories[number].active = false
+        }
+        
+        categories[index].active = true
+        if let categoryID = categories[index].id, categoryID == 0 {
+            getBlogPostList(categoryName: "")
+        } else if let categoryName = categories[index].name {
+            getBlogPostList(categoryName: categoryName)
+        }
     }
     
   //MARK: Sheets
@@ -72,7 +88,12 @@ class MainScreenViewModel {
     }
 }
 
+//MARK: Navigators and Responders
 extension MainScreenViewModel: GoToCreateNewPeriodNavigator, NewPeriodCreatedResponder, DateDidSelectedResponder, SortByDateSelectedResponder {
+    func navigateToPostDetails(with postID: Int) {
+        goToPostDetailsNavigator.navigateToPostDetails(postID: postID)
+    }
+    
     func sortByDateDidSelected(with tag: Int) {
         switch tag {
           case 0: getBlogPostList(period: "week")
@@ -100,8 +121,22 @@ extension MainScreenViewModel: GoToCreateNewPeriodNavigator, NewPeriodCreatedRes
     }
 }
 
+//MARK: Networking
 extension MainScreenViewModel {
-    func getBlogPostList(categoryName: String = "", 
+    func getCategories() {
+        postRepository
+            .getCategoriesList()
+            .done({ categories in
+                self.categories = categories
+                let category = Category(id: 0, name: "Все", active: true)
+                self.categories.insert(category, at: 0)
+            })
+            .catch { error in
+                print(error)
+            }
+    }
+    
+    func getBlogPostList(categoryName: String = "",
                          query: String = "", startDate:
                          String = "", endDate: String = "",
                          period: String = "") {
@@ -118,6 +153,7 @@ extension MainScreenViewModel {
     }
 }
 
+//MARK: Helpers
 private extension MainScreenViewModel {
     func formatDate(for date: Date) -> String {
         let dateFormatter = DateFormatter()

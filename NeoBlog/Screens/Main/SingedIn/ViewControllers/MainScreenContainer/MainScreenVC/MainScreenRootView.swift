@@ -12,8 +12,9 @@ class MainScreenRootView: BaseView {
     
     //MARK: Properties
     private let headerView = makeHeader()
-    private let selectCategorySegmentView = makeSelectCategorySegmentView()
+    private let selectCategorySegmentView: SelectCatergorySegmentView
     private let postsTableView = makePostsTableView()
+    private let refreshControl = UIRefreshControl()
     
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: MainScreenViewModel
@@ -21,19 +22,15 @@ class MainScreenRootView: BaseView {
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: MainScreenViewModel) {
         self.viewModel = viewModel
+        self.selectCategorySegmentView = SelectCatergorySegmentView(viewModel: viewModel)
         super.init(frame: frame)
-        viewModel
-            .$blogPostList
-            .receive(on: DispatchQueue.main)
-            .sink {[weak self] _ in
-                guard let self else { return }
-                postsTableView.reloadData()
-            }.store(in: &subscriptions)
+        bindings()
     }
     
     override func setupSubviews() {
         super.setupSubviews()
         contentView.addSubviews(headerView, selectCategorySegmentView, postsTableView)
+        postsTableView.addSubviews(refreshControl)
     }
     
     override func setupConstraints() {
@@ -56,14 +53,14 @@ class MainScreenRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        selectCategorySegmentView.delegate = self
-        
         postsTableView.delegate = self
         postsTableView.dataSource = self
         
         headerView.searchBarWithFilter.searchTextField.delegate = self
         headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
         headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
+        
+        refreshControl.addTarget(self, action: #selector(refreshSwiped), for: .valueChanged)
     }
     
     private func searchButtonClicked () {
@@ -72,6 +69,13 @@ class MainScreenRootView: BaseView {
     
     private func filterButtonClicked () {
         viewModel.openFilterByDate()
+    }
+    
+    @objc private func refreshSwiped() {
+        viewModel.refreshCategories {[weak self] in
+            guard let self else { return }
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -92,14 +96,10 @@ extension MainScreenRootView: UITextFieldDelegate {
     }
 }
 
-extension MainScreenRootView: PostsTableviewCellDelegate, SelectCatergorySegmentViewDelegate {
+extension MainScreenRootView: PostsTableviewCellDelegate {
     func savePost(collectionID: Int?, postID: Int, _ saved: ((Bool) -> Void)) {
         viewModel.openPostCollectionSheet(collectionID: collectionID, postID: postID)
         saved(true)
-    }
-    
-    func categoryDidSelected(item: CategoryItem) {
-        viewModel.filterByCategory(item: item)
     }
 }
 
@@ -136,3 +136,14 @@ extension MainScreenRootView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension MainScreenRootView {
+    private func bindings() {
+        viewModel
+            .$blogPostList
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] _ in
+                guard let self else { return }
+                postsTableView.reloadData()
+            }.store(in: &subscriptions)
+    }
+}

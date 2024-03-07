@@ -17,7 +17,7 @@ extension NeoBlogPostEndpoints {
         case getCategoriesList
         case getPostDetail(postID: Int)
         case getUserCollections(userID: Int)
-        case getPostList(categoryName: String, query: String, startDate: String, endDate: String)
+        case getPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String)
         
         //Post
         case addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel)
@@ -72,8 +72,12 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var parameters: Alamofire.Parameters? {
         switch endpointType {
-        case .getPostList(let categoryName, let query, let startDate, let endDate):
-            return ["category_name": categoryName, "search": query, "start_date": startDate, "end_date": endDate]
+        case .getPostList(let categoryName, let query, let startDate, let endDate, let period):
+            return ["category_name": categoryName,
+                    "search": query,
+                    "start_date": startDate,
+                    "end_date": endDate,
+                    "period": period ]
         case .createPost(let parameters):
             return parameters
         default:

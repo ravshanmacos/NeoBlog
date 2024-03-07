@@ -35,7 +35,7 @@ class TitlesCategoryCollectionViewCell: UICollectionViewCell {
         hStack.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
-    func setTitle(text: String) {
+    func setTitle(text: String?) {
         titleLabel.text = text
     }
     

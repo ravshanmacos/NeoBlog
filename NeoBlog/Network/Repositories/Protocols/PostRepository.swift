@@ -37,7 +37,7 @@ protocol PostRepository {
     func getCategoriesList() -> Promise<[Category]>
     func getPostDetail(postID: Int) -> Promise<BlogPost>
     func getUserCollections(userID: Int) -> Promise<[Collection]>
-    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String) -> Promise<[BlogPost]>
+    func getBlogPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String) -> Promise<[BlogPost]>
     
     //MARK: POST
     

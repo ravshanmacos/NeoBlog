@@ -65,8 +65,6 @@ private extension SortByDateSheet {
     
     func configureRadioButton(for view: UIView, with tag: Int) {
         guard let radiobutton = view.subviews[0] as? UIButton else { return }
-        if tag == 0 { radiobutton.isSelected = true }
-        
         radiobutton.tag = tag
         radiobutton.addTarget(self, action: #selector(radioButtonSelected), for: .touchUpInside)
     }
