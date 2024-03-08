@@ -110,6 +110,20 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         
     }
     
+    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .updateLoginAndEmail(requestModel: requestModel))
+        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
+        }
+    }
+    
+    func updatePassword(requestModel: UpdatePasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .updatePassword(requestModel: requestModel))
+        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
+        }
+    }
+    
     //MARK: DELETE
     
     func deleteCollection(collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {

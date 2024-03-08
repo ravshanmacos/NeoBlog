@@ -37,7 +37,7 @@ class SignedInDepedencyContainer {
         self.userProfile = userProfile
         
         self.sharedMainContainerViewModel = makeMainContainerViewModel()
-        self.sharedProfileContainerViewModel = ProfileContainerViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel)
+        self.sharedProfileContainerViewModel = ProfileContainerViewModel(userSession: userSession, userProfile: userProfile, userSessionRepository: sharedUserSessionRepository, notSignedInResponder: sharedMainViewModel)
         self.sharedPostRepository = NeoBlogPostRepository(remoteAPI: NeoBlogPostRemoteAPI(userSession: userSession))
     }
     
@@ -126,12 +126,12 @@ extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewMod
 //MARK: Add Post Screen
 extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, EditProfileViewModelFactory, ChangeLoginAndEmailViewModelFactory, ChangePasswordViewModelFactory {
     // Pofile View Controller
-    func makeProfileScreenViewController() -> ProfileScreenViewController {
-        return ProfileScreenViewController(viewModelFactory: self)
+    func makeProfileScreenViewController(userProfile: UserProfile) -> ProfileScreenViewController {
+        return ProfileScreenViewController(userProfile: userProfile, viewModelFactory: self)
     }
     
     func makeProfileViewModel() -> ProfileScreenViewModel {
-        return ProfileScreenViewModel(goToEditProfileSheetNavigator: sharedProfileContainerViewModel, postRepository: sharedPostRepository, userProfile: userProfile)
+        return ProfileScreenViewModel(postRepository: sharedPostRepository, goToEditProfileSheetNavigator: sharedProfileContainerViewModel)
     }
     
     //Two Action Sheet
@@ -156,7 +156,7 @@ extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, Edi
     }
     
     func makeChangeLoginAndEmailViewModel() -> ChangeLoginAndEmailViewModel {
-        return ChangeLoginAndEmailViewModel(signedInResponder: sharedMainViewModel)
+        return ChangeLoginAndEmailViewModel(postRepository: sharedPostRepository, goToMainScreenNavigator: sharedProfileContainerViewModel)
     }
     
     //Change Password
@@ -165,6 +165,6 @@ extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, Edi
     }
     
     func makeChangePasswordViewModel() -> ChangePasswordViewModel {
-        return ChangePasswordViewModel(signedInResponder: sharedMainViewModel)
+        return ChangePasswordViewModel(postRepository: sharedPostRepository, goToMainScreenNavigator: sharedProfileContainerViewModel)
     }
 }

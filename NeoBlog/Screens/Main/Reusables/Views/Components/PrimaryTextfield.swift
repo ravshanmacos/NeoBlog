@@ -12,6 +12,7 @@ extension PrimaryTextfield {
         case normal(placeholder: String)
         case username
         case email
+        case currentPassword
         case password
         case confirmPassword
     }
@@ -72,7 +73,7 @@ private extension PrimaryTextfield {
         case .normal(let placeholder): configureForNormal(placeholder: placeholder)
         case .username: configureForUserName()
         case .email: configureForEmail()
-        case .password, .confirmPassword: configureForPassword()
+        case .currentPassword, .password, .confirmPassword: configureForPassword()
         }
     }
     

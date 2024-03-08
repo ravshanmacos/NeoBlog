@@ -204,6 +204,7 @@
 		39CBCD2E2B83573B0092A46E /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */; };
 		39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */; };
 		39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */; };
+		39D2679D2B9AED8D00D6764A /* GoToMainScreenNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */; };
 		39E7B5862B9046D600FF954B /* NeoBlogUserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */; };
 		39E7B58A2B907EA000FF954B /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5892B907EA000FF954B /* ErrorPresentation.swift */; };
 		39E7B58D2B908CA400FF954B /* PopCurrentResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */; };
@@ -414,6 +415,7 @@
 		39CBCD2D2B83573B0092A46E /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRootView.swift; sourceTree = "<group>"; };
+		39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMainScreenNavigator.swift; sourceTree = "<group>"; };
 		39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogUserSessionRepository.swift; sourceTree = "<group>"; };
 		39E7B5892B907EA000FF954B /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCurrentResponder.swift; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 				39726C9F2B8E21D900FCF225 /* GoToEditProfileVC.swift */,
 				39726CC32B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift */,
 				39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */,
+				39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1465,6 +1468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D2679D2B9AED8D00D6764A /* GoToMainScreenNavigator.swift in Sources */,
 				39726C9E2B8E21A800FCF225 /* LogoutResponder.swift in Sources */,
 				394C05992B7F56490045277E /* AuthErrors.swift in Sources */,
 				39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */,

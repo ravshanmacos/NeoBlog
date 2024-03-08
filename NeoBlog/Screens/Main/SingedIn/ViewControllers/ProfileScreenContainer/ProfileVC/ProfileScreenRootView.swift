@@ -61,9 +61,12 @@ class ProfileScreenRootView: BaseView {
         }
     }
     
+    func setUserName(text: String) {
+        usernameLabel.text = text
+    }
+    
     override func configureAppearance() {
         super.configureAppearance()
-        usernameLabel.text = viewModel.getUsername()
         segmentedView.delegate = self
         viewModel.setTableviewState()
         menuBtn.addTarget(viewModel, action: #selector(viewModel.openEditProfileSheet), for: .touchUpInside)
@@ -73,7 +76,7 @@ class ProfileScreenRootView: BaseView {
         viewWrapper.removeSubviews()
         self.postsTableView = nil
         
-        self.collectionsTableView = PostCollectionRootView.makeTableView()
+        self.collectionsTableView = makeCollectionTableView()
         self.collectionsTableView!.delegate = self
         self.collectionsTableView!.dataSource = self
         viewWrapper.addArrangedSubview(collectionsTableView!)
@@ -108,7 +111,7 @@ extension ProfileScreenRootView: UITableViewDataSource {
         if tableView == postsTableView {
             return viewModel.posts.count
         } else {
-            return viewModel.optionsData.count
+            return viewModel.collections.count
         }
     }
     
@@ -136,15 +139,17 @@ extension ProfileScreenRootView: UITableViewDataSource {
     }
     
     private func collectionsTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = OptionViewTableViewCell.deque(on: tableView, at: indexPath) else { return UITableViewCell() }
-        let item = viewModel.optionsData[indexPath.item]
-        cell.titleLabel.text = item.title
-        cell.descriptionLabel.text = item.getSavedDescriptions()
-        cell.radioButton.isSelected = item.isActive
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath)
+        let item = viewModel.collections[indexPath.item]
+        let count = item.postCount == nil ? 0 : item.postCount!
+        var config = cell.defaultContentConfiguration()
+        config.text = item.name
+        config.textProperties.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        config.secondaryText = "Сохранено: \(count)"
+        cell.contentConfiguration = config
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
 }
  
 //MARK: UITableViewDelegate
@@ -156,26 +161,15 @@ extension ProfileScreenRootView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView == collectionsTableView ? 50 : 0
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView == postsTableView {
-            //viewModel.navigateToPostDetails(with: indexPath.item)
-        } else {
-            viewModel.unSelectAllOptions()
-            viewModel.activateOption(for: indexPath.item)
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
 }
 
 //MARK: Bindings
 extension ProfileScreenRootView {
     private func bindings() {
         viewModel
-            .$optionsData
+            .$collections
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] optionsdata in
+            .sink {[weak self] collections in
                 guard let self else { return }
                 collectionsTableView?.reloadData()
             }.store(in: &subscriptions)

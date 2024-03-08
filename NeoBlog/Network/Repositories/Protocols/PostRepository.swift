@@ -41,4 +41,7 @@ protocol PostRepository {
     func addPostToCollection(collectionID: Int, requestModel: AddPostToCollectionRequestModel) -> Promise<GeneralResponse>
     
     //MARK: UPDATE
+    
+    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse>
+    func updatePassword(requestModel: UpdatePasswordRequestModel) -> Promise<GeneralResponse>
 }

@@ -26,6 +26,8 @@ extension NeoBlogPostEndpoints {
         case createPost(parameters: [String: Any])
         
         //PUT
+        case updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel)
+        case updatePassword(requestModel: UpdatePasswordRequestModel)
         case updateCollection(collectionID: Int)
         case updatePost(postID: Int)
         
@@ -50,7 +52,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return .get
         case .addPostToCollection, .createCollection, .createCommment, .createPost:
             return .post
-        case .updatePost, .updateCollection:
+        case .updatePost, .updateCollection, .updateLoginAndEmail, .updatePassword:
             return .put
         case .deletePost, .deleteCollection:
             return .delete
@@ -64,6 +66,10 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCommment(let requestModel):
             return requestModel
         case .addPostToCollection(_, let requestModel):
+            return requestModel
+        case .updateLoginAndEmail(let requestModel):
+            return requestModel
+        case .updatePassword(let requestModel):
             return requestModel
         default:
             return ""
@@ -95,6 +101,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     var url: String? {
         switch endpointType {
             
+        //MARK: GET
         //get category list
         case .getCategoriesList:
             return "/blog/category/list/"
@@ -123,6 +130,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCommment:
             return "/blog/comment-create/"
             
+        //MARK: Post
         //Add Post To Collection
         case .addPostToCollection(let collectionID, _):
             return "/blog/collections/\(collectionID)/add-post/"
@@ -131,11 +139,21 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCollection(let authorID, _):
             return "/blog/collections/\(authorID)/create/"
             
-        //Put
+        //Upate Post
         case .updatePost(let postID):
             return "/blog/post/\(postID)/update/"
+            
+        //Update Collection
         case .updateCollection(let collectionID):
             return "/blog/collection/\(collectionID)/update/"
+            
+        //Update Login and Email
+        case .updateLoginAndEmail:
+            return "/users/profile/update/"
+            
+        //Update Password
+        case .updatePassword:
+            return "/users/change-password/"
         
         //Delete
         case .deletePost(let postID):

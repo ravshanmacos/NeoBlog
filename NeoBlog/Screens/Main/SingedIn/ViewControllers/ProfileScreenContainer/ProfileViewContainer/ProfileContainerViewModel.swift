@@ -16,12 +16,15 @@ class ProfileContainerViewModel: LogoutResponder, DissmissViewResponder {
     private let userSession: UserSession
     private let userSessionRepository: UserSessionRepository
     private let notSignedInResponder: NotSignedInResponder
+    var userProfile: UserProfile
     
     @Published private(set) var navigationAction: ProfileContainerNavigationAction = .present(view: .mainScreen)
     
     //MARK: Methods
-    init(userSession: UserSession, userSessionRepository: UserSessionRepository, notSignedInResponder: NotSignedInResponder) {
+    init(userSession: UserSession, userProfile: UserProfile, userSessionRepository: UserSessionRepository,
+         notSignedInResponder: NotSignedInResponder) {
         self.userSession = userSession
+        self.userProfile = userProfile
         self.userSessionRepository = userSessionRepository
         self.notSignedInResponder = notSignedInResponder
     }
@@ -49,7 +52,17 @@ class ProfileContainerViewModel: LogoutResponder, DissmissViewResponder {
 }
 
 //MARK: Navigations
-extension ProfileContainerViewModel: GoToEditProfileSheetNavigator, GoToEditProfileVC, GoToChangeLoginAndEmailNavigator, GoToChangePasswordNavigator {
+extension ProfileContainerViewModel: GoToEditProfileSheetNavigator, GoToEditProfileVC, GoToChangeLoginAndEmailNavigator, GoToChangePasswordNavigator, GoToMainScreenNavigator {
+    func navigateToMainScreen(newUsername: String?, newEmail: String?) {
+        if let newUsername {
+            userProfile.username = newUsername
+        }
+        if let newEmail {
+            userProfile.email = newEmail
+        }
+        navigationAction = .present(view: .mainScreen)
+    }
+    
     func navigateToEditProfileSheet() {
         navigationAction = .present(view: .editProfile)
     }

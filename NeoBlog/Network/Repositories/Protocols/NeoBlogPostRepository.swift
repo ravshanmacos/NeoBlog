@@ -153,4 +153,31 @@ class NeoBlogPostRepository: PostRepository {
             }
         }
     }
+    
+    //MARK: Update
+    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse> {
+        return Promise<GeneralResponse> { resolver in
+            remoteAPI.updateLoginAndEmail(requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    func updatePassword(requestModel: UpdatePasswordRequestModel) -> Promise<GeneralResponse> {
+        return Promise<GeneralResponse> { resolver in
+            remoteAPI.updatePassword(requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
 }

@@ -9,8 +9,8 @@ import Foundation
 
 struct UserProfile: Decodable {
     let id: Int?
-    let username: String?
-    let email: String?
+    var username: String?
+    var email: String?
 }
 
 struct SignInResponseModel: Decodable {

@@ -37,6 +37,13 @@ protocol PostRemoteAPI {
     //Create Post
     func createPost(parameters: [String: Any], callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void)
     
+    //MARK: Update
+    //Update Login and Email
+    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void)
+    
+    //Update Password
+    func updatePassword(requestModel: UpdatePasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void)
+    
     //Update Collection
     func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
     

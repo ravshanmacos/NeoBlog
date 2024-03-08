@@ -9,16 +9,28 @@ import UIKit
 
 extension ChangePasswordRootView {
     enum Strings: String {
-        case headerTitle = "Создание пароля"
+        case headerTitle = "Изменение пароля"
         case nextButtonTitle = "Сохранить"
         
+        case currentPasswordPlaceHolderTitle = "Текущий пароль"
         case newPasswordPlaceHolderTitle = "Новый пароль"
         case newPasswordAgainPlaceHolderTitle = "Новый пароль еще раз"
     }
     
     static func makeHeaderTitleLabel() -> UILabel {
-        let container = LabelsContainer()
-        return container.makeLabel(text: Strings.headerTitle.rawValue, size: .large)
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = R.color.gray_color_1()
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.text = Strings.headerTitle.rawValue
+        return label
+    }
+    
+    static func makeCurrentPasswordField() -> InputField {
+        let field = PrimaryTextfield(fieldType: .currentPassword)
+        field.placeholder = Strings.currentPasswordPlaceHolderTitle.rawValue
+        return InputField(textfield: field)
     }
     
     static func makeNewPasswordField() -> InputField {

@@ -9,27 +9,32 @@ import UIKit
 
 extension ChangeLoginAndEmailRootView {
     enum Strings: String {
-        case headerTitle = "Создание пароля"
+        case headerTitle = "Изменение логина и эл. почты"
         case nextButtonTitle = "Сохранить"
         
-        case newPasswordPlaceHolderTitle = "Новый пароль"
-        case newPasswordAgainPlaceHolderTitle = "Новый пароль еще раз"
+        case loginPlaceHolderTitle = "Логин"
+        case emailPlaceHolderTitle = "Электронная почта"
     }
     
     static func makeHeaderTitleLabel() -> UILabel {
-        let container = LabelsContainer()
-        return container.makeLabel(text: Strings.headerTitle.rawValue, size: .large)
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = R.color.gray_color_1()
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.text = Strings.headerTitle.rawValue
+        return label
     }
     
-    static func makeNewPasswordField() -> InputField {
-        let field = PrimaryTextfield(fieldType: .password)
-        field.placeholder = Strings.newPasswordPlaceHolderTitle.rawValue
+    static func makeLoginField() -> InputField {
+        let field = PrimaryTextfield(fieldType: .username)
+        field.placeholder = Strings.loginPlaceHolderTitle.rawValue
         return InputField(textfield: field)
     }
     
-    static func makeNewPasswordAgainField() -> InputField {
+    static func makeEmailField() -> InputField {
         let field = PrimaryTextfield(fieldType: .confirmPassword)
-        field.placeholder = Strings.newPasswordAgainPlaceHolderTitle.rawValue
+        field.placeholder = Strings.emailPlaceHolderTitle.rawValue
         return InputField(textfield: field)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol ChangeLoginAndEmailViewModelFactory {
     func makeChangeLoginAndEmailViewModel() -> ChangeLoginAndEmailViewModel
@@ -18,6 +19,8 @@ class ChangeLoginAndEmailViewController: BaseViewController {
     private var ChangeLoginAndEmailView: ChangeLoginAndEmailRootView {
         return view as! ChangeLoginAndEmailRootView
     }
+    
+    private var subscriptions = Set<AnyCancellable>()
     //MARK: Methods
     
     init(viewModelFactory: ChangeLoginAndEmailViewModelFactory) {

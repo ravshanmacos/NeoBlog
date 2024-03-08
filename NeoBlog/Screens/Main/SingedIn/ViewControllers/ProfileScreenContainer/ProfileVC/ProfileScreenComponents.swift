@@ -40,15 +40,30 @@ extension ProfileScreenRootView {
         return view
     }
     
-    func makePostsTableView() -> UITableView {
-        let tableView = MainScreenRootView.makePostsTableView()
-        return tableView
-    }
-    
     static func makeHeaderHStack() -> UIStackView {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fill
         return stack
+    }
+    
+    func makePostsTableView() -> UITableView {
+        let tableView = MainScreenRootView.makePostsTableView()
+        return tableView
+    }
+    
+    func makeCollectionTableView() -> UITableView {
+        let tableview = UITableView(frame: .zero, style: .insetGrouped)
+        tableview.rowHeight = 60
+        tableview.separatorStyle = .none
+        tableview.backgroundColor = .clear
+        tableview.subviews.forEach { view in
+            view.layer.shadowColor = UIColor.darkGray.cgColor
+            view.layer.shadowOpacity = 0.2
+            view.layer.shadowOffset = .zero
+            view.layer.shadowRadius = 5
+        }
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "CollectionCell")
+        return tableview
     }
 }

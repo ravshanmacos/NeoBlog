@@ -56,7 +56,8 @@ struct NeoBlogAuthRemoteAPI: AuthRemoteAPI {
     }
     
     func changePassword(token: String, requestModel: ChangeForgotPasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {
-        let endpoint = NeoBlogAuthEndpoints(userSession: nil, endpointType: .changeForgotPassword(token: token, requestModel: requestModel))
+        let userSession = UserSession(remoteSession: .init(accessToken: token, refreshToken: ""))
+        let endpoint = NeoBlogAuthEndpoints(userSession: userSession, endpointType: .changeForgotPassword(token: token, requestModel: requestModel))
         apiManager.request(withEncodable: true, endpoint: endpoint) { response in
             callback(mapper.mapToResult(from: response, forKey: nil, type: GeneralResponse.self))
         }

@@ -8,14 +8,14 @@
 import UIKit
 import Combine
 
-class ChangeLoginAndEmailRootView: BaseView {
+class ChangeLoginAndEmailRootView: ScrollableBaseView {
     
     //MARK: Properties
     private let vStack = makeVStack()
     private let saveButton = makeSaveBtn()
     private let headerTitleLabel = makeHeaderTitleLabel()
-    private let newPasswordField = makeNewPasswordField()
-    private let newPasswordFieldConfirm = makeNewPasswordAgainField()
+    private let loginField = makeLoginField()
+    private let emailField = makeEmailField()
     
     private let viewModel: ChangeLoginAndEmailViewModel
     private var subscriptions = Set<AnyCancellable>()
@@ -24,36 +24,48 @@ class ChangeLoginAndEmailRootView: BaseView {
     init(frame: CGRect = .zero, viewModel: ChangeLoginAndEmailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        
-        newPasswordField.textfield.delegate = self
-        newPasswordFieldConfirm.textfield.delegate = self
-        
         bindViewModelToView()
         bindViewToViewModel()
     }
     
     override func setupSubviews() {
         super.setupSubviews()
-        contentView.addSubviews(headerTitleLabel, vStack)
-        vStack.addArrangedSubviews(newPasswordField, newPasswordFieldConfirm, saveButton)
+        scrollViewContent.addSubviews(headerTitleLabel, vStack, saveButton)
+        vStack.addArrangedSubviews(loginField, emailField)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
+        scrollViewContent.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(scrollView.snp.width)
+            make.height.equalTo(scrollView.snp.height)
+        }
+        
         headerTitleLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(snp.centerY).multipliedBy(0.5)
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         vStack.snp.makeConstraints { make in
             make.top.equalTo(headerTitleLabel.snp.bottom).offset(40)
             make.leading.trailing.equalToSuperview()
         }
         
-        saveButton.snp.makeConstraints { $0.height.equalTo(50) }
+        saveButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
     
     override func configureAppearance() {
         super.configureAppearance()
+        loginField.headerLabel.text = "Логин"
+        emailField.headerLabel.text = "Электронная почта"
+        
+        loginField.textfield.delegate = self
+        emailField.textfield.delegate = self
+        
         saveButton.addTarget(viewModel, action: #selector(viewModel.save), for: .touchUpInside)
     }
 }
@@ -65,17 +77,14 @@ extension ChangeLoginAndEmailRootView: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        newPasswordField.setTextFieldState(state: .normal)
-        newPasswordFieldConfirm.setTextFieldState(state: .normal)
+        loginField.setTextFieldState(state: .normal)
+        emailField.setTextFieldState(state: .normal)
         textField.activeBorders()
         if let textfield = textField as? PrimaryTextfield {
             switch textfield.primaryFieldType {
-            case .password:
-                newPasswordField
-                    .setTextFieldState(state: .active(text: Constants.Strings.passwordWarning))
-            case .confirmPassword:
-                newPasswordFieldConfirm
-                    .setTextFieldState(state: .active(text: Constants.Strings.confirPasswordWarning))
+            case .username:
+                loginField
+                    .setTextFieldState(state: .active(text: Constants.Strings.usernameWarning))
             default:
                 break
             }
@@ -94,31 +103,26 @@ extension ChangeLoginAndEmailRootView {
     }
     
     func bindPasswordToViewModel() {
-        newPasswordField
+        loginField
             .textfield
             .publisher(for: \.text)
             .map { $0 ?? ""}
-            .assign(to: \.password, on: viewModel)
+            .assign(to: \.login, on: viewModel)
             .store(in: &subscriptions)
     }
     
     func bindConfirmPasswordToViewModel() {
-        newPasswordFieldConfirm
+        emailField
             .textfield
             .publisher(for: \.text)
             .map { $0 ?? ""}
-            .assign(to: \.confirmPassword, on: viewModel)
+            .assign(to: \.email, on: viewModel)
             .store(in: &subscriptions)
     }
 }
 
 private extension ChangeLoginAndEmailRootView {
     func bindViewToViewModel() {
-        bindAuthErrors()
-        bindSuccessMessage()
-    }
-    
-    func bindAuthErrors() {
         viewModel
             .$authErrors
             .receive(on: DispatchQueue.main)
@@ -126,30 +130,30 @@ private extension ChangeLoginAndEmailRootView {
                 guard let self else { return }
                 self.presentErrorState(state: errorState)
             }.store(in: &subscriptions)
-    }
-    
-    private func presentErrorState(state: AuthErrors) {
-        newPasswordField.setTextFieldState(state: .normal)
-        newPasswordFieldConfirm.setTextFieldState(state: .normal)
-        switch state {
-        case .initial:
-            print("Initial")
-        case .InvalidPassword:
-            newPasswordField.setTextFieldState(state: .error(text: Constants.Strings.passwordWarning))
-        case .InvalidConfirmPassword:
-            newPasswordFieldConfirm.setTextFieldState(state: .error(text: Constants.Strings.invalidConfirmPassword))
-        default:
-            break
-        }
-    }
-    
-    func bindSuccessMessage() {
+        
         viewModel
             .successMessagePublisher
             .receive(on: DispatchQueue.main)
             .sink {[weak self] message in
                 guard let self else { return }
-                self.showAlert(image: R.image.check_circle_icon()!, color: R.color.green_color_1()!, subtitle: message)
+                self.showAlert(image: R.image.check_circle_icon()!,
+                               color: R.color.green_color_1()!,
+                               subtitle: message)
             }.store(in: &subscriptions)
+    }
+    
+    private func presentErrorState(state: AuthErrors) {
+        loginField.setTextFieldState(state: .normal)
+        emailField.setTextFieldState(state: .normal)
+        switch state {
+        case .initial:
+            print("Initial")
+        case .InvalidUsername:
+            loginField.setTextFieldState(state: .error(text: Constants.Strings.usernameWarning))
+        case .InvalidEmail:
+            emailField.setTextFieldState(state: .error(text: Constants.Strings.invalidEmail))
+        default:
+            break
+        }
     }
 }

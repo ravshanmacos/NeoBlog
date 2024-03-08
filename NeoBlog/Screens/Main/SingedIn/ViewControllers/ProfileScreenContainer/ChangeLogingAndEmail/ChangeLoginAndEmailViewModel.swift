@@ -11,10 +11,6 @@ import Combine
 class ChangeLoginAndEmailViewModel {
     
     //MARK: Properties
-    private let signedInResponder: SignedInResponder
-    
-    var password: String = ""
-    var confirmPassword: String = ""
     
     @Published private(set) var authErrors: AuthErrors = .initial
     
@@ -24,27 +20,40 @@ class ChangeLoginAndEmailViewModel {
     
     private var successMessageSubject = PassthroughSubject<String, Never>()
     
+    private let postRepository: PostRepository
+    private let goToMainScreenNavigator: GoToMainScreenNavigator
+    
+    var login: String = ""
+    var email: String = ""
+    
     //MARK: Methods
-    init(signedInResponder: SignedInResponder) {
-        self.signedInResponder = signedInResponder
+    init(postRepository: PostRepository, goToMainScreenNavigator: GoToMainScreenNavigator) {
+        self.postRepository = postRepository
+        self.goToMainScreenNavigator = goToMainScreenNavigator
     }
     
     @objc func save() {
         guard isValidate() else { return }
-        print("password: \(password)")
-        print("confirpassword: \(confirmPassword)")
-//        successMessageSubject.send("Пароль успешно изменен")
-//        signedInResponder.signedIn(userSession: <#UserSession#>)
+        postRepository
+            .updateLoginAndEmail(requestModel: .init(username: login, email: email))
+            .done { result in
+                self.successMessageSubject.send("Логин и электронная почта успешно изменены")
+                DispatchQueue.main.asyncAfter(wallDeadline: .now()+0.5) {
+                    self.goToMainScreenNavigator.navigateToMainScreen(newUsername: self.login, newEmail: self.email)
+                }
+            }.catch { error in
+               print(error)
+            }
     }
     
     private func isValidate() -> Bool {
-        guard password.isValidPassword() else {
-            authErrors = .InvalidPassword
+        guard login.isValidUsername() else {
+            authErrors = .InvalidUsername
             return false
         }
     
-        guard confirmPassword == password else {
-            authErrors = .InvalidConfirmPassword
+        guard email.isValidEmail() else {
+            authErrors = .InvalidEmail
             return false
         }
         

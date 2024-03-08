@@ -10,7 +10,7 @@ import SwiftEntryKit
 import Combine
 
 protocol ProfileContainerViewControllerFactory {
-    func makeProfileScreenViewController() -> ProfileScreenViewController
+    func makeProfileScreenViewController(userProfile: UserProfile) -> ProfileScreenViewController 
     func makeEditProfileSheet() -> EditProfileSheet
     func makeEditProfileVC() -> EditProfileViewController
     func makeChangeLoginAndEmail() -> ChangeLoginAndEmailViewController 
@@ -71,7 +71,7 @@ class ProfileContainerViewController: BaseNavigationController {
     }
     
     private func presentProfileScreenViewController() {
-        let profileVC = factory.makeProfileScreenViewController()
+        let profileVC = factory.makeProfileScreenViewController(userProfile: viewModel.userProfile)
         pushViewController(profileVC, animated: true)
     }
     

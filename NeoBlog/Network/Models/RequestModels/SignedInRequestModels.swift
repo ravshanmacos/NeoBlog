@@ -42,3 +42,23 @@ struct UpdateCollectionRequestModel {
     let name: String
     let author: Int
 }
+
+//Update Login and Email
+
+struct UpdateLoginAndEmailRequestModel: Codable {
+    let username: String
+    let email: String
+}
+
+//Update Password
+struct UpdatePasswordRequestModel: Codable {
+    let oldPassword: String
+    let newPassword: String
+    let confirmPassword: String
+    
+    enum CodingKeys: String, CodingKey {
+        case oldPassword = "old_password"
+        case newPassword = "password"
+        case confirmPassword = "confirm_password"
+    }
+}

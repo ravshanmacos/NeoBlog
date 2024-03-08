@@ -16,11 +16,17 @@ class ProfileScreenViewController: BaseViewController {
     //MARK: Properties
     private let viewModelFactory: ProfileViewModelFactory
     private let viewModel: ProfileScreenViewModel
+    private let userProfile: UserProfile
+    
+    private var rootView: ProfileScreenRootView {
+        return view as! ProfileScreenRootView
+    }
     
     //MARK: Methods
     
-    init(viewModelFactory: ProfileViewModelFactory) {
+    init(userProfile: UserProfile, viewModelFactory: ProfileViewModelFactory) {
         self.viewModelFactory = viewModelFactory
+        self.userProfile = userProfile
         self.viewModel = viewModelFactory.makeProfileViewModel()
         super.init()
     }
@@ -30,8 +36,18 @@ class ProfileScreenViewController: BaseViewController {
         self.view = ProfileScreenRootView(viewModel: viewModel)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUsername()
+    }
+    
+    func getUsername() {
+        rootView.setUserName(text: userProfile.username ?? "UserName")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getCollections(userID: userProfile.id)
         viewModel.getMyPosts()
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class ScrollableBaseView: BaseView {
     
     //MARK: Properties
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
        let view = UIScrollView()
         view.backgroundColor = .clear
         view.isScrollEnabled = true

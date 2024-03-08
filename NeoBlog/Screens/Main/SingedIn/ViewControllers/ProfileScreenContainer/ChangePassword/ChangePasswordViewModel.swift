@@ -11,30 +11,45 @@ import Combine
 class ChangePasswordViewModel {
     
     //MARK: Properties
-    private let signedInResponder: SignedInResponder
-    
-    var password: String = ""
-    var confirmPassword: String = ""
-    
     @Published private(set) var authErrors: AuthErrors = .initial
+    @Published private(set) var saveBtnEnabled = false
+    
+    private var successMessageSubject = PassthroughSubject<String, Never>()
     
     var successMessagePublisher: AnyPublisher<String, Never> {
         successMessageSubject.eraseToAnyPublisher()
     }
     
-    private var successMessageSubject = PassthroughSubject<String, Never>()
+    private let postRepository: PostRepository
+    private let goToMainScreenNavigator: GoToMainScreenNavigator
+    
+    var currentPassword: String = "" {didSet{ checkFields() }}
+    var password: String = "" {didSet{ checkFields() }}
+    var confirmPassword: String = "" {didSet{ checkFields() }}
+    
     
     //MARK: Methods
-    init(signedInResponder: SignedInResponder) {
-        self.signedInResponder = signedInResponder
+    init(postRepository: PostRepository, goToMainScreenNavigator: GoToMainScreenNavigator) {
+        self.postRepository = postRepository
+        self.goToMainScreenNavigator = goToMainScreenNavigator
     }
     
     @objc func save() {
         guard isValidate() else { return }
+        print("currentPassword: \(currentPassword)")
         print("password: \(password)")
         print("confirpassword: \(confirmPassword)")
-//        successMessageSubject.send("Пароль успешно изменен")
-//        signedInResponder.signedIn()
+        let requestModel = UpdatePasswordRequestModel(oldPassword: currentPassword, newPassword: password, confirmPassword: confirmPassword)
+        postRepository
+            .updatePassword(requestModel: requestModel)
+            .done { message in
+                self.successMessageSubject.send("Пароль успешно изменен")
+                DispatchQueue.main.asyncAfter(wallDeadline: .now()+0.5) {
+                    self.goToMainScreenNavigator.navigateToMainScreen(newUsername: nil, newEmail: nil)
+                }
+            }.catch { error in
+                print(error)
+            }
     }
     
     private func isValidate() -> Bool {
@@ -42,12 +57,20 @@ class ChangePasswordViewModel {
             authErrors = .InvalidPassword
             return false
         }
-    
         guard confirmPassword == password else {
             authErrors = .InvalidConfirmPassword
             return false
         }
-        
         return true
+    }
+    
+    private func checkFields() {
+        if currentPassword != "" &&
+            password != "" &&
+            confirmPassword != "" {
+            saveBtnEnabled = true
+        } else {
+            saveBtnEnabled = false
+        }
     }
 }
