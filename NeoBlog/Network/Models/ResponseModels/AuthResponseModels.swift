@@ -32,6 +32,8 @@ struct GeneralResponse: Decodable {
     let message: String
 }
 
+struct EmptyResponse: Decodable {}
+
 struct VerifyOTPResponseModel: Decodable {
     let message: String
     let userID: String

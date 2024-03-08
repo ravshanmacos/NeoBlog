@@ -14,6 +14,9 @@ protocol PostRepository {
     //Get My Posts
     func getMyPosts() -> Promise<[BlogPost]>
     
+    //Get Collection Posts
+    func getCollecitonPosts(collectionID: Int) -> Promise<[BlogPost]>
+    
     // Get Categories List
     func getCategoriesList() -> Promise<[Category]>
     
@@ -44,4 +47,9 @@ protocol PostRepository {
     
     func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse>
     func updatePassword(requestModel: UpdatePasswordRequestModel) -> Promise<GeneralResponse>
+    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel) -> Promise<Collection>
+    
+    //MARK: Delete
+    
+    func deleteCollection(collectionID: Int) -> Promise<String>
 }

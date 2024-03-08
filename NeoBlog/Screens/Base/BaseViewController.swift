@@ -31,19 +31,41 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = R.color.gray_color_1()
-        
         let backButton = UIButton()
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         backButton.setImage(R.image.back_icon(), for: .normal)
-        
-        navigationItem.titleView = label
+    
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
+    func addTitle(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .left
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = R.color.gray_color_1()
+        
+        let titleView = UIView()
+        titleView.addSubviews(label)
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        navigationItem.titleView = titleView
     }
     
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func addMenuBarToRight() {
+        let menuBtn = UIButton()
+        menuBtn.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
+        menuBtn.setImage(R.image.hambureger_menu_icon(), for: .normal)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuBtn)
+    }
+    
+    @objc func menuButtonTapped() {
     }
 }

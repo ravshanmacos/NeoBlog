@@ -30,8 +30,6 @@ class EditProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if navigationItem.titleView is UILabel {
-            (navigationItem.titleView as! UILabel).text = "Редактирование профиля"
-        }
+        addTitle(text: "Редактирование профиля")
     }
 }

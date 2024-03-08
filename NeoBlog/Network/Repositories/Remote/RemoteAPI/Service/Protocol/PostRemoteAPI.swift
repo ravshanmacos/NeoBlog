@@ -14,6 +14,9 @@ protocol PostRemoteAPI {
     //Get My Posts
     func getMyPosts(callback: @escaping (Result<[BlogPost], Error>) -> Void)
     
+    //Get Collection Posts
+    func getCollectionPosts(collectionID: Int, callback: @escaping (Result<[BlogPost], Error>) -> Void)
+    
     //Get Post Details
     func getPostDetail(postID: Int, callback: @escaping (Result<BlogPost, Error>) -> Void)
     
@@ -45,13 +48,13 @@ protocol PostRemoteAPI {
     func updatePassword(requestModel: UpdatePasswordRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void)
     
     //Update Collection
-    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<Collection, Error>) -> Void)
     
     //Update Post
     func updatePost(postID: Int, requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
     
     //Delete
-    func deleteCollection(collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func deleteCollection(collectionID: Int, callback: @escaping (Result<String, Error>) -> Void)
     
     func deletePost(postID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
 }

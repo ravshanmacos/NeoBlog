@@ -13,6 +13,7 @@ enum ProfileContainerViewState {
     case editProfileVC
     case changeLoginAndEmail
     case changePassword
+    case collectionPosts
     case logout
     case dissmissCurrentView
     

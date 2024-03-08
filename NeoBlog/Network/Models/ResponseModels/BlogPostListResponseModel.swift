@@ -95,3 +95,5 @@ struct Collection: Decodable {
         case postCount = "post_count"
     }
 }
+
+

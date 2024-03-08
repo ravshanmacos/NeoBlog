@@ -20,6 +20,8 @@ class ProfileContainerViewModel: LogoutResponder, DissmissViewResponder {
     
     @Published private(set) var navigationAction: ProfileContainerNavigationAction = .present(view: .mainScreen)
     
+    var collection: Collection?
+    
     //MARK: Methods
     init(userSession: UserSession, userProfile: UserProfile, userSessionRepository: UserSessionRepository,
          notSignedInResponder: NotSignedInResponder) {
@@ -52,7 +54,12 @@ class ProfileContainerViewModel: LogoutResponder, DissmissViewResponder {
 }
 
 //MARK: Navigations
-extension ProfileContainerViewModel: GoToEditProfileSheetNavigator, GoToEditProfileVC, GoToChangeLoginAndEmailNavigator, GoToChangePasswordNavigator, GoToMainScreenNavigator {
+extension ProfileContainerViewModel: GoToEditProfileSheetNavigator, GoToEditProfileVC, GoToChangeLoginAndEmailNavigator, GoToChangePasswordNavigator, GoToMainScreenNavigator, GoToCollectionPosts {
+    func navigateToCollectionPosts(collection: Collection) {
+        self.collection = collection
+        navigationAction = .present(view: .collectionPosts)
+    }
+    
     func navigateToMainScreen(newUsername: String?, newEmail: String?) {
         if let newUsername {
             userProfile.username = newUsername

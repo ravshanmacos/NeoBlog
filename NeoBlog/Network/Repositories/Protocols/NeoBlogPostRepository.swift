@@ -33,6 +33,20 @@ class NeoBlogPostRepository: PostRepository {
         }
     }
     
+    func getCollecitonPosts(collectionID: Int) -> Promise<[BlogPost]> {
+        return Promise<[BlogPost]> { resolver in
+            remoteAPI.getCollectionPosts(collectionID: collectionID) { result in
+                switch result {
+                case .success(let posts):
+                    resolver.fulfill(posts)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+
+    }
+    
     // Get Categories List
     func getCategoriesList() -> Promise<[Category]> {
         return Promise<[Category]> { resolver in
@@ -171,6 +185,34 @@ class NeoBlogPostRepository: PostRepository {
     func updatePassword(requestModel: UpdatePasswordRequestModel) -> Promise<GeneralResponse> {
         return Promise<GeneralResponse> { resolver in
             remoteAPI.updatePassword(requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel) -> Promise<Collection> {
+        return Promise<Collection> { resolver in
+            remoteAPI.updateCollection(collectionID: collectionID, requestModel: requestModel) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
+    //MARK: Delete
+    
+    func deleteCollection(collectionID: Int) -> Promise<String> {
+        return Promise<String> { resolver in
+            remoteAPI.deleteCollection(collectionID: collectionID) { result in
                 switch result {
                 case .success(let data):
                     resolver.fulfill(data)

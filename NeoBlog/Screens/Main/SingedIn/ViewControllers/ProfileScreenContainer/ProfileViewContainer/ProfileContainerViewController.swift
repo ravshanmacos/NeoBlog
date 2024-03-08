@@ -15,6 +15,7 @@ protocol ProfileContainerViewControllerFactory {
     func makeEditProfileVC() -> EditProfileViewController
     func makeChangeLoginAndEmail() -> ChangeLoginAndEmailViewController 
     func makeChangePassword() -> ChangePasswordViewController
+    func makeCollectionPostsViewController(collection: Collection) -> CollectionPostsViewController
 }
 
 class ProfileContainerViewController: BaseNavigationController {
@@ -65,6 +66,7 @@ class ProfileContainerViewController: BaseNavigationController {
         case .editProfileVC: presentEditProfileVC()
         case .changeLoginAndEmail: presentChangeLoginAndEmail()
         case .changePassword: presentChangePassword()
+        case .collectionPosts: presentCollectionPosts()
         case .logout: presentLogout()
         case .dissmissCurrentView: dissmissCurrentView()
         }
@@ -96,6 +98,12 @@ class ProfileContainerViewController: BaseNavigationController {
     private func presentChangePassword() {
         let changePasswordVC = factory.makeChangePassword()
         pushViewController(changePasswordVC, animated: true)
+    }
+    
+    private func presentCollectionPosts(){
+        guard let collection = viewModel.collection else { return }
+        let collectionPostsVC = factory.makeCollectionPostsViewController(collection: collection)
+        pushViewController(collectionPostsVC, animated: true)
     }
     
     private func presentLogout() {
@@ -166,6 +174,8 @@ extension ProfileContainerViewController {
             return .changeLoginAndEmail
         case is ChangePasswordViewController:
             return .changePassword
+        case is CollectionPostsViewController:
+            return .collectionPosts
         default:
             assertionFailure("Encountered unexpected child view controller type in OnboardingViewController")
             return nil

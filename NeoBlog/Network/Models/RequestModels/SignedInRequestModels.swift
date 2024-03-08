@@ -38,7 +38,7 @@ struct AddPostToCollectionRequestModel: Encodable {
 }
 
 //Update Collection
-struct UpdateCollectionRequestModel {
+struct UpdateCollectionRequestModel: Encodable {
     let name: String
     let author: Int
 }

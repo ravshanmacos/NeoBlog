@@ -50,6 +50,14 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
+    //get collection posts
+    func getCollectionPosts(collectionID: Int, callback: @escaping (Result<[BlogPost], Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getCollectionPosts(collectionID: collectionID))
+        apiManager.request(withEncodable: false, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: [BlogPost].self))
+        }
+    }
+    
     //get post details
     func getPostDetail(postID: Int, callback: @escaping (Result<BlogPost, Error>) -> Void) {
         let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .getPostDetail(postID: postID))
@@ -102,8 +110,11 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     
     //MARK: PUT
     
-    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<Collection, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .updateCollection(collectionID: collectionID, requestModel: requestModel))
+        apiManager.request(withEncodable: true, endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: Collection.self))
+        }
     }
     
     func updatePost(postID: Int, requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
@@ -126,8 +137,14 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
     
     //MARK: DELETE
     
-    func deleteCollection(collectionID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    func deleteCollection(collectionID: Int, callback: @escaping (Result<String, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .deleteCollection(collectionID: collectionID))
+        apiManager.request(withEncodable: false, endpoint: endpoint) { response in
+            switch response {
+            case .success: callback(.success("Success"))
+            case .failure(let error): callback(.failure(error))
+            }
+        }
     }
     
     func deletePost(postID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {

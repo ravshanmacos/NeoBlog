@@ -124,14 +124,22 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
 extension SignedInDepedencyContainer: MainScreenViewModelFactory, AddPostViewModelFactory, ProfileViewModelFactory, SortByPeriodViewModelFactory, SortByPeriodViewControllerFactory, PostCollectionViewModelFactory {}
 
 //MARK: Add Post Screen
-extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, EditProfileViewModelFactory, ChangeLoginAndEmailViewModelFactory, ChangePasswordViewModelFactory {
+extension SignedInDepedencyContainer: ProfileContainerViewControllerFactory, EditProfileViewModelFactory, ChangeLoginAndEmailViewModelFactory, ChangePasswordViewModelFactory, CollectionPostsViewModelFactory {
     // Pofile View Controller
     func makeProfileScreenViewController(userProfile: UserProfile) -> ProfileScreenViewController {
         return ProfileScreenViewController(userProfile: userProfile, viewModelFactory: self)
     }
     
     func makeProfileViewModel() -> ProfileScreenViewModel {
-        return ProfileScreenViewModel(postRepository: sharedPostRepository, goToEditProfileSheetNavigator: sharedProfileContainerViewModel)
+        return ProfileScreenViewModel(postRepository: sharedPostRepository, goToEditProfileSheetNavigator: sharedProfileContainerViewModel, goToCollectionPostsNavigator: sharedProfileContainerViewModel)
+    }
+    
+    func makeCollectionPostsViewController(collection: Collection) -> CollectionPostsViewController {
+        return CollectionPostsViewController(collection: collection, viewModelFactory: self)
+    }
+    
+    func makeCollectionPostsViewModel(collection: Collection) -> CollectionPostsViewModel {
+        return CollectionPostsViewModel(collection: collection, userProfile: userProfile, postRepository: sharedPostRepository)
     }
     
     //Two Action Sheet

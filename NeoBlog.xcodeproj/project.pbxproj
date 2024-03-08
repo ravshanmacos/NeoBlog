@@ -205,6 +205,15 @@
 		39CBCD302B8357480092A46E /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */; };
 		39CBCD322B83575D0092A46E /* ProfileScreenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */; };
 		39D2679D2B9AED8D00D6764A /* GoToMainScreenNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */; };
+		39D2679F2B9B079D00D6764A /* TwoActionSheetPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2679E2B9B079D00D6764A /* TwoActionSheetPrimary.swift */; };
+		39D267A12B9B0B6C00D6764A /* PrimaryTwoActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267A02B9B0B6C00D6764A /* PrimaryTwoActionSheet.swift */; };
+		39D267A42B9B0E0700D6764A /* CollectionPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267A32B9B0E0700D6764A /* CollectionPostsViewModel.swift */; };
+		39D267A62B9B0E0C00D6764A /* CollectionPostsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267A52B9B0E0C00D6764A /* CollectionPostsRootView.swift */; };
+		39D267A82B9B0E1500D6764A /* CollectionPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267A72B9B0E1500D6764A /* CollectionPostsViewController.swift */; };
+		39D267AA2B9B15DA00D6764A /* GoToCollectionPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267A92B9B15DA00D6764A /* GoToCollectionPosts.swift */; };
+		39D267AC2B9B1F4C00D6764A /* SecondaryTwoActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267AB2B9B1F4C00D6764A /* SecondaryTwoActionSheet.swift */; };
+		39D267AE2B9B1F8E00D6764A /* TwoActionSheetSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267AD2B9B1F8E00D6764A /* TwoActionSheetSecondary.swift */; };
+		39D267B22B9B2C6000D6764A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D267B12B9B2C6000D6764A /* EmptyView.swift */; };
 		39E7B5862B9046D600FF954B /* NeoBlogUserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */; };
 		39E7B58A2B907EA000FF954B /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B5892B907EA000FF954B /* ErrorPresentation.swift */; };
 		39E7B58D2B908CA400FF954B /* PopCurrentResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */; };
@@ -416,6 +425,15 @@
 		39CBCD2F2B8357480092A46E /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		39CBCD312B83575D0092A46E /* ProfileScreenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenRootView.swift; sourceTree = "<group>"; };
 		39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMainScreenNavigator.swift; sourceTree = "<group>"; };
+		39D2679E2B9B079D00D6764A /* TwoActionSheetPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoActionSheetPrimary.swift; sourceTree = "<group>"; };
+		39D267A02B9B0B6C00D6764A /* PrimaryTwoActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTwoActionSheet.swift; sourceTree = "<group>"; };
+		39D267A32B9B0E0700D6764A /* CollectionPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPostsViewModel.swift; sourceTree = "<group>"; };
+		39D267A52B9B0E0C00D6764A /* CollectionPostsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPostsRootView.swift; sourceTree = "<group>"; };
+		39D267A72B9B0E1500D6764A /* CollectionPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPostsViewController.swift; sourceTree = "<group>"; };
+		39D267A92B9B15DA00D6764A /* GoToCollectionPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToCollectionPosts.swift; sourceTree = "<group>"; };
+		39D267AB2B9B1F4C00D6764A /* SecondaryTwoActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTwoActionSheet.swift; sourceTree = "<group>"; };
+		39D267AD2B9B1F8E00D6764A /* TwoActionSheetSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoActionSheetSecondary.swift; sourceTree = "<group>"; };
+		39D267B12B9B2C6000D6764A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		39E7B5852B9046D600FF954B /* NeoBlogUserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogUserSessionRepository.swift; sourceTree = "<group>"; };
 		39E7B5892B907EA000FF954B /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		39E7B58C2B908CA400FF954B /* PopCurrentResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCurrentResponder.swift; sourceTree = "<group>"; };
@@ -988,6 +1006,7 @@
 				39726CA82B8EF11D00FCF225 /* EditProfileVC */,
 				39726CB12B8F194B00FCF225 /* ChangeLogingAndEmail */,
 				39726CB22B8F195C00FCF225 /* ChangePassword */,
+				39D267A22B9B0DE900D6764A /* CollectionPosts */,
 			);
 			path = ProfileScreenContainer;
 			sourceTree = "<group>";
@@ -1010,6 +1029,7 @@
 				39726CC32B8F1CCC00FCF225 /* GoToChangeLoginAndEmailNavigator.swift */,
 				39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */,
 				39D2679C2B9AED8D00D6764A /* GoToMainScreenNavigator.swift */,
+				39D267A92B9B15DA00D6764A /* GoToCollectionPosts.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1150,6 +1170,8 @@
 				394097A32B8BA4DB00629937 /* CreateNewCollectionSheet.swift */,
 				39726C9A2B8E1CC100FCF225 /* EditProfileSheet.swift */,
 				399419FE2B9988AC00D79B55 /* LoadingVC.swift */,
+				39D267A02B9B0B6C00D6764A /* PrimaryTwoActionSheet.swift */,
+				39D267AB2B9B1F4C00D6764A /* SecondaryTwoActionSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -1271,6 +1293,16 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
+		39D267A22B9B0DE900D6764A /* CollectionPosts */ = {
+			isa = PBXGroup;
+			children = (
+				39D267A32B9B0E0700D6764A /* CollectionPostsViewModel.swift */,
+				39D267A72B9B0E1500D6764A /* CollectionPostsViewController.swift */,
+				39D267A52B9B0E0C00D6764A /* CollectionPostsRootView.swift */,
+			);
+			path = CollectionPosts;
+			sourceTree = "<group>";
+		};
 		39E7B58B2B908C9500FF954B /* Responders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1291,9 +1323,12 @@
 				39B109F22B88D54E0045AD4E /* CommentsView.swift */,
 				394097B42B8CA83100629937 /* UploadImageView.swift */,
 				39726C902B8DE7C000FCF225 /* CustomSegmentView.swift */,
+				39D2679E2B9B079D00D6764A /* TwoActionSheetPrimary.swift */,
+				39D267AD2B9B1F8E00D6764A /* TwoActionSheetSecondary.swift */,
 				39726C942B8E174100FCF225 /* TwoActionSheet.swift */,
 				39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */,
 				39941A002B99C60300D79B55 /* EmptyPostsView.swift */,
+				39D267B12B9B2C6000D6764A /* EmptyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1469,6 +1504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39D2679D2B9AED8D00D6764A /* GoToMainScreenNavigator.swift in Sources */,
+				39D267AC2B9B1F4C00D6764A /* SecondaryTwoActionSheet.swift in Sources */,
 				39726C9E2B8E21A800FCF225 /* LogoutResponder.swift in Sources */,
 				394C05992B7F56490045277E /* AuthErrors.swift in Sources */,
 				39CBCD1A2B834C260092A46E /* NeoBlogAuthEndpoints.swift in Sources */,
@@ -1508,16 +1544,19 @@
 				393D79F12B807AF20019F9F9 /* GoToConfirmMSGNavigator.swift in Sources */,
 				394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */,
 				3980B0AF2B91DB6800A7BE66 /* NeoBlogPostRemoteAPI.swift in Sources */,
+				39D267AE2B9B1F8E00D6764A /* TwoActionSheetSecondary.swift in Sources */,
 				394C05502B7E33360045277E /* SignUpViewModel.swift in Sources */,
 				393D79E52B80731D0019F9F9 /* ConfirmMSGViewController.swift in Sources */,
 				39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */,
 				393D79E72B80731D0019F9F9 /* ConfirmMSGRootView.swift in Sources */,
 				393D7A2B2B80CA680019F9F9 /* FakeURL.swift in Sources */,
 				39B109BB2B87463D0045AD4E /* MainContainerViewController.swift in Sources */,
+				39D267B22B9B2C6000D6764A /* EmptyView.swift in Sources */,
 				394C05452B7E331E0045277E /* WelcomeViewController.swift in Sources */,
 				39726C952B8E174100FCF225 /* TwoActionSheet.swift in Sources */,
 				3980B0B92B91E6D600A7BE66 /* NeoBlogPostRepository.swift in Sources */,
 				394C05442B7E331E0045277E /* WelcomeRootView.swift in Sources */,
+				39D267A12B9B0B6C00D6764A /* PrimaryTwoActionSheet.swift in Sources */,
 				394C05732B7E545E0045277E /* GoToSignInNavigator.swift in Sources */,
 				39941A012B99C60300D79B55 /* EmptyPostsView.swift in Sources */,
 				394C056E2B7E53FA0045277E /* OnboardViewState.swift in Sources */,
@@ -1579,6 +1618,7 @@
 				394C057A2B7E5B160045277E /* PrimaryButton.swift in Sources */,
 				394C056A2B7E4EB00045277E /* UIViewController+ext.swift in Sources */,
 				39B109ED2B88B6360045AD4E /* InfoWithTwoSides.swift in Sources */,
+				39D267A62B9B0E0C00D6764A /* CollectionPostsRootView.swift in Sources */,
 				39B109B72B8737630045AD4E /* PostDetailScreenViewController.swift in Sources */,
 				393D7A1B2B80C9C50019F9F9 /* UserSessionRepository.swift in Sources */,
 				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
@@ -1630,6 +1670,7 @@
 				394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */,
 				3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */,
 				39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */,
+				39D267AA2B9B15DA00D6764A /* GoToCollectionPosts.swift in Sources */,
 				394C052B2B7E2C4E0045277E /* OnboardingDependencyContainer.swift in Sources */,
 				394C05942B7F4FCD0045277E /* UITextField+ext.swift in Sources */,
 				394C053C2B7E2F500045277E /* BaseNavigationController.swift in Sources */,
@@ -1637,13 +1678,16 @@
 				394C05122B7E21C90045277E /* R.generated.swift in Sources */,
 				394097A72B8BBBA900629937 /* PostCollectionSheetViewModel.swift in Sources */,
 				394C05522B7E33360045277E /* SignUpViewController.swift in Sources */,
+				39D267A42B9B0E0700D6764A /* CollectionPostsViewModel.swift in Sources */,
 				39B109B12B871A8C0045AD4E /* PostsTableViewComponents.swift in Sources */,
 				394097B52B8CA83100629937 /* UploadImageView.swift in Sources */,
 				39726C8F2B8DDF6E00FCF225 /* ProfileContainerViewModel.swift in Sources */,
 				394C05782B7E595C0045277E /* UIView+ext.swift in Sources */,
 				39F96E282B83D568008DA869 /* SearchBarWithFilter.swift in Sources */,
 				39B109C22B8747BE0045AD4E /* GoToPostDetailsNavigator.swift in Sources */,
+				39D2679F2B9B079D00D6764A /* TwoActionSheetPrimary.swift in Sources */,
 				393D79F52B808B080019F9F9 /* OTPView.swift in Sources */,
+				39D267A82B9B0E1500D6764A /* CollectionPostsViewController.swift in Sources */,
 				394C055E2B7E37090045277E /* NotSignedInResponder.swift in Sources */,
 				394097912B89CAD500629937 /* ChooseDateRootView.swift in Sources */,
 				394C05922B7F4DD50045277E /* LabelWithPadding.swift in Sources */,

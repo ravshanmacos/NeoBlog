@@ -24,6 +24,7 @@ class ProfileScreenRootView: BaseView {
     
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: ProfileScreenViewModel
+    var userID: Int?
     
     //MARK: Methods
     init(frame: CGRect = .zero, viewModel: ProfileScreenViewModel) {
@@ -90,13 +91,13 @@ extension ProfileScreenRootView: CustomSegmentViewDelegate, PostsTableviewCellDe
     }
     
     func myPostsTapped() {
-        print("My Post Tapped")
+        viewModel.getMyPosts()
         viewModel.setTableviewState()
     }
     
     func collectionsTapped() {
-        print("Collections Tapped")
         setCollectionsTableView()
+        viewModel.getCollections()
     }
     
     func savePost(_ saved: ((Bool) -> Void)) {
@@ -160,6 +161,13 @@ extension ProfileScreenRootView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView == collectionsTableView ? 50 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == collectionsTableView {
+            viewModel.collectionItemTapped(for: indexPath.item)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 

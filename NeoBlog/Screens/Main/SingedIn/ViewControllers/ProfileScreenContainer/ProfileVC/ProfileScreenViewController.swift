@@ -28,6 +28,7 @@ class ProfileScreenViewController: BaseViewController {
         self.viewModelFactory = viewModelFactory
         self.userProfile = userProfile
         self.viewModel = viewModelFactory.makeProfileViewModel()
+        self.viewModel.userID = userProfile.id
         super.init()
     }
     
@@ -41,13 +42,13 @@ class ProfileScreenViewController: BaseViewController {
         getUsername()
     }
     
-    func getUsername() {
-        rootView.setUserName(text: userProfile.username ?? "UserName")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getCollections(userID: userProfile.id)
         viewModel.getMyPosts()
+        viewModel.getCollections()
+    }
+    
+    func getUsername() {
+        rootView.setUserName(text: userProfile.username ?? "UserName")
     }
 }

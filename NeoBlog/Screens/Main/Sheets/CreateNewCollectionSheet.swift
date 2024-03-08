@@ -21,9 +21,11 @@ class CreateNewCollectionSheet: BaseViewController {
     private let vStack = makeVStack()
     
     weak var delegate: CreateNewCollectionSheetDelegate?
+    private let collectionName: String?
     //MARK: Methods
     
-    override init() {
+    init(collectionName: String? = nil) {
+        self.collectionName = collectionName
         super.init()
         setKeyboardObservers()
         setupSubviews()
@@ -57,6 +59,7 @@ class CreateNewCollectionSheet: BaseViewController {
     }
     
     func configureAppearance() {
+        textfield.text = collectionName
         textfield.delegate = self
         createBtn.addTarget(self, action: #selector(createBtnTapped), for: .touchUpInside)
     }

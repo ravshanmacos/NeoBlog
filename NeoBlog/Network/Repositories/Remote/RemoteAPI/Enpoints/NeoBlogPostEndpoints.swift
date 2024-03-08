@@ -17,6 +17,7 @@ extension NeoBlogPostEndpoints {
         case getCategoriesList
         case getPostDetail(postID: Int)
         case getUserCollections(userID: Int)
+        case getCollectionPosts(collectionID: Int)
         case getPostList(categoryName: String, query: String, startDate: String, endDate: String, period: String)
         
         //Post
@@ -28,7 +29,7 @@ extension NeoBlogPostEndpoints {
         //PUT
         case updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel)
         case updatePassword(requestModel: UpdatePasswordRequestModel)
-        case updateCollection(collectionID: Int)
+        case updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel)
         case updatePost(postID: Int)
         
         //Delete
@@ -48,7 +49,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
     
     var method: Alamofire.HTTPMethod {
         switch endpointType {
-        case .getMyPosts, .getPostDetail, .getUserCollections, .getPostList, .getCategoriesList:
+        case .getMyPosts, .getCollectionPosts, .getPostDetail, .getUserCollections, .getPostList, .getCategoriesList:
             return .get
         case .addPostToCollection, .createCollection, .createCommment, .createPost:
             return .post
@@ -67,9 +68,12 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return requestModel
         case .addPostToCollection(_, let requestModel):
             return requestModel
+            
         case .updateLoginAndEmail(let requestModel):
             return requestModel
         case .updatePassword(let requestModel):
+            return requestModel
+        case .updateCollection(_, let requestModel):
             return requestModel
         default:
             return ""
@@ -110,7 +114,11 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .getMyPosts:
             return "/blog/my-posts/"
             
-        //get post detail
+            //get my posts
+        case .getCollectionPosts(let collectionID):
+            return "/blog/collections/\(collectionID)/posts/"
+            
+            //get post detail
         case .getPostDetail(let postID):
             return "/blog/post/detail/\(postID)/"
         
@@ -144,7 +152,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return "/blog/post/\(postID)/update/"
             
         //Update Collection
-        case .updateCollection(let collectionID):
+        case .updateCollection(let collectionID, _):
             return "/blog/collection/\(collectionID)/update/"
             
         //Update Login and Email

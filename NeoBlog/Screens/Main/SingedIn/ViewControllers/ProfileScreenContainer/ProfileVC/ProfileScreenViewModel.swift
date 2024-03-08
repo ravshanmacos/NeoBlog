@@ -26,12 +26,17 @@ class ProfileScreenViewModel: EmptyPostViewModel {
     
     private let postRepository: PostRepository
     private let goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator
+    private let goToCollectionPostsNavigator: GoToCollectionPosts
+    
+    var userID: Int?
     
     //MARK: Methods
     init(postRepository: PostRepository,
-         goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator) {
+         goToEditProfileSheetNavigator: GoToEditProfileSheetNavigator,
+         goToCollectionPostsNavigator: GoToCollectionPosts) {
         self.postRepository = postRepository
         self.goToEditProfileSheetNavigator = goToEditProfileSheetNavigator
+        self.goToCollectionPostsNavigator = goToCollectionPostsNavigator
     }
     
     func createPostTapped() {
@@ -40,6 +45,11 @@ class ProfileScreenViewModel: EmptyPostViewModel {
     
     func setTableviewState() {
         viewState = posts.isEmpty ? .tableviewIsEmpty : .tableviewNotEmpty
+    }
+    
+    func collectionItemTapped(for index: Int) {
+        let collection = collections[index]
+        goToCollectionPostsNavigator.navigateToCollectionPosts(collection: collection)
     }
 }
 
@@ -66,7 +76,7 @@ extension ProfileScreenViewModel {
             }
     }
     
-    func getCollections(userID: Int?) {
+    func getCollections() {
         guard let id = userID else { return }
         postRepository
             .getUserCollections(userID: id)
