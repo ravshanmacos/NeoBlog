@@ -34,6 +34,8 @@ class MainScreenViewModel: CategoryViewModel {
     private let userProfile: UserProfile
     private let postRepository: PostRepository
     
+    var selectedCategory: String?
+    
     //MARK: Methods
     
     init(userProfile: UserProfile,
@@ -59,8 +61,10 @@ class MainScreenViewModel: CategoryViewModel {
         
         categories[index].active = true
         if let categoryID = categories[index].id, categoryID == 0 {
+            selectedCategory = nil
             getBlogPostList(categoryName: "")
         } else if let categoryName = categories[index].name {
+            selectedCategory = categoryName
             getBlogPostList(categoryName: categoryName)
         }
     }

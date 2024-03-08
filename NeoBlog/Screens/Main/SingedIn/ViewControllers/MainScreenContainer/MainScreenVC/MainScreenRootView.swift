@@ -13,7 +13,9 @@ class MainScreenRootView: BaseView {
     //MARK: Properties
     private let headerView = makeHeader()
     private let selectCategorySegmentView: SelectCatergorySegmentView
-    private let postsTableView = makePostsTableView()
+    private let wrapperView = UIStackView()
+    private var postsTableView: UITableView?
+    private var emptyView: EmptyView?
     
     private var subscriptions = Set<AnyCancellable>()
     private let viewModel: MainScreenViewModel
@@ -28,7 +30,7 @@ class MainScreenRootView: BaseView {
     
     override func setupSubviews() {
         super.setupSubviews()
-        contentView.addSubviews(headerView, selectCategorySegmentView, postsTableView)
+        contentView.addSubviews(headerView, selectCategorySegmentView, wrapperView)
     }
     
     override func setupConstraints() {
@@ -43,7 +45,7 @@ class MainScreenRootView: BaseView {
             make.height.equalTo(60)
         }
         
-        postsTableView.snp.makeConstraints { make in
+        wrapperView.snp.makeConstraints { make in
             make.top.equalTo(selectCategorySegmentView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
@@ -51,9 +53,6 @@ class MainScreenRootView: BaseView {
     
     override func configureAppearance() {
         super.configureAppearance()
-        postsTableView.delegate = self
-        postsTableView.dataSource = self
-        
         headerView.searchBarWithFilter.searchTextField.delegate = self
         headerView.searchBarWithFilter.leftButtonClicked = searchButtonClicked
         headerView.searchBarWithFilter.rightButtonClicked = filterButtonClicked
@@ -66,6 +65,30 @@ class MainScreenRootView: BaseView {
     private func filterButtonClicked () {
         viewModel.openFilterByDate()
     }
+    
+    private func presentPostsEmtpyState() {
+        self.wrapperView.removeSubviews()
+        self.postsTableView = nil
+        
+        if let selectedCategory = viewModel.selectedCategory {
+            self.emptyView = makeEmptyView(subtitle: "Здесь будут показаны посты из категории “\(selectedCategory)” ")
+        } else {
+                self.emptyView = makeEmptyView()
+        }
+        
+        self.wrapperView.addArrangedSubviews(emptyView!)
+    }
+    
+    private func presentPostsNotEmtpyState() {
+        self.wrapperView.removeSubviews()
+        self.emptyView = nil
+        
+        self.postsTableView = makePostsTableView()
+        self.postsTableView!.dataSource = self
+        self.postsTableView!.delegate = self
+        self.wrapperView.addArrangedSubviews(postsTableView!)
+    }
+    
 }
 
 extension MainScreenRootView: UITextFieldDelegate {
@@ -130,9 +153,9 @@ extension MainScreenRootView {
         viewModel
             .$blogPostList
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] _ in
+            .sink {[weak self] posts in
                 guard let self else { return }
-                postsTableView.reloadData()
+                posts.isEmpty ? presentPostsEmtpyState() : presentPostsNotEmtpyState()
             }.store(in: &subscriptions)
     }
 }

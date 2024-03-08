@@ -48,8 +48,11 @@ extension ProfileScreenRootView {
     }
     
     func makePostsTableView() -> UITableView {
-        let tableView = MainScreenRootView.makePostsTableView()
-        return tableView
+        let tableview = UITableView()
+        tableview.showsVerticalScrollIndicator = false
+        tableview.separatorStyle = .none
+        PostsTableviewCell.register(to: tableview)
+        return tableview
     }
     
     func makeCollectionTableView() -> UITableView {

@@ -211,7 +211,7 @@ private extension ProfileScreenRootView {
         viewWrapper.removeSubviews()
         self.collectionsTableView = nil
         
-        self.postsTableView = MainScreenRootView.makePostsTableView()
+        self.postsTableView = makePostsTableView()
         self.postsTableView!.delegate = self
         self.postsTableView!.dataSource = self
         viewWrapper.addArrangedSubview(postsTableView!)

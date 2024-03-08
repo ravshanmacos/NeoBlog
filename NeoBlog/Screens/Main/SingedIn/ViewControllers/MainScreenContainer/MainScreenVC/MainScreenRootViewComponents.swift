@@ -19,11 +19,18 @@ extension MainScreenRootView {
         return HeaderView()
     }
     
-    static func makePostsTableView() -> UITableView {
+    func makePostsTableView() -> UITableView {
         let tableview = UITableView()
         tableview.showsVerticalScrollIndicator = false
         tableview.separatorStyle = .none
         PostsTableviewCell.register(to: tableview)
         return tableview
+    }
+    
+    func makeEmptyView(subtitle: String? = nil) -> EmptyView {
+        let emptyView = EmptyView()
+        emptyView.titleLabel.text = "Еще нет постов"
+        emptyView.descriptionLabel.text = subtitle ?? "Здесь будут показаны посты, добавленные в данную подборку"
+        return emptyView
     }
 }
