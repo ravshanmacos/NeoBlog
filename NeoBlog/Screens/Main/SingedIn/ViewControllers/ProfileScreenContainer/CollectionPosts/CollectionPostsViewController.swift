@@ -40,7 +40,7 @@ class CollectionPostsViewController: BaseViewController {
     
     private func configureNavBar() {
         addTitle(text: "Избранное")
-        addMenuBarToRight()
+        addMenuBtnToRight()
     }
     
     override func menuButtonTapped() {

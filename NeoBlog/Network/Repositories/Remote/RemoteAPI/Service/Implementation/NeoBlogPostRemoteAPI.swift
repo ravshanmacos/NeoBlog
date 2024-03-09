@@ -147,7 +147,13 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
-    func deletePost(postID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    func deletePost(postID: Int, callback: @escaping (Result<String, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .deletePost(postID: postID))
+        apiManager.request(withEncodable: false, endpoint: endpoint) { response in
+            switch response {
+            case .success: callback(.success("Success"))
+            case .failure(let error): callback(.failure(error))
+            }
+        }
     }
 }

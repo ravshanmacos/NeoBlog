@@ -962,7 +962,6 @@
 		394C057D2B7F18920045277E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				39B109F42B88D7C90045AD4E /* Cells */,
 				393D79FE2B809E800019F9F9 /* ComponentsContainer */,
 				394C05842B7F297B0045277E /* Components */,
 				39F96E222B83AC64008DA869 /* CustomViews */,
@@ -1111,6 +1110,7 @@
 		39B109B22B87373B0045AD4E /* PostDetailVC */ = {
 			isa = PBXGroup;
 			children = (
+				39B109F42B88D7C90045AD4E /* Cells */,
 				39B109B52B8737630045AD4E /* PostDetailScreenViewModel.swift */,
 				39B109B42B8737630045AD4E /* PostDetailScreenViewController.swift */,
 				39B109B32B8737630045AD4E /* PostDetailScreenRootView.swift */,

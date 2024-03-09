@@ -222,4 +222,17 @@ class NeoBlogPostRepository: PostRepository {
             }
         }
     }
+    
+    func deletePost(postID: Int) -> Promise<String> {
+        return Promise<String> { resolver in
+            remoteAPI.deletePost(postID: postID) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
 }

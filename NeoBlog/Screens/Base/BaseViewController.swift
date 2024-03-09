@@ -58,14 +58,41 @@ class BaseViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func addMenuBarToRight() {
-        let menuBtn = UIButton()
-        menuBtn.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
-        menuBtn.setImage(R.image.hambureger_menu_icon(), for: .normal)
-        
+    func addMenuBtnToRight() {
+        let menuBtn = makeMenuButton()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuBtn)
     }
     
-    @objc func menuButtonTapped() {
+    func addSaveBtnToRight() {
+        let saveBtn = makeSaveButton()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
     }
+    
+    func addSaveAndMenuBtnsToRight() {
+        let saveBtn = makeSaveButton()
+        let menuBtn = makeMenuButton()
+        
+        let saveRightBarItem = UIBarButtonItem(customView: saveBtn)
+        let menuRightBarItem = UIBarButtonItem(customView: menuBtn)
+        
+        navigationItem.setRightBarButtonItems([menuRightBarItem, saveRightBarItem], animated: true)
+    }
+    
+    private func makeMenuButton() -> UIButton {
+        let menuBtn = UIButton()
+        menuBtn.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
+        menuBtn.setImage(R.image.hambureger_menu_icon(), for: .normal)
+        return menuBtn
+    }
+    
+    private func makeSaveButton() -> UIButton {
+        let saveButton = UIButton()
+        saveButton.setImage(R.image.save_inactive_icon(), for: .normal)
+        saveButton.setImage(R.image.save_active_icon(), for: .selected)
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        return saveButton
+    }
+    
+    @objc func menuButtonTapped() {}
+    @objc func saveButtonTapped(_ sender: UIButton) {}
 }

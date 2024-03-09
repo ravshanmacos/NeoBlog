@@ -55,6 +55,7 @@ class PostDetailScreenRootView: ScrollableBaseView {
         postImageView.snp.makeConstraints { make in
             make.top.equalTo(postSubtitleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(250)
             
         }
         

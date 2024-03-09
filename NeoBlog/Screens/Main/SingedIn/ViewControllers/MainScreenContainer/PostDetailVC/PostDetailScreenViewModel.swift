@@ -20,19 +20,37 @@ class PostDetailScreenViewModel {
         self.postRepository = postRepository
     }
     
-    func getPostDetails() {
+    func isAuthorCreatedPost() -> Bool {
+        guard let post, let isAuthor = post.isAuthor else { return false }
+        return isAuthor
+    }
+    
+    func deletePost(_ completion: @escaping (() -> Void)) {
+        guard let postID else { return }
+        postRepository
+            .deletePost(postID: postID)
+            .done { message in
+                print(message)
+                completion()
+            }.catch { error in
+                print(error)
+            }
+    }
+    
+    func getPostDetails(_ completion: @escaping (() -> Void)) {
         guard let postID else { return }
         postRepository
             .getPostDetail(postID: postID)
             .done({ post in
                 self.post = post
+                completion()
             })
             .catch { error in
                 print(error)
             }
     }
     
-    func createComment(with text: String, _ completion: @escaping (()->Void)) {
+    func createComment(with text: String, _ completion: @escaping ( () -> Void)) {
         guard let authorID else { return }
         guard let postID else { return }
         let requestModel = CreateCommentRequestModel(post: postID, author: authorID, text: text)
@@ -40,7 +58,7 @@ class PostDetailScreenViewModel {
             .createComment(requestModel: requestModel)
             .done({ comment in
                 print(comment)
-                self.getPostDetails()
+                self.getPostDetails({})
                 completion()
             })
             .catch { error in

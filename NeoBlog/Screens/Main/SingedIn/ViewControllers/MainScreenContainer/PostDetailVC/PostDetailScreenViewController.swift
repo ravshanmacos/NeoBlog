@@ -33,21 +33,63 @@ class PostDetailScreenViewController: BaseViewController {
         self.view = PostDetailScreenRootView(viewModel: viewModel)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSaveBtn()
-        viewModel.getPostDetails()
+        viewModel.getPostDetails {
+            self.viewModel.isAuthorCreatedPost() ? self.addSaveAndMenuBtnsToRight() : self.addSaveBtnToRight()
+        }
     }
     
-    private func configureSaveBtn() {
-        let saveButton = UIButton()
-        saveButton.setImage(R.image.save_inactive_icon(), for: .normal)
-        saveButton.setImage(R.image.save_active_icon(), for: .selected)
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
+    override func menuButtonTapped() {
+        presentEditOrDeletePostSheet()
     }
     
-    @objc private func saveButtonTapped(_ sender: UIButton) {
+    override func saveButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
+    }
+    
+    private func presentEditOrDeletePostSheet() {
+        let editPostSheet = SecondaryTwoActionSheet(viewModel: self, title: "Еще", firstActionBtnTitle: "Редактировать пост", secondActionBtnTitle: "Удалить пост", sheetFirstActionBtnImage: R.image.edit_icon()!, sheetSecondActionBtnImage: R.image.trash_bin_icon()!)
+        navigationController?.presentPanModal(editPostSheet)
+    }
+    
+    private func presentEditCollectionSheet() {
+        print("presentEditCollectionSheet")
+    }
+    
+    private func presentDeletePostSheet() {
+        let editCollectionSheet = PrimaryTwoActionSheet(viewModel: self, title: "Удалить подборку?", subtitle: "Подборка удалится вместе со всеми сохраненными в ней постами", firstActionBtnTitle: "Удалить", secondActionBtnTitle: "Отмена")
+        navigationController?.presentPanModal(editCollectionSheet)
+    }
+}
+
+extension PostDetailScreenViewController: SecondaryTwoActionSheetViewModel {
+    func secondaryTwoActionSheetFirstBtnTapped() {
+        print("Show Edit Process displayed")
+    }
+    
+    func secondaryTwoActionSheetSecondBtnTapped() {
+        dismiss(animated: true) {
+            self.presentDeletePostSheet()
+        }
+    }
+}
+
+extension PostDetailScreenViewController: PrimaryTwoActionSheetViewModel {
+    func primaryTwoActionSheetFirstBtnTapped() {
+        dismiss(animated: true) {
+            self.viewModel.deletePost {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func primaryTwoActionSheetSecondBtnTapped() {
+        dismiss(animated: true)
     }
 }

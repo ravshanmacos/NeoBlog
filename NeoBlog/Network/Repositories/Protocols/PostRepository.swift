@@ -52,4 +52,5 @@ protocol PostRepository {
     //MARK: Delete
     
     func deleteCollection(collectionID: Int) -> Promise<String>
+    func deletePost(postID: Int) -> Promise<String>
 }

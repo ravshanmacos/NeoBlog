@@ -26,6 +26,7 @@ struct BlogPost: Decodable {
     let commentsCount: Int?
     let inCollections: Bool?
     let collectionInfo: [CollectionInfo]?
+    let isAuthor: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id, title, description, photo
@@ -35,6 +36,7 @@ struct BlogPost: Decodable {
         case commentsCount = "comments_count"
         case inCollections = "in_collections"
         case collectionInfo = "collection_info"
+        case isAuthor = "is_author"
     }
     
     func getImageURL() -> URL? {

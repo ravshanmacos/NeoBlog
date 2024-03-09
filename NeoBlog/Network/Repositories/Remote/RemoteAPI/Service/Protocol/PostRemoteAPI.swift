@@ -56,5 +56,5 @@ protocol PostRemoteAPI {
     //Delete
     func deleteCollection(collectionID: Int, callback: @escaping (Result<String, Error>) -> Void)
     
-    func deletePost(postID: Int, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func deletePost(postID: Int, callback: @escaping (Result<String, Error>) -> Void)
 }
