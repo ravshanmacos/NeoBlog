@@ -13,14 +13,21 @@ class MainContainerViewModel {
     //MARK: Properties
     @Published private(set) var navigationAction: MainContainerNavigationAction = .present(view: .mainScreen)
     
+    var post: BlogPost?
     var postID: Int?
     
     //MARK: Methods
     
-    //View Controller navigation
+    //Navigate To Post Details
     func navigateToPostDetails(postID: Int) {
         self.postID = postID
         navigationAction = .present(view: .postDetails)
+    }
+    
+    //Navigate To Add Post
+    func navigateToAddPost(post: BlogPost) {
+        self.post = post
+        navigationAction = .present(view: .addPostScreen)
     }
     
     //Closing navigation
@@ -28,10 +35,12 @@ class MainContainerViewModel {
         navigationAction = .present(view: .dismissSheet)
     }
 
+    //Navigate To Previous
     func popCurrent() {
         navigationAction = .present(view: .popCurrent)
     }
     
+    //Navigate To Main
     func popToMainScreen() {
         navigationAction = .present(view: .popToMainScreen)
     }
@@ -41,6 +50,7 @@ class MainContainerViewModel {
     }
 }
 
+//MARK: Responders
 extension MainContainerViewModel: SortByDateSelectedResponder, DateDidSelectedResponder {
     
     func sortByDateDidSelected(with tag: Int) {
@@ -54,4 +64,4 @@ extension MainContainerViewModel: SortByDateSelectedResponder, DateDidSelectedRe
     }
 }
 
-extension MainContainerViewModel: GoToPostDetailsNavigator {}
+extension MainContainerViewModel: GoToPostDetailsNavigator, GoToAddPostNavigator {}

@@ -117,8 +117,11 @@ struct NeoBlogPostRemoteAPI: PostRemoteAPI {
         }
     }
     
-    func updatePost(postID: Int, requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void) {
-        
+    func updatePost(postID: Int, parameters: [String: Any], callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void) {
+        let endpoint = NeoBlogPostEndpoints(userSession: userSession, endpointType: .updatePost(postID: postID, parameters: parameters))
+        apiManager.multipartRequest(endpoint: endpoint) { response in
+            callback(mapper.mapToResult(from: response, forKey: nil, type: CreateAndUpdatePostRequestModel.self))
+        }
     }
     
     func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel, callback: @escaping (Result<GeneralResponse, Error>) -> Void) {

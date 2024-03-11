@@ -45,12 +45,23 @@ protocol PostRepository {
     
     //MARK: UPDATE
     
-    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse>
+    //Update Post
+    func updatePost(postID: Int, parameters: [String: Any]) -> Promise<CreateAndUpdatePostRequestModel>
+    
+    //Update Password
     func updatePassword(requestModel: UpdatePasswordRequestModel) -> Promise<GeneralResponse>
+    
+    //Update Login And Email
+    func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse>
+    
+    //Update Collection
     func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel) -> Promise<Collection>
     
     //MARK: Delete
     
+    //Delete Collection
     func deleteCollection(collectionID: Int) -> Promise<String>
+    
+    //Delete Post
     func deletePost(postID: Int) -> Promise<String>
 }

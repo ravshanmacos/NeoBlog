@@ -12,12 +12,19 @@ class PostDetailScreenViewModel {
     
     @Published private(set) var post: BlogPost? = nil
     private let postRepository: PostRepository
+    private let goToAddPostNavigator: GoToAddPostNavigator
     var authorID: Int?
     var postID: Int?
     
     //MARK: Methods
-    init(postRepository: PostRepository) {
+    init(postRepository: PostRepository, goToAddPostNavigator: GoToAddPostNavigator) {
         self.postRepository = postRepository
+        self.goToAddPostNavigator = goToAddPostNavigator
+    }
+    
+    func navigateToAddPost() {
+        guard let post else { return }
+        goToAddPostNavigator.navigateToAddPost(post: post)
     }
     
     func isAuthorCreatedPost() -> Bool {

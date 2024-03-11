@@ -35,14 +35,14 @@ class PostDetailScreenViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        viewModel.getPostDetails {
+            self.viewModel.isAuthorCreatedPost() ? self.addSaveAndMenuBtnsToRight() : self.addSaveBtnToRight()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getPostDetails {
-            self.viewModel.isAuthorCreatedPost() ? self.addSaveAndMenuBtnsToRight() : self.addSaveBtnToRight()
-        }
+        
     }
     
     override func menuButtonTapped() {
@@ -71,6 +71,10 @@ class PostDetailScreenViewController: BaseViewController {
 extension PostDetailScreenViewController: SecondaryTwoActionSheetViewModel {
     func secondaryTwoActionSheetFirstBtnTapped() {
         print("Show Edit Process displayed")
+        dismiss(animated: true) {
+            self.viewModel.navigateToAddPost()
+        }
+        
     }
     
     func secondaryTwoActionSheetSecondBtnTapped() {

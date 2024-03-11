@@ -25,9 +25,15 @@ class AddPostScreenViewController: BaseNavigationController {
         return view as! AddPostScreenRootView
     }
     
+    private let byTab: Bool
+    private let post: BlogPost?
+    
     //MARK: Methods
     
-    init(viewModelFactory: AddPostViewModelFactory) {
+    init(byTab: Bool, post: BlogPost?, viewModelFactory: AddPostViewModelFactory) {
+        
+        self.byTab = byTab
+        self.post = post
         self.viewModelFactory = viewModelFactory
         self.viewModel = viewModelFactory.makeAddPostViewModel()
         super.init()
@@ -37,12 +43,20 @@ class AddPostScreenViewController: BaseNavigationController {
     
     override func loadView() {
         super.loadView()
-        self.view = AddPostScreenRootView(viewModel: viewModel)
+        self.view = AddPostScreenRootView(byTab: byTab, viewModel: viewModel)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        viewModel.getCategories {
+            self.configureRootViewForUpdatePost()
+        }
+    }
+    
+    private func configureRootViewForUpdatePost() {
+        guard !byTab, let post else { return }
+        rootView.configurePostForUpdating(post: post)
     }
     
     private func observeUploadStates() {
@@ -52,6 +66,14 @@ class AddPostScreenViewController: BaseNavigationController {
             .sink {[weak self] state in
                 guard let self, let state else { return }
                 self.respond(to: state)
+            }.store(in: &subscriptions)
+        
+        viewModel
+            .$dissmissView
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] dissmiss in
+                guard let self, dissmiss else { return }
+                dismiss(animated: true)
             }.store(in: &subscriptions)
     }
     func respond(to state: AddPostScreenState) {
@@ -81,6 +103,7 @@ class AddPostScreenViewController: BaseNavigationController {
     private func bindViewModelToView() {
         viewModel
             .$loadingIndicatorEnabled
+            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[weak self] isEnabled in
                 guard let self else { return }

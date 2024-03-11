@@ -51,7 +51,7 @@ protocol PostRemoteAPI {
     func updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel, callback: @escaping (Result<Collection, Error>) -> Void)
     
     //Update Post
-    func updatePost(postID: Int, requestModel: CreateAndUpdatePostRequestModel, callback: @escaping (Result<BlogPostListResponseModel, Error>) -> Void)
+    func updatePost(postID: Int, parameters: [String: Any], callback: @escaping (Result<CreateAndUpdatePostRequestModel, Error>) -> Void)
     
     //Delete
     func deleteCollection(collectionID: Int, callback: @escaping (Result<String, Error>) -> Void)

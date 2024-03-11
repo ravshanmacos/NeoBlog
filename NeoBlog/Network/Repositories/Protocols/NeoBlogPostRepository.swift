@@ -169,6 +169,19 @@ class NeoBlogPostRepository: PostRepository {
     }
     
     //MARK: Update
+    func updatePost(postID: Int, parameters: [String : Any]) -> Promise<CreateAndUpdatePostRequestModel> {
+        return Promise<CreateAndUpdatePostRequestModel> { resolver in
+            remoteAPI.updatePost(postID: postID, parameters: parameters) { result in
+                switch result {
+                case .success(let data):
+                    resolver.fulfill(data)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
+    }
+    
     func updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel) -> Promise<GeneralResponse> {
         return Promise<GeneralResponse> { resolver in
             remoteAPI.updateLoginAndEmail(requestModel: requestModel) { result in

@@ -30,9 +30,11 @@ class AddPostScreenRootView: ScrollableBaseView {
     private var subscriptions = Set<AnyCancellable>()
     private let reuseIdentifier = "categoryButtonCell"
     private let viewModel: AddPostScreenViewModel
+    private let byTab: Bool
     
     //MARK: Methods
-    init(frame: CGRect = .zero, viewModel: AddPostScreenViewModel) {
+    init(frame: CGRect = .zero, byTab: Bool, viewModel: AddPostScreenViewModel) {
+        self.byTab = byTab
         self.viewModel = viewModel
         super.init(frame: frame)
         bindViewToViewModel()
@@ -102,7 +104,14 @@ class AddPostScreenRootView: ScrollableBaseView {
         descriptionTextview.delegate = self
         headingTextfield.delegate = self
         closeButton.addTarget(viewModel, action: #selector(viewModel.closeBtnTapped), for: .touchUpInside)
-        publishPostBtn.addTarget(viewModel, action: #selector(viewModel.publishPostBtnTapped), for: .touchUpInside)
+        if byTab {
+            publishPostBtn.setTitle("Опубликовать", for: .normal)
+            publishPostBtn.addTarget(viewModel, action: #selector(viewModel.publishPostBtnTapped), for: .touchUpInside)
+        } else {
+            publishPostBtn.setTitle("Сохранить", for: .normal)
+            publishPostBtn.addTarget(viewModel, action: #selector(viewModel.updatePostBtnTapped), for: .touchUpInside)
+        }
+        
     }
     
     @objc func clearImageBtnTapped() {
@@ -125,10 +134,28 @@ class AddPostScreenRootView: ScrollableBaseView {
         self.uploadedImageView!.imageView.image = image
         self.viewModel.imageData = image.jpegData(compressionQuality: 0.5)
         uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
+    }
+    
+    func setUploadedImageState(with imageURL: URL?) {
+        uploadImageViewWrapper.removeSubviews()
+        self.uploadImageView = nil
+        self.uploadedImageView = UploadedImageView()
+        self.uploadedImageView!.imageView.kf.setImage(with: imageURL)
+        if let image = self.uploadedImageView?.imageView.image {
+            self.viewModel.imageData = image.jpegData(compressionQuality: 0.5)
+        }
+        uploadImageViewWrapper.addArrangedSubviews(uploadedImageView!)
         uploadedImageView!.closeButton.addTarget(self, action: #selector(clearImageBtnTapped), for: .touchUpInside)
     }
     
-   
+    func configurePostForUpdating(post: BlogPost) {
+        viewModel.postID = post.id
+        headingTextfield.text = post.title
+        viewModel.activateCategoryFor(id: post.category.id)
+        descriptionTextview.text = post.description
+        descriptionTextview.textColor = R.color.gray_color_1()
+        setUploadedImageState(with: post.getImageURL())
+    }
     
     @objc private func uploadImageBtnTapped(_ button: UIButton) {
         let chooseFromLibraryAction = UIAction(title: "Медиатека") { action in

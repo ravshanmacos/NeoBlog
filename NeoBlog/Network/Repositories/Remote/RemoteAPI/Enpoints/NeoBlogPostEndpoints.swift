@@ -30,7 +30,7 @@ extension NeoBlogPostEndpoints {
         case updateLoginAndEmail(requestModel: UpdateLoginAndEmailRequestModel)
         case updatePassword(requestModel: UpdatePasswordRequestModel)
         case updateCollection(collectionID: Int, requestModel: UpdateCollectionRequestModel)
-        case updatePost(postID: Int)
+        case updatePost(postID: Int, parameters: [String: Any])
         
         //Delete
         case deleteCollection(collectionID: Int)
@@ -75,6 +75,7 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
             return requestModel
         case .updateCollection(_, let requestModel):
             return requestModel
+            
         default:
             return ""
         }
@@ -89,6 +90,8 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
                     "end_date": endDate,
                     "period": period ]
         case .createPost(let parameters):
+            return parameters
+        case .updatePost(_, let parameters):
             return parameters
         default:
             return nil
@@ -147,8 +150,9 @@ struct NeoBlogPostEndpoints: RESTEnpoint {
         case .createCollection(let authorID, _):
             return "/blog/collections/\(authorID)/create/"
             
+        //MARK: Update
         //Upate Post
-        case .updatePost(let postID):
+        case .updatePost(let postID, _):
             return "/blog/post/\(postID)/update/"
             
         //Update Collection

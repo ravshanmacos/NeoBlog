@@ -125,6 +125,7 @@
 		394C05962B7F533A0045277E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05952B7F533A0045277E /* Constants.swift */; };
 		394C05992B7F56490045277E /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C05982B7F56490045277E /* AuthErrors.swift */; };
 		394C059B2B7F99A30045277E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394C059A2B7F99A30045277E /* ErrorView.swift */; };
+		3954B8B12B9ED6B00017918C /* GoToAddPostNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954B8B02B9ED6B00017918C /* GoToAddPostNavigator.swift */; };
 		39726C842B8DC0E900FCF225 /* AddPostScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */; };
 		39726C862B8DDA3000FCF225 /* AddPostScreenComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */; };
 		39726C8D2B8DDF6E00FCF225 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */; };
@@ -345,6 +346,7 @@
 		394C05952B7F533A0045277E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		394C05982B7F56490045277E /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		394C059A2B7F99A30045277E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		3954B8B02B9ED6B00017918C /* GoToAddPostNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToAddPostNavigator.swift; sourceTree = "<group>"; };
 		39726C832B8DC0E900FCF225 /* AddPostScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenState.swift; sourceTree = "<group>"; };
 		39726C852B8DDA3000FCF225 /* AddPostScreenComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScreenComponents.swift; sourceTree = "<group>"; };
 		39726C892B8DDF6E00FCF225 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
@@ -1138,6 +1140,7 @@
 				39B109C12B8747BE0045AD4E /* GoToPostDetailsNavigator.swift */,
 				3940977D2B89AD4100629937 /* GoToCreateNewPeriodNavigator.swift */,
 				394097922B89CE4E00629937 /* GoToChooseDateNavigator.swift */,
+				3954B8B02B9ED6B00017918C /* GoToAddPostNavigator.swift */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -1624,6 +1627,7 @@
 				39CBCD022B8347B00092A46E /* RESTAPIManager.swift in Sources */,
 				39726CAE2B8EF14900FCF225 /* EditProfileRootView.swift in Sources */,
 				393D7A332B80CABA0019F9F9 /* FakeAuthRemoteAPI.swift in Sources */,
+				3954B8B12B9ED6B00017918C /* GoToAddPostNavigator.swift in Sources */,
 				394C057C2B7E5BFC0045277E /* SecondaryButton.swift in Sources */,
 				393D79E12B8072F60019F9F9 /* SendMSGToEmailRootView.swift in Sources */,
 				394C05682B7E4E870045277E /* UIViewController+ErrorExt.swift in Sources */,

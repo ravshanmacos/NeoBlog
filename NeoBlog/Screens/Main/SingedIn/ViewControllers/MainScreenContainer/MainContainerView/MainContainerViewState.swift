@@ -11,13 +11,14 @@ enum MainContainerViewState {
     
     case mainScreen
     case postDetails
+    case addPostScreen
     case dismissSheet
     case popCurrent
     case popToMainScreen
     
     func hidesNavigationBar() -> Bool {
         switch self {
-        case .mainScreen:
+        case .mainScreen, .addPostScreen:
             return true
         default:
             return false

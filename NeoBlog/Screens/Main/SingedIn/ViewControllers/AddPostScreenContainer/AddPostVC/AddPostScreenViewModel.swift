@@ -16,6 +16,7 @@ class AddPostScreenViewModel {
     @Published private(set) var clearForm = false
     @Published private(set) var publishBtnEnabled = false
     @Published private(set) var loadingIndicatorEnabled = false
+    @Published private(set) var dissmissView = false
     
     var heading: String = "" { didSet { checkForm() } }
     var selectedCategory: Int? = nil {didSet { checkForm() } }
@@ -25,21 +26,23 @@ class AddPostScreenViewModel {
     private let postRepository: PostRepository
     private let userProfile: UserProfile
     
+    var postID: Int?
+    
     //MARK: Methods
     
     init(postRepository: PostRepository, userProfile: UserProfile) {
         self.postRepository = postRepository
         self.userProfile = userProfile
-        getCategories()
     }
     
-    private func getCategories() {
+    func getCategories(_ completion: @escaping (() -> Void)) {
         postRepository
             .getCategoriesList()
             .done({ categories in
                 self.categories = categories
                 self.categories[0].active = true
                 self.selectedCategory = self.categories[0].id
+                completion()
             })
             .catch { error in
                 print(error)
@@ -48,6 +51,17 @@ class AddPostScreenViewModel {
     
     func setDefaultSelectedCategory() {
         activateCategorFor(index: 0)
+    }
+    
+    func activateCategoryFor(id: Int?) {
+        for number in 0..<categories.count {
+            if categories[number].id == id {
+                print("Category was found, and it is \(categories[number])")
+                categories[number].active = true
+            } else {
+                categories[number].active = false
+            }
+        }
     }
     
     func activateCategorFor(index: Int) {
@@ -79,6 +93,25 @@ class AddPostScreenViewModel {
             }.catch { error in
                 print(error)
                 self.loadingIndicatorEnabled = false
+            }
+    }
+    
+    @objc func updatePostBtnTapped() {
+        guard let authorID = userProfile.id, let postID, let selectedCategory, let imageData else { return }
+        let parameters: [String: Any] = [
+            "title": heading,
+            "description": description,
+            "photo": imageData,
+            "author": authorID,
+            "category": selectedCategory
+        ]
+        postRepository
+            .updatePost(postID: postID, parameters: parameters)
+            .done { response in
+                print(response)
+                self.dissmissView = true
+            }.catch { error in
+                print(error)
             }
     }
     

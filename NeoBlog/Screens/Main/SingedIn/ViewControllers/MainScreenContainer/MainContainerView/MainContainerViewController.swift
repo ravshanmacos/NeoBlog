@@ -10,6 +10,7 @@ import Combine
 
 protocol MainContainerViewControllerFactory {
     func makeMainScreenViewController() -> MainScreenViewController
+    func makeAddPostScreenViewController(byTab: Bool, post: BlogPost?) -> AddPostScreenViewController
     func makePostDetailsViewController(postID: Int) -> PostDetailScreenViewController
 }
 
@@ -58,22 +59,32 @@ class MainContainerViewController: BaseNavigationController {
         switch view {
         case .mainScreen: presentMainScreenViewController()
         case .postDetails: presentPostDetailsScreenViewController()
+        case .addPostScreen: presentAddPostScreenViewController()
         case .dismissSheet: dissmissSheet()
         case .popCurrent: popCurrent()
         case .popToMainScreen: popToCurrent()
         }
     }
     
+    //Present Main Screen
     private func presentMainScreenViewController() {
         let mainVC = factory.makeMainScreenViewController()
         pushViewController(mainVC, animated: true)
     }
     
+    //Present Post Details
     private func presentPostDetailsScreenViewController() {
         guard let postID = viewModel.postID else { return }
         let postDetailsVC = factory.makePostDetailsViewController(postID: postID)
         tabBarController?.tabBar.isHidden = true
         pushViewController(postDetailsVC, animated: true)
+    }
+    
+    //Present Edit Post
+    private func presentAddPostScreenViewController() {
+        let addPostVC = factory.makeAddPostScreenViewController(byTab: false, post: viewModel.post)
+        addPostVC.modalPresentationStyle = .overFullScreen
+        present(addPostVC, animated: true)
     }
     
     private func dissmissSheet() {

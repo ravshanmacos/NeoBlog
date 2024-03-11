@@ -44,7 +44,7 @@ class SignedInDepedencyContainer {
     // TabBar Controller
     func makeTabBarController() -> TabBarController {
         let mainContainerVC = makeMainContainerViewController()
-        let addPostScreenVC = makeAddPostScreenViewController()
+        let addPostScreenVC = makeAddPostScreenViewController(byTab: true, post: nil)
         let profileContainerVC = makeProfileContainerViewController()
         return TabBarController(mainContainerViewController: mainContainerVC,
                                 addPostScreenViewController: addPostScreenVC,
@@ -57,8 +57,8 @@ class SignedInDepedencyContainer {
     }
     
     //Post Screen
-    func makeAddPostScreenViewController() -> AddPostScreenViewController {
-        return AddPostScreenViewController(viewModelFactory: self)
+    func makeAddPostScreenViewController(byTab: Bool, post: BlogPost?) -> AddPostScreenViewController {
+        return AddPostScreenViewController(byTab: byTab, post: post, viewModelFactory: self)
     }
     
     func makeAddPostViewModel() -> AddPostScreenViewModel {
@@ -117,7 +117,7 @@ extension SignedInDepedencyContainer: MainContainerViewControllerFactory, PostDe
     }
     
     func makePostDetailScreenViewModel() -> PostDetailScreenViewModel {
-        return PostDetailScreenViewModel(postRepository: sharedPostRepository)
+        return PostDetailScreenViewModel(postRepository: sharedPostRepository, goToAddPostNavigator: sharedMainContainerViewModel)
     }
 }
 
