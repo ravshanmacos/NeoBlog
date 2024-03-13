@@ -154,6 +154,11 @@
 		39726CC62B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */; };
 		39726CC82B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */; };
 		39726CCA2B8F2CBC00FCF225 /* DissmissViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */; };
+		397A15B52BA1B8C8004A6D9E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A15B42BA1B8C8004A6D9E /* Observer.swift */; };
+		397A15B72BA1B9D0004A6D9E /* SignInViewControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A15B62BA1B9D0004A6D9E /* SignInViewControllerState.swift */; };
+		397A15B92BA1BA7A004A6D9E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A15B82BA1BA7A004A6D9E /* ErrorMessage.swift */; };
+		397A15BB2BA1BC2B004A6D9E /* ObserverForSignInEventResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A15BA2BA1BC2B004A6D9E /* ObserverForSignInEventResponder.swift */; };
+		397A15BD2BA1BD9A004A6D9E /* ObserverForSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A15BC2BA1BD9A004A6D9E /* ObserverForSignIn.swift */; };
 		3980B0A62B91D08A00A7BE66 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0A52B91D08A00A7BE66 /* PostRepository.swift */; };
 		3980B0AB2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0AA2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift */; };
 		3980B0AD2B91DAE000A7BE66 /* PostRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980B0AC2B91DAE000A7BE66 /* PostRemoteAPI.swift */; };
@@ -375,6 +380,11 @@
 		39726CC52B8F1CF200FCF225 /* GoToChangePasswordNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToChangePasswordNavigator.swift; sourceTree = "<group>"; };
 		39726CC72B8F282C00FCF225 /* BottomPopUpWithTwoActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopUpWithTwoActions.swift; sourceTree = "<group>"; };
 		39726CC92B8F2CBC00FCF225 /* DissmissViewResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissmissViewResponder.swift; sourceTree = "<group>"; };
+		397A15B42BA1B8C8004A6D9E /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		397A15B62BA1B9D0004A6D9E /* SignInViewControllerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerState.swift; sourceTree = "<group>"; };
+		397A15B82BA1BA7A004A6D9E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		397A15BA2BA1BC2B004A6D9E /* ObserverForSignInEventResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverForSignInEventResponder.swift; sourceTree = "<group>"; };
+		397A15BC2BA1BD9A004A6D9E /* ObserverForSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverForSignIn.swift; sourceTree = "<group>"; };
 		3980B0A52B91D08A00A7BE66 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		3980B0AA2B91D2A100A7BE66 /* NeoBlogPostEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoBlogPostEndpoints.swift; sourceTree = "<group>"; };
 		3980B0AC2B91DAE000A7BE66 /* PostRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRemoteAPI.swift; sourceTree = "<group>"; };
@@ -740,6 +750,7 @@
 				394C050C2B7E1F430045277E /* App */,
 				393D7A072B80BCE20019F9F9 /* Network */,
 				394C050F2B7E1F640045277E /* Containers */,
+				397A15B32BA1B8B4004A6D9E /* Reusable */,
 				394C050E2B7E1F5F0045277E /* Screens */,
 				394C05652B7E4E230045277E /* Extensions */,
 				394C050D2B7E1F4E0045277E /* SupportingFiles */,
@@ -860,7 +871,8 @@
 		394C05322B7E2EA80045277E /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				394C05492B7E332A0045277E /* SignInRootView.swift */,
+				397A15B22BA1B881004A6D9E /* View */,
+				397A15B12BA1B873004A6D9E /* Observers */,
 				394C05472B7E332A0045277E /* SignInViewController.swift */,
 				394C05482B7E332A0045277E /* SignInViewModel.swift */,
 				393D79FA2B809D890019F9F9 /* SignInViewComponents.swift */,
@@ -1074,6 +1086,33 @@
 				39726CBE2B8F1A9800FCF225 /* ChangePasswordComponents.swift */,
 			);
 			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		397A15B12BA1B873004A6D9E /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				397A15BC2BA1BD9A004A6D9E /* ObserverForSignIn.swift */,
+				397A15BA2BA1BC2B004A6D9E /* ObserverForSignInEventResponder.swift */,
+			);
+			path = Observers;
+			sourceTree = "<group>";
+		};
+		397A15B22BA1B881004A6D9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				394C05492B7E332A0045277E /* SignInRootView.swift */,
+				397A15B62BA1B9D0004A6D9E /* SignInViewControllerState.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		397A15B32BA1B8B4004A6D9E /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				397A15B42BA1B8C8004A6D9E /* Observer.swift */,
+				397A15B82BA1BA7A004A6D9E /* ErrorMessage.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		3980B0A72B91D1CD00A7BE66 /* Post */ = {
@@ -1569,6 +1608,7 @@
 				3980B0BB2B9300F100A7BE66 /* SignedInRequestModels.swift in Sources */,
 				3980B0B52B91E49D00A7BE66 /* AuthResponseModels.swift in Sources */,
 				39726C8E2B8DDF6E00FCF225 /* ProfileContainerViewState.swift in Sources */,
+				397A15B72BA1B9D0004A6D9E /* SignInViewControllerState.swift in Sources */,
 				39B109FC2B88F3C30045AD4E /* SortByDateSheet.swift in Sources */,
 				39B109B62B8737630045AD4E /* PostDetailScreenRootView.swift in Sources */,
 				394C05712B7E54560045277E /* GoToSignUpNavigator.swift in Sources */,
@@ -1595,6 +1635,7 @@
 				39CBCD0F2B8349C70092A46E /* NeoBlogAuthRemoteAPI.swift in Sources */,
 				393D7A192B80C9A00019F9F9 /* KeychainUserSessionDataStore.swift in Sources */,
 				3980B0B72B91E4E800A7BE66 /* BlogPostListResponseModel.swift in Sources */,
+				397A15B92BA1BA7A004A6D9E /* ErrorMessage.swift in Sources */,
 				39E7B58F2B908CC500FF954B /* PopToRootResponder.swift in Sources */,
 				393D7A352B80CBE40019F9F9 /* RemoteUserSession.swift in Sources */,
 				39B109BF2B8746D50045AD4E /* MainContainerViewState.swift in Sources */,
@@ -1671,7 +1712,9 @@
 				39B109F12B88C0B80045AD4E /* SendMessageFieldView.swift in Sources */,
 				39726CB92B8F19F700FCF225 /* ChangeLoginAndEmailComponents.swift in Sources */,
 				393D7A002B809FEB0019F9F9 /* StackContainer.swift in Sources */,
+				397A15BB2BA1BC2B004A6D9E /* ObserverForSignInEventResponder.swift in Sources */,
 				394097A22B8B554700629937 /* OptionViewTableViewCell.swift in Sources */,
+				397A15BD2BA1BD9A004A6D9E /* ObserverForSignIn.swift in Sources */,
 				3940979F2B8B536500629937 /* PostCollectionSheetComponents.swift in Sources */,
 				39CBCCFE2B8347A80092A46E /* APIEndpoint.swift in Sources */,
 				39D267AA2B9B15DA00D6764A /* GoToCollectionPosts.swift in Sources */,
@@ -1699,6 +1742,7 @@
 				394C05352B7E2EEF0045277E /* LaunchViewController.swift in Sources */,
 				394C054B2B7E332A0045277E /* SignInViewModel.swift in Sources */,
 				39726CC12B8F1A9800FCF225 /* ChangePasswordViewController.swift in Sources */,
+				397A15B52BA1B8C8004A6D9E /* Observer.swift in Sources */,
 				39CBCD262B8357030092A46E /* MainScreenRootView.swift in Sources */,
 				393D7A062B80A2D80019F9F9 /* CreateNewPasswordComponents.swift in Sources */,
 				394C056C2B7E4F0F0045277E /* Optional+ext.swift in Sources */,
