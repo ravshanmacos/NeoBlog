@@ -33,7 +33,7 @@ extension ChangeLoginAndEmailRootView {
     }
     
     static func makeEmailField() -> InputField {
-        let field = PrimaryTextfield(fieldType: .confirmPassword)
+        let field = PrimaryTextfield(fieldType: .email)
         field.placeholder = Strings.emailPlaceHolderTitle.rawValue
         return InputField(textfield: field)
     }
