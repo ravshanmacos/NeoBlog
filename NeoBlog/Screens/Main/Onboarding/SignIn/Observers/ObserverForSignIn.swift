@@ -65,7 +65,7 @@ class ObserverForSignIn: Observer {
         stopObservingNotificationCenterNotifications()
     }
     
-    //Sign In State
+    //MARK: Sign In State
     
     func subscribeToSignInState() {
         viewStateSubscription =
@@ -87,7 +87,7 @@ class ObserverForSignIn: Observer {
         viewStateSubscription = nil
     }
     
-    //Error Messages
+    //MARK: Error Messages
     
     func subscribeToErrorMessages() {
         errorStateSubscription =
@@ -110,7 +110,7 @@ class ObserverForSignIn: Observer {
         errorStateSubscription = nil
     }
     
-    // Keyboard
+    //MARK: Keyboard
     
     func startObservingKeyboardNotifications(){
         let notificationCenter = NotificationCenter.default

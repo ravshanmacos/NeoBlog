@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390E0CF02BA56D81006022FE /* UserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E0CEF2BA56D81006022FE /* UserCase.swift */; };
+		390E0CF32BA56DB4006022FE /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E0CF22BA56DB4006022FE /* SignInUseCase.swift */; };
 		3938FE4C2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4B2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift */; };
 		3938FE4E2B85F67800EC26E7 /* Cells+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */; };
 		3938FE502B86146100EC26E7 /* SelectCatergorySegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3938FE4F2B86146100EC26E7 /* SelectCatergorySegmentView.swift */; };
@@ -231,6 +233,8 @@
 
 /* Begin PBXFileReference section */
 		245DF714D10F520B23F5693E /* Pods_NeoBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		390E0CEF2BA56D81006022FE /* UserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCase.swift; sourceTree = "<group>"; };
+		390E0CF22BA56DB4006022FE /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		3938FE4B2B85F3AC00EC26E7 /* TitlesCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3938FE4D2B85F67800EC26E7 /* Cells+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cells+ext.swift"; sourceTree = "<group>"; };
 		3938FE4F2B86146100EC26E7 /* SelectCatergorySegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatergorySegmentView.swift; sourceTree = "<group>"; };
@@ -475,6 +479,14 @@
 				6231D1414DB6ECF0F0DEACEA /* Pods-NeoBlog.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		390E0CF12BA56DA5006022FE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				390E0CF22BA56DB4006022FE /* SignInUseCase.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		393D79D82B8072380019F9F9 /* ResetPassword */ = {
@@ -750,6 +762,7 @@
 				394C050C2B7E1F430045277E /* App */,
 				393D7A072B80BCE20019F9F9 /* Network */,
 				394C050F2B7E1F640045277E /* Containers */,
+				397163002BA4743500A495CC /* UseCases */,
 				397A15B32BA1B8B4004A6D9E /* Reusable */,
 				394C050E2B7E1F5F0045277E /* Screens */,
 				394C05652B7E4E230045277E /* Extensions */,
@@ -784,6 +797,10 @@
 			isa = PBXGroup;
 			children = (
 				394C053A2B7E2F3D0045277E /* Base */,
+				394C05972B7F563E0045277E /* Errors */,
+				394C05742B7E549E0045277E /* Reusables */,
+				394C055A2B7E36EC0045277E /* Responders */,
+				39B109FA2B88F39C0045AD4E /* Sheets */,
 				394C05532B7E354E0045277E /* Main */,
 			);
 			path = Screens;
@@ -875,7 +892,6 @@
 				397A15B12BA1B873004A6D9E /* Observers */,
 				394C05472B7E332A0045277E /* SignInViewController.swift */,
 				394C05482B7E332A0045277E /* SignInViewModel.swift */,
-				393D79FA2B809D890019F9F9 /* SignInViewComponents.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -906,13 +922,9 @@
 			isa = PBXGroup;
 			children = (
 				39B109F92B88F3770045AD4E /* MainControlView */,
-				394C05972B7F563E0045277E /* Errors */,
-				394C05742B7E549E0045277E /* Reusables */,
-				394C055A2B7E36EC0045277E /* Responders */,
 				394C05302B7E2E820045277E /* Launch */,
 				394C052E2B7E2E250045277E /* Onboarding */,
 				394C052F2B7E2E2C0045277E /* SingedIn */,
-				39B109FA2B88F39C0045AD4E /* Sheets */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1009,6 +1021,15 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		397163002BA4743500A495CC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				390E0CF12BA56DA5006022FE /* Onboarding */,
+				390E0CEF2BA56D81006022FE /* UserCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		39726C872B8DDF3700FCF225 /* ProfileScreenContainer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1101,6 +1122,7 @@
 			isa = PBXGroup;
 			children = (
 				394C05492B7E332A0045277E /* SignInRootView.swift */,
+				393D79FA2B809D890019F9F9 /* SignInViewComponents.swift */,
 				397A15B62BA1B9D0004A6D9E /* SignInViewControllerState.swift */,
 			);
 			path = View;
@@ -1568,6 +1590,7 @@
 				39CBCD062B8347BC0092A46E /* JSONMapper.swift in Sources */,
 				3980B0A62B91D08A00A7BE66 /* PostRepository.swift in Sources */,
 				3940978C2B89CA0000629937 /* ChooseDateViewController.swift in Sources */,
+				390E0CF32BA56DB4006022FE /* SignInUseCase.swift in Sources */,
 				39CBCD1C2B8356040092A46E /* TabBarController.swift in Sources */,
 				394C059B2B7F99A30045277E /* ErrorView.swift in Sources */,
 				394C054C2B7E332A0045277E /* SignInRootView.swift in Sources */,
@@ -1582,6 +1605,7 @@
 				393D79E62B80731D0019F9F9 /* ConfirmMSGViewModel.swift in Sources */,
 				39CBCD042B8347B00092A46E /* RESTAPIResponse.swift in Sources */,
 				393D79EC2B8073350019F9F9 /* CreateNewPasswordViewController.swift in Sources */,
+				390E0CF02BA56D81006022FE /* UserCase.swift in Sources */,
 				393D79FD2B809E750019F9F9 /* ButtonsContainer.swift in Sources */,
 				393D79F12B807AF20019F9F9 /* GoToConfirmMSGNavigator.swift in Sources */,
 				394097A42B8BA4DB00629937 /* CreateNewCollectionSheet.swift in Sources */,
